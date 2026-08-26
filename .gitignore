@@ -1,0 +1,38 @@
+# ==========================================
+# HIPAA / PHI & Patient Data Exclusions
+# ==========================================
+# Clinical Data Exports & Reports
+data/
+*.xlsx
+*.xls
+*.csv
+*.tsv
+
+# Appointment / Patient JSON and Script Dumps
+appointment-import-*.json
+appointment-import-*.js
+load-appointment-detail.js
+appointment-detail-update.js
+*.iqy
+
+# Archives and Backups
+_archive_and_backups/
+scratch/
+.tempmediaStorage/
+.user_uploaded/
+
+# Temporary, Logs & OS Files
+*.log
+*.tmp
+*.bak
+.DS_Store
+Thumbs.db
+desktop.ini
+*.kra~
+
+# Node / Build artifacts
+node_modules/
+dist/
+build/
+.env
+.env.local
