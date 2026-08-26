@@ -1,0 +1,38 @@
+{
+  "listTitle": "GT8 SURGIFLOW",
+  "sitePath": "/teams/group-reliefchargecvpcu",
+  "unit": "GT8 CVPCU",
+  "roomRange": {
+    "min": 8801,
+    "max": 8840
+  },
+  "schemaVersion": "2.5",
+  "lastUpdated": "2026-08-11T02:36:00Z",
+  "fieldMappings": [
+    { "key": "room", "displayName": "Room Number (Title)", "fallbacks": ["Room and Bed", "Room #", "Room", "Title"], "required": true },
+    { "key": "name", "displayName": "Patient Name", "fallbacks": ["Patient Name", "Name", "Patient"], "required": true },
+    { "key": "mrn", "displayName": "MRN", "fallbacks": ["MRN"], "required": true },
+    { "key": "csn", "displayName": "CSN", "fallbacks": ["CSN"], "required": true },
+    { "key": "attendingMD", "displayName": "Attending MD", "fallbacks": ["Attending", "AttendingMD", "Attending MD"] },
+    { "key": "readmissionRiskLevel", "displayName": "Readmission Risk Level", "fallbacks": ["IP Risk of Unplanned Readmission Score Column", "Readmission Risk Level", "RiskLevel", "⚠️ Readmission Risk Level ⚠️"] },
+    { "key": "edd", "displayName": "EDD", "fallbacks": ["EDD"] },
+    { "key": "dispo", "displayName": "Discharge Disposition", "fallbacks": ["Discharge Disposition", "Discharge Dispo/Follow Up Recommendations", "DischargeDisposition", "Dispo"] },
+    { "key": "age", "displayName": "Age", "fallbacks": ["Age"] },
+    { "key": "fallRisk", "displayName": "Fall Risk Score", "fallbacks": ["Fall Risk Score", "Fall Risk", "FallRisk"] },
+    { "key": "weightToday", "displayName": "Weight Today", "fallbacks": ["Weight Today", "WeightToday", "Weight"] },
+    { "key": "admitDate", "displayName": "Admit Date", "fallbacks": ["Admit Date/Time", "Admit Date", "AdmitDate", "Admit Time"] },
+    { "key": "los", "displayName": "LOS", "fallbacks": ["LoS", "LOS", "Length of Stay"] },
+    { "key": "gmlos", "displayName": "GMLOS", "fallbacks": ["GMLOS ", "GMLOS", "Geometric Mean Length of Stay"] },
+    { "key": "braden", "displayName": "Braden Score", "fallbacks": ["Braden Score", "Braden"] },
+    { "key": "admitReason", "displayName": "Admit Reason / DRG", "fallbacks": ["Working DRG Name", "Primary Problem", "Admit Reason", "AdmitReason"] },
+    { "key": "appointmentDetail", "displayName": "Appointment Detail", "fallbacks": ["Care Navigation Notes", "Appointment Detail", "AppointmentDetail"] },
+    { "key": "status", "displayName": "Clinical Progress / Status", "fallbacks": ["Care Navigation Status", "Status", "🚦 CLINICAL PROGRESS 🚦", "Clinical Progress"] },
+    { "key": "unit", "displayName": "Unit", "fallbacks": ["Department", "Unit"] },
+    { "key": "daysPastGMLOS", "displayName": "Days Past GMLOS", "fallbacks": ["Days Past GMLOS"] },
+    { "key": "gmlosOutlier", "displayName": "GMLOS Outlier", "fallbacks": ["GMLOS Oulier", "GMLOS Outlier"] },
+    { "key": "lastEF", "displayName": "Last EF", "fallbacks": ["Last EF"] },
+    { "key": "lastEFDate", "displayName": "Last EF Date", "fallbacks": ["Last EF Date"] },
+    { "key": "nextPCPVisit", "displayName": "Next PCP Visit", "fallbacks": ["Next PCP Visit"] },
+    { "key": "openCareGaps", "displayName": "Open Care Gaps", "fallbacks": ["Open Care Gaps"] }
+  ]
+}

@@ -1,0 +1,899 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/sp/v2/tile-formatting.schema.json",
+  "height": 820,
+  "width": 360,
+  "hideSelection": false,
+  "fillHorizontally": false,
+  "formatter": {
+    "elmType": "div",
+    "attributes": {
+      "class": "sp-card-container"
+    },
+    "children": [
+      {
+        "elmType": "div",
+        "attributes": {
+          "class": "sp-card-defaultClickButton"
+        },
+        "customRowAction": {
+          "action": "defaultClick"
+        }
+      },
+      {
+        "elmType": "div",
+        "style": {
+          "border-radius": "14px",
+          "overflow": "hidden",
+          "box-shadow": "0 8px 28px rgba(0,0,0,0.10), 0 2px 8px rgba(0,0,0,0.05)",
+          "border": "1px solid #e2e8f0",
+          "background-color": "#ffffff",
+          "display": "flex",
+          "flex-direction": "column",
+          "height": "100%",
+          "width": "360px",
+          "min-width": "360px",
+          "max-width": "360px",
+          "box-sizing": "border-box"
+        },
+        "children": [
+          {
+            "elmType": "div",
+            "style": {
+              "background": "linear-gradient(135deg, #111827 0%, #1e293b 42%, #0f4c81 100%)",
+              "padding": "8px 16px",
+              "display": "flex",
+              "align-items": "center",
+              "gap": "8px",
+              "min-height": "46px",
+              "flex-shrink": "0"
+            },
+            "children": [
+              {
+                "elmType": "div",
+                "style": {
+                  "display": "flex",
+                  "align-items": "center",
+                  "gap": "8px",
+                  "flex-wrap": "wrap"
+                },
+                "children": [
+                  {
+                    "elmType": "div",
+                    "style": {
+                      "padding": "4px 12px",
+                      "border-radius": "16px",
+                      "font-size": "13px",
+                      "font-weight": "800",
+                      "background-color": "#dcfce7",
+                      "color": "#15803d",
+                      "border": "1.5px solid #86efac",
+                      "box-shadow": "0 2px 8px rgba(22,163,74,0.15)",
+                      "display": "flex",
+                      "align-items": "center",
+                      "gap": "4px"
+                    },
+                    "txtContent": "=if([$Room] != '', 'RM ' + [$Room], if([$Title] != '', 'RM ' + [$Title], 'RM –'))"
+                  },
+                  {
+                    "elmType": "div",
+                    "style": {
+                      "padding": "4px 12px",
+                      "border-radius": "16px",
+                      "font-size": "12px",
+                      "font-weight": "800",
+                      "background-color": "#fff7ed",
+                      "color": "#ea580c",
+                      "border": "1.5px solid #fdba74",
+                      "box-shadow": "0 2px 8px rgba(234,88,12,0.15)",
+                      "display": "=if([$ServiceLine] == '' && [$ServiceLine] == '' && [$ServiceLine] == '', 'none', 'flex')",
+                      "align-items": "center",
+                      "gap": "4px",
+                      "max-width": "125px",
+                      "overflow": "hidden",
+                      "text-overflow": "ellipsis",
+                      "white-space": "nowrap"
+                    },
+                    "attributes": {
+                      "title": "=if([$ServiceLine] != '', [$ServiceLine], if([$ServiceLine] != '', [$ServiceLine], if([$ServiceLine] != '', [$ServiceLine], '')))"
+                    },
+                    "txtContent": "=if([$ServiceLine] != '', [$ServiceLine], if([$ServiceLine] != '', [$ServiceLine], if([$ServiceLine] != '', [$ServiceLine], 'SVC –')))"
+                  }
+                ]
+              },
+              {
+                "elmType": "div",
+                "style": {
+                  "margin-left": "auto",
+                  "padding": "4px 10px",
+                  "border-radius": "16px",
+                  "font-size": "11px",
+                  "font-weight": "800",
+                  "background-color": "=if(indexOf(if([$Dispo] != '', [$Dispo], if([$Dispo] != '', [$Dispo], if([$Dispo] != '', [$Dispo], if([$Dispo] != '', [$Dispo], '')))), 'SNF') >= 0, '#f3e8ff', if(indexOf(if([$Dispo] != '', [$Dispo], if([$Dispo] != '', [$Dispo], if([$Dispo] != '', [$Dispo], if([$Dispo] != '', [$Dispo], '')))), 'IPR') >= 0, '#e0f2fe', if(indexOf(if([$Dispo] != '', [$Dispo], if([$Dispo] != '', [$Dispo], if([$Dispo] != '', [$Dispo], if([$Dispo] != '', [$Dispo], '')))), 'Home') >= 0, '#dcfce7', if(indexOf(if([$Dispo] != '', [$Dispo], if([$Dispo] != '', [$Dispo], if([$Dispo] != '', [$Dispo], if([$Dispo] != '', [$Dispo], '')))), 'HHC') >= 0, '#ccfbf1', '#f8fafc'))))",
+                  "color": "=if(indexOf(if([$Dispo] != '', [$Dispo], if([$Dispo] != '', [$Dispo], if([$Dispo] != '', [$Dispo], if([$Dispo] != '', [$Dispo], '')))), 'SNF') >= 0, '#9333ea', if(indexOf(if([$Dispo] != '', [$Dispo], if([$Dispo] != '', [$Dispo], if([$Dispo] != '', [$Dispo], if([$Dispo] != '', [$Dispo], '')))), 'IPR') >= 0, '#0284c7', if(indexOf(if([$Dispo] != '', [$Dispo], if([$Dispo] != '', [$Dispo], if([$Dispo] != '', [$Dispo], if([$Dispo] != '', [$Dispo], '')))), 'Home') >= 0, '#16a34a', if(indexOf(if([$Dispo] != '', [$Dispo], if([$Dispo] != '', [$Dispo], if([$Dispo] != '', [$Dispo], if([$Dispo] != '', [$Dispo], '')))), 'HHC') >= 0, '#0d9488', '#64748b'))))",
+                  "border": "=if(indexOf(if([$Dispo] != '', [$Dispo], if([$Dispo] != '', [$Dispo], if([$Dispo] != '', [$Dispo], if([$Dispo] != '', [$Dispo], '')))), 'SNF') >= 0, '1.5px solid #d8b4fe', if(indexOf(if([$Dispo] != '', [$Dispo], if([$Dispo] != '', [$Dispo], if([$Dispo] != '', [$Dispo], if([$Dispo] != '', [$Dispo], '')))), 'IPR') >= 0, '1.5px solid #7dd3fc', if(indexOf(if([$Dispo] != '', [$Dispo], if([$Dispo] != '', [$Dispo], if([$Dispo] != '', [$Dispo], if([$Dispo] != '', [$Dispo], '')))), 'Home') >= 0, '1.5px solid #86efac', if(indexOf(if([$Dispo] != '', [$Dispo], if([$Dispo] != '', [$Dispo], if([$Dispo] != '', [$Dispo], if([$Dispo] != '', [$Dispo], '')))), 'HHC') >= 0, '1.5px solid #5eead4', '1.5px solid #cbd5e1'))))",
+                  "box-shadow": "0 2px 8px rgba(0,0,0,0.15)",
+                  "max-width": "116px",
+                  "overflow": "hidden",
+                  "text-overflow": "ellipsis",
+                  "white-space": "nowrap"
+                },
+                "attributes": {
+                  "title": "=if([$Dispo] != '', [$Dispo], if([$Dispo] != '', [$Dispo], if([$Dispo] != '', [$Dispo], if([$Dispo] != '', [$Dispo], ''))))"
+                },
+                "txtContent": "=if([$Dispo] != '', [$Dispo], if([$Dispo] != '', [$Dispo], if([$Dispo] != '', [$Dispo], if([$Dispo] != '', [$Dispo], 'DISPO –'))))"
+              }
+            ]
+          },
+          {
+            "elmType": "div",
+            "style": {
+              "padding": "8px 16px 8px 16px",
+              "background-color": "=if(([$EDD] != '' && Number([$EDD]) < Number(@now)) || ([$LOS.displayValue] != '' && Number([$LOS.displayValue]) > 10), '#fef2f2', if(([$CM_x0020_Leader_x0020_Review] != '' || [$CM_x0020_Leader_x0020_Review] != '' || [$NonClinicalDCBarriers] != '' || [$NonClinicalDCBarriers] != '') || ([$ConsultantsPending] != '' || [$ConsultantsPending] != '') || [$LeaderActionItems] != '', '#fffbeb', '#f0fdf4'))",
+              "border-bottom": "1px solid #e2e8f0",
+              "display": "flex",
+              "flex-direction": "column",
+              "gap": "6px",
+              "flex-shrink": "0"
+            },
+            "children": [
+              {
+                "elmType": "div",
+                "style": {
+                  "font-size": "11px",
+                  "font-weight": "900",
+                  "letter-spacing": "0.5px",
+                  "text-transform": "uppercase",
+                  "color": "=if(([$EDD] != '' && Number([$EDD]) < Number(@now)) || ([$LOS.displayValue] != '' && Number([$LOS.displayValue]) > 10), '#b91c1c', if(([$CM_x0020_Leader_x0020_Review] != '' || [$CM_x0020_Leader_x0020_Review] != '' || [$NonClinicalDCBarriers] != '' || [$NonClinicalDCBarriers] != '') || ([$ConsultantsPending] != '' || [$ConsultantsPending] != '') || [$LeaderActionItems] != '', '#a16207', '#15803d'))"
+                },
+                "txtContent": "=if(([$EDD] != '' && Number([$EDD]) < Number(@now)) || ([$LOS.displayValue] != '' && Number([$LOS.displayValue]) > 10), 'HIGH RISK FOR DISCHARGE DELAY', if(([$CM_x0020_Leader_x0020_Review] != '' || [$CM_x0020_Leader_x0020_Review] != '' || [$NonClinicalDCBarriers] != '' || [$NonClinicalDCBarriers] != '') || ([$ConsultantsPending] != '' || [$ConsultantsPending] != '') || [$LeaderActionItems] != '', 'WATCH LIST: FOLLOW-UP NEEDED', 'ON TRACK FOR PROGRESSION'))"
+              },
+              {
+                "elmType": "div",
+                "style": {
+                  "display": "flex",
+                  "gap": "6px",
+                  "flex-wrap": "wrap",
+                  "align-items": "center"
+                },
+                "children": [
+                  {
+                    "elmType": "div",
+                    "style": {
+                      "display": "=if([$LOS.displayValue] != '' && Number([$LOS.displayValue]) > 10, 'flex', 'none')",
+                      "padding": "3px 8px",
+                      "border-radius": "999px",
+                      "font-size": "10px",
+                      "font-weight": "800",
+                      "background-color": "#fee2e2",
+                      "color": "#b91c1c",
+                      "border": "1px solid #fca5a5"
+                    },
+                    "txtContent": "LOS > 10"
+                  },
+                  {
+                    "elmType": "div",
+                    "style": {
+                      "display": "=if([$EDD] != '' && Number([$EDD]) < Number(@now), 'flex', 'none')",
+                      "padding": "3px 8px",
+                      "border-radius": "999px",
+                      "font-size": "10px",
+                      "font-weight": "800",
+                      "background-color": "#fee2e2",
+                      "color": "#b91c1c",
+                      "border": "1px solid #fca5a5"
+                    },
+                    "txtContent": "EDD OVERDUE"
+                  },
+                  {
+                    "elmType": "div",
+                    "style": {
+                      "display": "=if([$CM_x0020_Leader_x0020_Review] != '' || [$CM_x0020_Leader_x0020_Review] != '' || [$NonClinicalDCBarriers] != '' || [$NonClinicalDCBarriers] != '', 'flex', 'none')",
+                      "padding": "3px 8px",
+                      "border-radius": "999px",
+                      "font-size": "10px",
+                      "font-weight": "800",
+                      "background-color": "#fce7f3",
+                      "color": "#be185d",
+                      "border": "1px solid #f9a8d4"
+                    },
+                    "txtContent": "BARRIERS"
+                  },
+                  {
+                    "elmType": "div",
+                    "style": {
+                      "display": "=if([$ConsultantsPending] != '' || [$ConsultantsPending] != '', 'flex', 'none')",
+                      "padding": "3px 8px",
+                      "border-radius": "999px",
+                      "font-size": "10px",
+                      "font-weight": "800",
+                      "background-color": "#e0f2fe",
+                      "color": "#0369a1",
+                      "border": "1px solid #7dd3fc"
+                    },
+                    "txtContent": "CONSULTS PENDING"
+                  },
+                  {
+                    "elmType": "div",
+                    "style": {
+                      "display": "=if([$LeaderActionItems] != '', 'flex', 'none')",
+                      "padding": "3px 8px",
+                      "border-radius": "999px",
+                      "font-size": "10px",
+                      "font-weight": "800",
+                      "background-color": "#fef9c3",
+                      "color": "#a16207",
+                      "border": "1px solid #fde047"
+                    },
+                    "txtContent": "LEADER ACTION"
+                  },
+                  {
+                    "elmType": "div",
+                    "style": {
+                      "display": "=if(([$EDD] != '' && Number([$EDD]) < Number(@now)) || ([$LOS.displayValue] != '' && Number([$LOS.displayValue]) > 10) || [$LeaderActionItems] != '' || [$ConsultantsPending] != '' || [$ConsultantsPending] != '' || [$CM_x0020_Leader_x0020_Review] != '' || [$CM_x0020_Leader_x0020_Review] != '' || [$NonClinicalDCBarriers] != '' || [$NonClinicalDCBarriers] != '', 'none', 'flex')",
+                      "padding": "3px 8px",
+                      "border-radius": "999px",
+                      "font-size": "10px",
+                      "font-weight": "800",
+                      "background-color": "#dcfce7",
+                      "color": "#15803d",
+                      "border": "1px solid #86efac"
+                    },
+                    "txtContent": "NO ACTIVE FLAGS"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "elmType": "div",
+            "style": {
+              "padding": "8px 16px 8px 16px",
+              "background": "linear-gradient(180deg, #f8fafc 0%, #ffffff 100%)",
+              "border-bottom": "1px solid #e2e8f0",
+              "flex-shrink": "0"
+            },
+            "children": [
+              {
+                "elmType": "div",
+                "style": {
+                  "margin-bottom": "8px",
+                  "display": "block"
+                },
+                "children": [
+                  {
+                    "elmType": "span",
+                    "style": {
+                      "font-size": "9px",
+                      "color": "#64748b",
+                      "text-transform": "uppercase",
+                      "letter-spacing": "0.5px",
+                      "font-weight": "700",
+                      "display": "block",
+                      "margin-bottom": "2px"
+                    },
+                    "txtContent": "ADMIT REASON"
+                  },
+                  {
+                    "elmType": "p",
+                    "style": {
+                      "font-size": "11px",
+                      "color": "#334155",
+                      "margin": "0",
+                      "line-height": "1.4",
+                      "font-weight": "600",
+                      "display": "-webkit-box",
+                      "-webkit-line-clamp": "2",
+                      "-webkit-box-orient": "vertical",
+                      "overflow": "hidden",
+                      "text-overflow": "ellipsis"
+                    },
+                    "attributes": {
+                      "title": "=if([$AdmitReason] != '', [$AdmitReason], if([$AdmitReason] != '', [$AdmitReason], if([$AdmitReason] != '', [$AdmitReason], '')))"
+                    },
+                    "txtContent": "=if([$AdmitReason] != '', [$AdmitReason], if([$AdmitReason] != '', [$AdmitReason], if([$AdmitReason] != '', [$AdmitReason], '–')))"
+                  }
+                ]
+              },
+              {
+                "elmType": "div",
+                "style": {
+                  "display": "flex",
+                  "justify-content": "space-between",
+                  "align-items": "flex-end",
+                  "margin-bottom": "10px"
+                },
+                "children": [
+                  {
+                    "elmType": "div",
+                    "style": {
+                      "min-width": "0",
+                      "max-width": "200px"
+                    },
+                    "children": [
+                      {
+                        "elmType": "span",
+                        "style": {
+                          "font-size": "9px",
+                          "color": "#94a3b8",
+                          "text-transform": "uppercase",
+                          "letter-spacing": "0.5px",
+                          "font-weight": "700",
+                          "display": "block",
+                          "margin-bottom": "2px"
+                        },
+                        "txtContent": "NAME"
+                      },
+                      {
+                        "elmType": "div",
+                        "style": {
+                          "font-size": "17px",
+                          "font-weight": "800",
+                          "color": "#0f172a",
+                          "overflow": "hidden",
+                          "text-overflow": "ellipsis",
+                          "white-space": "nowrap"
+                        },
+                        "attributes": {
+                          "title": "=if([$PatientName] == '', if([$Name] == '', '–', [$Name]), [$PatientName])"
+                        },
+                        "txtContent": "=if([$PatientName] == '', if([$Name] == '', '–', [$Name]), [$PatientName])"
+                      }
+                    ]
+                  },
+                  {
+                    "elmType": "div",
+                    "style": {
+                      "display": "flex",
+                      "flex-direction": "column",
+                      "align-items": "flex-end",
+                      "gap": "6px",
+                      "flex-shrink": "0"
+                    },
+                    "children": [
+                      {
+                        "elmType": "div",
+                        "style": {
+                          "display": "flex",
+                          "align-items": "center",
+                          "gap": "4px",
+                          "padding": "4px 8px",
+                          "border-radius": "12px",
+                          "font-size": "10px",
+                          "font-weight": "700",
+                          "background-color": "=if([$EDD] == '', '#eff6ff', if(Number([$EDD]) < Number(@now), '#fef2f2', if(Number([$EDD]) < (Number(@now) + 172800000), '#fffbeb', '#eff6ff')))",
+                          "color": "=if([$EDD] == '', '#2563eb', if(Number([$EDD]) < Number(@now), '#dc2626', if(Number([$EDD]) < (Number(@now) + 172800000), '#d97706', '#2563eb')))",
+                          "border": "=if([$EDD] == '', '1.5px solid #93c5fd', if(Number([$EDD]) < Number(@now), '1.5px solid #fca5a5', if(Number([$EDD]) < (Number(@now) + 172800000), '1.5px solid #fcd34d', '1.5px solid #93c5fd')))"
+                        },
+                        "children": [
+                          {
+                            "elmType": "span",
+                            "style": {
+                              "font-size": "8px",
+                              "font-weight": "800",
+                              "text-transform": "uppercase",
+                              "letter-spacing": "0.3px"
+                            },
+                            "txtContent": "EDD"
+                          },
+                          {
+                            "elmType": "div",
+                            "style": {
+                              "font-weight": "800"
+                            },
+                            "txtContent": "=if([$EDD.displayValue] == '', '–', [$EDD.displayValue])"
+                          }
+                        ]
+                      },
+                      {
+                        "elmType": "div",
+                        "style": {
+                          "text-align": "right"
+                        },
+                        "children": [
+                          {
+                            "elmType": "span",
+                            "style": {
+                              "font-size": "9px",
+                              "color": "#94a3b8",
+                              "text-transform": "uppercase",
+                              "letter-spacing": "0.5px",
+                              "font-weight": "700",
+                              "display": "block",
+                              "margin-bottom": "2px"
+                            },
+                            "txtContent": "MRN"
+                          },
+                          {
+                            "elmType": "div",
+                            "style": {
+                              "font-size": "14px",
+                              "font-weight": "700",
+                              "color": "#334155"
+                            },
+                            "txtContent": "=if([$MRN.displayValue] == '', if([$MRN] == '', '–', [$MRN]), [$MRN.displayValue])"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "elmType": "div",
+                "style": {
+                  "display": "flex",
+                  "justify-content": "space-between",
+                  "align-items": "flex-start",
+                  "gap": "12px"
+                },
+                "children": [
+                  {
+                    "elmType": "div",
+                    "style": {
+                      "min-width": "0",
+                      "flex": "1"
+                    },
+                    "children": [
+                      {
+                        "elmType": "span",
+                        "style": {
+                          "font-size": "9px",
+                          "color": "#94a3b8",
+                          "text-transform": "uppercase",
+                          "letter-spacing": "0.5px",
+                          "font-weight": "700",
+                          "display": "block",
+                          "margin-bottom": "2px"
+                        },
+                        "txtContent": "ATTENDING"
+                      },
+                      {
+                        "elmType": "div",
+                        "style": {
+                          "font-size": "12px",
+                          "font-weight": "600",
+                          "color": "#475569",
+                          "overflow": "hidden",
+                          "text-overflow": "ellipsis",
+                          "white-space": "nowrap"
+                        },
+                        "attributes": {
+                          "title": "=if([$AttendingMD] != '', [$AttendingMD], '–')"
+                        },
+                        "txtContent": "=if([$AttendingMD] != '', [$AttendingMD], '–')"
+                      }
+                    ]
+                  },
+                  {
+                    "elmType": "div",
+                    "style": {
+                      "text-align": "right",
+                      "min-width": "0",
+                      "flex": "1"
+                    },
+                    "children": [
+                      {
+                        "elmType": "span",
+                        "style": {
+                          "font-size": "9px",
+                          "color": "#94a3b8",
+                          "text-transform": "uppercase",
+                          "letter-spacing": "0.5px",
+                          "font-weight": "700",
+                          "display": "block",
+                          "margin-bottom": "2px"
+                        },
+                        "txtContent": "SURGEON / CARDIO"
+                      },
+                      {
+                        "elmType": "div",
+                        "style": {
+                          "font-size": "12px",
+                          "font-weight": "600",
+                          "color": "#475569",
+                          "overflow": "hidden",
+                          "text-overflow": "ellipsis",
+                          "white-space": "nowrap"
+                        },
+                        "attributes": {
+                          "title": "=if([$SurgeonCardio] != '', [$SurgeonCardio], if([$field_7.title] != '', [$field_7.title], if([$field_7.displayValue] != '', [$field_7.displayValue], '–')))"
+                        },
+                        "txtContent": "=if([$SurgeonCardio] != '', [$SurgeonCardio], if([$field_7.title] != '', [$field_7.title], if([$field_7.displayValue] != '', [$field_7.displayValue], '–')))"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "elmType": "div",
+            "style": {
+              "display": "flex",
+              "gap": "6px",
+              "padding": "8px 16px",
+              "flex-wrap": "wrap",
+              "align-items": "center",
+              "border-bottom": "1px solid #f1f5f9",
+              "flex-shrink": "0"
+            },
+            "children": [
+              {
+                "elmType": "div",
+                "style": {
+                  "display": "flex",
+                  "align-items": "center",
+                  "gap": "4px",
+                  "padding": "4px 10px",
+                  "border-radius": "16px",
+                  "font-size": "11px",
+                  "font-weight": "700",
+                  "background-color": "=if([$LOS.displayValue] == '', '#f8fafc', if(Number([$LOS.displayValue]) > 10, '#fef2f2', if(Number([$LOS.displayValue]) > 5, '#fffbeb', '#f0fdf4')))",
+                  "color": "=if([$LOS.displayValue] == '', '#64748b', if(Number([$LOS.displayValue]) > 10, '#dc2626', if(Number([$LOS.displayValue]) > 5, '#d97706', '#16a34a')))",
+                  "border": "=if([$LOS.displayValue] == '', '1.5px solid #cbd5e1', if(Number([$LOS.displayValue]) > 10, '1.5px solid #fca5a5', if(Number([$LOS.displayValue]) > 5, '1.5px solid #fcd34d', '1.5px solid #86efac')))"
+                },
+                "children": [
+                  {
+                    "elmType": "span",
+                    "style": {
+                      "font-size": "9px",
+                      "font-weight": "800",
+                      "text-transform": "uppercase",
+                      "letter-spacing": "0.3px"
+                    },
+                    "txtContent": "LOS"
+                  },
+                  {
+                    "elmType": "span",
+                    "style": {
+                      "font-weight": "800"
+                    },
+                    "txtContent": "=if([$LOS.displayValue] == '', '–', [$LOS.displayValue] + 'd')"
+                  }
+                ]
+              },
+              {
+                "elmType": "div",
+                "style": {
+                  "display": "flex",
+                  "align-items": "center",
+                  "gap": "4px",
+                  "padding": "4px 10px",
+                  "border-radius": "16px",
+                  "font-size": "11px",
+                  "font-weight": "700",
+                  "background-color": "#faf5ff",
+                  "color": "#9333ea",
+                  "border": "1.5px solid #d8b4fe"
+                },
+                "txtContent": "=if([$SxDate] != '', if(Number([$SxDate]) > Number(@now), 'PRE-OP', 'POD ' + toString(floor((Number(@now) - Number([$SxDate])) / 86400000))), if([$SxDate] != '', if(Number([$SxDate]) > Number(@now), 'PRE-OP', 'POD ' + toString(floor((Number(@now) - Number([$SxDate])) / 86400000))), 'POD –'))"
+              }
+            ]
+          },
+          {
+            "elmType": "div",
+            "style": {
+              "display": "flex",
+              "justify-content": "space-between",
+              "padding": "6px 16px",
+              "align-items": "center",
+              "border-bottom": "1px solid #f1f5f9",
+              "background-color": "#fffbeb",
+              "flex-shrink": "0",
+              "gap": "10px"
+            },
+            "children": [
+              {
+                "elmType": "div",
+                "style": {
+                  "display": "flex",
+                  "align-items": "center",
+                  "gap": "4px",
+                  "min-width": "0",
+                  "flex": "1"
+                },
+                "children": [
+                  {
+                    "elmType": "span",
+                    "style": {
+                      "font-size": "9px",
+                      "color": "#92400e",
+                      "text-transform": "uppercase",
+                      "letter-spacing": "0.8px",
+                      "font-weight": "800",
+                      "margin-right": "2px",
+                      "white-space": "nowrap"
+                    },
+                    "txtContent": "🩸 IV DRIPS"
+                  },
+                  {
+                    "elmType": "div",
+                    "style": {
+                      "display": "=if([$IVMeds] == '' && [$IVMeds] == '', 'none', 'flex')",
+                      "align-items": "center",
+                      "gap": "3px",
+                      "padding": "2px 8px",
+                      "border-radius": "12px",
+                      "font-size": "10px",
+                      "font-weight": "700",
+                      "background-color": "#fff7ed",
+                      "color": "#ea580c",
+                      "border": "1px solid #fdba74",
+                      "min-width": "0",
+                      "max-width": "130px",
+                      "overflow": "hidden",
+                      "text-overflow": "ellipsis",
+                      "white-space": "nowrap"
+                    },
+                    "attributes": {
+                      "title": "=if([$IVMeds] != '', [$IVMeds], [$IVMeds])"
+                    },
+                    "txtContent": "=if([$IVMeds] != '', '💊 ' + [$IVMeds], '💊 ' + [$IVMeds])"
+                  }
+                ]
+              },
+              {
+                "elmType": "div",
+                "style": {
+                  "display": "flex",
+                  "align-items": "center",
+                  "gap": "4px",
+                  "min-width": "0",
+                  "flex": "1",
+                  "justify-content": "flex-end"
+                },
+                "children": [
+                  {
+                    "elmType": "span",
+                    "style": {
+                      "font-size": "9px",
+                      "color": "#1e3a8a",
+                      "text-transform": "uppercase",
+                      "letter-spacing": "0.8px",
+                      "font-weight": "800",
+                      "margin-right": "2px",
+                      "white-space": "nowrap"
+                    },
+                    "txtContent": "🫁 TUBES"
+                  },
+                  {
+                    "elmType": "div",
+                    "style": {
+                      "display": "=if([$ChestTube] == '' && [$ChestTube] == '' && [$ChestTube] == '', 'none', 'flex')",
+                      "align-items": "center",
+                      "gap": "3px",
+                      "padding": "2px 8px",
+                      "border-radius": "12px",
+                      "font-size": "10px",
+                      "font-weight": "700",
+                      "background-color": "#eff6ff",
+                      "color": "#1d4ed8",
+                      "border": "1px solid #93c5fd",
+                      "min-width": "0",
+                      "max-width": "110px",
+                      "overflow": "hidden",
+                      "text-overflow": "ellipsis",
+                      "white-space": "nowrap"
+                    },
+                    "attributes": {
+                      "title": "=if([$ChestTube] != '', [$ChestTube], if([$ChestTube] != '', [$ChestTube], [$ChestTube]))"
+                    },
+                    "txtContent": "=if([$ChestTube] != '', [$ChestTube], if([$ChestTube] != '', [$ChestTube], [$ChestTube]))"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "elmType": "div",
+            "style": {
+              "padding": "12px 16px 14px 16px",
+              "display": "flex",
+              "flex-direction": "column",
+              "flex": "1",
+              "min-height": "0",
+              "gap": "10px"
+            },
+            "children": [
+              {
+                "elmType": "div",
+                "style": {
+                  "display": "block",
+                  "min-height": "230px",
+                  "max-height": "300px",
+                  "background-color": "#fff7ed",
+                  "border-left": "4px solid #f97316",
+                  "border-radius": "0 10px 10px 0",
+                  "padding": "10px 12px",
+                  "overflow": "hidden",
+                  "flex-shrink": "0"
+                },
+                "attributes": {
+                  "title": "=if([$ClinicalNeeds] != '', [$ClinicalNeeds], if([$CommentsUpdates] != '', [$CommentsUpdates], if([$ClinicalNeeds] != '', [$ClinicalNeeds], if([$ClinicalNeeds] != '', [$ClinicalNeeds], ''))))"
+                },
+                "children": [
+                  {
+                    "elmType": "span",
+                    "style": {
+                      "font-size": "10px",
+                      "color": "#c2410c",
+                      "text-transform": "uppercase",
+                      "letter-spacing": "0.8px",
+                      "font-weight": "900",
+                      "display": "block",
+                      "margin-bottom": "6px"
+                    },
+                    "txtContent": "📌 CLINICAL NEEDS"
+                  },
+                  {
+                    "elmType": "p",
+                    "style": {
+                      "font-size": "12px",
+                      "color": "#9a3412",
+                      "margin": "0",
+                      "line-height": "1.45",
+                      "overflow-y": "auto",
+                      "font-weight": "650",
+                      "max-height": "248px",
+                      "padding-right": "2px"
+                    },
+                    "txtContent": "=if([$ClinicalNeeds] != '', [$ClinicalNeeds], if([$CommentsUpdates] != '', [$CommentsUpdates], if([$ClinicalNeeds] != '', [$ClinicalNeeds], if([$ClinicalNeeds] != '', [$ClinicalNeeds], '–'))))"
+                  }
+                ]
+              },
+              {
+                "elmType": "div",
+                "style": {
+                  "display": "flex",
+                  "flex-direction": "column",
+                  "gap": "8px",
+                  "flex": "1",
+                  "min-height": "0"
+                },
+                "children": [
+                  {
+                    "elmType": "div",
+                    "style": {
+                      "display": "block",
+                      "min-height": "66px",
+                      "background-color": "#fdf2f8",
+                      "border-left": "4px solid #db2777",
+                      "border-radius": "0 10px 10px 0",
+                      "padding": "8px 10px"
+                    },
+                    "attributes": {
+                      "title": "=if([$CM_x0020_Leader_x0020_Review] != '', [$CM_x0020_Leader_x0020_Review], if([$CM_x0020_Leader_x0020_Review] != '', [$CM_x0020_Leader_x0020_Review], if([$NonClinicalDCBarriers] != '', [$NonClinicalDCBarriers], if([$NonClinicalDCBarriers] != '', [$NonClinicalDCBarriers], ''))))"
+                    },
+                    "children": [
+                      {
+                        "elmType": "span",
+                        "style": {
+                          "font-size": "9px",
+                          "color": "#be185d",
+                          "text-transform": "uppercase",
+                          "letter-spacing": "0.8px",
+                          "font-weight": "800"
+                        },
+                        "txtContent": "🚧 BARRIERS"
+                      },
+                      {
+                        "elmType": "p",
+                        "style": {
+                          "font-size": "11px",
+                          "color": "#9d174d",
+                          "margin": "4px 0 0 0",
+                          "line-height": "1.35",
+                          "overflow": "hidden",
+                          "text-overflow": "ellipsis",
+                          "display": "-webkit-box",
+                          "-webkit-line-clamp": "2",
+                          "-webkit-box-orient": "vertical",
+                          "font-weight": "600"
+                        },
+                        "txtContent": "=if([$CM_x0020_Leader_x0020_Review] != '', [$CM_x0020_Leader_x0020_Review], if([$CM_x0020_Leader_x0020_Review] != '', [$CM_x0020_Leader_x0020_Review], if([$NonClinicalDCBarriers] != '', [$NonClinicalDCBarriers], if([$NonClinicalDCBarriers] != '', [$NonClinicalDCBarriers], '–'))))"
+                      }
+                    ]
+                  },
+                  {
+                    "elmType": "div",
+                    "style": {
+                      "display": "block",
+                      "min-height": "94px",
+                      "background-color": "#f0f9ff",
+                      "border-left": "4px solid #0ea5e9",
+                      "border-radius": "0 10px 10px 0",
+                      "padding": "8px 10px"
+                    },
+                    "attributes": {
+                      "title": "=if([$ConsultantsPending] != '', [$ConsultantsPending], if([$ConsultantsPending] != '', [$ConsultantsPending], ''))"
+                    },
+                    "children": [
+                      {
+                        "elmType": "span",
+                        "style": {
+                          "font-size": "9px",
+                          "color": "#0369a1",
+                          "text-transform": "uppercase",
+                          "letter-spacing": "0.8px",
+                          "font-weight": "800"
+                        },
+                        "txtContent": "🏥 CONSULTANTS PENDING"
+                      },
+                      {
+                        "elmType": "p",
+                        "style": {
+                          "font-size": "11px",
+                          "color": "#0c4a6e",
+                          "margin": "4px 0 0 0",
+                          "line-height": "1.35",
+                          "overflow": "hidden",
+                          "text-overflow": "ellipsis",
+                          "display": "-webkit-box",
+                          "-webkit-line-clamp": "3",
+                          "-webkit-box-orient": "vertical",
+                          "font-weight": "600"
+                        },
+                        "txtContent": "=if([$ConsultantsPending] != '', [$ConsultantsPending], if([$ConsultantsPending] != '', [$ConsultantsPending], '–'))"
+                      }
+                    ]
+                  },
+                  {
+                    "elmType": "div",
+                    "style": {
+                      "display": "block",
+                      "min-height": "66px",
+                      "background": "linear-gradient(135deg, #fefce8 0%, #fef9c3 100%)",
+                      "border-left": "4px solid #eab308",
+                      "border-radius": "0 10px 10px 0",
+                      "padding": "8px 10px",
+                      "box-shadow": "0 1px 3px rgba(234,179,8,0.15)"
+                    },
+                    "attributes": {
+                      "title": "=if([$LeaderActionItems] != '', [$LeaderActionItems], '–')"
+                    },
+                    "children": [
+                      {
+                        "elmType": "span",
+                        "style": {
+                          "font-size": "9px",
+                          "color": "#a16207",
+                          "text-transform": "uppercase",
+                          "letter-spacing": "0.8px",
+                          "font-weight": "800"
+                        },
+                        "txtContent": "⚡ LEADER ACTION"
+                      },
+                      {
+                        "elmType": "p",
+                        "style": {
+                          "font-size": "11px",
+                          "color": "#854d0e",
+                          "margin": "4px 0 0 0",
+                          "line-height": "1.35",
+                          "overflow": "hidden",
+                          "text-overflow": "ellipsis",
+                          "display": "-webkit-box",
+                          "-webkit-line-clamp": "2",
+                          "-webkit-box-orient": "vertical",
+                          "font-weight": "600"
+                        },
+                        "txtContent": "=if([$LeaderActionItems] != '', [$LeaderActionItems], '–')"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "style": {
+      "height": "100%",
+      "overflow": "hidden",
+      "box-sizing": "border-box",
+      "width": "360px",
+      "margin": "4px"
+    }
+  }
+}

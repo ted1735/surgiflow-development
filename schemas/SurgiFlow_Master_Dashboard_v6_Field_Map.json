@@ -1,0 +1,51 @@
+{
+  "source": {
+    "siteUrl": "https://ahsonline.sharepoint.com/teams/SurgiFlow",
+    "listTitle": "SurgiFlow Master",
+    "viewTitle": "Dashboard v6",
+    "viewUrl": "https://ahsonline.sharepoint.com/teams/SurgiFlow/Lists/SurgiFlow%20Master/Dashboard%20v6%20Double.aspx",
+    "validatedAt": "2026-07-28"
+  },
+  "fieldCounts": {
+    "visibleFields": 250,
+    "writableFields": 228
+  },
+  "canonicalFields": {
+    "patientName": "PatientName",
+    "admitReason": "AdmitReason",
+    "serviceLine": "ServiceLine",
+    "disposition": "Dispo",
+    "surgeryDate": "SxDate",
+    "surgeonCardio": "SurgeonCardio",
+    "clinicalNeeds": "ClinicalNeeds",
+    "caseManagementLeaderReview": "CM_x0020_Leader_x0020_Review",
+    "consultantsPending": "ConsultantsPending",
+    "nonClinicalDischargeBarriers": "NonClinicalDCBarriers",
+    "ivMeds": "IVMeds",
+    "chestTube": "ChestTube",
+    "commentsUpdates": "CommentsUpdates"
+  },
+  "removedAliases": {
+    "field_1": "PatientName",
+    "field_3": "AdmitReason",
+    "field_7": "SurgeonCardio",
+    "field_8": "SxDate",
+    "field_18": "ServiceLine",
+    "field_22": "ClinicalNeeds",
+    "field_23": "Dispo",
+    "field_29": "ChestTube",
+    "_Comments": "CommentsUpdates",
+    "Admit_x0020_Reason": "AdmitReason",
+    "Chest_x0020_Tube": "ChestTube",
+    "ClinicalNeedstoContinueAdmission": "ClinicalNeeds",
+    "Clinical_x0020_Needs_x0020_to_x0020_Continue_x0020_Admission": "ClinicalNeeds",
+    "CMNotes": "CM_x0020_Leader_x0020_Review",
+    "CM_x0020_Notes": "CM_x0020_Leader_x0020_Review",
+    "Consultants_x0020_Pending": "ConsultantsPending",
+    "DischargeDisposition": "Dispo",
+    "Discharge_x0020_Disposition": "Dispo",
+    "IV_x0020_Meds": "IVMeds",
+    "Non_x002d_Clinical_x0020_DC_x0020_Barriers": "NonClinicalDCBarriers",
+    "Service_x0020_Line": "ServiceLine"
+  }
+}

@@ -1,0 +1,1833 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SurgiFlow SharePoint Importer Tool</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <!-- SheetJS Library for parsing Excel -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    
+    <style>
+        :root {
+            --bg-color: #0f111a;
+            --card-bg: rgba(22, 28, 45, 0.4);
+            --card-border: rgba(255, 255, 255, 0.08);
+            --card-border-glow: rgba(99, 102, 241, 0.15);
+            --text-primary: #f3f4f6;
+            --text-secondary: #9ca3af;
+            --text-muted: #6b7280;
+            --primary: #6366f1;
+            --primary-hover: #4f46e5;
+            --primary-glow: rgba(99, 102, 241, 0.4);
+            --accent: #10b981;
+            --accent-hover: #059669;
+            --accent-glow: rgba(16, 185, 129, 0.4);
+            --danger: #ef4444;
+            --danger-hover: #dc2626;
+            --warning: #f59e0b;
+            --border-radius: 16px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.12) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(16, 185, 129, 0.08) 0px, transparent 50%),
+                radial-gradient(at 50% 50%, rgba(120, 119, 198, 0.05) 0px, transparent 50%);
+            background-attachment: fixed;
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            min-height: 100vh;
+            line-height: 1.5;
+            padding: 2rem;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* Header section */
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 2.5rem;
+            border-bottom: 1px solid var(--card-border);
+            padding-bottom: 1.5rem;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            width: 42px;
+            height: 42px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 800;
+            font-size: 1.5rem;
+            box-shadow: 0 0 20px var(--primary-glow);
+        }
+
+        .logo-title h1 {
+            font-size: 1.75rem;
+            background: linear-gradient(to right, #ffffff, #a5b4fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .logo-title p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .host-badge {
+            background-color: rgba(99, 102, 241, 0.1);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            color: #c7d2fe;
+            padding: 6px 14px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .host-badge::before {
+            content: "";
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background-color: var(--primary);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--primary);
+        }
+
+        .host-badge.sharepoint-detected {
+            background-color: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            color: #d1fae5;
+        }
+
+        .host-badge.sharepoint-detected::before {
+            background-color: var(--accent);
+            box-shadow: 0 0 10px var(--accent);
+        }
+
+        /* Glassmorphism Card Style */
+        .glass-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: var(--border-radius);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            transition: var(--transition);
+        }
+
+        .glass-card:hover {
+            border-color: var(--card-border-glow);
+            box-shadow: 0 8px 32px 0 rgba(99, 102, 241, 0.05);
+        }
+
+        .card-header {
+            margin-bottom: 1.25rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .card-title {
+            font-size: 1.2rem;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Upload Area */
+        .upload-zone {
+            border: 2px dashed rgba(99, 102, 241, 0.2);
+            border-radius: 12px;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
+            background: rgba(99, 102, 241, 0.02);
+            position: relative;
+        }
+
+        .upload-zone:hover, .upload-zone.dragover {
+            border-color: var(--primary);
+            background: rgba(99, 102, 241, 0.05);
+            box-shadow: inset 0 0 20px rgba(99, 102, 241, 0.05);
+        }
+
+        .upload-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+            display: inline-block;
+            animation: bounce 2s infinite;
+        }
+
+        .upload-text {
+            font-size: 1rem;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+            font-weight: 500;
+        }
+
+        .upload-hint {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        #file-input {
+            display: none;
+        }
+
+        /* Mapping Config Section */
+        .mapping-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .mapping-item {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            padding: 10px 14px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .mapping-label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #a5b4fc;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .mapping-label span.req {
+            color: var(--danger);
+            font-size: 0.75rem;
+        }
+
+        .mapping-select {
+            background: #171d2c;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-primary);
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            outline: none;
+            width: 100%;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .mapping-select:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 8px rgba(99, 102, 241, 0.2);
+        }
+
+        /* Table Area Styles */
+        .table-controls {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .search-wrapper {
+            position: relative;
+            min-width: 250px;
+        }
+
+        .search-input {
+            background: #171d2c;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 6px;
+            color: var(--text-primary);
+            padding: 8px 12px;
+            font-size: 0.85rem;
+            width: 100%;
+            outline: none;
+        }
+
+        .search-input:focus {
+            border-color: var(--primary);
+        }
+
+        .table-stats {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .table-container {
+            overflow-x: auto;
+            max-height: 480px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+            text-align: left;
+        }
+
+        thead {
+            position: sticky;
+            top: 0;
+            background-color: #161c2d;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            z-index: 10;
+        }
+
+        th {
+            padding: 12px 16px;
+            font-weight: 600;
+            color: #a5b4fc;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            white-space: nowrap;
+        }
+
+        tr {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            transition: var(--transition);
+        }
+
+        tr:hover {
+            background-color: rgba(255, 255, 255, 0.02);
+        }
+
+        td {
+            padding: 10px 16px;
+            color: var(--text-primary);
+            vertical-align: middle;
+        }
+
+        td.room-cell {
+            font-weight: 600;
+            color: #fff;
+        }
+
+        td.name-cell {
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        /* Editable appointment cells */
+        .appt-editor {
+            width: 100%;
+            background: rgba(99, 102, 241, 0.05);
+            border: 1px dashed rgba(99, 102, 241, 0.2);
+            border-radius: 6px;
+            color: #dbeafe;
+            padding: 6px 10px;
+            font-size: 0.82rem;
+            outline: none;
+            resize: vertical;
+            min-width: 280px;
+            min-height: 48px;
+            transition: var(--transition);
+            font-family: inherit;
+        }
+
+        .appt-editor:focus {
+            background: rgba(99, 102, 241, 0.1);
+            border-color: var(--primary);
+            border-style: solid;
+            box-shadow: 0 0 8px rgba(99, 102, 241, 0.2);
+        }
+
+        .appt-editor:empty::before {
+            content: "No appointments extracted (click to add)...";
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        /* Execution / Importer Panel */
+        .actions-bar {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 1rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 600;
+            font-size: 0.95rem;
+            padding: 10px 20px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition);
+        }
+
+        .btn-muted {
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-primary);
+        }
+
+        .btn-muted:hover:not(:disabled) {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: #ffffff;
+            box-shadow: 0 4px 14px var(--primary-glow);
+        }
+
+        .btn-primary:hover:not(:disabled) {
+            background-color: var(--primary-hover);
+            box-shadow: 0 6px 20px var(--primary-glow);
+            transform: translateY(-1px);
+        }
+
+        .btn-accent {
+            background-color: var(--accent);
+            color: #ffffff;
+            box-shadow: 0 4px 14px var(--accent-glow);
+        }
+
+        .btn-accent:hover:not(:disabled) {
+            background-color: var(--accent-hover);
+            box-shadow: 0 6px 20px var(--accent-glow);
+            transform: translateY(-1px);
+        }
+
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            box-shadow: none !important;
+            transform: none !important;
+        }
+
+        /* Script Output Modal / Panel */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.6);
+            backdrop-filter: blur(4px);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: var(--transition);
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .modal {
+            background: #111827;
+            border: 1px solid var(--card-border-glow);
+            border-radius: var(--border-radius);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            width: 90%;
+            max-width: 700px;
+            padding: 1.5rem;
+            position: relative;
+            transform: scale(0.95);
+            transition: var(--transition);
+        }
+
+        .modal-overlay.active .modal {
+            transform: scale(1);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: transparent;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 1.25rem;
+            cursor: pointer;
+        }
+
+        .modal-body {
+            margin-top: 1rem;
+        }
+
+        .script-area {
+            background: #090d16;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 8px;
+            color: #38bdf8;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.8rem;
+            padding: 12px;
+            width: 100%;
+            height: 250px;
+            outline: none;
+            resize: none;
+            white-space: pre;
+            overflow: auto;
+            margin: 10px 0;
+        }
+
+        .instruction-box {
+            background: rgba(99, 102, 241, 0.05);
+            border-left: 4px solid var(--primary);
+            padding: 10px 14px;
+            border-radius: 0 8px 8px 0;
+            font-size: 0.82rem;
+            margin-bottom: 1rem;
+            color: #c7d2fe;
+        }
+
+        /* Progress Bar for direct import */
+        .progress-container {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            height: 10px;
+            overflow: hidden;
+            margin-top: 1rem;
+            display: none;
+        }
+
+        .progress-bar {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            transition: width 0.1s ease;
+        }
+
+        .progress-text {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            text-align: center;
+            margin-top: 4px;
+            display: none;
+        }
+
+        /* Alerts and Toast notifications */
+        .toast {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: #1e293b;
+            border-left: 4px solid var(--primary);
+            padding: 12px 24px;
+            border-radius: 4px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            color: var(--text-primary);
+            font-size: 0.88rem;
+            z-index: 1000;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: var(--transition);
+            pointer-events: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .toast.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .toast.success {
+            border-left-color: var(--accent);
+        }
+
+        .toast.error {
+            border-left-color: var(--danger);
+        }
+
+        /* Bouncing Animation */
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+
+        /* Animations for sections */
+        .animate-in {
+            animation: fadeIn 0.4s ease-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <div class="logo-area">
+            <div class="logo-icon">SF</div>
+            <div class="logo-title">
+                <h1>SurgiFlow Importer</h1>
+                <p>Epic Excel to SharePoint List Migrator</p>
+            </div>
+        </div>
+        <div id="host-badge" class="host-badge">
+            Checking Environment...
+        </div>
+    </header>
+
+    <!-- Target Configuration -->
+    <div class="glass-card animate-in" style="padding: 1.25rem; margin-bottom: 2rem; display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center;">
+        <div style="font-size: 0.9rem; font-weight: 600; color: #a5b4fc; display: flex; align-items: center; gap: 6px;">
+            ⚙️ Target Configuration:
+        </div>
+        <div style="display: flex; align-items: center; gap: 8px; flex: 1; min-width: 250px;">
+            <span style="font-size: 0.8rem; color: var(--text-secondary);">Site Path:</span>
+            <input type="text" id="cfg-site-path" value="/teams/SurgiFlow" class="search-input" style="height: 34px; font-size: 0.82rem; padding: 4px 10px;">
+        </div>
+        <div style="display: flex; align-items: center; gap: 8px; flex: 1; min-width: 200px;">
+            <span style="font-size: 0.8rem; color: var(--text-secondary);">List Name:</span>
+            <input type="text" id="cfg-list-title" value="SurgiFlow Master" class="search-input" style="height: 34px; font-size: 0.82rem; padding: 4px 10px;">
+        </div>
+        <button class="btn btn-muted" style="padding: 6px 14px; font-size: 0.82rem; height: 34px;" onclick="refreshSharePointConfig()">Reload Schema</button>
+    </div>
+
+    <!-- Step 1: File Upload -->
+    <div class="glass-card animate-in">
+        <div class="card-header">
+            <h3 class="card-title">1. Select Patient Data Source</h3>
+        </div>
+        <div class="upload-zone" id="drop-zone" onclick="document.getElementById('file-input').click()">
+            <span class="upload-icon">📥</span>
+            <p class="upload-text">Drag and drop your Epic readmissions Excel file here</p>
+            <p class="upload-hint">or click to browse files (supports .xlsx, .xls)</p>
+            <input type="file" id="file-input" accept=".xlsx, .xls">
+        </div>
+    </div>
+
+    <!-- Step 2: Mapping Configuration (Hidden until file loaded) -->
+    <div class="glass-card animate-in" id="mapping-card" style="display: none;">
+        <div class="card-header">
+            <h3 class="card-title">2. Map Excel Columns to SharePoint Fields</h3>
+        </div>
+        <p class="upload-hint" style="margin-top: -8px; margin-bottom: 12px;">
+            The app automatically matches columns by keywords. Modify if necessary.
+        </p>
+        <div class="mapping-grid" id="mapping-fields">
+            <!-- Dynamic Mappings Generated Here -->
+        </div>
+    </div>
+
+    <!-- Step 3: Preview and Review Table (Hidden until file loaded) -->
+    <div class="glass-card animate-in" id="preview-card" style="display: none;">
+        <div class="card-header">
+            <h3 class="card-title">3. Preview Patients & Extracted Appointments</h3>
+            <span class="table-stats" id="record-count">0 records loaded</span>
+        </div>
+        
+        <div class="table-controls">
+            <div class="search-wrapper">
+                <input type="text" class="search-input" id="search-box" placeholder="Search by name, room, or MRN...">
+            </div>
+            <div style="font-size: 0.8rem; color: var(--text-secondary);">
+                💡 You can click directly into the <strong>Appointment Detail</strong> box to edit/add details.
+            </div>
+        </div>
+
+        <div class="table-container">
+            <table id="preview-table">
+                <thead>
+                    <tr>
+                        <th style="width: 80px;">Room</th>
+                        <th style="width: 180px;">Patient Name</th>
+                        <th style="width: 100px;">MRN</th>
+                        <th style="width: 120px;">CSN</th>
+                        <th style="width: 100px;">Risk Level</th>
+                        <th style="width: 70px;">Age</th>
+                        <th style="width: 80px;">Fall Risk</th>
+                        <th style="width: 100px;">Weight Today</th>
+                        <th style="width: 100px;">Admit Date</th>
+                        <th style="width: 70px;">LOS</th>
+                        <th style="width: 70px;">GMLOS</th>
+                        <th>Extracted Appointment Detail</th>
+                    </tr>
+                </thead>
+                <tbody id="table-body">
+                    <!-- Dynamic Data Rows Here -->
+                </tbody>
+            </table>
+        </div>
+
+        <div class="progress-container" id="prog-container">
+            <div class="progress-bar" id="prog-bar"></div>
+        </div>
+        <div class="progress-text" id="prog-text"></div>
+
+        <div class="actions-bar">
+            <button class="btn btn-muted" id="btn-cancel" onclick="resetApp()">Reset</button>
+            <button class="btn btn-primary" id="btn-generate" onclick="openScriptModal()">Generate Console Script</button>
+            <button class="btn btn-accent" id="btn-import-direct" onclick="executeDirectImport()" style="display: none;">Direct Import to SharePoint</button>
+        </div>
+    </div>
+
+    <!-- Execution Log Card -->
+    <div class="glass-card animate-in" id="log-card" style="display: none; margin-top: 1.5rem;">
+        <div class="card-header">
+            <h3 class="card-title">🧾 Import Execution Log</h3>
+            <button class="btn btn-muted" style="padding: 4px 10px; font-size: 0.75rem;" onclick="clearUILogs()">Clear Logs</button>
+        </div>
+        <div id="ui-log-area" style="background: #090d16; border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 8px; color: #38bdf8; font-family: monospace; font-size: 0.8rem; padding: 12px; height: 220px; overflow-y: auto; white-space: pre-wrap; margin-top: 8px;"></div>
+    </div>
+</div>
+
+<!-- Script Modal (Method A) -->
+<div class="modal-overlay" id="script-modal">
+    <div class="modal">
+        <button class="modal-close" onclick="closeScriptModal()">✕</button>
+        <h3 style="font-size: 1.25rem; color: #fff; margin-bottom: 0.5rem;">Method A: Browser Console Script</h3>
+        <div class="instruction-box">
+            📋 <strong>How to import:</strong>
+            <ol style="margin-left: 1.25rem; margin-top: 4px;">
+                <li>Copy the entire script from the text box below.</li>
+                <li>Go to your SharePoint List page.</li>
+                <li>Press <strong>F12</strong> (or right-click -> Inspect) to open Developer Tools, and select the <strong>Console</strong> tab.</li>
+                <li>Paste the script and press <strong>Enter</strong>. Confirm the import dialog when prompted!</li>
+            </ol>
+        </div>
+        <textarea class="script-area" id="script-content" readonly onclick="this.select()"></textarea>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1rem;">
+            <span style="font-size: 0.8rem; color: var(--text-secondary);" id="copied-notice">Click text box to select all</span>
+            <button class="btn btn-accent" onclick="copyModalScript()">Copy Script Code</button>
+        </div>
+    </div>
+</div>
+
+<!-- Toast Alert -->
+<div class="toast" id="toast-alert">
+    <span id="toast-icon">ℹ️</span>
+    <span id="toast-message">Notice</span>
+</div>
+
+<script>
+    // Global State
+    let parsedRows = [];
+    let excelHeaders = [];
+    let isSharePoint = false;
+    let sharepointFields = []; // Loaded dynamically if on SharePoint
+    
+    // Default Expected SharePoint Columns to map against
+    const TARGET_SP_COLUMNS = [
+        { key: 'room', display: 'Room Number (Title)', fallback: ['Room and Bed', 'Room #', 'Room', 'Title'], required: true },
+        { key: 'name', display: 'Patient Name', fallback: ['Patient Name', 'Name', 'Patient'], required: true },
+        { key: 'mrn', display: 'MRN', fallback: ['MRN'], required: true },
+        { key: 'csn', display: 'CSN', fallback: ['CSN'], required: true },
+        { key: 'attendingMD', display: 'Attending MD', fallback: ['Attending', 'AttendingMD', 'Attending MD'] },
+        { key: 'readmissionRiskLevel', display: 'Readmission Risk Level', fallback: ['IP Risk of Unplanned Readmission Score Column', 'Readmission Risk Level', 'RiskLevel', '⚠️ Readmission Risk Level ⚠️'] },
+        { key: 'edd', display: 'EDD', fallback: ['EDD'] },
+        { key: 'dispo', display: 'Discharge Disposition', fallback: ['Discharge Disposition', 'DischargeDisposition', 'Dispo'] },
+        { key: 'age', display: 'Age', fallback: ['Age'] },
+        { key: 'fallRisk', display: 'Fall Risk Score', fallback: ['Fall Risk Score', 'Fall Risk', 'FallRisk'] },
+        { key: 'weightToday', display: 'Weight Today', fallback: ['Weight Today', 'WeightToday', 'Weight'] },
+        { key: 'admitDate', display: 'Admit Date', fallback: ['Admit Date', 'AdmitDate', 'Admit Date/Time', 'Admit Time'] },
+        { key: 'los', display: 'LOS', fallback: ['LOS', 'LoS', 'Length of Stay'] },
+        { key: 'gmlos', display: 'GMLOS', fallback: ['GMLOS', 'GMLOS ', 'Geometric Mean Length of Stay'] },
+        { key: 'braden', display: 'Braden Score', fallback: ['Braden Score', 'Braden'] },
+        { key: 'admitReason', display: 'Admit Reason', fallback: ['Working DRG Name', 'Admit Reason', 'AdmitReason'] },
+        { key: 'appointmentDetail', display: 'Appointment Detail', fallback: ['Care Navigation Notes', 'Appointment Detail', 'AppointmentDetail'] }
+    ];
+
+    // One authoritative map: Epic room/bed text is normalized to its first four digits.
+    const ROOM_UNIT_MAP = [
+        { start: 6801, end: 6840, unit: 'GT6' }, { start: 7801, end: 7840, unit: 'GT7' },
+        { start: 8801, end: 8840, unit: 'GT8' }, { start: 8901, end: 8936, unit: 'WT8' },
+        { start: 2701, end: 2730, unit: 'CVICU' }, { start: 3201, end: 3240, unit: 'MSICU' },
+        { start: 4801, end: 4840, unit: 'VTICU' }, { start: 5801, end: 5840, unit: 'CICU' },
+        { start: 9901, end: 9940, unit: 'ACSU' }
+    ];
+    function normalizeSurgiFlowRoom(rawRoom) {
+        const room = String(rawRoom ?? '').match(/\d{4}/)?.[0] || '';
+        const n = Number(room);
+        return ROOM_UNIT_MAP.some(r => n >= r.start && n <= r.end) ? room : '';
+    }
+    function unitForSurgiFlowRoom(room) {
+        const n = Number(room);
+        return ROOM_UNIT_MAP.find(r => n >= r.start && n <= r.end)?.unit || '';
+    }
+
+    // Detect environment
+    window.addEventListener('DOMContentLoaded', () => {
+        const badge = document.getElementById('host-badge');
+        // Check if origin matches SharePoint
+        if (location.origin.includes('sharepoint.com')) {
+            isSharePoint = true;
+            badge.innerText = "SharePoint Origin Detected";
+            badge.classList.add('sharepoint-detected');
+            document.getElementById('btn-import-direct').style.display = 'inline-flex';
+            loadSharePointFields();
+        } else {
+            isSharePoint = false;
+            badge.innerText = "Running Locally (File Mode)";
+        }
+        
+        setupDragAndDrop();
+    });
+
+    // Load columns dynamically using SP REST API if running in SharePoint
+    async function loadSharePointFields() {
+        const listTitle = document.getElementById('cfg-list-title').value.trim();
+        const sitePath = document.getElementById('cfg-site-path').value.trim();
+        const origin = (location.origin && location.origin.startsWith('http')) ? location.origin : 'https://ahsonline.sharepoint.com';
+        const api = `${origin}${sitePath}/_api`;
+        try {
+            const resp = await fetch(`${api}/web/lists/getbytitle('${encodeURIComponent(listTitle)}')/fields?$select=Title,InternalName,TypeAsString,Hidden,ReadOnlyField&$filter=Hidden eq false`, {
+                headers: { 'Accept': 'application/json;odata=nometadata' }
+            });
+            if (resp.ok) {
+                const data = await resp.json();
+                sharepointFields = data.value.filter(f => !f.ReadOnlyField || f.InternalName === 'Title');
+                showToast("Successfully loaded current SharePoint List schema!", "success");
+            } else {
+                showToast("Failed to load list columns. Check configuration site path and list name.", "error");
+            }
+        } catch (e) {
+            console.error("Could not query SharePoint fields:", e);
+            showToast("Failed to load list columns. Using default fallback schema.", "error");
+        }
+    }
+
+    function refreshSharePointConfig() {
+        if (isSharePoint) {
+            loadSharePointFields();
+        } else {
+            showToast("Settings updated. Note: schema reloading only runs when hosted on SharePoint.", "info");
+        }
+    }
+
+    // Drag and Drop settings
+    function setupDragAndDrop() {
+        const zone = document.getElementById('drop-zone');
+        
+        zone.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            zone.classList.add('dragover');
+        });
+        
+        zone.addEventListener('dragleave', () => {
+            zone.classList.remove('dragover');
+        });
+        
+        zone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            zone.classList.remove('dragover');
+            
+            const file = e.dataTransfer.files[0];
+            if (file) handleFile(file);
+        });
+
+        document.getElementById('file-input').addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (file) handleFile(file);
+        });
+    }
+
+    // Parse Excel File
+    function handleFile(file) {
+        showToast(`Loading Excel: ${file.name}...`, "info");
+        const reader = new FileReader();
+        
+        reader.onload = function(e) {
+            try {
+                const data = new Uint8Array(e.target.result);
+                const workbook = XLSX.read(data, { type: 'array' });
+                
+                // Get the first worksheet
+                const sheetName = workbook.SheetNames[0];
+                const worksheet = workbook.Sheets[sheetName];
+                
+                // Convert sheet to JSON array
+                const sheetJson = XLSX.utils.sheet_to_json(worksheet, { header: 1, defval: "" });
+                
+                if (sheetJson.length < 2) {
+                    showToast("The selected sheet is empty or does not have headers.", "error");
+                    return;
+                }
+                
+                excelHeaders = sheetJson[0].map(h => String(h).trim());
+                
+                // Map columns
+                generateMappingUI();
+                
+                // Parse rows
+                parsedRows = [];
+                for (let r = 1; r < sheetJson.length; r++) {
+                    const rowData = sheetJson[r];
+                    // Skip completely empty rows
+                    if (rowData.every(c => c === "")) continue;
+                    
+                    const rowObj = {};
+                    excelHeaders.forEach((header, index) => {
+                        rowObj[header] = rowData[index];
+                    });
+                    parsedRows.push(rowObj);
+                }
+                
+                // Update views
+                document.getElementById('mapping-card').style.display = 'block';
+                document.getElementById('preview-card').style.display = 'block';
+                
+                updatePreviewTable();
+                showToast(`Loaded ${parsedRows.length} patient rows from Excel!`, "success");
+                
+            } catch (err) {
+                console.error(err);
+                showToast("Failed to parse the Excel file. Verify it is a valid .xlsx file.", "error");
+            }
+        };
+        
+        reader.readAsArrayBuffer(file);
+    }
+
+    // Generate Mapping Selectors
+    function generateMappingUI() {
+        const container = document.getElementById('mapping-fields');
+        container.innerHTML = "";
+        
+        TARGET_SP_COLUMNS.forEach(target => {
+            const item = document.createElement('div');
+            item.className = 'mapping-item';
+            
+            // Auto match logic (Prioritize exact normalized matches over partial containments)
+            let matchedHeader = "";
+            const normTargets = target.fallback.map(f => normalizeString(f));
+            
+            // Try exact matches first
+            for (const header of excelHeaders) {
+                const normHeader = normalizeString(header);
+                if (normTargets.some(t => normHeader === t)) {
+                    matchedHeader = header;
+                    break;
+                }
+            }
+            
+            // Fall back to partial matches if no exact match found
+            if (!matchedHeader) {
+                for (const header of excelHeaders) {
+                    const normHeader = normalizeString(header);
+                    if (normTargets.some(t => normHeader.includes(t) || t.includes(normHeader))) {
+                        matchedHeader = header;
+                        break;
+                    }
+                }
+            }
+            
+            const label = document.createElement('label');
+            label.className = 'mapping-label';
+            label.innerHTML = `${target.display} ${target.required ? '<span class="req">* Required</span>' : ''}`;
+            
+            const select = document.createElement('select');
+            select.className = 'mapping-select';
+            select.id = `map-to-${target.key}`;
+            select.dataset.key = target.key;
+            
+            // Add options
+            const emptyOpt = document.createElement('option');
+            emptyOpt.value = "";
+            emptyOpt.text = "-- Skip Column --";
+            select.appendChild(emptyOpt);
+            
+            excelHeaders.forEach(header => {
+                const opt = document.createElement('option');
+                opt.value = header;
+                opt.text = header;
+                if (header === matchedHeader) {
+                    opt.selected = true;
+                }
+                select.appendChild(opt);
+            });
+            
+            // Listen to updates
+            select.addEventListener('change', () => {
+                updatePreviewTable();
+            });
+            
+            item.appendChild(label);
+            item.appendChild(select);
+            container.appendChild(item);
+        });
+    }
+
+    function normalizeString(v) {
+        return String(v ?? '').replace(/[^a-z0-9]/gi, '').toLowerCase();
+    }
+
+    // Smart Appointment Extraction (Refined Clause-First Deduplicated)
+    function extractAppointments(notes) {
+        if (!notes) return "";
+        notes = String(notes).replace(/\s+/g, " ").trim();
+        
+        const schedulingKeywords = /appointment|appt|schedul|book.?it|follow.?up|follow up|f\/up|visit|secured|confirmed|set for/i;
+        if (!schedulingKeywords.test(notes)) {
+            return "";
+        }
+        
+        // Split by sentences, semicolons, and clause dividers
+        const clauses = notes.split(/(?:\.|\band\b|;|, but|, and)\s+/i);
+        const appointments = [];
+        
+        const specialties = [
+            { name: "PCP", pattern: /\b(pcp|primary care|family doctor|family practice|internal medicine)\b/i },
+            { name: "Cardiology", pattern: /\b(cardio|cardiology|cardiologist|heart|ep|electrophysiologist)\b/i },
+            { name: "CT Surgery", pattern: /\b(cts|ct surgery|cardiothoracic|surgeon|surgery|post-op|post op)\b/i },
+            { name: "Pulmonology", pattern: /\b(pulm|pulmonologist|pulmonology|lung)\b/i },
+            { name: "Urology", pattern: /\b(urology|urologist)\b/i },
+            { name: "Oncology", pattern: /\b(oncology|oncologist|cancer)\b/i },
+            { name: "Transplant", pattern: /\b(transplant)\b/i },
+            { name: "Neurology", pattern: /\b(neurology|neurologist|brain)\b/i },
+            { name: "Endocrinology", pattern: /\b(endo|endocrinology|endocrinologist)\b/i }
+        ];
+        
+        const dateRegexes = [
+            /(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*\.?\s+\d{1,2}(?:\s*,\s*\d{4})?/i,
+            /\b\d{1,2}\/\d{1,2}(?:\/\d{2,4})?\b/
+        ];
+        
+        const timeRegex = /\b\d{1,2}(?::\d{2})?\s*(?:[ap]m|[ap])\b|\b\d{1,2}:\d{2}\b/i;
+        const providerRegex = /(?:with|provider|Dr\.)\s+([A-Z][a-zA-Z]*(?:\s+[A-Z][a-zA-Z]*){1,3}(?:\s*,\s*[A-Za-z\-]+)?)/;
+
+        clauses.forEach(clause => {
+            let dateStr = "";
+            for (const regex of dateRegexes) {
+                const match = clause.match(regex);
+                if (match) {
+                    dateStr = match[0];
+                    break;
+                }
+            }
+            
+            if (!dateStr) return;
+            
+            const timeMatch = clause.match(timeRegex);
+            const timeStr = timeMatch ? timeMatch[0] : "";
+            
+            let specialty = "Follow-up";
+            for (let sp of specialties) {
+                if (sp.pattern.test(clause)) {
+                    specialty = sp.name;
+                    break;
+                }
+            }
+            
+            const providerMatch = clause.match(providerRegex);
+            let providerStr = providerMatch ? providerMatch[1].trim() : "";
+            if (providerStr) {
+                // Strip noise words
+                providerStr = providerStr.replace(/\s+(?:on|at|set|thru|for|and|with|to)\b.*/i, "");
+                // Ignore matching dates or generic keywords
+                if (/^(?:August|September|October|November|December|January|February|March|April|May|June|July|Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday|Specialists?|Office|Visit|Pcp|Cardio|Cma|Avs|Patient|Pt|Dr|Pcp|Appt|Spoke|Tatiana)$/i.test(providerStr)) {
+                    providerStr = "";
+                }
+            }
+            
+            let formatted = `${specialty} — ${dateStr}`;
+            if (timeStr) formatted += ` ${timeStr}`;
+            if (providerStr) formatted += ` with ${providerStr}`;
+            
+            appointments.push({
+                dateStr: dateStr,
+                dateKey: getNormalizeDateKey(dateStr),
+                specialty: specialty,
+                hasProvider: !!providerStr,
+                text: formatted
+            });
+        });
+        
+        // Group by dateKey and select the most detailed per date
+        const grouped = {};
+        appointments.forEach(appt => {
+            if (!grouped[appt.dateKey]) grouped[appt.dateKey] = [];
+            grouped[appt.dateKey].push(appt);
+        });
+        
+        const uniqueAppts = [];
+        for (const key of Object.keys(grouped)) {
+            const group = grouped[key];
+            group.sort((a, b) => {
+                if (a.hasProvider !== b.hasProvider) return b.hasProvider ? 1 : -1;
+                const aIsFollowUp = a.specialty === "Follow-up";
+                const bIsFollowUp = b.specialty === "Follow-up";
+                if (aIsFollowUp !== bIsFollowUp) return aIsFollowUp ? 1 : -1;
+                return b.text.length - a.text.length;
+            });
+            uniqueAppts.push(group[0].text);
+        }
+        
+        return uniqueAppts.join("; ");
+    }
+
+    function getNormalizeDateKey(dateStr) {
+        const months = { jan:1, feb:2, mar:3, apr:4, may:5, jun:6, jul:7, aug:8, sep:9, oct:10, nov:11, dec:12 };
+        let m = dateStr.match(/\b(\d{1,2})\/(\d{1,2})\b/);
+        if (m) return `${parseInt(m[1])}/${parseInt(m[2])}`;
+        m = dateStr.match(/\b(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*\.?\s+(\d{1,2})\b/i);
+        if (m) {
+            const monthNum = months[m[1].toLowerCase().substring(0, 3)];
+            return `${monthNum}/${parseInt(m[2])}`;
+        }
+        return dateStr.toLowerCase().replace(/[^a-z0-9]/g, "");
+    }
+
+    // Get value from excel row using column mapping
+    function getMappedValue(excelRow, mappingKey) {
+        const dropdown = document.getElementById(`map-to-${mappingKey}`);
+        if (!dropdown) return "";
+        const header = dropdown.value;
+        return header ? (excelRow[header] ?? "") : "";
+    }
+
+    // Helper to format Excel dates nicely in the preview table
+    function formatExcelDate(val) {
+        if (val === undefined || val === null || val === "") return "";
+        const n = Number(val);
+        if (Number.isFinite(n) && n > 20000 && n < 70000) {
+            const date = new Date(Date.UTC(1899, 11, 30) + n * 86400000);
+            return date.toISOString().substring(0, 10);
+        }
+        return String(val).trim();
+    }
+
+    // Update Preview Table
+    function updatePreviewTable() {
+        const body = document.getElementById('table-body');
+        body.innerHTML = "";
+        
+        // Grab and format rows based on current mapping
+        const formattedRows = parsedRows.map((excelRow, index) => {
+            const rawRoom = String(getMappedValue(excelRow, 'room'));
+            
+            const room = normalizeSurgiFlowRoom(rawRoom);
+            
+            // Parse care notes and extract appointments
+            const careNotes = getMappedValue(excelRow, 'appointmentDetail'); // usually "Care Navigation Notes"
+            let apptDetail = "";
+            
+            // If we have already saved manual edits, preserve them. Else, extract dynamically.
+            if (excelRow.__editedAppointments !== undefined) {
+                apptDetail = excelRow.__editedAppointments;
+            } else {
+                apptDetail = extractAppointments(careNotes);
+            }
+            
+            return {
+                originalIndex: index,
+                room: room,
+                roomAndBed: rawRoom,
+                name: getMappedValue(excelRow, 'name'),
+                mrn: getMappedValue(excelRow, 'mrn'),
+                csn: getMappedValue(excelRow, 'csn'),
+                attendingMD: getMappedValue(excelRow, 'attendingMD'),
+                readmissionRiskLevel: getMappedValue(excelRow, 'readmissionRiskLevel'),
+                edd: getMappedValue(excelRow, 'edd'),
+                dispo: getMappedValue(excelRow, 'dispo'),
+                age: getMappedValue(excelRow, 'age'),
+                fallRisk: getMappedValue(excelRow, 'fallRisk'),
+                weightToday: getMappedValue(excelRow, 'weightToday'),
+                admitDate: getMappedValue(excelRow, 'admitDate'),
+                los: getMappedValue(excelRow, 'los'),
+                gmlos: getMappedValue(excelRow, 'gmlos'),
+                braden: getMappedValue(excelRow, 'braden'),
+                admitReason: getMappedValue(excelRow, 'admitReason'),
+                appointmentDetail: apptDetail
+            };
+        });
+
+        // Filter and display
+        const query = normalizeString(document.getElementById('search-box').value);
+        let visibleCount = 0;
+        
+        formattedRows.forEach(r => {
+            // Apply search filter if active
+            if (query) {
+                const searchStr = normalizeString(`${r.room} ${r.name} ${r.mrn} ${r.csn}`);
+                if (!searchStr.includes(query)) return;
+            }
+            
+            visibleCount++;
+            
+            const tr = document.createElement('tr');
+            tr.dataset.index = r.originalIndex;
+            
+            tr.innerHTML = `
+                <td class="room-cell">${r.room}</td>
+                <td class="name-cell">${r.name}</td>
+                <td>${r.mrn}</td>
+                <td>${r.csn}</td>
+                <td>${r.readmissionRiskLevel}</td>
+                <td>${r.age}</td>
+                <td>${r.fallRisk}</td>
+                <td>${r.weightToday}</td>
+                <td>${formatExcelDate(r.admitDate)}</td>
+                <td>${r.los}</td>
+                <td>${r.gmlos}</td>
+                <td>
+                    <textarea class="appt-editor" placeholder="No appointments extracted. Click here to add..." 
+                        oninput="saveCellEdit(${r.originalIndex}, this.value)">${r.appointmentDetail}</textarea>
+                </td>
+            `;
+            
+            body.appendChild(tr);
+        });
+
+        document.getElementById('record-count').innerText = `${visibleCount} of ${parsedRows.length} rows visible`;
+    }
+
+    // Save manual edits to patient rows
+    function saveCellEdit(originalIdx, value) {
+        parsedRows[originalIdx].__editedAppointments = value;
+    }
+
+    // Set up search box listener
+    document.getElementById('search-box').addEventListener('input', () => {
+        updatePreviewTable();
+    });
+
+    // Reset Importer
+    function resetApp() {
+        if (confirm("Are you sure you want to clear current data and mapping?")) {
+            parsedRows = [];
+            excelHeaders = [];
+            document.getElementById('file-input').value = "";
+            document.getElementById('mapping-card').style.display = 'none';
+            document.getElementById('preview-card').style.display = 'none';
+            document.getElementById('search-box').value = "";
+            showToast("App reset successfully.", "info");
+        }
+    }
+
+    // Generate Payload JSON
+    function getImporterPayload() {
+        const rows = [];
+        
+        parsedRows.forEach((excelRow, index) => {
+            const rawRoom = String(getMappedValue(excelRow, 'room'));
+            const room = normalizeSurgiFlowRoom(rawRoom);
+            
+            // Skip rows without room or patient name
+            const name = getMappedValue(excelRow, 'name');
+            const mrn = getMappedValue(excelRow, 'mrn');
+            if (!room || !name || !mrn) return;
+            
+            const apptDetail = excelRow.__editedAppointments !== undefined 
+                ? excelRow.__editedAppointments 
+                : extractAppointments(getMappedValue(excelRow, 'appointmentDetail'));
+
+            rows.push({
+                room: room,
+                roomAndBed: rawRoom,
+                name: name,
+                mrn: mrn,
+                csn: getMappedValue(excelRow, 'csn'),
+                attendingMD: getMappedValue(excelRow, 'attendingMD'),
+                readmissionRiskLevel: getMappedValue(excelRow, 'readmissionRiskLevel'),
+                edd: getMappedValue(excelRow, 'edd'),
+                dispo: getMappedValue(excelRow, 'dispo'),
+                age: getMappedValue(excelRow, 'age'),
+                fallRisk: getMappedValue(excelRow, 'fallRisk'),
+                weightToday: getMappedValue(excelRow, 'weightToday'),
+                admitDate: getMappedValue(excelRow, 'admitDate'),
+                los: getMappedValue(excelRow, 'los'),
+                gmlos: getMappedValue(excelRow, 'gmlos'),
+                braden: getMappedValue(excelRow, 'braden'),
+                admitReason: getMappedValue(excelRow, 'admitReason'),
+                appointmentDetail: apptDetail,
+                unit: unitForSurgiFlowRoom(room)
+            });
+        });
+        
+        return {
+            schemaVersion: "2.5",
+            source: "SurgiFlow Importer App",
+            asOf: new Date().toISOString(),
+            rows: rows
+        };
+    }
+
+    // Method A: Modal Control
+    function openScriptModal() {
+        // Validate required mappings
+        let missingReq = false;
+        TARGET_SP_COLUMNS.filter(t => t.required).forEach(t => {
+            const dropdown = document.getElementById(`map-to-${t.key}`);
+            if (!dropdown || !dropdown.value) missingReq = true;
+        });
+
+        if (missingReq) {
+            alert("Please map all required columns (*) before generating script.");
+            return;
+        }
+
+        const payload = getImporterPayload();
+        if (payload.rows.length === 0) {
+            alert("No valid rows to import. Please make sure Room, Patient Name, and MRN are mapped.");
+            return;
+        }
+
+        // Format SharePoint fields mapping dynamically for script
+        const mappings = {};
+        TARGET_SP_COLUMNS.forEach(t => {
+            const dropdown = document.getElementById(`map-to-${t.key}`);
+            if (dropdown && dropdown.value) {
+                mappings[t.key] = dropdown.value;
+            }
+        });
+
+        // Stringify the payload
+        const payloadJson = JSON.stringify(payload, null, 2);
+
+        const listTitle = document.getElementById('cfg-list-title').value.trim();
+        const sitePath = document.getElementById('cfg-site-path').value.trim();
+
+        // Generate non-blocking JavaScript for SharePoint console
+        const scriptCode = `(async () => {
+  const DATA = ${payloadJson};
+  const LIST_TITLE = '${listTitle.replace(/'/g, "\\'")}';
+  const SITE_PATH = '${sitePath.replace(/'/g, "\\'")}';
+  const origin = (location.origin && location.origin.startsWith('http')) ? location.origin : 'https://ahsonline.sharepoint.com';
+  const api = \`\${origin}\${SITE_PATH}/_api\`;
+  const accept = 'application/json;odata=verbose';
+
+  console.log("🚀 Starting SurgiFlow Master Import for " + DATA.rows.length + " patients...");
+
+  const norm = v => String(v ?? '').replace(/[^a-z0-9]/gi, '').toLowerCase();
+  const ROOM_UNIT_MAP = [[6801,6840,'GT6'],[7801,7840,'GT7'],[8801,8840,'GT8'],[8901,8936,'WT8'],[2701,2730,'CVICU'],[3201,3240,'MSICU'],[4801,4840,'VTICU'],[5801,5840,'CICU'],[9901,9940,'ACSU']];
+  const roomDigits = v => { const d = String(v ?? '').match(/\\d{4}/)?.[0] || ''; const n = Number(d); return ROOM_UNIT_MAP.some(r => n >= r[0] && n <= r[1]) ? d : norm(v); };
+
+  const get = async u => {
+    const r = await fetch(u, { headers: { Accept: accept } });
+    if (!r.ok) throw Error(\`HTTP \${r.status} requesting \${u}\`);
+    return r.json();
+  };
+
+  // Load fields dynamically
+  console.log("🔍 Loading SharePoint fields...");
+  let fields;
+  try {
+    const rawFields = await get(\`\${api}/web/lists/getbytitle('\${encodeURIComponent(LIST_TITLE)}')/fields?\$select=Title,InternalName,TypeAsString,Hidden,ReadOnlyField\`);
+    fields = (rawFields.d?.results || rawFields.value || []).filter(f => !f.Hidden && (!f.ReadOnlyField || f.InternalName === 'Title'));
+    console.log(\`✅ Loaded \${fields.length} writeable fields from SharePoint.\`);
+  } catch (err) {
+    console.error("❌ Failed to load list columns from SharePoint:", err);
+    throw err;
+  }
+
+  const find = names => fields.find(f => names.some(n => norm(n) === norm(f.Title) || norm(n) === norm(f.InternalName)));
+
+  // Map internal SharePoint names
+  const F = {
+    room: find(['Room', 'Room #', 'Room Number', 'Title']) || fields.find(f => f.InternalName === 'Title'),
+    unit: find(['Unit']),
+    name: find(['Name', 'Patient Name', 'Patient']),
+    mrn: find(['MRN']),
+    csn: find(['CSN']),
+    attendingMD: find(['AttendingMD', 'Attending MD', 'Attending']),
+    readmissionRiskLevel: find(['⚠️ Readmission Risk Level ⚠️', 'Readmission Risk Level', 'RiskLevel']),
+    edd: find(['EDD']),
+    dispo: find(['Dispo', 'Disposition', 'Discharge Disposition']),
+    age: find(['Age']),
+    fallRisk: find(['Fall Risk', 'Fall Risk Score', 'FallRisk']),
+    weightToday: find(['Weight Today', 'WeightToday', 'Weight']),
+    admitDate: find(['Admit Date', 'AdmitDate']),
+    los: find(['LOS', 'LoS', 'Length of Stay']),
+    gmlos: find(['GMLOS']),
+    braden: find(['Braden', 'Braden Score', 'Braden']),
+    admitReason: find(['Admit Reason', 'AdmitReason', 'Admit Reason/DRG']),
+    appointmentDetail: find(['Appointment Detail', 'Appointment Details', 'AppointmentDetail'])
+  };
+
+  console.log("📋 Resolved SharePoint List Columns Mappings:");
+  console.table(Object.entries(F).map(([k, field]) => ({
+    "App Field": k,
+    "SharePoint Column": field ? field.Title : "⚠️ NOT FOUND",
+    "Internal Name": field ? field.InternalName : "⚠️ N/A",
+    "Type": field ? field.TypeAsString : "⚠️ N/A"
+  })));
+
+  if (!F.room || !F.unit) throw Error('Import stopped: SharePoint Room or Unit field was not found. No records were changed.');
+
+  console.log("🔍 Fetching existing SharePoint list items (deduplication check)...");
+  const listResp = await get(\`\${api}/web/lists/getbytitle('\${encodeURIComponent(LIST_TITLE)}')?\$select=ListItemEntityTypeFullName\`);
+  const itemType = listResp.d?.ListItemEntityTypeFullName || listResp.ListItemEntityTypeFullName;
+
+  const itemsResp = await get(\`\${api}/web/lists/getbytitle('\${encodeURIComponent(LIST_TITLE)}')/items?\$top=5000\`);
+  const items = itemsResp.d?.results || itemsResp.value || [];
+  console.log(\`✅ Loaded \${items.length} current patients from SharePoint.\`);
+
+  const parseVal = (x, f) => {
+    if (x === undefined || x === null || x === "") return undefined;
+    if (f?.TypeAsString === 'Number' || f?.TypeAsString === 'Integer') {
+      const n = Number(x);
+      return Number.isFinite(n) ? n : undefined;
+    }
+    if (f?.TypeAsString === 'DateTime') {
+      const n = Number(x);
+      if (Number.isFinite(n) && n > 20000 && n < 70000) {
+        return new Date(Date.UTC(1899, 11, 30) + n * 86400000).toISOString();
+      }
+      try {
+        const d = new Date(x);
+        return isNaN(d.getTime()) ? undefined : d.toISOString();
+      } catch(e) {
+        return undefined;
+      }
+    }
+    return String(x);
+  };
+
+  const getValues = row => {
+    const out = {};
+    for (const k of Object.keys(F)) {
+      if (F[k] && row[k] !== undefined && row[k] !== null && row[k] !== "") {
+        const val = parseVal(row[k], F[k]);
+        if (val !== undefined) {
+          out[F[k].InternalName] = val;
+        }
+      }
+    }
+    return out;
+  };
+
+  // Authoritative match: normalized Room + exact Name + exact MRN.
+  // CSN is imported but never used as a standalone match key.
+  const same = (spItem, excelRow) => {
+    const spRoom = F.room ? roomDigits(spItem[F.room.InternalName]) : '';
+    const exRoom = roomDigits(excelRow.room);
+    const spName = F.name ? norm(spItem[F.name.InternalName]) : '';
+    const exName = norm(excelRow.name);
+    const spMRN = F.mrn ? norm(spItem[F.mrn.InternalName]) : '';
+    const exMRN = norm(excelRow.mrn);
+    return Boolean(spRoom && exRoom && spName && exName && spMRN && exMRN && spRoom === exRoom && spName === exName && spMRN === exMRN);
+  };
+
+  // Calculate Import Plan
+  console.log("🧩 Computing changes...");
+  const plan = DATA.rows.map(r => {
+    const match = items.find(i => same(i, r));
+    if (match) {
+      return { ...r, result: 'UPDATE', id: match.Id };
+    }
+    return { ...r, result: 'CREATE' };
+  });
+
+  const updates = plan.filter(r => r.result === 'UPDATE');
+  const creates = plan.filter(r => r.result === 'CREATE');
+
+  console.log("📊 Execution Plan Summary:");
+  console.log(\`   - Total rows in Excel: \${plan.length}\`);
+  console.log(\`   - Records to UPDATE: \${updates.length}\`);
+  console.log(\`   - Records to CREATE: \${creates.length}\`);
+
+  console.table(plan.map(r => ({
+    Action: r.result,
+    Room: r.room,
+    Name: r.name,
+    MRN: r.mrn,
+    "Target ID": r.id || "NEW"
+  })));
+
+  console.log("🚀 Executing batch import non-interactively...");
+  let digest;
+  try {
+    const digestResp = await fetch(\`\${api}/contextinfo\`, { method: 'POST', headers: { Accept: accept } });
+    const digestData = await digestResp.json();
+    digest = digestData.FormDigestValue || digestData.d?.GetContextWebInformation?.FormDigestValue;
+  } catch (err) {
+    digest = document.getElementById('__REQUESTDIGEST')?.value || window._spPageContextInfo?.formDigestValue;
+  }
+  
+  if (!digest) {
+    digest = window._spPageContextInfo?.formDigestValue || document.getElementById('__REQUESTDIGEST')?.value;
+  }
+
+  const headers = { 
+    Accept: accept, 
+    'Content-Type': 'application/json;odata=verbose', 
+    'X-RequestDigest': digest 
+  };
+
+  let count = 0;
+  for (let i = 0; i < plan.length; i++) {
+    const r = plan[i];
+    console.log(\`⏳ [\${i+1}/\${plan.length}] Sending \${r.result}: Room \${r.room} - \${r.name}...\`);
+    
+    const body = { __metadata: { type: itemType }, ...getValues(r) };
+    let url = \`\${api}/web/lists/getbytitle('\${encodeURIComponent(LIST_TITLE)}')/items\`;
+    let opts = { method: 'POST', headers, body: JSON.stringify(body) };
+    
+    if (r.result === 'UPDATE') {
+      url += \`(\${r.id})\`;
+      opts = {
+        method: 'POST',
+        headers: { ...headers, 'IF-MATCH': '*', 'X-HTTP-Method': 'MERGE' },
+        body: JSON.stringify(body)
+      };
+    }
+    
+    try {
+      const resp = await fetch(url, opts);
+      if (!resp.ok) {
+        console.error(\`❌ Error importing Room \${r.room} (\${r.name}): \` + await resp.text());
+      } else {
+        count++;
+        console.log(\`✔ [SUCCESS] \${r.result} completed for Room \${r.room} - \${r.name}\`);
+      }
+    } catch(err) {
+      console.error(\`❌ Fetch failed for Room \${r.room} (\${r.name}):\`, err);
+    }
+    await new Promise(res => setTimeout(res, 50));
+  }
+
+  console.log(\`🏁 Batch import complete. Successfully processed \${count} of \${plan.length} records.\`);
+})();`;
+
+        document.getElementById('script-content').value = scriptCode;
+        document.getElementById('script-modal').classList.add('active');
+        document.getElementById('copied-notice').innerText = "Click text box to select all";
+    }
+
+    function closeScriptModal() {
+        document.getElementById('script-modal').classList.remove('active');
+    }
+
+    function copyModalScript() {
+        const textarea = document.getElementById('script-content');
+        textarea.select();
+        document.execCommand('copy');
+        document.getElementById('copied-notice').innerText = "✅ Copied to clipboard!";
+        showToast("Script copied to clipboard!", "success");
+    }
+
+    // Method B: Direct Import (Hosted in SharePoint)
+    async function executeDirectImport() {
+        if (!isSharePoint) {
+            alert("Direct Import is only available when the HTML page is run directly on SharePoint. Use Method A instead.");
+            return;
+        }
+
+        const payload = getImporterPayload();
+        if (payload.rows.length === 0) {
+            alert("No rows to import. Make sure Room, Patient Name, and MRN columns are mapped.");
+            return;
+        }
+
+        const listTitle = document.getElementById('cfg-list-title').value.trim();
+        const sitePath = document.getElementById('cfg-site-path').value.trim();
+        const api = `${location.origin}${sitePath}/_api`;
+        const accept = 'application/json;odata=verbose';
+        
+        // Show log card and clear previous
+        clearUILogs();
+        logToUI(`🚀 Starting direct import to "${listTitle}" at site "${sitePath}"...`, "info");
+        
+        try {
+            document.getElementById('btn-import-direct').disabled = true;
+            document.getElementById('btn-generate').disabled = true;
+            document.getElementById('prog-container').style.display = 'block';
+            document.getElementById('prog-text').style.display = 'block';
+            
+            // Get columns and maps
+            logToUI("🔍 Querying SharePoint list type...", "info");
+            const listResponse = await fetch(`${api}/web/lists/getbytitle('${encodeURIComponent(listTitle)}')?$select=ListItemEntityTypeFullName`, {
+                headers: { Accept: accept }
+            });
+            if (!listResponse.ok) {
+                throw new Error(`Failed to load list details: ${listResponse.status} ${await listResponse.text()}`);
+            }
+            const listData = await listResponse.json();
+            const itemType = listData.d?.ListItemEntityTypeFullName || listData.ListItemEntityTypeFullName;
+            logToUI(`✅ List entity type resolved: ${itemType}`, "success");
+
+            // Fetch current items to match against
+            logToUI("🔍 Loading current list items from SharePoint for matching...", "info");
+            const itemsResp = await fetch(`${api}/web/lists/getbytitle('${encodeURIComponent(listTitle)}')/items?$top=5000`, {
+                headers: { Accept: accept }
+            });
+            if (!itemsResp.ok) {
+                throw new Error(`Failed to load list items: ${itemsResp.status} ${await itemsResp.text()}`);
+            }
+            const itemsData = await itemsResp.json();
+            const existingItems = itemsData.d?.results || itemsData.value || [];
+            logToUI(`✅ Loaded ${existingItems.length} items from SharePoint.`, "success");
+
+            // Map list columns (resolve title to internal names)
+            const norm = v => String(v ?? '').replace(/[^a-z0-9]/gi, '').toLowerCase();
+            const ROOM_UNIT_MAP = [[6801,6840,'GT6'],[7801,7840,'GT7'],[8801,8840,'GT8'],[8901,8936,'WT8'],[2701,2730,'CVICU'],[3201,3240,'MSICU'],[4801,4840,'VTICU'],[5801,5840,'CICU'],[9901,9940,'ACSU']];
+            const roomDigits = v => { const d = String(v ?? '').match(/\d{4}/)?.[0] || ''; const n = Number(d); return ROOM_UNIT_MAP.some(r => n >= r[0] && n <= r[1]) ? d : norm(v); };
+
+            const find = names => sharepointFields.find(f => names.some(n => norm(n) === norm(f.Title) || norm(n) === norm(f.InternalName)));
+            
+            const F = {
+                room: find(['Room', 'Room #', 'Room Number', 'Title']) || sharepointFields.find(f => f.InternalName === 'Title'),
+                unit: find(['Unit']),
+                name: find(['Name', 'Patient Name', 'Patient']),
+                mrn: find(['MRN']),
+                csn: find(['CSN']),
+                attendingMD: find(['AttendingMD', 'Attending MD', 'Attending']),
+                readmissionRiskLevel: find(['⚠️ Readmission Risk Level ⚠️', 'Readmission Risk Level', 'RiskLevel']),
+                edd: find(['EDD']),
+                dispo: find(['Dispo', 'Disposition', 'Discharge Disposition']),
+                age: find(['Age']),
+                fallRisk: find(['Fall Risk', 'Fall Risk Score', 'FallRisk']),
+                weightToday: find(['Weight Today', 'WeightToday', 'Weight']),
+                admitDate: find(['Admit Date', 'AdmitDate']),
+                los: find(['LOS', 'LoS', 'Length of Stay']),
+                gmlos: find(['GMLOS']),
+                braden: find(['Braden', 'Braden Score', 'Braden']),
+                admitReason: find(['Admit Reason', 'AdmitReason', 'Admit Reason/DRG']),
+                appointmentDetail: find(['Appointment Detail', 'Appointment Details', 'AppointmentDetail'])
+            };
+
+            const parseVal = (x, f) => {
+                if (x === undefined || x === null || x === "") return undefined;
+                if (f?.TypeAsString === 'Number' || f?.TypeAsString === 'Integer') {
+                    const n = Number(x);
+                    return Number.isFinite(n) ? n : undefined;
+                }
+                if (f?.TypeAsString === 'DateTime') {
+                    const n = Number(x);
+                    if (Number.isFinite(n) && n > 20000 && n < 70000) {
+                        return new Date(Date.UTC(1899, 11, 30) + n * 86400000).toISOString();
+                    }
+                    try {
+                        const d = new Date(x);
+                        return isNaN(d.getTime()) ? undefined : d.toISOString();
+                    } catch(e) { return undefined; }
+                }
+                return String(x);
+            };
+
+            const getValues = row => {
+                const out = {};
+                for (const k of Object.keys(F)) {
+                    if (F[k]) {
+                        const val = parseVal(row[k], F[k]);
+                        if (val !== undefined) {
+                            out[F[k].InternalName] = val;
+                        }
+                    }
+                }
+                return out;
+            };
+
+            if (!F.room || !F.unit) {
+                throw new Error('Import stopped: SharePoint Room or Unit field was not found. No records were changed.');
+            }
+
+            const same = (spItem, excelRow) => {
+                const spRoom = F.room ? roomDigits(spItem[F.room.InternalName]) : '';
+                const exRoom = roomDigits(excelRow.room);
+                const spName = F.name ? norm(spItem[F.name.InternalName]) : '';
+                const exName = norm(excelRow.name);
+                const spMRN = F.mrn ? norm(spItem[F.mrn.InternalName]) : '';
+                const exMRN = norm(excelRow.mrn);
+                return Boolean(spRoom && exRoom && spName && exName && spMRN && exMRN && spRoom === exRoom && spName === exName && spMRN === exMRN);
+            };
+
+            // Plan imports
+            logToUI("🧩 Matching patients...", "info");
+            const plan = payload.rows.map(r => {
+                const match = existingItems.find(i => same(i, r));
+                if (match) {
+                    return { ...r, result: 'UPDATE', id: match.Id };
+                }
+                return { ...r, result: 'CREATE' };
+            });
+
+            const updates = plan.filter(r => r.result === 'UPDATE');
+            const creates = plan.filter(r => r.result === 'CREATE');
+            
+            logToUI(`📊 Mapped: ${updates.length} updates and ${creates.length} creates.`, "info");
+
+            if (!confirm(`SurgiFlow Authoritative Import Preview\n\nTotal rows: ${plan.length}\nTo Update: ${updates.length} patients\nTo Create (New patients): ${creates.length} patients\n\nProceed with import?`)) {
+                logToUI("⚠️ Direct import cancelled by user.", "warning");
+                resetImportStatus();
+                return;
+            }
+
+            // Get Request Digest
+            logToUI("🔍 Securing form digest...", "info");
+            let requestDigest;
+            try {
+                logToUI("🔍 Fetching fresh form digest from API...", "info");
+                const digestResp = await fetch(`${api}/contextinfo`, {
+                    method: 'POST',
+                    headers: { Accept: accept }
+                });
+                const digestData = await digestResp.json();
+                requestDigest = digestData.FormDigestValue || digestData.d?.GetContextWebInformation?.FormDigestValue;
+            } catch (err) {
+                logToUI("⚠️ API digest fetch failed. Reading from DOM...", "warning");
+                requestDigest = document.getElementById('__REQUESTDIGEST')?.value || window._spPageContextInfo?.formDigestValue;
+            }
+            logToUI("✅ Form digest secured: " + (requestDigest ? "OK" : "FAILED"), "success");
+            
+            const headers = { Accept: accept, 'Content-Type': 'application/json;odata=verbose', 'X-RequestDigest': requestDigest };
+
+            let successCount = 0;
+            let failCount = 0;
+            for (let i = 0; i < plan.length; i++) {
+                const r = plan[i];
+                const pct = Math.round((i / plan.length) * 100);
+                document.getElementById('prog-bar').style.width = `${pct}%`;
+                document.getElementById('prog-text').innerText = `Importing (${i + 1}/${plan.length}): Room ${r.room} - ${r.name}`;
+
+                const body = { __metadata: { type: itemType }, ...getValues(r) };
+                let url = `${api}/web/lists/getbytitle('${encodeURIComponent(listTitle)}')/items`;
+                let opts = { method: 'POST', headers, body: JSON.stringify(body) };
+                
+                if (r.result === 'UPDATE') {
+                    url += `(${r.id})`;
+                    opts = {
+                        method: 'POST',
+                        headers: { ...headers, 'IF-MATCH': '*', 'X-HTTP-Method': 'MERGE' },
+                        body: JSON.stringify(body)
+                    };
+                }
+
+                try {
+                    const resp = await fetch(url, opts);
+                    if (resp.ok) {
+                        successCount++;
+                        logToUI(`✅ [Room ${r.room}] ${r.name} - ${r.result} successful!`, "success");
+                    } else {
+                        failCount++;
+                        const errText = await resp.text();
+                        logToUI(`❌ [Room ${r.room}] ${r.name} - ${r.result} failed: ${errText}`, "error");
+                        console.error(`Error importing ${r.name}:`, errText);
+                    }
+                } catch (e) {
+                    failCount++;
+                    logToUI(`❌ [Room ${r.room}] ${r.name} - Network request failed.`, "error");
+                    console.error("Fetch failed for row: ", r.name, e);
+                }
+                await new Promise(res => setTimeout(res, 50));
+            }
+
+            document.getElementById('prog-bar').style.width = '100%';
+            document.getElementById('prog-text').innerText = `Completed! Successfully imported ${successCount} of ${plan.length} rows.`;
+            logToUI(`🏁 Direct import complete! Successes: ${successCount}, Failures: ${failCount}`, "success");
+            showToast(`Import Complete! Processed ${successCount}/${plan.length} records.`, "success");
+            
+        } catch (err) {
+            console.error("Direct import crashed:", err);
+            logToUI(`💥 Fatal error: ${err.message}`, "error");
+            showToast("A fatal error occurred during direct import. Check log area.", "error");
+        } finally {
+            resetImportStatus();
+        }
+    }
+
+    function resetImportStatus() {
+        document.getElementById('btn-import-direct').disabled = false;
+        document.getElementById('btn-generate').disabled = false;
+    }
+
+    // Toast alert triggers
+    function showToast(message, type = "info") {
+        const toast = document.getElementById('toast-alert');
+        const icon = document.getElementById('toast-icon');
+        const msg = document.getElementById('toast-message');
+        
+        toast.className = 'toast animate-in';
+        if (type === "success") {
+            toast.classList.add('success');
+            icon.innerText = "✅";
+        } else if (type === "error") {
+            toast.classList.add('error');
+            icon.innerText = "❌";
+        } else {
+            icon.innerText = "ℹ️";
+        }
+        
+        msg.innerText = message;
+        toast.classList.add('active');
+        
+        setTimeout(() => {
+            toast.classList.remove('active');
+        }, 4000);
+    }
+
+    // UI Log Helpers
+    function logToUI(msg, type = "info") {
+        const card = document.getElementById('log-card');
+        const area = document.getElementById('ui-log-area');
+        if (!area) return;
+        
+        card.style.display = 'block';
+        
+        let color = "#38bdf8"; // blue (info)
+        if (type === "success") color = "#10b981"; // green
+        if (type === "error") color = "#ef4444"; // red
+        if (type === "warning") color = "#f59e0b"; // yellow
+        
+        const time = new Date().toLocaleTimeString();
+        area.innerHTML += `<span style="color: #6b7280;">[${time}]</span> <span style="color: ${color};">${msg}</span>\n`;
+        area.scrollTop = area.scrollHeight;
+    }
+
+    function clearUILogs() {
+        const area = document.getElementById('ui-log-area');
+        if (area) area.innerHTML = "";
+    }
+</script>
+</body>
+</html>

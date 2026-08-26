@@ -1,0 +1,540 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/sp/v2/row-formatting.schema.json",
+  "hideSelection": true,
+  "hideListHeader": true,
+  "groupProps": {
+    "headerFormatter": {
+      "elmType": "div",
+      "style": {
+        "display": "flex",
+        "align-items": "center",
+        "gap": "10px",
+        "margin": "14px 16px 6px"
+      },
+      "children": [
+        {
+          "elmType": "span",
+          "style": {
+            "color": "#fff",
+            "font-size": "12px",
+            "font-weight": "700",
+            "padding": "4px 14px",
+            "border-radius": "4px",
+            "letter-spacing": "0.3px",
+            "background-color": "=if(@group.fieldValue == 'GT8 CVPCU', '#1a3a6b', if(@group.fieldValue == 'GT7 CARDIAC PCU' || @group.fieldValue == 'GT7 Cardiac PCU', '#1a6b3a', if(@group.fieldValue == 'GT6 CPPCU', '#6b1a3a', '#6b4a1a')))"
+          },
+          "txtContent": "@group.fieldValue"
+        },
+        {
+          "elmType": "span",
+          "style": {
+            "font-size": "11px",
+            "color": "#475569",
+            "font-weight": "600"
+          },
+          "txtContent": "=@group.count + ' patients shown'"
+        }
+      ]
+    }
+  },
+  "rowFormatter": {
+    "elmType": "div",
+    "style": {
+      "display": "flex",
+      "flex-direction": "column",
+      "width": "100%",
+      "box-sizing": "border-box"
+    },
+    "children": [
+      {
+        "elmType": "div",
+        "style": {
+          "display": "=if(@rowIndex == 0, 'flex', 'none')",
+          "flex-direction": "column",
+          "font-family": "Segoe UI, Arial, sans-serif",
+          "background-color": "#f0f2f5",
+          "width": "100%",
+          "box-sizing": "border-box"
+        },
+        "children": [
+          {
+            "elmType": "div",
+            "style": {
+              "background": "linear-gradient(135deg, #1a1a2e 0%, #16213e 100%)",
+              "color": "#ffffff",
+              "padding": "14px 24px 12px",
+              "display": "flex",
+              "justify-content": "space-between",
+              "align-items": "center",
+              "border-bottom": "3px solid #0f3460",
+              "width": "100%",
+              "box-sizing": "border-box"
+            },
+            "children": [
+              {
+                "elmType": "div",
+                "children": [
+                  {
+                    "elmType": "h1",
+                    "style": {
+                      "margin": "0",
+                      "font-size": "18px",
+                      "font-weight": "700",
+                      "color": "#e2e8f0"
+                    },
+                    "txtContent": "Cardiac Hospital Director View — All Units"
+                  }
+                ]
+              },
+              {
+                "elmType": "div",
+                "style": {
+                  "text-align": "right",
+                  "font-size": "11px",
+                  "color": "#94a3b8"
+                },
+                "children": [
+                  {
+                    "elmType": "span",
+                    "txtContent": "Consolidated Live View | "
+                  },
+                  {
+                    "elmType": "span",
+                    "txtContent": "=@now"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "elmType": "div",
+            "style": {
+              "background-color": "#ffffff",
+              "border-bottom": "1px solid #e2e8f0",
+              "padding": "10px 24px",
+              "display": "flex",
+              "gap": "10px",
+              "align-items": "center",
+              "width": "100%",
+              "box-sizing": "border-box"
+            },
+            "children": [
+              {
+                "elmType": "div",
+                "style": {
+                  "border-left": "4px solid #2563eb",
+                  "background-color": "#f8fafc",
+                  "padding": "8px 14px",
+                  "min-width": "130px",
+                  "border-radius": "6px",
+                  "box-sizing": "border-box"
+                },
+                "children": [
+                  {
+                    "elmType": "div",
+                    "style": {
+                      "font-size": "10px",
+                      "font-weight": "700",
+                      "color": "#64748b",
+                      "text-transform": "uppercase"
+                    },
+                    "txtContent": "GT8 CVPCU"
+                  },
+                  {
+                    "elmType": "div",
+                    "style": {
+                      "font-size": "16px",
+                      "font-weight": "800",
+                      "color": "#1a1a2e"
+                    },
+                    "txtContent": "Active Patients"
+                  }
+                ]
+              },
+              {
+                "elmType": "div",
+                "style": {
+                  "border-left": "4px solid #16a34a",
+                  "background-color": "#f8fafc",
+                  "padding": "8px 14px",
+                  "min-width": "130px",
+                  "border-radius": "6px",
+                  "box-sizing": "border-box"
+                },
+                "children": [
+                  {
+                    "elmType": "div",
+                    "style": {
+                      "font-size": "10px",
+                      "font-weight": "700",
+                      "color": "#64748b",
+                      "text-transform": "uppercase"
+                    },
+                    "txtContent": "GT7 CARDIAC PCU"
+                  },
+                  {
+                    "elmType": "div",
+                    "style": {
+                      "font-size": "16px",
+                      "font-weight": "800",
+                      "color": "#1a1a2e"
+                    },
+                    "txtContent": "Active Patients"
+                  }
+                ]
+              },
+              {
+                "elmType": "div",
+                "style": {
+                  "border-left": "4px solid #9333ea",
+                  "background-color": "#f8fafc",
+                  "padding": "8px 14px",
+                  "min-width": "130px",
+                  "border-radius": "6px",
+                  "box-sizing": "border-box"
+                },
+                "children": [
+                  {
+                    "elmType": "div",
+                    "style": {
+                      "font-size": "10px",
+                      "font-weight": "700",
+                      "color": "#64748b",
+                      "text-transform": "uppercase"
+                    },
+                    "txtContent": "GT6 CPPCU"
+                  },
+                  {
+                    "elmType": "div",
+                    "style": {
+                      "font-size": "16px",
+                      "font-weight": "800",
+                      "color": "#1a1a2e"
+                    },
+                    "txtContent": "Active Patients"
+                  }
+                ]
+              },
+              {
+                "elmType": "div",
+                "style": {
+                  "border-left": "4px solid #ea580c",
+                  "background-color": "#f8fafc",
+                  "padding": "8px 14px",
+                  "min-width": "130px",
+                  "border-radius": "6px",
+                  "box-sizing": "border-box"
+                },
+                "children": [
+                  {
+                    "elmType": "div",
+                    "style": {
+                      "font-size": "10px",
+                      "font-weight": "700",
+                      "color": "#64748b",
+                      "text-transform": "uppercase"
+                    },
+                    "txtContent": "WT8 STPCU"
+                  },
+                  {
+                    "elmType": "div",
+                    "style": {
+                      "font-size": "16px",
+                      "font-weight": "800",
+                      "color": "#1a1a2e"
+                    },
+                    "txtContent": "Active Patients"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "elmType": "div",
+            "style": {
+              "display": "flex",
+              "background-color": "#1e293b",
+              "color": "#e2e8f0",
+              "font-weight": "700",
+              "text-transform": "uppercase",
+              "font-size": "10px",
+              "letter-spacing": "0.4px",
+              "padding": "10px 10px 10px 10px",
+              "width": "100%",
+              "box-sizing": "border-box",
+              "border-bottom": "2px solid #334155"
+            },
+            "children": [
+              { "elmType": "div", "style": { "width": "4.5%", "padding-right": "8px", "box-sizing": "border-box" }, "txtContent": "Room" },
+              { "elmType": "div", "style": { "width": "10%", "padding-right": "8px", "box-sizing": "border-box" }, "txtContent": "Name" },
+              { "elmType": "div", "style": { "width": "8%", "padding-right": "8px", "box-sizing": "border-box" }, "txtContent": "MRN" },
+              { "elmType": "div", "style": { "width": "5%", "padding-right": "8px", "box-sizing": "border-box" }, "txtContent": "Svc" },
+              { "elmType": "div", "style": { "width": "4%", "padding-right": "8px", "box-sizing": "border-box" }, "txtContent": "LOS" },
+              { "elmType": "div", "style": { "width": "20%", "padding-right": "8px", "box-sizing": "border-box" }, "txtContent": "Clinical Needs" },
+              { "elmType": "div", "style": { "width": "14%", "padding-right": "8px", "box-sizing": "border-box" }, "txtContent": "CM Notes / DC Barriers" },
+              { "elmType": "div", "style": { "width": "8%", "padding-right": "8px", "box-sizing": "border-box" }, "txtContent": "Surgery Today" },
+              { "elmType": "div", "style": { "width": "7.5%", "padding-right": "8px", "box-sizing": "border-box" }, "txtContent": "Misaligned Dispo" },
+              { "elmType": "div", "style": { "width": "9%", "padding-right": "8px", "box-sizing": "border-box" }, "txtContent": "Dispo" },
+              { "elmType": "div", "style": { "width": "5%", "padding-right": "8px", "box-sizing": "border-box" }, "txtContent": "EDD" },
+              { "elmType": "div", "style": { "width": "6%", "padding-right": "8px", "box-sizing": "border-box" }, "txtContent": "Attending" }
+            ]
+          }
+        ]
+      },
+      {
+        "elmType": "div",
+        "style": {
+          "display": "flex",
+          "align-items": "stretch",
+          "padding": "6px 10px",
+          "border-bottom": "1px solid #e9ecef",
+          "font-size": "11px",
+          "line-height": "1.3",
+          "width": "100%",
+          "min-width": "100%",
+          "box-sizing": "border-box",
+          "background-color": "=if([$EDD] != '', if(toDateString([$EDD]) == toDateString(@now), '#dcfce7', if(Number([$EDD]) < Number(@now), '#fef2f2', '#ffffff')), '#ffffff')",
+          "border-left": "=if([$EDD] != '', if(toDateString([$EDD]) == toDateString(@now), '3px solid #16a34a', if(Number([$EDD]) < Number(@now), '3px solid #dc2626', '3px solid #e2e8f0')), '3px solid #e2e8f0')",
+          "border-right": "=if(Number([$LOS]) >= 14, '4px solid #7c3aed', '1px solid #f1f5f9')",
+          "box-shadow": "=if([$IVMeds] != '', 'inset 4px 0 0 0 #f97316', 'none')"
+        },
+        "children": [
+          {
+            "elmType": "div",
+            "style": {
+              "width": "4.5%",
+              "flex-shrink": "0",
+              "font-weight": "800",
+              "color": "#0f172a",
+              "overflow": "hidden",
+              "text-overflow": "ellipsis",
+              "white-space": "nowrap",
+              "padding-right": "8px",
+              "box-sizing": "border-box"
+            },
+            "txtContent": "=if([$Room] != '', [$Room], '–')"
+          },
+          {
+            "elmType": "div",
+            "style": {
+              "width": "10%",
+              "flex-shrink": "0",
+              "font-weight": "700",
+              "color": "#1e3a8a",
+              "overflow": "hidden",
+              "text-overflow": "ellipsis",
+              "white-space": "nowrap",
+              "padding-right": "8px",
+              "box-sizing": "border-box"
+            },
+            "txtContent": "=if([$Name] != '', [$Name], '–')"
+          },
+          {
+            "elmType": "div",
+            "style": {
+              "width": "8%",
+              "flex-shrink": "0",
+              "color": "#475569",
+              "overflow": "hidden",
+              "text-overflow": "ellipsis",
+              "white-space": "nowrap",
+              "padding-right": "8px",
+              "box-sizing": "border-box"
+            },
+            "txtContent": "=if([$MRN] != '', [$MRN], '–')"
+          },
+          {
+            "elmType": "div",
+            "style": {
+              "width": "5%",
+              "flex-shrink": "0",
+              "font-weight": "600",
+              "overflow": "hidden",
+              "text-overflow": "ellipsis",
+              "white-space": "nowrap",
+              "padding-right": "8px",
+              "box-sizing": "border-box"
+            },
+            "txtContent": "=if([$ServiceLine] != '', [$ServiceLine], '–')"
+          },
+          {
+            "elmType": "div",
+            "style": {
+              "width": "4%",
+              "flex-shrink": "0",
+              "font-weight": "=if(Number([$LOS]) >= 14, '800', '400')",
+              "color": "=if(Number([$LOS]) >= 14, '#7c3aed', '#1a1a2e')",
+              "overflow": "hidden",
+              "text-overflow": "ellipsis",
+              "white-space": "nowrap",
+              "padding-right": "8px",
+              "box-sizing": "border-box"
+            },
+            "txtContent": "=if([$LOS] != '', [$LOS], '–')"
+          },
+          {
+            "elmType": "div",
+            "style": {
+              "width": "20%",
+              "flex-shrink": "0",
+              "display": "flex",
+              "flex-direction": "column",
+              "align-items": "flex-start",
+              "padding-right": "8px",
+              "box-sizing": "border-box"
+            },
+            "children": [
+              {
+                "elmType": "span",
+                "txtContent": "=if([$ClinicalNeeds] != '', [$ClinicalNeeds], '–')"
+              },
+              {
+                "elmType": "div",
+                "style": {
+                  "display": "flex",
+                  "flex-wrap": "wrap",
+                  "gap": "4px",
+                  "margin-top": "4px",
+                  "box-sizing": "border-box"
+                },
+                "children": [
+                  {
+                    "elmType": "span",
+                    "style": {
+                      "display": "=if([$IVMeds] != '' && [$IVMeds] != '–' && [$IVMeds] != 'None' && [$IVMeds] != 'none', 'inline-block', 'none')",
+                      "background-color": "#fff7ed",
+                      "color": "#c2410c",
+                      "border": "1px solid #fed7aa",
+                      "font-size": "9px",
+                      "padding": "1px 4px",
+                      "border-radius": "3px",
+                      "font-weight": "700"
+                    },
+                    "txtContent": "='💊 IV: ' + [$IVMeds]"
+                  },
+                  {
+                    "elmType": "span",
+                    "style": {
+                      "display": "=if([$ChestTube] != '' && [$ChestTube] != '–' && [$ChestTube] != 'NONE or Dcd' && [$ChestTube] != 'none', 'inline-block', 'none')",
+                      "background-color": "#eff6ff",
+                      "color": "#1d4ed8",
+                      "border": "1px solid #93c5fd",
+                      "font-size": "9px",
+                      "padding": "1px 4px",
+                      "border-radius": "3px",
+                      "font-weight": "700"
+                    },
+                    "txtContent": "='🫁 Tubes: ' + [$ChestTube]"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "elmType": "div",
+            "style": {
+              "width": "14%",
+              "flex-shrink": "0",
+              "padding-right": "8px",
+              "box-sizing": "border-box"
+            },
+            "txtContent": "=if([$NonClinicalDCBarriers] != '', [$NonClinicalDCBarriers], if([$CommentsUpdates] != '', [$CommentsUpdates], '–'))"
+          },
+          {
+            "elmType": "div",
+            "style": {
+              "width": "8%",
+              "flex-shrink": "0",
+              "overflow": "hidden",
+              "text-overflow": "ellipsis",
+              "white-space": "nowrap",
+              "padding-right": "8px",
+              "box-sizing": "border-box",
+              "font-weight": "=if([$SurgeryToday] != '', '700', '400')",
+              "color": "=if([$SurgeryToday] != '', '#7c3aed', '#1a1a2e')"
+            },
+            "txtContent": "=if([$SurgeryToday] != '', [$SurgeryToday], if([$SxDate], if(Number([$SxDate]) > Number(@now), 'PRE-OP', 'POD ' + toString(floor((Number(@now) - Number([$SxDate])) / 86400000))), '–'))"
+          },
+          {
+            "elmType": "div",
+            "style": {
+              "width": "7.5%",
+              "flex-shrink": "0",
+              "overflow": "hidden",
+              "text-overflow": "ellipsis",
+              "white-space": "nowrap",
+              "padding-right": "8px",
+              "box-sizing": "border-box"
+            },
+            "txtContent": "=if([$MisalignedDispo] != '', [$MisalignedDispo], '–')"
+          },
+          {
+            "elmType": "div",
+            "style": {
+              "width": "9%",
+              "flex-shrink": "0",
+              "display": "flex",
+              "align-items": "center",
+              "padding-right": "8px",
+              "box-sizing": "border-box"
+            },
+            "children": [
+              {
+                "elmType": "span",
+                "style": {
+                  "display": "=if([$Dispo] != '' && [$Dispo] != '–', 'inline-block', 'none')",
+                  "padding": "3px 8px",
+                  "border-radius": "12px",
+                  "font-weight": "700",
+                  "font-size": "9px",
+                  "text-align": "center",
+                  "background-color": "=if(indexOf([$Dispo], 'SNF') >= 0, '#f3e8ff', if(indexOf([$Dispo], 'IPR') >= 0, '#e0f2fe', if(indexOf([$Dispo], 'Home') >= 0 || indexOf([$Dispo], 'HHC') >= 0, '#dcfce7', '#f1f5f9')))",
+                  "color": "=if(indexOf([$Dispo], 'SNF') >= 0, '#7e22ce', if(indexOf([$Dispo], 'IPR') >= 0, '#0369a1', if(indexOf([$Dispo], 'Home') >= 0 || indexOf([$Dispo], 'HHC') >= 0, '#15803d', '#475569')))",
+                  "border": "=if(indexOf([$Dispo], 'SNF') >= 0, '1px solid #d8b4fe', if(indexOf([$Dispo], 'IPR') >= 0, '1px solid #7dd3fc', if(indexOf([$Dispo], 'Home') >= 0 || indexOf([$Dispo], 'HHC') >= 0, '1px solid #86efac', '1px solid #cbd5e1')))",
+                  "box-sizing": "border-box"
+                },
+                "txtContent": "[$Dispo]"
+              },
+              {
+                "elmType": "span",
+                "style": {
+                  "display": "=if([$Dispo] == '' || [$Dispo] == '–', 'inline-block', 'none')"
+                },
+                "txtContent": "–"
+              }
+            ]
+          },
+          {
+            "elmType": "div",
+            "style": {
+              "width": "5%",
+              "flex-shrink": "0",
+              "overflow": "hidden",
+              "text-overflow": "ellipsis",
+              "white-space": "nowrap",
+              "padding-right": "8px",
+              "box-sizing": "border-box",
+              "font-weight": "=if([$EDD] != '' && (toDateString([$EDD]) == toDateString(@now) || Number([$EDD]) < Number(@now)), '800', '400')",
+              "color": "=if([$EDD] != '', if(toDateString([$EDD]) == toDateString(@now), '#16a34a', if(Number([$EDD]) < Number(@now), '#dc2626', '#1a1a2e')), '#1a1a2e')"
+            },
+            "txtContent": "=if([$EDD] != '', toString(getMonth([$EDD]) + 1) + '/' + toString(getDate([$EDD])), '–')"
+          },
+          {
+            "elmType": "div",
+            "style": {
+              "width": "6%",
+              "flex-shrink": "0",
+              "overflow": "hidden",
+              "text-overflow": "ellipsis",
+              "white-space": "nowrap",
+              "padding-right": "8px",
+              "box-sizing": "border-box",
+              "color": "#475569"
+            },
+            "txtContent": "=if([$AttendingMD] != '', [$AttendingMD], '–')"
+          }
+        ]
+      }
+    ]
+  }
+}

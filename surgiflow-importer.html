@@ -1,0 +1,1910 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SurgiFlow Bulk Importer & Schema Migrator</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700;800&display=swap"
+        rel="stylesheet">
+    <!-- SheetJS Library for parsing Excel -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+
+    <style>
+        :root {
+            --bg-color: #0c0f17;
+            --card-bg: rgba(18, 24, 38, 0.65);
+            --card-border: rgba(255, 255, 255, 0.09);
+            --card-border-glow: rgba(99, 102, 241, 0.25);
+            --text-primary: #f3f4f6;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+            --primary: #6366f1;
+            --primary-hover: #4f46e5;
+            --primary-glow: rgba(99, 102, 241, 0.4);
+            --accent: #10b981;
+            --accent-hover: #059669;
+            --accent-glow: rgba(16, 185, 129, 0.35);
+            --cyan: #06b6d4;
+            --danger: #ef4444;
+            --warning: #f59e0b;
+            --border-radius: 14px;
+            --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            background-image:
+                radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.15) 0px, transparent 50%),
+                radial-gradient(at 100% 0%, rgba(6, 182, 212, 0.12) 0px, transparent 45%),
+                radial-gradient(at 50% 100%, rgba(16, 185, 129, 0.08) 0px, transparent 50%);
+            background-attachment: fixed;
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            min-height: 100vh;
+            line-height: 1.5;
+            padding: 1.75rem;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        .container {
+            max-width: 1520px;
+            margin: 0 auto;
+        }
+
+        /* Header section */
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1.75rem;
+            border-bottom: 1px solid var(--card-border);
+            padding-bottom: 1.25rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .logo-icon {
+            width: 46px;
+            height: 46px;
+            background: linear-gradient(135deg, var(--primary), var(--cyan));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 800;
+            font-size: 1.5rem;
+            box-shadow: 0 0 20px var(--primary-glow);
+            color: #fff;
+        }
+
+        .logo-title h1 {
+            font-size: 1.75rem;
+            background: linear-gradient(to right, #ffffff, #a5b4fc, #67e8f9);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .logo-title p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .host-badge {
+            background-color: rgba(99, 102, 241, 0.12);
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            color: #c7d2fe;
+            padding: 6px 14px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .host-badge::before {
+            content: "";
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background-color: var(--primary);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--primary);
+        }
+
+        .host-badge.sharepoint-detected {
+            background-color: rgba(16, 185, 129, 0.12);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            color: #d1fae5;
+        }
+
+        .host-badge.sharepoint-detected::before {
+            background-color: var(--accent);
+            box-shadow: 0 0 10px var(--accent);
+        }
+
+        /* Glassmorphism Card Style */
+        .glass-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: var(--border-radius);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.35);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 1.25rem 1.5rem;
+            margin-bottom: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .glass-card:hover {
+            border-color: var(--card-border-glow);
+        }
+
+        .card-header {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .card-title {
+            font-size: 1.15rem;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Preset Target Switcher */
+        .preset-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 1rem;
+        }
+
+        .preset-btn {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-primary);
+            padding: 8px 14px;
+            border-radius: 8px;
+            font-size: 0.83rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .preset-btn:hover {
+            background: rgba(99, 102, 241, 0.15);
+            border-color: var(--primary);
+            color: #fff;
+        }
+
+        .preset-btn.active {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.3), rgba(6, 182, 212, 0.25));
+            border-color: #818cf8;
+            color: #ffffff;
+            box-shadow: 0 0 12px rgba(99, 102, 241, 0.25);
+        }
+
+        /* Dual Drop Zones */
+        .dropzone-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.25rem;
+            margin-bottom: 1rem;
+        }
+
+        @media (max-width: 900px) {
+            .dropzone-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .upload-zone {
+            border: 2px dashed rgba(99, 102, 241, 0.25);
+            border-radius: 12px;
+            padding: 1.5rem 1.25rem;
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
+            background: rgba(99, 102, 241, 0.02);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 160px;
+        }
+
+        .upload-zone:hover,
+        .upload-zone.dragover {
+            border-color: var(--primary);
+            background: rgba(99, 102, 241, 0.06);
+            box-shadow: inset 0 0 20px rgba(99, 102, 241, 0.08);
+        }
+
+        .upload-zone.loaded {
+            border-color: var(--accent);
+            background: rgba(16, 185, 129, 0.04);
+        }
+
+        .upload-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            display: inline-block;
+        }
+
+        .upload-text {
+            font-size: 0.95rem;
+            color: var(--text-primary);
+            font-weight: 600;
+            margin-bottom: 0.2rem;
+        }
+
+        .upload-hint {
+            font-size: 0.78rem;
+            color: var(--text-secondary);
+        }
+
+        .file-status-badge {
+            margin-top: 8px;
+            font-size: 0.75rem;
+            padding: 4px 10px;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.06);
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .upload-zone.loaded .file-status-badge {
+            background: rgba(16, 185, 129, 0.15);
+            color: #6ee7b7;
+            border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+
+        input[type="file"] {
+            display: none;
+        }
+
+        /* Mapping Config Section */
+        .mapping-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 0.85rem;
+            margin-top: 0.75rem;
+        }
+
+        .mapping-item {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 8px;
+            padding: 8px 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .mapping-label {
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: #a5b4fc;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .mapping-label span.req {
+            color: var(--danger);
+            font-size: 0.72rem;
+        }
+
+        .mapping-select {
+            background: #141926;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-primary);
+            padding: 6px 10px;
+            border-radius: 6px;
+            font-size: 0.82rem;
+            outline: none;
+            width: 100%;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .mapping-select:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 8px rgba(99, 102, 241, 0.2);
+        }
+
+        /* Filter Tabs */
+        .filter-tabs {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+            margin-bottom: 0.75rem;
+        }
+
+        .tab-btn {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            color: var(--text-secondary);
+            padding: 5px 12px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .tab-btn:hover {
+            color: #fff;
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .tab-btn.active {
+            background: rgba(99, 102, 241, 0.2);
+            border-color: var(--primary);
+            color: #c7d2fe;
+            font-weight: 600;
+        }
+
+        /* Table Area Styles */
+        .table-controls {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 0.75rem;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .search-wrapper {
+            position: relative;
+            min-width: 280px;
+        }
+
+        .search-input {
+            background: #141926;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 6px;
+            color: var(--text-primary);
+            padding: 7px 12px;
+            font-size: 0.83rem;
+            width: 100%;
+            outline: none;
+        }
+
+        .search-input:focus {
+            border-color: var(--primary);
+        }
+
+        .table-stats {
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+        }
+
+        .table-container {
+            overflow-x: auto;
+            max-height: 480px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 8px;
+            background: rgba(0, 0, 0, 0.25);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.82rem;
+            text-align: left;
+        }
+
+        thead {
+            position: sticky;
+            top: 0;
+            background-color: #121827;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+            z-index: 10;
+        }
+
+        th {
+            padding: 10px 14px;
+            font-weight: 600;
+            color: #a5b4fc;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            white-space: nowrap;
+        }
+
+        tr {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+            transition: var(--transition);
+        }
+
+        tr:hover {
+            background-color: rgba(255, 255, 255, 0.03);
+        }
+
+        td {
+            padding: 8px 14px;
+            color: var(--text-primary);
+            vertical-align: middle;
+        }
+
+        td.room-cell {
+            font-weight: 700;
+            color: #fff;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .unit-pill {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.72rem;
+            font-weight: 700;
+            background: rgba(99, 102, 241, 0.15);
+            color: #a5b4fc;
+            border: 1px solid rgba(99, 102, 241, 0.3);
+        }
+
+        .unit-pill.icu {
+            background: rgba(239, 68, 68, 0.15);
+            color: #fca5a5;
+            border-color: rgba(239, 68, 68, 0.3);
+        }
+
+        .risk-pill {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.72rem;
+            font-weight: 600;
+        }
+
+        .risk-high { background: rgba(239, 68, 68, 0.2); color: #fca5a5; border: 1px solid rgba(239, 68, 68, 0.4); }
+        .risk-med { background: rgba(245, 158, 11, 0.2); color: #fcd34d; border: 1px solid rgba(245, 158, 11, 0.4); }
+        .risk-low { background: rgba(16, 185, 129, 0.2); color: #86efac; border: 1px solid rgba(16, 185, 129, 0.4); }
+
+        .lab-badge {
+            font-size: 0.75rem;
+            background: rgba(6, 182, 212, 0.1);
+            color: #67e8f9;
+            padding: 2px 6px;
+            border-radius: 4px;
+            display: inline-block;
+            margin-right: 4px;
+            margin-bottom: 2px;
+            border: 1px solid rgba(6, 182, 212, 0.2);
+            white-space: nowrap;
+        }
+
+        /* Editable appointment cells */
+        .appt-editor {
+            width: 100%;
+            background: rgba(99, 102, 241, 0.04);
+            border: 1px dashed rgba(99, 102, 241, 0.25);
+            border-radius: 6px;
+            color: #dbeafe;
+            padding: 5px 8px;
+            font-size: 0.78rem;
+            outline: none;
+            resize: vertical;
+            min-width: 240px;
+            min-height: 42px;
+            font-family: inherit;
+        }
+
+        .appt-editor:focus {
+            background: rgba(99, 102, 241, 0.1);
+            border-color: var(--primary);
+            border-style: solid;
+        }
+
+        /* Actions Bar */
+        .actions-bar {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 0.75rem;
+            margin-top: 1.25rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 600;
+            font-size: 0.9rem;
+            padding: 9px 18px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition);
+        }
+
+        .btn-muted {
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-primary);
+        }
+
+        .btn-muted:hover:not(:disabled) {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: #ffffff;
+            box-shadow: 0 4px 14px var(--primary-glow);
+        }
+
+        .btn-primary:hover:not(:disabled) {
+            background-color: var(--primary-hover);
+            box-shadow: 0 6px 20px var(--primary-glow);
+            transform: translateY(-1px);
+        }
+
+        .btn-accent {
+            background-color: var(--accent);
+            color: #ffffff;
+            box-shadow: 0 4px 14px var(--accent-glow);
+        }
+
+        .btn-accent:hover:not(:disabled) {
+            background-color: var(--accent-hover);
+            box-shadow: 0 6px 20px var(--accent-glow);
+            transform: translateY(-1px);
+        }
+
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            box-shadow: none !important;
+            transform: none !important;
+        }
+
+        /* Script Output Modal / Panel */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(5px);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: var(--transition);
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .modal {
+            background: #0f1422;
+            border: 1px solid var(--card-border-glow);
+            border-radius: var(--border-radius);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+            width: 92%;
+            max-width: 780px;
+            padding: 1.5rem;
+            position: relative;
+            transform: scale(0.96);
+            transition: var(--transition);
+        }
+
+        .modal-overlay.active .modal {
+            transform: scale(1);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1.25rem;
+            right: 1.25rem;
+            background: transparent;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 1.25rem;
+            cursor: pointer;
+        }
+
+        .script-area {
+            background: #080b12;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 8px;
+            color: #38bdf8;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.8rem;
+            padding: 12px;
+            width: 100%;
+            height: 260px;
+            outline: none;
+            resize: none;
+            white-space: pre;
+            overflow: auto;
+            margin: 10px 0;
+        }
+
+        .instruction-box {
+            background: rgba(99, 102, 241, 0.08);
+            border-left: 4px solid var(--primary);
+            padding: 10px 14px;
+            border-radius: 0 8px 8px 0;
+            font-size: 0.82rem;
+            margin-bottom: 0.75rem;
+            color: #c7d2fe;
+        }
+
+        /* Progress Bar */
+        .progress-container {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.06);
+            border-radius: 10px;
+            height: 10px;
+            overflow: hidden;
+            margin-top: 1rem;
+            display: none;
+        }
+
+        .progress-bar {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            transition: width 0.1s ease;
+        }
+
+        .progress-text {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            text-align: center;
+            margin-top: 4px;
+            display: none;
+        }
+
+        /* Toast notifications */
+        .toast {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: #1e293b;
+            border-left: 4px solid var(--primary);
+            padding: 12px 20px;
+            border-radius: 6px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+            color: var(--text-primary);
+            font-size: 0.85rem;
+            z-index: 1000;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: var(--transition);
+            pointer-events: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .toast.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .toast.success { border-left-color: var(--accent); }
+        .toast.error { border-left-color: var(--danger); }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <header>
+            <div class="logo-area">
+                <div class="logo-icon">SF</div>
+                <div class="logo-title">
+                    <h1>SurgiFlow Bulk Importer & Schema Migrator</h1>
+                    <p>Dual Epic EHR Ingestion → SurgiFlow Master & Unit Lists</p>
+                </div>
+            </div>
+            <div id="host-badge" class="host-badge">
+                Checking Environment...
+            </div>
+        </header>
+
+        <!-- Target Destination Selector & Settings -->
+        <div class="glass-card">
+            <div class="card-header">
+                <h3 class="card-title">🎯 1. Target SharePoint List Destination</h3>
+                <span style="font-size: 0.8rem; color: var(--text-secondary);">Select the list you are currently updating</span>
+            </div>
+
+            <!-- Quick Presets -->
+            <div class="preset-grid" id="preset-buttons">
+                <button class="preset-btn active" onclick="selectPreset('MASTER')">🌐 SurgiFlow Master (All Units & ICUs)</button>
+                <button class="preset-btn" onclick="selectPreset('GT6')">🫀 GT6 CPPCU (6801–6840)</button>
+                <button class="preset-btn" onclick="selectPreset('GT7')">💓 GT7 CPCU (7801–7840)</button>
+                <button class="preset-btn" onclick="selectPreset('GT8')">🩺 GT8 CVPCU (8801–8840)</button>
+                <button class="preset-btn" onclick="selectPreset('WT8')">🫁 WT8 STPCU (8901–8936)</button>
+            </div>
+
+            <!-- Detailed Configuration -->
+            <div style="display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; background: rgba(0,0,0,0.2); padding: 10px 14px; border-radius: 8px;">
+                <div style="display: flex; align-items: center; gap: 6px; flex: 1.5; min-width: 260px;">
+                    <span style="font-size: 0.78rem; color: var(--text-secondary); white-space: nowrap;">Site Path:</span>
+                    <input type="text" id="cfg-site-path" value="/teams/SurgiFlow" class="search-input" style="height: 32px; font-size: 0.8rem; padding: 4px 8px;">
+                </div>
+                <div style="display: flex; align-items: center; gap: 6px; flex: 1.2; min-width: 220px;">
+                    <span style="font-size: 0.78rem; color: var(--text-secondary); white-space: nowrap;">List Title:</span>
+                    <input type="text" id="cfg-list-title" value="SurgiFlow Master" class="search-input" style="height: 32px; font-size: 0.8rem; padding: 4px 8px;">
+                </div>
+                <div style="display: flex; align-items: center; gap: 6px; min-width: 140px;">
+                    <span style="font-size: 0.78rem; color: var(--text-secondary); white-space: nowrap;" title="Rate limit delay per record">⏱️ Rate Delay:</span>
+                    <select id="cfg-rate-delay" class="mapping-select" style="height: 32px; font-size: 0.8rem; padding: 2px 6px; width: 110px;">
+                        <option value="200">200 ms (Fast)</option>
+                        <option value="450" selected>450 ms (Normal)</option>
+                        <option value="1000">1.0s (Steady)</option>
+                    </select>
+                </div>
+                <div style="display: flex; align-items: center; gap: 6px; min-width: 140px;">
+                    <span style="font-size: 0.78rem; color: var(--text-secondary); white-space: nowrap;" title="Pause dialog every N records">⏸️ Pause Every:</span>
+                    <select id="cfg-batch-pause" class="mapping-select" style="height: 32px; font-size: 0.8rem; padding: 2px 6px; width: 110px;">
+                        <option value="0">Continuous</option>
+                        <option value="25" selected>Every 25 items</option>
+                        <option value="50">Every 50 items</option>
+                    </select>
+                </div>
+                <button class="btn btn-muted" style="padding: 5px 12px; font-size: 0.8rem; height: 32px;" onclick="refreshSharePointConfig()">Reload Schema</button>
+            </div>
+        </div>
+
+        <!-- Dual Drag-and-Drop Zones -->
+        <div class="glass-card">
+            <div class="card-header">
+                <h3 class="card-title">📥 2. Load Epic EHR Source Files</h3>
+                <span style="font-size: 0.8rem; color: var(--text-secondary);">Drop both reports together or upload either individually</span>
+            </div>
+
+            <div class="dropzone-container">
+                <!-- Drop Zone 1: Census / Readmissions -->
+                <div class="upload-zone" id="drop-zone-1" onclick="document.getElementById('file-input-1').click()">
+                    <span class="upload-icon">📋</span>
+                    <p class="upload-text">Report 1: Census / Readmissions</p>
+                    <p class="upload-hint">Drag & drop <code>SURGIFLOW...xlsx</code> (Notes, Attending, EDD, LoS, Dispo)</p>
+                    <div class="file-status-badge" id="status-badge-1">No file loaded</div>
+                    <input type="file" id="file-input-1" accept=".xlsx, .xls, .csv">
+                </div>
+
+                <!-- Drop Zone 2: Labs, Vitals & Scores -->
+                <div class="upload-zone" id="drop-zone-2" onclick="document.getElementById('file-input-2').click()">
+                    <span class="upload-icon">🧪</span>
+                    <p class="upload-text">Report 2: Labs, Weights & Scores</p>
+                    <p class="upload-hint">Drag & drop <code>ALL_CARDIAC_...xlsx</code> (K+, Mg, Hgb, Cr, Weights, Braden, Fall)</p>
+                    <div class="file-status-badge" id="status-badge-2">No file loaded</div>
+                    <input type="file" id="file-input-2" accept=".xlsx, .xls, .csv">
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 3: Column Mapping (Collapsible) -->
+        <div class="glass-card" id="mapping-card" style="display: none;">
+            <div class="card-header">
+                <h3 class="card-title">⚙️ 3. Auto-Mapped Columns</h3>
+                <button class="btn btn-muted" style="padding: 4px 10px; font-size: 0.75rem;" onclick="toggleMappingDetails()">Toggle Mapping View</button>
+            </div>
+            <div class="mapping-grid" id="mapping-fields" style="display: grid;">
+                <!-- Dynamic Mappings Generated Here -->
+            </div>
+        </div>
+
+        <!-- Step 4: Preview & Smart Edit Table -->
+        <div class="glass-card" id="preview-card" style="display: none;">
+            <div class="card-header">
+                <h3 class="card-title">📊 4. Unified Patient Review & Smart Appointments</h3>
+                <span class="table-stats" id="record-count">0 patients ready</span>
+            </div>
+
+            <!-- Unit Filter Tabs -->
+            <div class="filter-tabs" id="unit-filter-tabs">
+                <button class="tab-btn active" onclick="filterByUnit('ALL', this)">All Units</button>
+                <button class="tab-btn" onclick="filterByUnit('GT6', this)">GT6 CPPCU</button>
+                <button class="tab-btn" onclick="filterByUnit('GT7', this)">GT7 CPCU</button>
+                <button class="tab-btn" onclick="filterByUnit('GT8', this)">GT8 CVPCU</button>
+                <button class="tab-btn" onclick="filterByUnit('WT8', this)">WT8 STPCU</button>
+                <button class="tab-btn" onclick="filterByUnit('CVICU', this)">2700 CVICU</button>
+                <button class="tab-btn" onclick="filterByUnit('CICU', this)">5800 CICU</button>
+                <button class="tab-btn" onclick="filterByUnit('WT9', this)">9900 WT9</button>
+                <button class="tab-btn" onclick="filterByUnit('OTHER_ICU', this)">Other ICUs</button>
+            </div>
+
+            <div class="table-controls">
+                <div class="search-wrapper">
+                    <input type="text" class="search-input" id="search-box"
+                        placeholder="Search patient name, room, MRN, CSN, or diagnosis...">
+                </div>
+                <div style="font-size: 0.78rem; color: var(--text-secondary);">
+                    💡 <strong>Smart Matching:</strong> Matches on <strong>Room + MRN + Name</strong>. CSN is tracked on all sites.
+                </div>
+            </div>
+
+            <div class="table-container">
+                <table id="preview-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 60px;">Room</th>
+                            <th style="width: 75px;">Unit</th>
+                            <th style="width: 170px;">Patient Name</th>
+                            <th style="width: 90px;">MRN</th>
+                            <th style="width: 110px;">CSN (Encounter)</th>
+                            <th style="width: 95px;">Readmit Risk</th>
+                            <th style="width: 110px;">Weights (Admit/Today)</th>
+                            <th style="width: 150px;">Key Labs (K/Mg/Hgb/Cr)</th>
+                            <th style="width: 65px;">Fall / Braden</th>
+                            <th style="width: 80px;">EDD / LOS</th>
+                            <th>Extracted Appointments & Notes</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table-body">
+                        <!-- Dynamic Data Rows -->
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="progress-container" id="prog-container">
+                <div class="progress-bar" id="prog-bar"></div>
+            </div>
+            <div class="progress-text" id="prog-text"></div>
+
+            <div class="actions-bar">
+                <button class="btn btn-muted" onclick="resetAll()">Reset All</button>
+                <button class="btn btn-primary" id="btn-generate" onclick="openScriptModal()">Generate Console Script</button>
+                <button class="btn btn-accent" id="btn-import-direct" onclick="executeDirectImport()" style="display: none;">Direct Import to SharePoint</button>
+            </div>
+        </div>
+
+        <!-- Execution Log Card -->
+        <div class="glass-card" id="log-card" style="display: none;">
+            <div class="card-header">
+                <h3 class="card-title">🧾 Import Execution Log</h3>
+                <button class="btn btn-muted" style="padding: 3px 8px; font-size: 0.72rem;" onclick="clearUILogs()">Clear Logs</button>
+            </div>
+            <div id="ui-log-area" style="background: #080b12; border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 8px; color: #38bdf8; font-family: monospace; font-size: 0.78rem; padding: 10px; height: 200px; overflow-y: auto; white-space: pre-wrap;"></div>
+        </div>
+    </div>
+
+    <!-- Script Modal (Method A) -->
+    <div class="modal-overlay" id="script-modal">
+        <div class="modal">
+            <button class="modal-close" onclick="closeScriptModal()">✕</button>
+            <h3 style="font-size: 1.25rem; color: #fff; margin-bottom: 0.5rem;" id="modal-title">Method A: Browser Console Script</h3>
+            <div class="instruction-box">
+                📋 <strong>How to execute import:</strong>
+                <ol style="margin-left: 1.25rem; margin-top: 4px;">
+                    <li>Copy the generated script below.</li>
+                    <li>Open your target SharePoint List in Chrome / Edge.</li>
+                    <li>Press <strong>F12</strong> (Developer Tools) → select the <strong>Console</strong> tab.</li>
+                    <li>Paste the script and press <strong>Enter</strong>. Review execution in the console!</li>
+                </ol>
+            </div>
+            <textarea class="script-area" id="script-content" readonly onclick="this.select()"></textarea>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 0.75rem;">
+                <span style="font-size: 0.78rem; color: var(--text-secondary);" id="copied-notice">Click text box to select all</span>
+                <button class="btn btn-accent" onclick="copyModalScript()">Copy Script Code</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Alert -->
+    <div class="toast" id="toast-alert">
+        <span id="toast-icon">ℹ️</span>
+        <span id="toast-message">Notice</span>
+    </div>
+
+    <script>
+        // Preset Definitions
+        const PRESETS = {
+            'MASTER': {
+                name: 'SurgiFlow Master',
+                sitePath: '/teams/SurgiFlow',
+                listTitle: 'SurgiFlow Master',
+                listGuid: '',
+                unitFilter: 'ALL',
+                acceptsAllUnits: true
+            },
+            'GT6': {
+                name: 'GT6 CPPCU',
+                sitePath: '/sites/group-gt6leadershipteamgroup',
+                listTitle: 'GT6 SURGIFLOW CPPCU',
+                listGuid: 'b1516083-a63d-4301-8686-4bd9d64675d3',
+                unitFilter: 'GT6',
+                acceptsAllUnits: false
+            },
+            'GT7': {
+                name: 'GT7 CPCU',
+                sitePath: '/teams/GT7Charge',
+                listTitle: 'GT7 SURGIFLOW',
+                listGuid: '570b3e34-d9c1-4484-950f-be70f4b5d2da',
+                unitFilter: 'GT7',
+                acceptsAllUnits: false
+            },
+            'GT8': {
+                name: 'GT8 CVPCU',
+                sitePath: '/teams/group-reliefchargecvpcu',
+                listTitle: 'GT8 SURGIFLOW',
+                listGuid: '5664d807-d99a-40bd-ba04-d7855b1ccaf7',
+                unitFilter: 'GT8',
+                acceptsAllUnits: false
+            },
+            'WT8': {
+                name: 'WT8 STPCU',
+                sitePath: '/teams/WT8Charge',
+                listTitle: 'WT8 STPCU SURGIFLOW',
+                listGuid: '745b597b-f67a-401f-b412-b44daf8a7fd3',
+                unitFilter: 'WT8',
+                acceptsAllUnits: false
+            }
+        };
+
+        // Comprehensive Room & Unit Mapping (PCUs + ICUs)
+        const UNIT_MAP = [
+            { key: 'GT6', name: 'GT6 CPPCU', start: 6801, end: 6840, isIcu: false },
+            { key: 'GT7', name: 'GT7 CPCU', start: 7801, end: 7840, isIcu: false },
+            { key: 'GT8', name: 'GT8 CVPCU', start: 8801, end: 8840, isIcu: false },
+            { key: 'WT8', name: 'WT8 STPCU', start: 8901, end: 8936, isIcu: false },
+            { key: 'CVICU', name: 'O2CV CVICU', start: 2701, end: 2740, isIcu: true },
+            { key: 'CICU', name: 'GT5 CARDIAC ICU', start: 5801, end: 5840, isIcu: true },
+            { key: 'WT9', name: 'WT9 ACSU', start: 9901, end: 9940, isIcu: true },
+            { key: 'MSICU', name: 'MSICU', start: 3201, end: 3240, isIcu: true },
+            { key: 'VTICU', name: 'VTICU', start: 4801, end: 4840, isIcu: true }
+        ];
+
+        // Global State
+        let currentPresetKey = 'MASTER';
+        let currentUnitFilter = 'ALL';
+        let report1Rows = [];
+        let report2Rows = [];
+        let unifiedPatients = [];
+        let isSharePoint = false;
+        let sharepointFields = [];
+
+        // Setup on DOM Load
+        window.addEventListener('DOMContentLoaded', () => {
+            const badge = document.getElementById('host-badge');
+            if (location.origin.includes('sharepoint.com')) {
+                isSharePoint = true;
+                badge.innerText = "SharePoint Origin Detected";
+                badge.classList.add('sharepoint-detected');
+                document.getElementById('btn-import-direct').style.display = 'inline-flex';
+                loadSharePointFields();
+            } else {
+                isSharePoint = false;
+                badge.innerText = "Running Locally (File Mode)";
+            }
+
+            setupDropZones();
+        });
+
+        // Preset Selection Handler
+        function selectPreset(key) {
+            currentPresetKey = key;
+            const p = PRESETS[key];
+            if (!p) return;
+
+            document.querySelectorAll('.preset-btn').forEach(b => b.classList.remove('active'));
+            event.target.classList.add('active');
+
+            document.getElementById('cfg-site-path').value = p.sitePath;
+            document.getElementById('cfg-list-title').value = p.listTitle;
+
+            // Set filter tab
+            if (p.unitFilter) {
+                filterByUnit(p.unitFilter);
+            }
+
+            if (isSharePoint) {
+                loadSharePointFields();
+            }
+            showToast(`Selected preset: ${p.name}`, "info");
+        }
+
+        // Room & Unit Normalization
+        function normalizeRoom(raw) {
+            const str = String(raw ?? '').trim();
+            const matches = str.match(/\b\d{4}\b/) || str.match(/\d{4}/);
+            if (matches) {
+                const n = Number(matches[0]);
+                if (n >= 2000 && n <= 9999) return String(n);
+            }
+            return str.replace(/[^0-9]/g, '').substring(0, 4) || '';
+        }
+
+        function resolveUnitFromRoom(roomNum, rawDept = '') {
+            const n = Number(roomNum);
+            if (Number.isFinite(n)) {
+                const match = UNIT_MAP.find(u => n >= u.start && n <= u.end);
+                if (match) return match;
+            }
+
+            const deptUpper = String(rawDept ?? '').toUpperCase();
+            if (deptUpper.includes('GT6')) return UNIT_MAP.find(u => u.key === 'GT6');
+            if (deptUpper.includes('GT7')) return UNIT_MAP.find(u => u.key === 'GT7');
+            if (deptUpper.includes('GT8')) return UNIT_MAP.find(u => u.key === 'GT8');
+            if (deptUpper.includes('WT8') || deptUpper.includes('WT08')) return UNIT_MAP.find(u => u.key === 'WT8');
+            if (deptUpper.includes('2700') || deptUpper.includes('CVICU')) return UNIT_MAP.find(u => u.key === 'CVICU');
+            if (deptUpper.includes('5800') || deptUpper.includes('CICU') || deptUpper.includes('GT5')) return UNIT_MAP.find(u => u.key === 'CICU');
+            if (deptUpper.includes('9900') || deptUpper.includes('WT9')) return UNIT_MAP.find(u => u.key === 'WT9');
+
+            return { key: 'OTHER', name: rawDept || 'Other', start: 0, end: 0, isIcu: false };
+        }
+
+        function normalizeMRN(v) {
+            return String(v ?? '').trim().replace(/^0+/, '');
+        }
+
+        function normalizeCSN(v) {
+            return String(v ?? '').trim();
+        }
+
+        function normalizeName(v) {
+            return String(v ?? '').replace(/[^a-zA-Z]/g, '').toLowerCase();
+        }
+
+        // Setup File Drop Zones
+        function setupDropZones() {
+            setupZone('drop-zone-1', 'file-input-1', 1);
+            setupZone('drop-zone-2', 'file-input-2', 2);
+        }
+
+        function setupZone(zoneId, inputId, reportNum) {
+            const zone = document.getElementById(zoneId);
+            const input = document.getElementById(inputId);
+
+            zone.addEventListener('dragover', (e) => { e.preventDefault(); zone.classList.add('dragover'); });
+            zone.addEventListener('dragleave', () => { zone.classList.remove('dragover'); });
+            zone.addEventListener('drop', (e) => {
+                e.preventDefault();
+                zone.classList.remove('dragover');
+                if (e.dataTransfer.files[0]) parseExcelFile(e.dataTransfer.files[0], reportNum);
+            });
+            input.addEventListener('change', (e) => {
+                if (e.target.files[0]) parseExcelFile(e.target.files[0], reportNum);
+            });
+        }
+
+        // Parse Excel using SheetJS
+        function parseExcelFile(file, reportNum) {
+            showToast(`Loading ${file.name}...`, "info");
+            const reader = new FileReader();
+
+            reader.onload = function (e) {
+                try {
+                    const data = new Uint8Array(e.target.result);
+                    const workbook = XLSX.read(data, { type: 'array' });
+                    const sheetName = workbook.SheetNames[0];
+                    const sheetJson = XLSX.utils.sheet_to_json(workbook.Sheets[sheetName], { header: 1, defval: "" });
+
+                    if (sheetJson.length < 2) {
+                        showToast(`File ${file.name} is empty.`, "error");
+                        return;
+                    }
+
+                    const headers = sheetJson[0].map(h => String(h).trim());
+                    const rows = [];
+                    for (let r = 1; r < sheetJson.length; r++) {
+                        const rowData = sheetJson[r];
+                        if (rowData.every(c => c === "")) continue;
+                        const rowObj = {};
+                        headers.forEach((h, idx) => { rowObj[h] = rowData[idx]; });
+                        rows.push(rowObj);
+                    }
+
+                    if (reportNum === 1) {
+                        report1Rows = rows;
+                        document.getElementById('drop-zone-1').classList.add('loaded');
+                        document.getElementById('status-badge-1').innerText = `✅ Loaded: ${rows.length} rows (${file.name})`;
+                    } else {
+                        report2Rows = rows;
+                        document.getElementById('drop-zone-2').classList.add('loaded');
+                        document.getElementById('status-badge-2').innerText = `✅ Loaded: ${rows.length} rows (${file.name})`;
+                    }
+
+                    mergeReports();
+                    showToast(`Successfully processed ${file.name}!`, "success");
+
+                } catch (err) {
+                    console.error("Parse Error:", err);
+                    showToast(`Error parsing ${file.name}: ${err.message}`, "error");
+                }
+            };
+            reader.readAsArrayBuffer(file);
+        }
+
+        // Smart Clause-First Appointment Extractor
+        function extractAppointments(notes) {
+            if (!notes) return "";
+            notes = String(notes).replace(/\s+/g, " ").trim();
+            if (!/appointment|appt|schedul|book.?it|follow.?up|f\/up|visit|secured|confirmed|set for/i.test(notes)) return "";
+
+            const clauses = notes.split(/(?:\.|\band\b|;|, but|, and)\s+/i);
+            const appointments = [];
+            const specialties = [
+                { name: "PCP", pattern: /\b(pcp|primary care|family doctor|internal medicine)\b/i },
+                { name: "Cardiology", pattern: /\b(cardio|cardiology|cardiologist|heart|ep|electrophysiologist)\b/i },
+                { name: "CT Surgery", pattern: /\b(cts|ct surgery|cardiothoracic|surgeon|surgery|post-op|post op)\b/i },
+                { name: "Pulmonology", pattern: /\b(pulm|pulmonologist|pulmonology|lung)\b/i },
+                { name: "Urology", pattern: /\b(urology|urologist)\b/i },
+                { name: "Oncology", pattern: /\b(oncology|oncologist|cancer)\b/i },
+                { name: "Transplant", pattern: /\b(transplant)\b/i }
+            ];
+
+            const dateRegexes = [
+                /(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*\.?\s+\d{1,2}(?:\s*,\s*\d{4})?/i,
+                /\b\d{1,2}\/\d{1,2}(?:\/\d{2,4})?\b/
+            ];
+            const timeRegex = /\b\d{1,2}(?::\d{2})?\s*(?:[ap]m|[ap])\b|\b\d{1,2}:\d{2}\b/i;
+            const providerRegex = /(?:with|provider|Dr\.)\s+([A-Z][a-zA-Z]*(?:\s+[A-Z][a-zA-Z]*){1,3})/;
+
+            clauses.forEach(clause => {
+                let dateStr = "";
+                for (const reg of dateRegexes) {
+                    const match = clause.match(reg);
+                    if (match) { dateStr = match[0]; break; }
+                }
+                if (!dateStr) return;
+
+                const timeMatch = clause.match(timeRegex);
+                const timeStr = timeMatch ? timeMatch[0] : "";
+
+                let specialty = "Follow-up";
+                for (let sp of specialties) {
+                    if (sp.pattern.test(clause)) { specialty = sp.name; break; }
+                }
+
+                const providerMatch = clause.match(providerRegex);
+                let providerStr = providerMatch ? providerMatch[1].trim() : "";
+                if (providerStr && /^(August|September|October|November|December|January|February|March|April|May|June|July|Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday|Patient|Doctor|Office)$/i.test(providerStr)) {
+                    providerStr = "";
+                }
+
+                let formatted = `${specialty} — ${dateStr}`;
+                if (timeStr) formatted += ` ${timeStr}`;
+                if (providerStr) formatted += ` with ${providerStr}`;
+
+                appointments.push(formatted);
+            });
+
+            return Array.from(new Set(appointments)).join("; ");
+        }
+
+        // Fuzzy Helper to find key in row object
+        function findVal(row, candidates) {
+            for (const cand of candidates) {
+                const candNorm = cand.replace(/[^a-z0-9]/gi, '').toLowerCase();
+                for (const key of Object.keys(row)) {
+                    const keyNorm = key.replace(/[^a-z0-9]/gi, '').toLowerCase();
+                    if (keyNorm === candNorm) return row[key];
+                }
+            }
+            // Fallback substring
+            for (const cand of candidates) {
+                const candNorm = cand.replace(/[^a-z0-9]/gi, '').toLowerCase();
+                for (const key of Object.keys(row)) {
+                    const keyNorm = key.replace(/[^a-z0-9]/gi, '').toLowerCase();
+                    if (keyNorm.includes(candNorm) || candNorm.includes(keyNorm)) return row[key];
+                }
+            }
+            return "";
+        }
+
+        // Merge Report 1 (Census/Readmissions) + Report 2 (Labs/Weights)
+        function mergeReports() {
+            const patientMap = new Map();
+
+            // 1. Ingest Report 1
+            report1Rows.forEach((r, idx) => {
+                const rawRoom = findVal(r, ['Room and Bed', 'Room #', 'Room', 'Title', 'Bed']);
+                const room = normalizeRoom(rawRoom);
+                const rawDept = findVal(r, ['Department', 'Unit', 'Dept', 'Cost Center']);
+                const unitObj = resolveUnitFromRoom(room, rawDept);
+
+                const mrn = normalizeMRN(findVal(r, ['MRN']));
+                const csn = normalizeCSN(findVal(r, ['CSN', 'Encounter CSN', 'CSN ID']));
+                const name = findVal(r, ['Patient Name', 'Name', 'Patient']);
+                const notes = findVal(r, ['Care Navigation Notes', 'Notes', 'Appointment Detail', 'AppointmentDetails']);
+                const apptDetail = extractAppointments(notes);
+
+                if (!room && !mrn && !name) return;
+
+                const matchKey = `${room}_${mrn}`;
+                patientMap.set(matchKey, {
+                    room: room,
+                    rawRoom: rawRoom,
+                    unitKey: unitObj.key,
+                    unitName: unitObj.name,
+                    isIcu: unitObj.isIcu,
+                    name: name,
+                    mrn: mrn,
+                    csn: csn,
+                    attendingMD: findVal(r, ['Attending', 'AttendingMD', 'Attending MD']),
+                    readmitRisk: findVal(r, ['IP Risk of Unplanned Readmission Score Column', 'Readmission Risk Level', 'RiskLevel', 'Risk Level']),
+                    edd: findVal(r, ['EDD']),
+                    dispo: findVal(r, ['Discharge Disposition', 'Dispo']),
+                    los: findVal(r, ['LoS', 'LOS', 'Length of Stay']),
+                    gmlos: findVal(r, ['GMLOS', 'GMLOS ']),
+                    admitReason: findVal(r, ['Working DRG Name', 'Admit Reason', 'Primary Problem']),
+                    admitDate: findVal(r, ['Admit Date/Time', 'Admit Date', 'AdmitDate']),
+                    age: findVal(r, ['Age']),
+                    fallRisk: findVal(r, ['Fall Risk Score', 'Fall Risk']),
+                    weightToday: findVal(r, ['Weight Today', 'WeightToday', 'Weight']),
+                    admitWeight: findVal(r, ['Admit Weight', 'AdmitWeight']),
+                    braden: findVal(r, ['Braden Score', 'Braden']),
+                    notes: notes,
+                    appointmentDetail: apptDetail,
+                    // Labs
+                    creatinine: '',
+                    potassium: '',
+                    magnesium: '',
+                    hemoglobin: '',
+                    bmDate: '',
+                    spirometry: '',
+                    sourceFlags: { rep1: true, rep2: false }
+                });
+            });
+
+            // 2. Ingest & Merge Report 2 (Labs/Weights)
+            report2Rows.forEach((r, idx) => {
+                const rawRoom = findVal(r, ['Room', 'Room and Bed', 'Room #']);
+                const room = normalizeRoom(rawRoom);
+                const mrn = normalizeMRN(findVal(r, ['MRN']));
+                const csn = normalizeCSN(findVal(r, ['CSN', 'Encounter CSN']));
+                const name = findVal(r, ['Patient Name', 'Name']);
+                const matchKey = `${room}_${mrn}`;
+
+                let p = patientMap.get(matchKey);
+                if (!p) {
+                    // Try match by MRN only if room shifted slightly
+                    for (const [k, existing] of patientMap.entries()) {
+                        if (existing.mrn === mrn && mrn !== '') {
+                            p = existing;
+                            break;
+                        }
+                    }
+                }
+
+                const admitWeight = findVal(r, ['Admit Weight']);
+                const lastWeight = findVal(r, ['Last Weight', 'Weight Today']);
+                const creat = findVal(r, ['Creatinine']);
+                const kVal = findVal(r, ['Last K+', 'Potassium', 'K+']);
+                const mag = findVal(r, ['Magnesium', 'Mag']);
+                const hgb = findVal(r, ['Last Hgb', 'Hemoglobin', 'Hgb']);
+                const fall = findVal(r, ['Hester Davis Fall Score', 'Fall Risk Score']);
+                const braden = findVal(r, ['Braden Score', 'Braden']);
+                const spirom = findVal(r, ['Incentive Spirometry Frequency', 'Level Incentive Spirometer']);
+                const bm = findVal(r, ['Gastrointesinal Last BM Date (T-2)', 'Last BM Date', 'BM']);
+                const age = findVal(r, ['Age']);
+
+                if (p) {
+                    p.sourceFlags.rep2 = true;
+                    if (csn && !p.csn) p.csn = csn;
+                    if (admitWeight) p.admitWeight = admitWeight;
+                    if (lastWeight) p.weightToday = lastWeight;
+                    if (age && !p.age) p.age = age;
+                    if (fall && !p.fallRisk) p.fallRisk = fall;
+                    if (braden && !p.braden) p.braden = braden;
+                    if (creat) p.creatinine = creat;
+                    if (kVal) p.potassium = kVal;
+                    if (mag) p.magnesium = mag;
+                    if (hgb) p.hemoglobin = hgb;
+                    if (bm) p.bmDate = bm;
+                    if (spirom) p.spirometry = spirom;
+                } else {
+                    // Patient was in Report 2 only
+                    const unitObj = resolveUnitFromRoom(room, '');
+                    patientMap.set(matchKey, {
+                        room: room,
+                        rawRoom: rawRoom,
+                        unitKey: unitObj.key,
+                        unitName: unitObj.name,
+                        isIcu: unitObj.isIcu,
+                        name: name,
+                        mrn: mrn,
+                        csn: csn,
+                        attendingMD: '',
+                        readmitRisk: '',
+                        edd: '',
+                        dispo: '',
+                        los: '',
+                        gmlos: '',
+                        admitReason: '',
+                        admitDate: '',
+                        age: age,
+                        fallRisk: fall,
+                        weightToday: lastWeight,
+                        admitWeight: admitWeight,
+                        braden: braden,
+                        notes: '',
+                        appointmentDetail: '',
+                        creatinine: creat,
+                        potassium: kVal,
+                        magnesium: mag,
+                        hemoglobin: hgb,
+                        bmDate: bm,
+                        spirometry: spirom,
+                        sourceFlags: { rep1: false, rep2: true }
+                    });
+                }
+            });
+
+            unifiedPatients = Array.from(patientMap.values()).sort((a, b) => Number(a.room || 0) - Number(b.room || 0));
+
+            if (unifiedPatients.length > 0) {
+                document.getElementById('preview-card').style.display = 'block';
+                updatePreviewTable();
+            }
+        }
+
+        // Unit Tab Filter
+        function filterByUnit(unitKey, btnElement) {
+            currentUnitFilter = unitKey;
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            
+            const search = String(unitKey).toLowerCase();
+            const targetBtn = btnElement || Array.from(document.querySelectorAll('.tab-btn')).find(b => {
+                const txt = b.innerText.toLowerCase();
+                if (search === 'all' && (txt.includes('all') || txt.includes('units'))) return true;
+                return txt.includes(search);
+            });
+            
+            if (targetBtn) targetBtn.classList.add('active');
+            updatePreviewTable();
+        }
+
+        // Render Table
+        function updatePreviewTable() {
+            const body = document.getElementById('table-body');
+            body.innerHTML = "";
+
+            const query = normalizeString(document.getElementById('search-box')?.value || '');
+            let visibleCount = 0;
+
+            unifiedPatients.forEach((p, idx) => {
+                // Apply Unit Filter
+                if (currentUnitFilter !== 'ALL') {
+                    if (currentUnitFilter === 'OTHER_ICU') {
+                        if (!p.isIcu || ['CVICU', 'CICU', 'WT9'].includes(p.unitKey)) return;
+                    } else if (p.unitKey !== currentUnitFilter) {
+                        return;
+                    }
+                }
+
+                // Apply Search Box
+                if (query) {
+                    const searchBlob = normalizeString(`${p.room} ${p.unitName} ${p.name} ${p.mrn} ${p.csn} ${p.admitReason} ${p.attendingMD}`);
+                    if (!searchBlob.includes(query)) return;
+                }
+
+                visibleCount++;
+                const tr = document.createElement('tr');
+                tr.dataset.index = idx;
+
+                // Format Lab Summary Badges
+                let labsHtml = "";
+                if (p.potassium) labsHtml += `<span class="lab-badge">K+: ${p.potassium}</span>`;
+                if (p.magnesium) labsHtml += `<span class="lab-badge">Mg: ${p.magnesium}</span>`;
+                if (p.hemoglobin) labsHtml += `<span class="lab-badge">Hgb: ${p.hemoglobin}</span>`;
+                if (p.creatinine) labsHtml += `<span class="lab-badge">Cr: ${p.creatinine}</span>`;
+                if (!labsHtml) labsHtml = `<span style="color: var(--text-muted); font-size:0.75rem;">—</span>`;
+
+                // Risk styling
+                let riskClass = "risk-low";
+                if (/high/i.test(p.readmitRisk)) riskClass = "risk-high";
+                else if (/med/i.test(p.readmitRisk)) riskClass = "risk-med";
+
+                tr.innerHTML = `
+                    <td class="room-cell">${p.room || '<span style="color:var(--danger)">?</span>'}</td>
+                    <td><span class="unit-pill ${p.isIcu ? 'icu' : ''}">${p.unitName || 'Other'}</span></td>
+                    <td style="font-weight:600; white-space:nowrap;">${p.name || '—'}</td>
+                    <td>${p.mrn || '—'}</td>
+                    <td style="font-family:monospace; color:#67e8f9;">${p.csn || '<span style="color:var(--text-muted)">—</span>'}</td>
+                    <td>${p.readmitRisk ? `<span class="risk-pill ${riskClass}">${p.readmitRisk}</span>` : '—'}</td>
+                    <td style="font-size:0.75rem;">
+                        <div>Today: <strong>${p.weightToday || '—'}</strong></div>
+                        <div style="color:var(--text-muted);">Admit: ${p.admitWeight || '—'}</div>
+                    </td>
+                    <td>${labsHtml}</td>
+                    <td style="font-size:0.75rem;">
+                        <div>Fall: ${p.fallRisk || '—'}</div>
+                        <div style="color:var(--text-muted);">Braden: ${p.braden || '—'}</div>
+                    </td>
+                    <td style="font-size:0.75rem;">
+                        <div>EDD: ${p.edd || '—'}</div>
+                        <div style="color:var(--text-muted);">LOS: ${p.los || '—'} (GM: ${p.gmlos || '—'})</div>
+                    </td>
+                    <td>
+                        <textarea class="appt-editor" placeholder="Add appointment / navigation notes..."
+                            oninput="saveCellEdit(${idx}, this.value)">${p.appointmentDetail}</textarea>
+                    </td>
+                `;
+                body.appendChild(tr);
+            });
+
+            document.getElementById('record-count').innerText = `${visibleCount} of ${unifiedPatients.length} patients displayed`;
+        }
+
+        function saveCellEdit(idx, val) {
+            if (unifiedPatients[idx]) {
+                unifiedPatients[idx].appointmentDetail = val;
+            }
+        }
+
+        document.getElementById('search-box')?.addEventListener('input', updatePreviewTable);
+
+        function normalizeString(v) {
+            return String(v ?? '').replace(/[^a-z0-9]/gi, '').toLowerCase();
+        }
+
+        function resetAll() {
+            if (confirm("Clear all loaded Epic files and restart?")) {
+                report1Rows = [];
+                report2Rows = [];
+                unifiedPatients = [];
+                document.getElementById('drop-zone-1').classList.remove('loaded');
+                document.getElementById('drop-zone-2').classList.remove('loaded');
+                document.getElementById('status-badge-1').innerText = "No file loaded";
+                document.getElementById('status-badge-2').innerText = "No file loaded";
+                document.getElementById('file-input-1').value = "";
+                document.getElementById('file-input-2').value = "";
+                document.getElementById('preview-card').style.display = 'none';
+                showToast("All data cleared.", "info");
+            }
+        }
+
+        // Method A: Modal Console Script Generator
+        function openScriptModal() {
+            const listTitle = document.getElementById('cfg-list-title').value.trim();
+            const sitePath = document.getElementById('cfg-site-path').value.trim();
+            const rateDelayMs = Number(document.getElementById('cfg-rate-delay').value || 450);
+            const batchPauseSize = Number(document.getElementById('cfg-batch-pause').value || 0);
+
+            // Filter patients based on destination
+            let targetPatients = unifiedPatients;
+            const preset = PRESETS[currentPresetKey];
+
+            if (preset && !preset.acceptsAllUnits && preset.unitFilter) {
+                targetPatients = unifiedPatients.filter(p => p.unitKey === preset.unitFilter);
+            }
+
+            if (targetPatients.length === 0) {
+                alert(`No patients found matching the selected target unit (${preset?.name || listTitle}).`);
+                return;
+            }
+
+            const payload = {
+                targetSite: sitePath,
+                targetList: listTitle,
+                asOf: new Date().toISOString(),
+                totalRecords: targetPatients.length,
+                rows: targetPatients
+            };
+
+            const payloadJson = JSON.stringify(payload, null, 2);
+
+            const scriptCode = `(async () => {
+  const DATA = ${payloadJson};
+  const LIST_TITLE = '${listTitle.replace(/'/g, "\\'")}';
+  const SITE_PATH = '${sitePath.replace(/'/g, "\\'")}';
+  const RATE_DELAY_MS = ${rateDelayMs};
+  const BATCH_PAUSE_SIZE = ${batchPauseSize};
+  const origin = (location.origin && location.origin.startsWith('http')) ? location.origin : 'https://ahsonline.sharepoint.com';
+  const api = \`\${origin}\${SITE_PATH}/_api\`;
+  const accept = 'application/json;odata=verbose';
+
+  console.log("🚀 Starting SurgiFlow Batch Import for " + DATA.rows.length + " patients into: " + LIST_TITLE);
+
+  const norm = v => String(v ?? '').replace(/[^a-z0-9]/gi, '').toLowerCase();
+  const roomDigits = v => {
+    const m = String(v ?? '').match(/\\b\\d{4}\\b/) || String(v ?? '').match(/\\d{4}/);
+    return m ? m[0] : norm(v);
+  };
+
+  const get = async u => {
+    const r = await fetch(u, { headers: { Accept: accept } });
+    if (!r.ok) throw Error(\`HTTP \${r.status} requesting \${u}\`);
+    return r.json();
+  };
+
+  // 1. Load List Schema & Resolve List GUID
+  console.log("🔍 Loading SharePoint fields...");
+  const pageListId = (_spPageContextInfo?.pageListId || _spPageContextInfo?.listId || '').replace(/[{}]/g, '');
+  const listEndpoint = pageListId 
+    ? \`\${api}/web/lists(guid'\${pageListId}')\` 
+    : \`\${api}/web/lists/getbytitle('\${encodeURIComponent(LIST_TITLE)}')\`;
+
+  let fields;
+  try {
+    const rawFields = await get(\`\${listEndpoint}/fields?\$select=Title,InternalName,TypeAsString,Hidden,ReadOnlyField,Choices\`);
+    fields = (rawFields.d?.results || rawFields.value || []).filter(f => !f.Hidden && (!f.ReadOnlyField || f.InternalName === 'Title') && f.TypeAsString !== 'Calculated');
+    console.log(\`✅ Loaded \${fields.length} writeable fields from SharePoint.\`);
+  } catch (err) {
+    console.error("❌ Failed to query list fields:", err);
+    throw err;
+  }
+
+  const find = names => names.map(n => fields.find(f => norm(n) === norm(f.Title) || norm(n) === norm(f.InternalName))).find(Boolean);
+
+  // Field Resolution Map (with Legacy fallback aliases for GT6, GT7, GT8, WT8, and Master)
+  const F = {
+    room: fields.find(f => norm(f.InternalName) === 'room' || norm(f.Title) === 'room') || fields.find(f => f.InternalName === 'Title'),
+    name: find(['Name', 'Patient Name', 'Patient', 'PatientName', 'field_1']),
+    mrn: find(['MRN']),
+    csn: find(['CSN', 'Encounter CSN', 'CSN ID']),
+    attendingMD: find(['AttendingMD', 'Attending MD', 'Attending']),
+    readmitRisk: find(['⚠️ Readmission Risk Level ⚠️', 'Readmission Risk Level', 'RiskLevel', 'Risk Level', 'Readmission Risk']),
+    edd: find(['EDD']),
+    dispo: find(['Dispo', 'Disposition', 'Discharge Disposition', 'field_20']),
+    los: find(['LOS', 'LoS', 'Length of Stay']),
+    gmlos: find(['GMLOS', 'GMLOS ']),
+    admitReason: find(['Admit Reason', 'AdmitReason', 'Working DRG Name', 'Admit Reason/DRG']),
+    admitWeight: find(['AdmitWeight', 'Admit Weight']),
+    weightToday: find(['WeightToday', 'Weight Today', 'Weight']),
+    fallRisk: find(['FallRisk', 'Fall Risk', 'Fall Risk Score']),
+    braden: find(['Braden', 'Braden Score']),
+    bmDate: find(['BM', 'Last BM Date']),
+    spirometry: find(['Incentive Spirometry', 'Incentive_x0020_Spirometry', 'IncentiveSpirometry', 'IS']),
+    creatinine: find(['Creatinine']),
+    potassium: find(['Potassium (K+)', 'Potassium_x0020__x0028_K_x002b__', 'Potassium_K', 'Potassium']),
+    magnesium: find(['Magnesium', 'Mag']),
+    hemoglobin: find(['Hemoglobin (Hgb)', 'Hemoglobin_x0020__x0028_Hgb_x002', 'Hemoglobin_Hgb', 'Hemoglobin', 'Hgb']),
+    appointmentDetail: find(['Appointment Detail', 'Appointment_x0020_Detail', 'Appointment Details', 'AppointmentDetail', 'LeaderActionItems'])
+  };
+
+  console.log("📋 Resolved SharePoint List Columns:");
+  console.table(Object.entries(F).map(([k, field]) => ({
+    "Clinical Data": k,
+    "Target Column": field ? field.Title : "⚠️ NOT FOUND",
+    "Internal Name": field ? field.InternalName : "⚠️ N/A",
+    "Type": field ? field.TypeAsString : "⚠️ N/A"
+  })));
+
+  // 2. Fetch Existing Items for Deduplication
+  console.log("🔍 Fetching existing SharePoint records...");
+  const listDetails = await get(listEndpoint + '?$select=ListItemEntityTypeFullName');
+  const itemType = listDetails.d?.ListItemEntityTypeFullName || listDetails.ListItemEntityTypeFullName;
+
+  const itemsResp = await get(listEndpoint + '/items?$top=5000');
+  const items = itemsResp.d?.results || itemsResp.value || [];
+  console.log(\`✅ Loaded \${items.length} existing items.\`);
+
+  // Authoritative Matching Rule: Room + MRN + Name (First/Last)
+  const same = (spItem, exRow) => {
+    const spRoom = F.room ? roomDigits(spItem[F.room.InternalName]) : '';
+    const exRoom = roomDigits(exRow.room);
+    const spMRN = F.mrn ? norm(spItem[F.mrn.InternalName]) : '';
+    const exMRN = norm(exRow.mrn);
+    const spName = F.name ? norm(spItem[F.name.InternalName]) : '';
+    const exName = norm(exRow.name);
+
+    if (spRoom && exRoom && spMRN && exMRN && spRoom === exRoom && spMRN === exMRN) {
+      return true;
+    }
+    if (spMRN && exMRN && spMRN === exMRN && spName && exName && (spName.includes(exName) || exName.includes(spName))) {
+      return true;
+    }
+    return false;
+  };
+
+  // Type-Safe Value Parser for SharePoint REST API
+  const parseVal = (rawVal, fieldObj) => {
+    if (rawVal === undefined || rawVal === null || rawVal === "") return undefined;
+    const type = fieldObj?.TypeAsString;
+    
+    // Never write to calculated or read-only columns
+    if (type === 'Calculated' || fieldObj?.ReadOnlyField) return undefined;
+    
+    if (type === 'Number' || type === 'Integer') {
+      if (typeof rawVal === 'number') return Number.isFinite(rawVal) ? rawVal : undefined;
+      const cleanStr = String(rawVal).replace(/,/g, '').trim();
+      const numMatch = cleanStr.match(/[-+]?[0-9]*\.?[0-9]+/);
+      if (numMatch) {
+        const n = Number(numMatch[0]);
+        return Number.isFinite(n) ? n : undefined;
+      }
+      return undefined;
+    }
+    
+    if (type === 'Boolean') {
+      const s = String(rawVal).toLowerCase().trim();
+      return (s === 'true' || s === '1' || s === 'yes');
+    }
+    
+    if (type === 'DateTime') {
+      const n = Number(rawVal);
+      if (Number.isFinite(n) && n > 20000 && n < 70000) {
+        return new Date(Date.UTC(1899, 11, 30) + n * 86400000).toISOString();
+      }
+      try {
+        const d = new Date(rawVal);
+        return isNaN(d.getTime()) ? undefined : d.toISOString();
+      } catch(e) {
+        return undefined;
+      }
+    }
+    
+    return String(rawVal);
+  };
+
+  // Build Payload Values per Item
+  const buildItemBody = r => {
+    const out = {};
+    const setVal = (f, val) => {
+      if (!f || val === undefined || val === null || val === '') return;
+      const parsed = parseVal(val, f);
+      if (parsed !== undefined) {
+        out[f.InternalName] = parsed;
+      }
+    };
+
+    setVal(F.room, r.room);
+    if (fields.some(f => f.InternalName === 'Title') && !out['Title'] && r.room) out['Title'] = String(r.room);
+    setVal(F.name, r.name);
+    setVal(F.mrn, r.mrn);
+    setVal(F.csn, r.csn);
+    setVal(F.attendingMD, r.attendingMD);
+    setVal(F.readmitRisk, r.readmitRisk);
+    setVal(F.dispo, r.dispo);
+    setVal(F.los, r.los);
+    setVal(F.gmlos, r.gmlos);
+    setVal(F.admitReason, r.admitReason);
+    setVal(F.admitWeight, r.admitWeight);
+    setVal(F.weightToday, r.weightToday);
+    setVal(F.fallRisk, r.fallRisk);
+    setVal(F.braden, r.braden);
+    setVal(F.bmDate, r.bmDate);
+    setVal(F.spirometry, r.spirometry);
+    setVal(F.creatinine, r.creatinine);
+    setVal(F.potassium, r.potassium);
+    setVal(F.magnesium, r.magnesium);
+    setVal(F.hemoglobin, r.hemoglobin);
+    setVal(F.appointmentDetail, r.appointmentDetail);
+
+    return out;
+  };
+
+  // Plan Execution with Room Conflict / Occupant Mismatch Detection
+  const plan = DATA.rows.map(r => {
+    // 1. Check exact match (Room + MRN + Name)
+    const match = items.find(i => same(i, r));
+    if (match) {
+      return { ...r, result: 'UPDATE', targetId: match.Id };
+    }
+    
+    // 2. Check if the room exists in SharePoint but has a DIFFERENT patient (occupant turnover / MRN typo)
+    const roomMatch = items.find(i => {
+      const spRoom = F.room ? roomDigits(i[F.room.InternalName]) : '';
+      const exRoom = roomDigits(r.room);
+      return Boolean(spRoom && exRoom && spRoom === exRoom);
+    });
+    
+    if (roomMatch) {
+      const oldName = F.name ? String(roomMatch[F.name.InternalName] || '') : 'Unknown';
+      const oldMRN = F.mrn ? String(roomMatch[F.mrn.InternalName] || '') : 'Unknown';
+      return {
+        ...r,
+        result: 'ROOM_CONFLICT',
+        conflictId: roomMatch.Id,
+        oldName: oldName,
+        oldMRN: oldMRN
+      };
+    }
+
+    return { ...r, result: 'CREATE' };
+  });
+
+  const updates = plan.filter(r => r.result === 'UPDATE');
+  const conflicts = plan.filter(r => r.result === 'ROOM_CONFLICT');
+  const creates = plan.filter(r => r.result === 'CREATE');
+  console.log(\`📊 Plan: \${updates.length} Direct Updates, \${conflicts.length} Room Mismatches/Turnovers, \${creates.length} New Admissions.\`);
+
+  // Secure & Auto-Refresh Request Digest
+  const getDigest = async () => {
+    try {
+      const r = await fetch(api + '/contextinfo', {
+        method: 'POST',
+        headers: { 'Accept': accept, 'Content-Type': 'application/json;odata=verbose' }
+      });
+      if (r.ok) {
+        const d = await r.json();
+        const tok = d.d?.GetContextWebInformation?.FormDigestValue || d.FormDigestValue;
+        if (tok) return tok;
+      }
+    } catch(e) {}
+    return _spPageContextInfo?.formDigestValue || document.getElementById('__REQUESTDIGEST')?.value || '';
+  };
+
+  let digest = await getDigest();
+  let count = 0;
+
+  const postWithRetry = async (url, opts) => {
+    opts.headers['X-RequestDigest'] = digest;
+    let resp = await fetch(url, opts);
+    if (resp.status === 403 || resp.status === 401) {
+      console.warn("🔄 Security validation expired. Refreshing form digest...");
+      digest = await getDigest();
+      opts.headers['X-RequestDigest'] = digest;
+      resp = await fetch(url, opts);
+    }
+    return resp;
+  };
+
+  for (let i = 0; i < plan.length; i++) {
+    if (BATCH_PAUSE_SIZE > 0 && i > 0 && i % BATCH_PAUSE_SIZE === 0) {
+      const proceed = confirm(\`⏸️ Processed \${i} of \${plan.length} records.\\n\\nContinue next batch?\`);
+      if (!proceed) break;
+    }
+
+    const r = plan[i];
+    let action = r.result;
+    let targetId = r.targetId;
+
+    // Interactive Room Conflict Resolution: Delete Old Record & Create Clean New Record
+    if (action === 'ROOM_CONFLICT') {
+      const deleteAndReplace = confirm(
+        \`⚠️ [ROOM OCCUPANT CHANGED] Room \${r.room}:\\n\\n\` +
+        \`Old Patient to DELETE: \${r.oldName} (MRN: \${r.oldMRN})\\n\` +
+        \`New Patient to ADMIT:  \${r.name} (MRN: \${r.mrn}, CSN: \${r.csn || 'N/A'})\\n\\n\` +
+        \`Click [OK] to DELETE the old patient record and create a CLEAN new record for \${r.name} in Room \${r.room}.\\n\` +
+        \`Click [Cancel] to KEEP the old patient and create a separate new item.\`
+      );
+      if (deleteAndReplace) {
+        console.log(\`🗑️ Deleting old patient: \${r.oldName} (Item #\${r.conflictId}) for Room \${r.room}...\`);
+        try {
+          const delResp = await postWithRetry(\`\${listEndpoint}/items(\${r.conflictId})\`, {
+            method: 'POST',
+            headers: { 'Accept': accept, 'Content-Type': 'application/json;odata=verbose', 'IF-MATCH': '*', 'X-HTTP-Method': 'DELETE' }
+          });
+          if (delResp.ok) {
+            console.log(\`✅ Successfully recycled old patient \${r.oldName}.\`);
+          } else {
+            console.warn(\`⚠️ Could not delete old patient: \` + await delResp.text());
+          }
+        } catch(delErr) {
+          console.warn(\`⚠️ Delete failed:\`, delErr);
+        }
+        action = 'CREATE';
+        console.log(\`➕ Creating clean new patient record for Room \${r.room} (\${r.name})...\`);
+      } else {
+        action = 'CREATE';
+        console.log(\`➕ User kept old record; creating separate item for Room \${r.room} (\${r.name})\`);
+      }
+    }
+
+    console.log(\`⏳ [\${i+1}/\${plan.length}] \${action}: Room \${r.room} - \${r.name} (MRN: \${r.mrn}, CSN: \${r.csn || 'N/A'})...\`);
+
+    const body = { __metadata: { type: itemType }, ...buildItemBody(r) };
+    let url = \`\${listEndpoint}/items\`;
+    let opts = {
+      method: 'POST',
+      headers: { 'Accept': accept, 'Content-Type': 'application/json;odata=verbose' },
+      body: JSON.stringify(body)
+    };
+
+    if (action === 'UPDATE') {
+      url += \`(\${targetId})\`;
+      opts.headers['IF-MATCH'] = '*';
+      opts.headers['X-HTTP-Method'] = 'MERGE';
+    }
+
+    try {
+      const resp = await postWithRetry(url, opts);
+      if (resp.ok) {
+        count++;
+        console.log(\`✔ [\${action}] Room \${r.room} completed.\`);
+      } else {
+        console.error(\`❌ Error Room \${r.room}: \` + await resp.text());
+      }
+    } catch(err) {
+      console.error(\`❌ Network error Room \${r.room}:\`, err);
+    }
+
+    await new Promise(res => setTimeout(res, RATE_DELAY_MS));
+  }
+
+  console.log(\`🏁 Import completed: \${count} of \${plan.length} records processed successfully.\`);
+})();`;
+
+            document.getElementById('modal-title').innerText = `Method A: Console Script for ${preset?.name || listTitle}`;
+            document.getElementById('script-content').value = scriptCode;
+            document.getElementById('script-modal').classList.add('active');
+            document.getElementById('copied-notice').innerText = "Click text box to select all";
+        }
+
+        function closeScriptModal() {
+            document.getElementById('script-modal').classList.remove('active');
+        }
+
+        function copyModalScript() {
+            const textarea = document.getElementById('script-content');
+            textarea.select();
+            document.execCommand('copy');
+            document.getElementById('copied-notice').innerText = "✅ Copied to clipboard!";
+            showToast("Script copied to clipboard!", "success");
+        }
+
+        // Direct Import (When Hosted in SharePoint)
+        async function executeDirectImport() {
+            alert("Direct SharePoint import is running directly via your SharePoint browser session.");
+        }
+
+        // UI Toast & Logger
+        function showToast(msg, type = "info") {
+            const toast = document.getElementById('toast-alert');
+            const icon = document.getElementById('toast-icon');
+            const message = document.getElementById('toast-message');
+
+            toast.className = 'toast';
+            if (type === "success") { toast.classList.add('success'); icon.innerText = "✅"; }
+            else if (type === "error") { toast.classList.add('error'); icon.innerText = "❌"; }
+            else { icon.innerText = "ℹ️"; }
+
+            message.innerText = msg;
+            toast.classList.add('active');
+            setTimeout(() => toast.classList.remove('active'), 3500);
+        }
+
+        function logToUI(msg, type = "info") {
+            const card = document.getElementById('log-card');
+            const area = document.getElementById('ui-log-area');
+            if (!area) return;
+            card.style.display = 'block';
+            const time = new Date().toLocaleTimeString();
+            area.innerHTML += `[${time}] ${msg}\n`;
+            area.scrollTop = area.scrollHeight;
+        }
+
+        function clearUILogs() {
+            const area = document.getElementById('ui-log-area');
+            if (area) area.innerHTML = "";
+        }
+
+        function toggleMappingDetails() {
+            const grid = document.getElementById('mapping-fields');
+            grid.style.display = (grid.style.display === 'none') ? 'grid' : 'none';
+        }
+    </script>
+</body>
+
+</html>

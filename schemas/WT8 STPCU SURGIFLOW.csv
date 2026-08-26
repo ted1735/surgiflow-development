@@ -1,0 +1,115 @@
+﻿"Room","Service Line","MRN","Name","Age","LOS","EDD","Surgeon/Cardio","Surgery","Admit Reason","PMH/Procedures","Clinical Needs to Continue Admission","Pre Op","Sx Date","Leader Action Items","Drip","Braden","Fall Risk","Mobility","Dispo","Admit Date","Mentation","Chest Tube","Isolation","Rhythm","Anticoagulation","Time Crit","DNR","PCA","Consultants Pending","IV Meds","Modified","AdmitWeight","App Created By","App Modified By","Appointment Detail","Appts Made","BM","Comments/Updates","Compliance Asset Id","Content Type","Created","Created By","Current Readmission","DC Lounge","DC Order","DC TODAY","Folder Child Count","Going Home With AC?","HD at Home or Inpatient?","ID","IS","Item Child Count","Item is a Record","Label applied by","Label setting","Med Rec","Misaligned Dispo","Modified By","Non-Clinical DC Barriers","O2 Device","O2L/%","Pharmacy Verified","PO Pain","pre op","Readmission Risk","Retention label","Retention label Applied","Ride AVL","Room","Room","Support at Home","SurgeryBarriers","SurgeryToday","Version","Walk Test Completed","Walk Test Needed","WeightChange","WeightToday"
+,,,,,"#Name?",,,,,,,"False",,,,,,,,"6/30/2026",,,,,,,,"False",,"None","6/30/2026 1:07 AM",,"Microsoft Power Platform","Microsoft Power Platform",,,"False",,,"Item","6/30/2026 1:07 AM","Hathaway, Brent","False","False","False","False","0",,,"3592",,"0",,,,"False",,"Hathaway, Brent",,,,"False","True",,,,,,,,,,,"1.0","False","False","0",
+"8901","CVmed","509232244","Kathleen Kenefick",,"6","6/29/2026",,,"chocked on  hotdog",,"CBA, Going to ALF once CM completes
+
+ALF was not answring, to DC tomorrow","False",,,,,,,"SNF","6/23/2026","Forgetful",,,,,,,"False","CBA","None","6/29/2026 4:40 AM",,"Microsoft Power Platform",,,,"False",,,"Item","6/28/2026 12:28 AM","John, Vanessa","False","False","False","False","0",,,"3587",,"0",,,,"False",,"John, Vanessa",,,,"False","True",,,,,,"8901","8901",,,,"155.0","False","False","0",
+"8902","CVmed","14737674","Anne J. Murphy ""Jeneanne""","85","2","7/1/2026","Batheja","peripheral vascular angiogram and intervention","L",,"6/28 AM - Peripheral angiogram today","False",,,"[""Heparin""]",,,"Standby","Home No Needs","6/27/2026","A&O",,,"Sinus",,,,"False","Cardio","None","6/29/2026 4:41 AM",,"Microsoft Power Platform",,,,"False",,,"Item","6/27/2026 3:02 PM","Petrovich, Matthew","False","False","False","False","0",,,"3583",,"0",,,,"False",,"John, Vanessa",,"RA",,"False","True",,,,,,"8902","8902",,,,"72.0","False","False","0",
+"8903","CVmed","7194967","Ares Flores","37","2","7/1/2026",,,"chest pain / SOB",,"6/28 AM - IV diuresing 80mg BID, monitoring Cr at 1.6 trending down. BNP check on Monday","False",,"Mom is not to have medical updates",,,,"Self","Home No Needs","6/27/2026","A&O",,,,"[""Eliquis""]",,,"False","Cardio","None","6/29/2026 3:02 PM",,"Microsoft Power Platform","Microsoft Power Platform",,,"False",,,"Item","6/27/2026 2:53 AM","John, Vanessa","False","False","False","False","0",,,"3560",,"0",,,,"False",,"Reyes, Jessica","Needs Cardiac Rehab to be ordered
+","RA",,"False","True",,,,,,"8903","8903",,,,"114.0","False","False","0",
+"8904","CVmed","512285032","Linda Weiner","67","4","6/30/2026",,,"syncope - bradicardia",,"6/28 AM - PPM 6/29
+
+","False",,,"[""Heparin""]",,,"Self","Home No Needs","6/25/2026","A&O",,,,,,,"False","Cardio
+EP","None","6/29/2026 4:41 AM",,"Microsoft Power Platform",,,,"False",,,"Item","6/27/2026 2:59 AM","John, Vanessa","False","False","False","False","0",,,"3562",,"0",,,,"False",,"John, Vanessa",,"NC","2","False","True",,,,,,"8904","8904",,,"PPM 6/29","116.0","False","False","0",
+"8905","CTsx","11889033","Debra R. Foster-Edge","65","12","6/29/2026",,,"Procedural - L VATS",,"6/28 AM - CT removed YESTERDAY. PENDING O2 delivery
+
+O2 delivery with AHRE in AM","False","6/17/2026",,,,,"x1","Home No Needs","6/17/2026","A&O",,,"No Tele","[""Heparin SubQ""]",,,"False","CTS
+Pulm
+GI - s/o","None","6/29/2026 4:42 AM",,"Microsoft Power Platform",,,,"True",,,"Item","6/17/2026 9:22 AM","Petrovich, Matthew","False","False","False","False","0",,,"3244",,"0",,,,"False",,"John, Vanessa","O2 delivery","NC","3","False","True",,,,,,"8905","8905",,,,"335.0","False","False","0",
+"8906","CTsx","511848268","Humberto Morin","55","7","6/30/2026","Chimielewski",,"Prcoedural - L VATS",,"6/28 AM - thopaz switched t atrium d/t worsening pneumothorax","False",,,,,,"Standby","HHC DME ONLY","6/22/2026","A&O","[""Atrium"",""Leak""]",,"Sinus","[""Lovenox""]",,,"False","CTS","None","6/29/2026 4:44 AM",,"Microsoft Power Platform",,,,"False",,,"Item","6/23/2026 2:45 AM","Peralta Morel, Nathaly","False","False","False","False","0",,,"3448",,"0",,,,"False",,"John, Vanessa","May DC with CT to Thopaz or Lukens Trap","RA",,"False","True",,,,,,"8906","8906",,,,"422.0","False","False","0",
+"8907","CTsx","13654144","Jose Romero Cruz","71","5","7/6/2026",,,"SOB",,"6/28 AM - TEE 6/29, IV diuresing
+80mg BID. Has severe mitral stenosis. Needs MVR but has atrial thrombus","False",,,,,,"Self","Home No Needs","6/24/2026","A&O",,,"Paced","[""Eliquis""]",,,"False","cardio","None","6/29/2026 4:44 AM",,"Microsoft Power Platform",,,,"False",,,"Item","6/25/2026 2:51 AM","Peralta Morel, Nathaly","False","False","False","False","0",,,"3483",,"0",,,,"True",,"John, Vanessa",,"RA",,"False","True",,,,,,"8907","8907",,,"TEE 6/29","350.0","False","False","0",
+"8908","Medical - Off Service","11851843","Kenneth S. Baillargeon","60","3","7/1/2026",,,"Effusion",,"US chest done - persistent pleural effusion. No output overnight, clogged?
+
+Now to suction for output
+IV ABX to 7/1","False",,,,,,"Self","Home No Needs","6/26/2026","A&O","[""Atrium"",""NO Leak""]",,,,,,"False","Pulm
+Onc","None","6/30/2026 1:58 AM",,"Microsoft Power Platform","Microsoft Power Platform",,,"False",,,"Item","6/26/2026 1:16 AM","Rivera, Jason","False","False","False","False","0",,,"3508",,"0",,,,"False",,"Hathaway, Brent",,"RA",,"False","True",,,,,,"8908","8908",,,,"960.0","False","False","0",
+"8909","CVmed",,"Pamela Laub","79","4","6/30/2026",,,,,"CT Head completed no acute abnormality. Needs med compliance. cardio may adjust clonidine . IV diuresing, IV ABX.
+
+May need SNF d/t multiple falls. PT Eval","False",,"Needs safe dispo",,,,"x1","SNF","6/25/2026","A&O",,,,,,,"False","Cardio
+Pulm
+Neuro","None","6/29/2026 4:44 AM",,"Microsoft Power Platform",,,,"False",,,"Item","6/25/2026 10:45 PM","Rivera, Jason","False","False","False","False","0",,,"3494",,"0",,,,"False",,"John, Vanessa",,"RA",,"False","True",,,,,,"8909","8909",,,,"93.0","False","False","0",
+"8910",,,,,"#Name?",,,,,,,"False",,,,,,,,"6/30/2026",,,,,,,,"False",,"None","6/30/2026 1:11 AM",,"Microsoft Power Platform","Microsoft Power Platform",,,"False",,,"Item","6/30/2026 1:08 AM","Hathaway, Brent","False","False","False","False","0",,,"3593",,"0",,,,"False",,"Hathaway, Brent",,,,"False","True",,,,,,"8910","8910",,,,"5.0","False","False","0",
+"8911","CTsx","501231913","Ulysses Mack","71","5","7/2/2026","IP","bronch","Transfer - CTS, IP Eva",,"s/p Bronch 6/26, IP wanting to wait for Path. CTS s/o, pending path from bronch
+
+IV abx zosyn 7/2
+","False",,,,,,"Standby","Home No Needs","6/24/2026","A&O",,,"Sinus",,,,"False","CTS - s/o
+Pulm","None","6/30/2026 2:14 AM",,"Microsoft Power Platform","Microsoft Power Platform",,,"False",,,"Item","6/25/2026 1:34 AM","Unterseher, Molly","False","False","False","False","0",,,"3461",,"0",,,,"False",,"Hathaway, Brent",,"RA",,"False","True",,,,,,"8911","8911",,,,"168.0","False","False","0",
+"8912","CTsx","509690089","John Denny","62","1","7/2/2026",,,"repeat sternal abcess/ washout",,"sternal wound infection, now back on wound vac, CTS consulted ID, 
+Wound cultured - 6/28 - no growth so far. C","False",,,,,,,"Home No Needs","6/28/2026",,,,,,,,"False","cts
+id
+wound care ","None","6/30/2026 2:03 AM",,"Microsoft Power Platform","Microsoft Power Platform",,,"False",,,"Item","6/28/2026 2:00 PM","Petrovich, Matthew","False","False","False","False","0",,,"3588",,"0",,,,"False",,"Hathaway, Brent",,,,"False","True",,,,,,"8912","8912",,,,"38.0","False","False","0",
+"8913","CTsx",,"Gail Dula","78","2","6/30/2026",,,"CAB",,"6/29 PM - POD6 CABG and AVR, no lines, tubes, wires. 20mg Lasix BID, cardiac rehab started, pt needs to decide HHC","False",,,,,,"Standby","IPR-AH","6/27/2026","A&O",,,,,,,"False","cts","None","6/30/2026 2:16 AM",,"Microsoft Power Platform","Microsoft Power Platform",,,"False",,,"Item","6/27/2026 4:33 PM","Petrovich, Matthew","False","False","False","False","0",,,"3584",,"0",,,,"False",,"Hathaway, Brent",,"RA",,"False","True",,,,,,"8913","8913",,,,"97.0","False","False","0",
+"8914","CTsx","14309940","Ana Rivera Maisonet","58","14","6/30/2026","Loumiotis","I&D, Hardware Removal","Sternal Infection",,"6/28 AM - POD1 I&, Wound Vac in place to Sternum. IV ABX likely need > 6 weeks. Pending cx. Home w/ wound vac
+","False",,,,,,"Self","Home No Needs","6/15/2026","A&O",,,"Sinus",,,,"False","CTS
+ID","None","6/29/2026 4:46 AM",,"Microsoft Power Platform",,,,"True",,,"Item","6/23/2026 4:27 PM","ALVIRA, Cindia","False","False","False","False","0",,,"3452",,"0",,,,"False",,"John, Vanessa","PICC before DC","RA",,"False","True",,,,,,"8914","8914",,,,"274.0","False","False","0",
+"8915","CTsx","32233151","Iria C. Yero","36","3","7/1/2026",,,"SOB",,"6/28 AM - Thoracentesis yesterday, pending those cx. Pneumectomy on outpatient scheduling
+","False",,,,,,"Self","Home No Needs","6/26/2026","A&O",,,,,,,"False","Cardio - s/o
+CTS - 
+Pulm 
+ID s/o","None","6/29/2026 3:50 PM",,"Microsoft Power Platform","Microsoft Power Platform",,,"False",,,"Item","6/26/2026 12:12 AM","Rivera, Jason","False","False","False","False","0",,,"3496",,"0",,,,"False",,"Reyes, Jessica",,"RA","2","False","True",,,,,,"8915","8915",,,,"89.0","False","False","0",
+"8916","CVmed","511079993","Clayton W. Williams","47","4","6/29/2026",,,,,"6/28 AM - IV ABX, pending sputum and karius per ID","False",,,,,,"Self","Home No Needs","6/25/2026","A&O",,,"Sinus",,,,"False","ID s/o
+Cardio s/o","None","6/29/2026 3:52 PM",,"Microsoft Power Platform","Microsoft Power Platform",,,"False",,,"Item","6/25/2026 4:54 PM","ALVIRA, Cindia","False","False","False","False","0",,,"3491",,"0",,,,"False",,"Reyes, Jessica",,"RA",,"False","False",,,,,,"8916","8916",,,,"395.0","False","False","0",
+"8917","Medical - Off Service","512264604","Sheila Jackson","72","9","7/1/2026",,,"SOB",,"CT to WS monitoring output awaiting pleural path
+","False",,,,,,"Standby","Home No Needs","6/19/2026","A&O","[""Atrium"",""NO Leak""]",,"Sinus",,,,"False","Pulm
+IR
+Onc","None","6/28/2026 11:53 PM",,"Microsoft Power Platform","Microsoft Power Platform",,,"True",,,"Item","6/20/2026 3:16 AM","John, Vanessa","False","False","False","False","0",,,"3294",,"0",,,,"False",,"Moyer, Ted",,"RA",,"False","True",,,,,,"8917","8917",,,,"1031.0","False","False","0",
+"8918","CTsx","11835795","Terry Beasley","76","5","7/2/2026","Kh","R Thoracotomy","SOB",,"6/28 AM - POD2 R Thoracotomy w. Decortication. x 2 CT - 20","False",,,,,,"Standby","Home No Needs","6/24/2026","A&O","[""Atrium"",""NO Leak""]",,,,,,"False","cts","None","6/29/2026 4:46 AM",,"Microsoft Power Platform",,,,"False",,,"Item","6/27/2026 2:56 PM","Petrovich, Matthew","False","False","False","False","0",,,"3582",,"0",,,,"False",,"John, Vanessa",,"NC","3","False","True",,,,,,"8918","8918",,,"Bronch 6/29","257.0","False","False","0",
+"8920","CTsx","511870453","Kandy day","69","18","6/29/2026","Khouzam","6/11 RUL lobectomy, lymphadectomy",,,"6/28 AM - Re-eval for speech. TF for now. Likely need SNF or IPR
+","False",,,,,,"x1","HHC DME ONLY","6/11/2026","A&O",,,"Sinus","[""Lovenox""]",,,"False","CTS - Khouzam
+GI
+Cardio - s/o
+ID
+Pulm
+Nephro","None","6/29/2026 4:47 AM",,"Microsoft Power Platform",,,,"True",,,"Item","6/20/2026 10:52 PM","Rivera, Jason","False","False","False","False","0",,,"3358",,"0",,,,"False",,"John, Vanessa","TF set up and O2. Wants home
+DME needed - front walker, bedside commode, 
+
+SNF or IPR","NC","2","False","True",,,,,,"8920","8920",,,,"504.0","False","False","0",
+"8921","CVmed","502311734","Caleb Pierre",,"15","6/29/2026",,,"Scortal Edema and SOB CHF ","NO DVT on dopplers
+EF 35-40%","6/28 AM - CBA. Need HD set up. Will be Monday
+
+PM - became increasingly altered overnight, ammonia levels added, dialysis to be done 1st case, provider made aware","False","6/19/2026","** Fall 5/27 & 6/15",,,,"x2","HHC DME ONLY","6/14/2026","A&O",,,"Paced","[""Eliquis""]",,,"False","CBA","None","6/29/2026 4:25 AM",,"Microsoft Power Platform","Microsoft Power Platform",,"0","True",,,"Item","5/16/2026 3:39 PM","Reyes, Jessica","False","False","False","False","0",,,"2931",,"0",,,,"False",,"John, Vanessa","New HD","RA",,"False","True",,,,,,"8921","8921",,,,"833.0","False","False","0",
+"8922","CVmed","16185900","James Green","59","15","7/1/2026",,,"sob / chest pain/ hyperglycemia 611","PCI 6/3","6/28 AM - Weaning pain meds, need Nephro to push POC. Cr is improving. Starting gentle fluids due to possible over diuresing. Management per Nephro","False",,"Refusing HHC - f/u with CM if leadership is aware Monday",,,,"Standby","Home No Needs","6/13/2026","A&O",,,"Sinus","[""Lovenox""]",,,"False","Nephro
+Endo - s/o
+Cardio - s/o
+Vasc SX - s/o
+","None","6/28/2026 2:01 PM",,"Microsoft Power Platform","Microsoft Power Platform",,"0","True",,,"Item","6/14/2026 4:39 AM","John, Vanessa","False","False","False","False","0",,,"3159",,"0",,,,"False",,"Petrovich, Matthew",,"NC",,"False","True",,,,,,"8922","8922",,,,"383.0","False","False","0",
+"8923","CTsx","15701989","Marie Celiberti","85","7","6/30/2026",,,"SOB",,"6/28 AM - TAVR meeting tomorrow. May not be candidate
+
+","False",,,,,,"x1","Home No Needs","6/22/2026","A&O",,,,"[""Lovenox""]",,,"False","CTS
+Cardio
+Endo","None","6/29/2026 4:47 AM",,"Microsoft Power Platform",,,,"False",,,"Item","6/27/2026 2:43 AM","John, Vanessa","False","False","False","False","0",,,"3554",,"0",,,,"False",,"John, Vanessa",,"RA",,"False","True",,,,,,"8923","8923",,,,"111.0","False","False","0",
+"8924","CVmed","12004762","Gricelda Follis ""Maria""","77","2","7/1/2026",,,"Syncope",,"6/29 PM - No LHC per cardio, stress 6/30, order in but no time yet","False",,,"[""Heparin""]",,,"Standby","Home No Needs","6/27/2026","A&O",,,,,,,"False","cardio","None","6/30/2026 1:43 AM",,"Microsoft Power Platform","Microsoft Power Platform",,,"False",,,"Item","6/27/2026 2:23 PM","Petrovich, Matthew","False","False","False","False","0",,,"3575",,"0",,,,"False",,"Hathaway, Brent",,"RA",,"False","True",,,,,,"8924","8924",,,,"62.0","False","False","0",
+"8925","CTsx","15852508","John C. Mangan Jr.","73","0","7/1/2026","Boyer","  ROBOTIC ASSISTED LEFT UPPER LOBE RESECTION","Surgery",,"2 chest tubes, waterseal, pulm consulted","False","6/29/2026",,,,,"x1",,"6/29/2026","A&O","[""Atrium""]",,,,,,"True",,"None","6/30/2026 1:47 AM",,"Microsoft Power Platform","Microsoft Power Platform",,,"False",,,"Item","6/30/2026 1:43 AM","Hathaway, Brent","False","False","False","False","0",,"AT HOME","3594",,"0",,,,"False",,"Hathaway, Brent",,"NC","2","False","True",,,,,,"8925","8925",,,,"19.0","False","False","0",
+"8926","Off Service - Other",,"Peter Vecchi","74","1","7/2/2026",,,"SOB - respiratory failure w/ hypoxia",,"Repatriation from AH New Smyra  on 4L oxymask - pleural effusion pending interventional pulm plan  ","False",,,,,,,"Home No Needs","6/28/2026",,,,,,,,"False","Interventional pulm","None","6/29/2026 2:59 PM",,"Microsoft Power Platform","Microsoft Power Platform",,,"False",,,"Item","6/28/2026 5:18 PM","Petrovich, Matthew","False","False","False","False","0",,,"3591",,"0",,,,"False",,"Reyes, Jessica",,"NC","4","False","True",,,,,,"8926","8926",,,,"118.0","False","False","0",
+"8927","CTsx","32260779","Martin Brito","70","4","6/29/2026","Chm","R VATS","Procedural",,"6/28 AM - POD3 R VATS X 1 CT small air leak","False","6/25/2026",,,,,"Self","Home No Needs","6/25/2026","A&O","[""Atrium"",""Leak""]",,,"[""VTE - SCDS""]",,,"False","CTS","None","6/29/2026 4:48 AM",,"Microsoft Power Platform",,,,"False",,,"Item","6/27/2026 2:39 PM","Petrovich, Matthew","False","False","False","False","0",,,"3581",,"0",,,,"False",,"John, Vanessa","follow up respiratory appts to be scheduled,","RA",,"False","True",,,,,,"8927","8927",,,,"97.0","False","False","0",
+"8928",,,,,"#Name?",,,,,,,"False",,,,,,,,"6/30/2026",,,,,,,,"False",,"None","6/30/2026 1:47 AM",,"Microsoft Power Platform","Microsoft Power Platform",,,"False",,,"Item","6/30/2026 1:47 AM","Hathaway, Brent","False","False","False","False","0",,,"3600",,"0",,,,"False",,"Hathaway, Brent",,,,"False","True",,,,,,"8928","8928",,,,"1.0","False","False","0",
+"8929","Oncology - Off Service","22282432","Chastidy M. Petersen","47","4","6/29/2026",,,"abdomin pain, nausea",,"6/28 AM - heparin gtt, need to transition to Eliquis pn D/C. Not transitioning yet, watching Hgb trends 
+
+PM - hgb trending down, pending oncology plan and possible repeat renal CT","False",,,"[""Heparin""]",,,"Self","Home No Needs","6/25/2026","A&O",,,,,,,"False","Heme","None","6/29/2026 4:49 AM",,"Microsoft Power Platform",,,,"False",,,"Item","6/26/2026 12:17 AM","Rivera, Jason","False","False","False","False","0",,,"3502",,"0",,,,"False",,"John, Vanessa",,"RA",,"False","True",,,,,,"8929","8929",,,,"103.0","False","False","0",
+"8930","Off Service - Other",,"Sharon Tinnell","76","3","7/2/2026",,,,,"repatriation from Palm Cost, pending interventional pulm and interventional endoscopy,  Bronch 6/29 @ 1600; EGB 6/30 - IV ABX zosyn 7/2","False",,,,,,,"Home No Needs","6/26/2026",,,,,,,,"False","Interventional Pulm
+Interventional Endo
+","None","6/29/2026 4:49 AM",,"Microsoft Power Platform",,,,"False",,,"Item","6/28/2026 2:00 PM","Petrovich, Matthew","False","False","False","False","0",,,"3589",,"0",,,,"False",,"John, Vanessa",,,,"False","True",,,,,,"8930","8930",,,"Bronch @ 1600","50.0","False","False","0",
+"8931","CVmed","31048275","Pablo Oquendo Guzman","52","1","7/2/2026",,,"sob",,"SOB - chest ct + left pleural effusion, IV ABX started zyvox 7/6, zosyn 7/8, O2 4L has home O2, CTS consulted - Boyer","False",,,,,,,"Home No Needs","6/28/2026",,,,,,,,"False","cardio
+ID
+pulm
+Nephro","None","6/30/2026 1:56 AM",,"Microsoft Power Platform","Microsoft Power Platform",,,"False",,,"Item","6/28/2026 5:18 PM","Petrovich, Matthew","False","False","False","False","0",,,"3590",,"0",,,,"False",,"Hathaway, Brent",,"NC","4","False","True",,,,,,"8931","8931",,,,"76.0","False","False","0",
+"8932","CTsx","12775545","Labreacia L. Thompson","40","3","6/30/2026",,,"CP",,"6/28 AM - LHC 6/29. CABG workup. Maybe DC 6/30 if LHC minimal
+
+","False",,,"[""Heparin""]",,,"Standby","Home No Needs","6/26/2026","A&O",,,"Sinus",,,,"False","Cardio
+CTS","None","6/29/2026 4:50 AM",,"Microsoft Power Platform",,,,"False",,,"Item","6/26/2026 3:41 AM","Rivera, Jason","False","False","False","False","0",,,"3541",,"0",,,,"False",,"John, Vanessa",,"RA",,"False","True",,,,,,"8932","8932",,,"LHC 6/29","60.0","False","False","0",
+"8933","CTsx","42520367","Ulisses Andrade ""Brazil""","62","9","7/4/2026",,,"CABG w/u",,"6/28 AM - CABG 6/29
+","False",,,"[""Heparin""]",,,"Self","Home No Needs","6/20/2026","A&O",,,"Sinus","[""Eliquis""]",,,"False","CTS - Guek
+Cardio","None","6/29/2026 4:50 AM",,"Microsoft Power Platform",,,,"True",,,"Item","6/25/2026 12:32 AM","Peralta Morel, Nathaly","False","False","False","False","0",,,"3459",,"0",,,,"False",,"John, Vanessa","Self Pay. ","RA",,"False","True",,,,,,"8933","8933",,,"CABG 6/29","278.0","False","False","0",
+"8934","CTsx","501163634","Brian Henley","59","5","7/3/2026",,,"Transfer - CTS Eval",,"6/28 AM - X1 CT -20 per Pulm. CTS following background. May need to perform surgery. Looks infectious in nature. 
+
+IV metoprolol for runs of afib RVR","False",,,,,,"Standby","Home No Needs","6/24/2026","A&O","[""Atrium"",""NO Leak""]",,,,,,"False","CTS
+Cardio
+ID
+Pulm","None","6/29/2026 4:51 AM",,"Microsoft Power Platform",,,,"False",,,"Item","6/27/2026 2:19 PM","Petrovich, Matthew","False","False","False","False","0",,,"3574",,"0",,,,"False",,"John, Vanessa",,"NC","4","False","True",,,,,,"8934","8934",,,"R Thoracotomy 6/29","74.0","False","False","0",
+"8935","CTsx","501183292","William R. Kirton","83","3","6/29/2026",,,,,"6/28 AM - POD3 L VATS, x1 CT -10, now waterseal failed clamp trial on 6/27. Repeat CXR
+
+","False",,,,,,"Standby","Home No Needs","6/26/2026","A&O","[""Atrium"",""Leak""]",,,,,,"False","CTS","None","6/29/2026 3:00 PM",,"Microsoft Power Platform","Microsoft Power Platform",,,"False",,,"Item","6/26/2026 1:30 AM","Rivera, Jason","False","False","False","False","0",,,"3521",,"0",,,,"False",,"Reyes, Jessica",,,,"False","True",,,,,,"8935","8935",,,,"110.0","False","False","0",
+"8936","Medical - Off Service","51208830","Claudia Rivera Betancourt","28","5","7/2/2026",,,"pleurx inflamed",,"6/28 AM - IV ABX, pain management, pt still in lots of pain and very anxious. onitoring LFTs for possible MRCP. LFTs improving","False",,,,,,"Self","Home No Needs","6/24/2026","A&O",,,"Sinus",,,,"False","Pulm
+ID
+GI S/O
+Onc- s/o","None","6/29/2026 3:01 PM",,"Microsoft Power Platform","Microsoft Power Platform",,,"False",,,"Item","6/25/2026 2:37 AM","Peralta Morel, Nathaly","False","False","False","False","0",,,"3482",,"0",,,,"False",,"Reyes, Jessica",,"RA",,"False","True",,,,,,"8936","8936",,,,"180.0","False","False","0",

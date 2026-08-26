@@ -1,0 +1,1514 @@
+[
+  {
+    "Title": "🏢 Unit 🏢",
+    "InternalName": "Unit",
+    "Type": "Choice",
+    "Choices": [
+      "GT8 CVPCU",
+      "GT7 CARDIAC PCU",
+      "GT6 CPPCU",
+      "WT8 STPCU"
+    ]
+  },
+  {
+    "Title": "🔢 MRN 🔢",
+    "InternalName": "MRN",
+    "Type": "Text",
+    "Choices": []
+  },
+  {
+    "Title": "🛏️ Room 🛏️",
+    "InternalName": "Room",
+    "Type": "Number",
+    "Choices": []
+  },
+  {
+    "Title": "📅 Admit Date 📅",
+    "InternalName": "AdmitDate",
+    "Type": "DateTime",
+    "Choices": []
+  },
+  {
+    "Title": "📅 Sx Date 📅",
+    "InternalName": "SxDate",
+    "Type": "DateTime",
+    "Choices": []
+  },
+  {
+    "Title": "📅 EDD 📅",
+    "InternalName": "EDD",
+    "Type": "DateTime",
+    "Choices": []
+  },
+  {
+    "Title": "🏥 Surgery 🏥",
+    "InternalName": "Surgery",
+    "Type": "Text",
+    "Choices": []
+  },
+  {
+    "Title": "🏥 Service Line 🏥",
+    "InternalName": "ServiceLine",
+    "Type": "Choice",
+    "Choices": [
+      "CTsx",
+      "CVmed",
+      "Transplant",
+      "Cardiology",
+      "Vascular",
+      "Thoracic",
+      "Pulm HTN",
+      "Other"
+    ]
+  },
+  {
+    "Title": "👨‍⚕️ Surgeon/Cardio 👨‍⚕️",
+    "InternalName": "SurgeonCardio",
+    "Type": "Text",
+    "Choices": []
+  },
+  {
+    "Title": "📝 PMH/Procedures 📝",
+    "InternalName": "PMHProcedures",
+    "Type": "Note",
+    "Choices": []
+  },
+  {
+    "Title": "📝 Admit Reason 📝",
+    "InternalName": "AdmitReason",
+    "Type": "Text",
+    "Choices": []
+  },
+  {
+    "Title": "📋 Leader Action Items 📋",
+    "InternalName": "LeaderActionItems",
+    "Type": "Note",
+    "Choices": []
+  },
+  {
+    "Title": "🩺 Clinical Summary SBAR 🩺",
+    "InternalName": "ClinicalNeeds",
+    "Type": "Note",
+    "Choices": []
+  },
+  {
+    "Title": "🏠 Dispo 🏠",
+    "InternalName": "Dispo",
+    "Type": "Choice",
+    "Choices": [
+      "Home No Needs",
+      "HHC",
+      "HHC DME",
+      "HHC ABX",
+      "HHC ABX DME",
+      "SNF",
+      "IPR-AH",
+      "IPR-ENC",
+      "SNF VS IPR",
+      "LTACH",
+      "ALF",
+      "Palliative",
+      "Rehab",
+      "Other"
+    ]
+  },
+  {
+    "Title": "🩹 Braden 🩹",
+    "InternalName": "Braden",
+    "Type": "Text",
+    "Choices": []
+  },
+  {
+    "Title": "🧠 Mentation 🧠",
+    "InternalName": "Mentation",
+    "Type": "Text",
+    "Choices": []
+  },
+  {
+    "Title": "💧 Drip 💧",
+    "InternalName": "Drip",
+    "Type": "MultiChoice",
+    "Choices": [
+      "Heparin",
+      "Remodulin",
+      "Amio",
+      "Cardizem",
+      "Milrinone",
+      "Insulin",
+      "Lasix/Bumex",
+      "Dopamine",
+      "Dobutamine",
+      "Nitro"
+    ]
+  },
+  {
+    "Title": "🚫 Isolation 🚫",
+    "InternalName": "Isolation",
+    "Type": "Text",
+    "Choices": []
+  },
+  {
+    "Title": "📈 Rhythm 📈",
+    "InternalName": "Rhythm",
+    "Type": "Choice",
+    "Choices": [
+      "Sinus",
+      "A-fib/flutter",
+      "Paced",
+      "No Tele",
+      "1st Degree",
+      "2nd Degree",
+      "3rd Degree",
+      "Other"
+    ]
+  },
+  {
+    "Title": "🩸 Anticoagulation At Home? 🩸",
+    "InternalName": "Anticoagulation",
+    "Type": "MultiChoice",
+    "Choices": [
+      "Coumadin",
+      "Eliquis",
+      "Xarelto",
+      "Pradaxa",
+      "Heparin SubQ",
+      "Lovenox",
+      "VTE - Lovenox",
+      "VTE - SCDS",
+      "Other NOAC"
+    ]
+  },
+  {
+    "Title": "⏱️ Time Crit ⏱️",
+    "InternalName": "TimeCrit",
+    "Type": "MultiChoice",
+    "Choices": [
+      "Sotalol",
+      "Tikosyn",
+      "Tacro",
+      "Mestinon",
+      "Other"
+    ]
+  },
+  {
+    "Title": "📜 DNR 📜",
+    "InternalName": "DNR",
+    "Type": "Choice",
+    "Choices": [
+      "COMFORT ONLY DNR",
+      "FULL AGGRESIVE DNR",
+      "LIMITED NO INTUBATION",
+      "LIMITED NO VENTILATION",
+      "LIMITED NO VASOPRESSORS"
+    ]
+  },
+  {
+    "Title": "⚖️ AdmitWeight ⚖️",
+    "InternalName": "AdmitWeight",
+    "Type": "Text",
+    "Choices": []
+  },
+  {
+    "Title": "⚖️ WeightToday ⚖️",
+    "InternalName": "WeightToday",
+    "Type": "Text",
+    "Choices": []
+  },
+  {
+    "Title": "👨‍⚕️ AttendingMD 👨‍⚕️",
+    "InternalName": "AttendingMD",
+    "Type": "Text",
+    "Choices": []
+  },
+  {
+    "Title": "🎂 Age 🎂",
+    "InternalName": "Age",
+    "Type": "Text",
+    "Choices": []
+  },
+  {
+    "Title": "🚶 Mobility 🚶",
+    "InternalName": "Mobility",
+    "Type": "Choice",
+    "Choices": [
+      "Self",
+      "x1",
+      "x2",
+      "x3 - Total"
+    ]
+  },
+  {
+    "Title": "🧪 ChestTube ALL The Tubes 🧪",
+    "InternalName": "ChestTube",
+    "Type": "MultiChoice",
+    "Choices": [
+      "Atrium",
+      "Thopaz",
+      "PleurX",
+      "Heimlich",
+      "DHT",
+      "G-Tube",
+      "J-Tube",
+      "JP Drain"
+    ]
+  },
+  {
+    "Title": "🎛️ HD at Home or Inpatient? 🎛️",
+    "InternalName": "HDAtHomeOrInpatient",
+    "Type": "Text",
+    "Choices": []
+  },
+  {
+    "Title": "🫁 O2 Device 🫁",
+    "InternalName": "O2Device",
+    "Type": "Text",
+    "Choices": []
+  },
+  {
+    "Title": "🫁 O2L/% 🫁",
+    "InternalName": "O2FlowRate",
+    "Type": "Text",
+    "Choices": []
+  },
+  {
+    "Title": "🛋️ DC Lounge 🛋️",
+    "InternalName": "DCLounge",
+    "Type": "Choice",
+    "Choices": [
+      "True",
+      "False"
+    ]
+  },
+  {
+    "Title": "🚗 Ride AVL 🚗",
+    "InternalName": "RideAVL",
+    "Type": "Choice",
+    "Choices": [
+      "True",
+      "False"
+    ]
+  },
+  {
+    "Title": "💊 PO Pain 💊",
+    "InternalName": "POPain",
+    "Type": "Text",
+    "Choices": []
+  },
+  {
+    "Title": "💩 BM 💩",
+    "InternalName": "BM",
+    "Type": "Text",
+    "Choices": []
+  },
+  {
+    "Title": "🚶 Walk Test Completed 🚶",
+    "InternalName": "WalkTestCompleted",
+    "Type": "Choice",
+    "Choices": [
+      "True",
+      "False"
+    ]
+  },
+  {
+    "Title": "🚶 Walk Test Needed 🚶",
+    "InternalName": "WalkTestNeeded",
+    "Type": "Choice",
+    "Choices": [
+      "True",
+      "False"
+    ]
+  },
+  {
+    "Title": "💉 IV Meds 💉",
+    "InternalName": "IVMeds",
+    "Type": "MultiChoice",
+    "Choices": [
+      "IV ABX",
+      "IV Bumex",
+      "IV Lasix",
+      "IV Steroids",
+      "None"
+    ]
+  },
+  {
+    "Title": "🫁 IS 🫁",
+    "InternalName": "IS",
+    "Type": "Choice",
+    "Choices": [
+      "True",
+      "False"
+    ]
+  },
+  {
+    "Title": "🏠 ALL DC BARRIERS 🏠",
+    "InternalName": "NonClinicalDCBarriers",
+    "Type": "Note",
+    "Choices": []
+  },
+  {
+    "Title": "SurgeryBarriers",
+    "InternalName": "SurgeryBarriers",
+    "Type": "Note",
+    "Choices": []
+  },
+  {
+    "Title": "🏥 SurgeryToday 🏥",
+    "InternalName": "SurgeryToday",
+    "Type": "Text",
+    "Choices": []
+  },
+  {
+    "Title": "🫀 VAD Type 🫀",
+    "InternalName": "VADType",
+    "Type": "Text",
+    "Choices": []
+  },
+  {
+    "Title": "🫀 VAD Speed 🫀",
+    "InternalName": "VADSpeed",
+    "Type": "Text",
+    "Choices": []
+  },
+  {
+    "Title": "🫀 VAD Dressing Change Order 🫀",
+    "InternalName": "VADDressingChangeOrder",
+    "Type": "Text",
+    "Choices": []
+  },
+  {
+    "Title": "🫀 Dressing Changed 🫀",
+    "InternalName": "DressingChanged",
+    "Type": "Text",
+    "Choices": []
+  },
+  {
+    "Title": "🫀 VAD Photo Uploaded 🫀",
+    "InternalName": "VADPhotoUploaded",
+    "Type": "Choice",
+    "Choices": [
+      "True",
+      "False"
+    ]
+  },
+  {
+    "Title": "🫀 VAD Dsr Next Due 🫀",
+    "InternalName": "VADDsrNextDue",
+    "Type": "Text",
+    "Choices": []
+  },
+  {
+    "Title": "🫀 VAD VS q4 AM 🫀",
+    "InternalName": "VADVSq4AM",
+    "Type": "Text",
+    "Choices": []
+  },
+  {
+    "Title": "🫀 VAD VS q4 PM 🫀",
+    "InternalName": "VADVSq4PM",
+    "Type": "Text",
+    "Choices": []
+  },
+  {
+    "Title": "🫀 VAD RN 🫀",
+    "InternalName": "VADRN",
+    "Type": "Text",
+    "Choices": []
+  },
+  {
+    "Title": "🫀 VAD Missing Required 🫀",
+    "InternalName": "VADMissingRequired",
+    "Type": "Text",
+    "Choices": []
+  },
+  {
+    "Title": "🫀 VAD DND 🫀",
+    "InternalName": "VADDND",
+    "Type": "Text",
+    "Choices": []
+  },
+  {
+    "Title": "🫀 VAD MISC NOTES 🫀",
+    "InternalName": "VADMISCNOTES",
+    "Type": "Note",
+    "Choices": []
+  },
+  {
+    "Title": "🫀 VAD Cart 🫀",
+    "InternalName": "VADCartNumber",
+    "Type": "Text",
+    "Choices": []
+  },
+  {
+    "Title": "🫀 VAD Status 🫀",
+    "InternalName": "VADStatus",
+    "Type": "Text",
+    "Choices": []
+  },
+  {
+    "Title": "⚖️ Weight Verified ⚖️",
+    "InternalName": "WeightVerified",
+    "Type": "Choice",
+    "Choices": [
+      "True",
+      "False"
+    ]
+  },
+  {
+    "Title": "🚨 Fall Risk 🚨",
+    "InternalName": "FallRisk",
+    "Type": "Choice",
+    "Choices": [
+      "LOW",
+      "MEDIUM",
+      "HIGH"
+    ]
+  },
+  {
+    "Title": "💊 PH Medication? 💊",
+    "InternalName": "PHMedication",
+    "Type": "Text",
+    "Choices": []
+  },
+  {
+    "Title": "👤 Patient Name 👤",
+    "InternalName": "PatientName",
+    "Type": "Text",
+    "Choices": []
+  },
+  {
+    "Title": "📏 CORE Measures 📏",
+    "InternalName": "CoreMeasures",
+    "Type": "MultiChoice",
+    "Choices": [
+      "AMI",
+      "CABG",
+      "COPD",
+      "HF",
+      "PNA",
+      "THK"
+    ]
+  },
+  {
+    "Title": "🔬 DM or Sepsis 🔬",
+    "InternalName": "OtherDiagnostics",
+    "Type": "MultiChoice",
+    "Choices": [
+      "Diabetes",
+      "Sepsis"
+    ]
+  },
+  {
+    "Title": "Other Co-morbidities",
+    "InternalName": "OtherComorbidities",
+    "Type": "Text",
+    "Choices": []
+  },
+  {
+    "Title": "⚠️ Readmission Risk Level ⚠️",
+    "InternalName": "RiskLevel",
+    "Type": "Choice",
+    "Choices": [
+      "Low <12%",
+      "Medium 13% to 22%",
+      "High >22%"
+    ]
+  },
+  {
+    "Title": "🚦 CLINICAL PROGRESS 🚦",
+    "InternalName": "Status",
+    "Type": "Choice",
+    "Choices": [
+      "Progressing On Schedule",
+      "Not Improving",
+      "Ready for DC",
+      "Discharged"
+    ]
+  },
+  {
+    "Title": "❤️ Cardiology Consult Sign-off ❤️",
+    "InternalName": "CardiologyConsultSignoff",
+    "Type": "Choice",
+    "Choices": [
+      "Yes",
+      "No"
+    ]
+  },
+  {
+    "Title": "❤️ Cardiology Consultant Name ❤️",
+    "InternalName": "CardiologyConsultName",
+    "Type": "Text",
+    "Choices": []
+  },
+  {
+    "Title": "❤️ EP Cardiology Consult Sign-off ❤️",
+    "InternalName": "EPCardiologyConsultSignoff",
+    "Type": "Choice",
+    "Choices": [
+      "Yes",
+      "No"
+    ]
+  },
+  {
+    "Title": "❤️ EP Cardiology Consultant Name ❤️",
+    "InternalName": "EPCardiologyConsultName",
+    "Type": "Text",
+    "Choices": []
+  },
+  {
+    "Title": "🫀 Advanced HF Consult Sign-off 🫀",
+    "InternalName": "AdvancedHFConsultSignoff",
+    "Type": "Choice",
+    "Choices": [
+      "Yes",
+      "No"
+    ]
+  },
+  {
+    "Title": "🫀 Advanced HF Consultant Name 🫀",
+    "InternalName": "AdvancedHFConsultName",
+    "Type": "Text",
+    "Choices": []
+  },
+  {
+    "Title": "🔪🫀 CTS Consult Sign-off 🔪🫀",
+    "InternalName": "CTSConsultSignoff",
+    "Type": "Choice",
+    "Choices": [
+      "Yes",
+      "No"
+    ]
+  },
+  {
+    "Title": "🔪🫀 CTS Consultant Name 🔪🫀",
+    "InternalName": "CTSConsultName",
+    "Type": "Text",
+    "Choices": []
+  },
+  {
+    "Title": "🫁 Pulmonary Consult Sign-off 🫁",
+    "InternalName": "PulmonaryConsultSignoff",
+    "Type": "Choice",
+    "Choices": [
+      "Yes",
+      "No"
+    ]
+  },
+  {
+    "Title": "🫁 Pulmonary Consultant Name 🫁",
+    "InternalName": "PulmonaryConsultName",
+    "Type": "Text",
+    "Choices": []
+  },
+  {
+    "Title": "🦠 Infectious Disease Consult Sign-off 🦠",
+    "InternalName": "InfectiousDiseaseConsultSignoff",
+    "Type": "Choice",
+    "Choices": [
+      "Yes",
+      "No"
+    ]
+  },
+  {
+    "Title": "🦠 Infectious Disease Consultant Name 🦠",
+    "InternalName": "InfectiousDiseaseConsultName",
+    "Type": "Text",
+    "Choices": []
+  },
+  {
+    "Title": "🩸🎗️ Heme/Onco Consult Sign-off 🩸🎗️",
+    "InternalName": "HemeOncoConsultSignoff",
+    "Type": "Choice",
+    "Choices": [
+      "Yes",
+      "No"
+    ]
+  },
+  {
+    "Title": "🩸🎗️ Heme/Onco Consultant Name 🩸🎗️",
+    "InternalName": "HemeOncoConsultName",
+    "Type": "Text",
+    "Choices": []
+  },
+  {
+    "Title": "💩 GI Consult Sign-off 💩",
+    "InternalName": "GIConsultSignoff",
+    "Type": "Choice",
+    "Choices": [
+      "Yes",
+      "No"
+    ]
+  },
+  {
+    "Title": "💩 GI Consultant Name 💩",
+    "InternalName": "GIConsultName",
+    "Type": "Text",
+    "Choices": []
+  },
+  {
+    "Title": "🫘 Nephrology Consult Sign-off 🫘",
+    "InternalName": "NephrologyConsultSignoff",
+    "Type": "Choice",
+    "Choices": [
+      "Yes",
+      "No"
+    ]
+  },
+  {
+    "Title": "🫘 Nephrology Consultant Name 🫘",
+    "InternalName": "NephrologyConsultName",
+    "Type": "Text",
+    "Choices": []
+  },
+  {
+    "Title": "👼 Hospice Consult Sign-off 👼",
+    "InternalName": "HospiceConsultSignoff",
+    "Type": "Choice",
+    "Choices": [
+      "Yes",
+      "No"
+    ]
+  },
+  {
+    "Title": "👼 Hospice Consultant Name 👼",
+    "InternalName": "HospiceConsultName",
+    "Type": "Text",
+    "Choices": []
+  },
+  {
+    "Title": "🪽 Palliative Consult Sign-off 🪽",
+    "InternalName": "PalliativeConsultSignoff",
+    "Type": "Choice",
+    "Choices": [
+      "Yes",
+      "No"
+    ]
+  },
+  {
+    "Title": "🪽 Palliative Consultant Name 🪽",
+    "InternalName": "PalliativeConsultName",
+    "Type": "Text",
+    "Choices": []
+  },
+  {
+    "Title": "🧬 Endocrinology Consult Sign-off 🧬",
+    "InternalName": "EndocrinologyConsultSignoff",
+    "Type": "Choice",
+    "Choices": [
+      "Yes",
+      "No"
+    ]
+  },
+  {
+    "Title": "🧬 Endocrinology Consultant Name 🧬",
+    "InternalName": "EndocrinologyConsultName",
+    "Type": "Text",
+    "Choices": []
+  },
+  {
+    "Title": "🧠 Neurology Consult Sign-off 🧠",
+    "InternalName": "NeurologyConsultSignoff",
+    "Type": "Choice",
+    "Choices": [
+      "Yes",
+      "No"
+    ]
+  },
+  {
+    "Title": "🧠 Neurology Consultant Name 🧠",
+    "InternalName": "NeurologyConsultName",
+    "Type": "Text",
+    "Choices": []
+  },
+  {
+    "Title": "🧠🔪 Neurosurgery Consult Sign-off 🧠🔪",
+    "InternalName": "NeurosurgeryConsultSignoff",
+    "Type": "Choice",
+    "Choices": [
+      "Yes",
+      "No"
+    ]
+  },
+  {
+    "Title": "🧠🔪 Neurosurgery Consultant Name 🧠🔪",
+    "InternalName": "NeurosurgeryConsultName",
+    "Type": "Text",
+    "Choices": []
+  },
+  {
+    "Title": "🩺 Other Consultant (Misc) 🩺",
+    "InternalName": "OtherConsultantMisc",
+    "Type": "Note",
+    "Choices": []
+  },
+  {
+    "Title": "🩺 Other Consultant (Misc) Sign-off 🩺",
+    "InternalName": "OtherConsultantMiscSognoff",
+    "Type": "Choice",
+    "Choices": [
+      "Yes",
+      "No"
+    ]
+  },
+  {
+    "Title": "💉 Active IV Meds Transition Plan 💉",
+    "InternalName": "ActiveIVTransition",
+    "Type": "Choice",
+    "Choices": [
+      "Yes",
+      "No"
+    ]
+  },
+  {
+    "Title": "🚶 PT/OT Eval Completed 🚶",
+    "InternalName": "PTOTEval",
+    "Type": "Choice",
+    "Choices": [
+      "Yes",
+      "No"
+    ]
+  },
+  {
+    "Title": "🏠 DispoFinal 🏠",
+    "InternalName": "FinalDestination",
+    "Type": "Choice",
+    "Choices": [
+      "HHC",
+      "IPR",
+      "SNF",
+      "Home (no needs)"
+    ]
+  },
+  {
+    "Title": "🚨 Disposition Misalignment Escalation 🚨",
+    "InternalName": "DispMisalignEscalation",
+    "Type": "Choice",
+    "Choices": [
+      "Yes",
+      "No"
+    ]
+  },
+  {
+    "Title": "🏠 Home Equipment Verified 🏠",
+    "InternalName": "HomeEquipment",
+    "Type": "MultiChoice",
+    "Choices": [
+      "Scale",
+      "BP Machine/Cuff",
+      "Pulse Oximetry"
+    ]
+  },
+  {
+    "Title": "📄 HHC/SNF/IPR Auth Submitted 📄",
+    "InternalName": "HHCAuthSubmitted",
+    "Type": "Choice",
+    "Choices": [
+      "Yes",
+      "No"
+    ]
+  },
+  {
+    "Title": "📦 DME/Supplies 📦",
+    "InternalName": "DMESupplies",
+    "Type": "MultiChoice",
+    "Choices": [
+      "FWW",
+      "Oxygen",
+      "IV Infusion",
+      "LV"
+    ]
+  },
+  {
+    "Title": "📦 DME/Supplies Other 📦",
+    "InternalName": "DMESuppliesOther",
+    "Type": "Text",
+    "Choices": []
+  },
+  {
+    "Title": "📦 DME/Supplies Arranged 📦",
+    "InternalName": "DMEArranged",
+    "Type": "Choice",
+    "Choices": [
+      "Yes",
+      "No"
+    ]
+  },
+  {
+    "Title": "🏪 Correct Pharmacy Listed 🏪",
+    "InternalName": "CorrectPharmacy",
+    "Type": "Choice",
+    "Choices": [
+      "Yes",
+      "No"
+    ]
+  },
+  {
+    "Title": "🩹 Wound Care Instructions 🩹",
+    "InternalName": "WoundCareInstructions",
+    "Type": "Choice",
+    "Choices": [
+      "Yes",
+      "No"
+    ]
+  },
+  {
+    "Title": "🩺 PCP Scheduled 🩺",
+    "InternalName": "FU_PCP",
+    "Type": "Choice",
+    "Choices": [
+      "Yes",
+      "No"
+    ]
+  },
+  {
+    "Title": "🩺 PCP Appt Date 🩺",
+    "InternalName": "FU_PCP_Date",
+    "Type": "Text",
+    "Choices": []
+  },
+  {
+    "Title": "❤️ Cardio Scheduled ❤️",
+    "InternalName": "FU_Cardio",
+    "Type": "Choice",
+    "Choices": [
+      "Yes",
+      "No"
+    ]
+  },
+  {
+    "Title": "❤️ Cardio Appt Date ❤️",
+    "InternalName": "FU_Cardio_Date",
+    "Type": "Text",
+    "Choices": []
+  },
+  {
+    "Title": "🔪🫀 CTS/Surgeon Scheduled 🔪🫀",
+    "InternalName": "FU_CTS",
+    "Type": "Choice",
+    "Choices": [
+      "Yes",
+      "No"
+    ]
+  },
+  {
+    "Title": "🔪🫀 CTS/Surgeon Appt Date 🔪🫀",
+    "InternalName": "FU_CTS_Date",
+    "Type": "Text",
+    "Choices": []
+  },
+  {
+    "Title": "🌉 Bridge Services Requested 🌉",
+    "InternalName": "FU_Bridge",
+    "Type": "Choice",
+    "Choices": [
+      "Yes",
+      "No"
+    ]
+  },
+  {
+    "Title": "🌉 Bridge Services Detail 🌉",
+    "InternalName": "FU_Bridge_Detail",
+    "Type": "Text",
+    "Choices": []
+  },
+  {
+    "Title": "🫁 Pulm Scheduled 🫁",
+    "InternalName": "FU_Pulm",
+    "Type": "Choice",
+    "Choices": [
+      "Yes",
+      "No"
+    ]
+  },
+  {
+    "Title": "🫁 Pulm Appt Date 🫁",
+    "InternalName": "FU_Pulm_Date",
+    "Type": "Text",
+    "Choices": []
+  },
+  {
+    "Title": "❤️ Has A-Fib ❤️",
+    "InternalName": "AFib_Has",
+    "Type": "Choice",
+    "Choices": [
+      "Yes",
+      "No"
+    ]
+  },
+  {
+    "Title": "❤️ A-Fib Type ❤️",
+    "InternalName": "AFib_Type",
+    "Type": "Choice",
+    "Choices": [
+      "Known",
+      "New"
+    ]
+  },
+  {
+    "Title": "❤️ Known: AC Verified/Bridged ❤️",
+    "InternalName": "AFib_KnownVerified",
+    "Type": "Choice",
+    "Choices": [
+      "Yes",
+      "No"
+    ]
+  },
+  {
+    "Title": "❤️ Known: AC Restarted Inpatient ❤️",
+    "InternalName": "AFib_KnownRestarted",
+    "Type": "Choice",
+    "Choices": [
+      "Yes",
+      "No"
+    ]
+  },
+  {
+    "Title": "❤️ Known: AC on AVS w/ Dose ❤️",
+    "InternalName": "AFib_KnownAVS",
+    "Type": "Choice",
+    "Choices": [
+      "Yes",
+      "No"
+    ]
+  },
+  {
+    "Title": "❤️ New: A-Fib Teach-back ❤️",
+    "InternalName": "AFib_NewTeach",
+    "Type": "Choice",
+    "Choices": [
+      "Yes",
+      "No"
+    ]
+  },
+  {
+    "Title": "❤️ New: AC Prescription Provided ❤️",
+    "InternalName": "AFib_NewScript",
+    "Type": "Choice",
+    "Choices": [
+      "Yes",
+      "No"
+    ]
+  },
+  {
+    "Title": "❤️ New: Bleeding Risk Documented ❤️",
+    "InternalName": "AFib_BleedingRisk",
+    "Type": "Choice",
+    "Choices": [
+      "Yes",
+      "No"
+    ]
+  },
+  {
+    "Title": "⚡ AMI Medications ⚡",
+    "InternalName": "AMI_Meds",
+    "Type": "MultiChoice",
+    "Choices": [
+      "DAPT",
+      "Statin",
+      "Beta-blocker",
+      "ACE/ARB/ARNI"
+    ]
+  },
+  {
+    "Title": "⚡ AMI: Heart Cath/PCI This Encounter ⚡",
+    "InternalName": "AMI_Cath",
+    "Type": "Choice",
+    "Choices": [
+      "Yes",
+      "No"
+    ]
+  },
+  {
+    "Title": "⚡ AMI: Provider (Date/Name) ⚡",
+    "InternalName": "AMI_Provider",
+    "Type": "Text",
+    "Choices": []
+  },
+  {
+    "Title": "⚡ AMI: Cardiac Rehab Referral ⚡",
+    "InternalName": "AMI_Rehab",
+    "Type": "Choice",
+    "Choices": [
+      "Yes",
+      "No"
+    ]
+  },
+  {
+    "Title": "🔪 CABG Medications 🔪",
+    "InternalName": "CABG_Meds",
+    "Type": "MultiChoice",
+    "Choices": [
+      "Antiplatelet",
+      "Statin",
+      "Beta-blocker",
+      "Stool Regimen",
+      "Diuretic",
+      "Antiarrhythmic",
+      "Pain Regimen"
+    ]
+  },
+  {
+    "Title": "🔪 CABG: This Encounter 🔪",
+    "InternalName": "CABG_Encounter",
+    "Type": "Choice",
+    "Choices": [
+      "Yes",
+      "No"
+    ]
+  },
+  {
+    "Title": "🔪 CABG: Surgeon (Date/Name) 🔪",
+    "InternalName": "CABG_Surgeon",
+    "Type": "Text",
+    "Choices": []
+  },
+  {
+    "Title": "🔪 CABG: Cardiac Rehab Referral 🔪",
+    "InternalName": "CABG_Rehab",
+    "Type": "Choice",
+    "Choices": [
+      "Yes",
+      "No"
+    ]
+  },
+  {
+    "Title": "🔪 CABG: Glycemic Control Plan 🔪",
+    "InternalName": "CABG_Glycemic",
+    "Type": "Choice",
+    "Choices": [
+      "Yes",
+      "No"
+    ]
+  },
+  {
+    "Title": "🔪 CABG: Navigator Contact AVS 🔪",
+    "InternalName": "CABG_Navigator",
+    "Type": "Choice",
+    "Choices": [
+      "Yes",
+      "No"
+    ]
+  },
+  {
+    "Title": "🫁 COPD: Inhaler/Neb Regimen Optimized 🫁",
+    "InternalName": "COPD_Regimen",
+    "Type": "Choice",
+    "Choices": [
+      "Yes",
+      "No"
+    ]
+  },
+  {
+    "Title": "🫁 COPD: Inhaler Technique Education 🫁",
+    "InternalName": "COPD_Technique",
+    "Type": "Choice",
+    "Choices": [
+      "Yes",
+      "No"
+    ]
+  },
+  {
+    "Title": "🫁 COPD: Steroid/Antibiotic Plan 🫁",
+    "InternalName": "COPD_Plan",
+    "Type": "Choice",
+    "Choices": [
+      "Yes",
+      "No"
+    ]
+  },
+  {
+    "Title": "🫁 COPD: Smoking Cessation 🫁",
+    "InternalName": "COPD_Smoking",
+    "Type": "Choice",
+    "Choices": [
+      "Yes",
+      "No"
+    ]
+  },
+  {
+    "Title": "🫁 COPD: Pulmonary Rehab Referral 🫁",
+    "InternalName": "COPD_Rehab",
+    "Type": "Choice",
+    "Choices": [
+      "Yes",
+      "No"
+    ]
+  },
+  {
+    "Title": "🫁 COPD: Walk Test 24-48 hrs 🫁",
+    "InternalName": "COPD_WalkTest",
+    "Type": "Choice",
+    "Choices": [
+      "Yes",
+      "No"
+    ]
+  },
+  {
+    "Title": "🫀 HF Medications 🫀",
+    "InternalName": "HF_Meds",
+    "Type": "MultiChoice",
+    "Choices": [
+      "Diuretic",
+      "Beta-Blocker",
+      "ACE/ARB/ARNI",
+      "MRAs (Spironolactone)",
+      "SGLT2 (Jardiance)"
+    ]
+  },
+  {
+    "Title": "🫀 HF: Daily Standing Weight 🫀",
+    "InternalName": "HF_StandingWeight",
+    "Type": "Choice",
+    "Choices": [
+      "Yes",
+      "No"
+    ]
+  },
+  {
+    "Title": "🫀 HF: Stable Weight Trend 🫀",
+    "InternalName": "HF_WeightTrend",
+    "Type": "Choice",
+    "Choices": [
+      "Yes",
+      "No"
+    ]
+  },
+  {
+    "Title": "🫀 HF: CHF Order Set EPIC 🫀",
+    "InternalName": "HF_OrderSet",
+    "Type": "Choice",
+    "Choices": [
+      "Yes",
+      "No"
+    ]
+  },
+  {
+    "Title": "🫀 HF: Cardiac Rehab Phase I 🫀",
+    "InternalName": "HF_RehabPhase1",
+    "Type": "Choice",
+    "Choices": [
+      "Yes",
+      "No"
+    ]
+  },
+  {
+    "Title": "🫀 HF: Sodium Restriction 🫀",
+    "InternalName": "HF_Sodium",
+    "Type": "Choice",
+    "Choices": [
+      "Yes",
+      "No"
+    ]
+  },
+  {
+    "Title": "🫀 HF: Sodium Restriction Value 🫀",
+    "InternalName": "HF_SodiumValue",
+    "Type": "Text",
+    "Choices": []
+  },
+  {
+    "Title": "🫀 HF: Fluid Restriction 🫀",
+    "InternalName": "HF_Fluid",
+    "Type": "Choice",
+    "Choices": [
+      "Yes",
+      "No"
+    ]
+  },
+  {
+    "Title": "🫀 HF: Fluid Restriction Value 🫀",
+    "InternalName": "HF_FluidValue",
+    "Type": "Text",
+    "Choices": []
+  },
+  {
+    "Title": "🫀 HF: Diuretic Plan for DC 🫀",
+    "InternalName": "HF_DiureticPlan",
+    "Type": "Choice",
+    "Choices": [
+      "Yes",
+      "No"
+    ]
+  },
+  {
+    "Title": "🫀 HF: Diuretic Plan Value 🫀",
+    "InternalName": "HF_DiureticValue",
+    "Type": "Text",
+    "Choices": []
+  },
+  {
+    "Title": "🫀 HF: Dry Weight on AVS 🫀",
+    "InternalName": "HF_DryWeight",
+    "Type": "Choice",
+    "Choices": [
+      "Yes",
+      "No"
+    ]
+  },
+  {
+    "Title": "🫀 HF: Dry Weight Value 🫀",
+    "InternalName": "HF_DryWeightValue",
+    "Type": "Text",
+    "Choices": []
+  },
+  {
+    "Title": "🦠 PNA: IS Education Teach-back 🦠",
+    "InternalName": "PNA_ISEd",
+    "Type": "Choice",
+    "Choices": [
+      "Yes",
+      "No"
+    ]
+  },
+  {
+    "Title": "🦠 PNA: IS Usage Documented 🦠",
+    "InternalName": "PNA_ISUse",
+    "Type": "Choice",
+    "Choices": [
+      "Yes",
+      "No"
+    ]
+  },
+  {
+    "Title": "🦠 PNA: Vaccination Status Addressed 🦠",
+    "InternalName": "PNA_Vaccination",
+    "Type": "Choice",
+    "Choices": [
+      "Yes",
+      "No"
+    ]
+  },
+  {
+    "Title": "🚨 Final: Escalations Completed 🚨",
+    "InternalName": "FIN_Escalations",
+    "Type": "Choice",
+    "Choices": [
+      "Yes",
+      "No"
+    ]
+  },
+  {
+    "Title": "💊 Final: DC Med Rec by Pharmacy 💊",
+    "InternalName": "FIN_MedRec",
+    "Type": "Choice",
+    "Choices": [
+      "Yes",
+      "No"
+    ]
+  },
+  {
+    "Title": "💊 Final: IP Med Parameters on AVS 💊",
+    "InternalName": "FIN_IPMedParams",
+    "Type": "Choice",
+    "Choices": [
+      "Yes",
+      "No"
+    ]
+  },
+  {
+    "Title": "🚫💊 Final: No Duplicate Meds 🚫💊",
+    "InternalName": "FIN_NoDupeMeds",
+    "Type": "Choice",
+    "Choices": [
+      "Yes",
+      "No"
+    ]
+  },
+  {
+    "Title": "🚕 Final: Reliable Transport Confirmed 🚕",
+    "InternalName": "FIN_Transport",
+    "Type": "Choice",
+    "Choices": [
+      "Yes",
+      "No"
+    ]
+  },
+  {
+    "Title": "🗺️ Final: Zone Tool on AVS 🗺️",
+    "InternalName": "FIN_ZoneTool",
+    "Type": "Choice",
+    "Choices": [
+      "Yes",
+      "No"
+    ]
+  },
+  {
+    "Title": "🌟 Final: Core 4 Pack Given 🌟",
+    "InternalName": "FIN_Core4",
+    "Type": "Choice",
+    "Choices": [
+      "Yes",
+      "No"
+    ]
+  },
+  {
+    "Title": "🧠 Final: Patient Verbalized Understanding 🧠",
+    "InternalName": "FIN_Understanding",
+    "Type": "Choice",
+    "Choices": [
+      "Yes",
+      "No"
+    ]
+  },
+  {
+    "Title": "👥 Final: Readmission Huddle Completed Prior to DC 👥",
+    "InternalName": "FIN_HuddleDone",
+    "Type": "Choice",
+    "Choices": [
+      "Yes",
+      "No"
+    ]
+  },
+  {
+    "Title": "✍️ Final: Nurse Leader Review ✍️",
+    "InternalName": "FIN_NLReview",
+    "Type": "Choice",
+    "Choices": [
+      "Yes",
+      "No"
+    ]
+  },
+  {
+    "Title": "📅 Final: Nurse Leader Review Date 📅",
+    "InternalName": "FIN_NLReview_Date",
+    "Type": "DateTime",
+    "Choices": []
+  },
+  {
+    "Title": "🔌 Has Device 🔌",
+    "InternalName": "DEV_Has",
+    "Type": "Choice",
+    "Choices": [
+      "Yes",
+      "No"
+    ]
+  },
+  {
+    "Title": "🔌 Device List 🔌",
+    "InternalName": "DEV_List",
+    "Type": "Text",
+    "Choices": []
+  },
+  {
+    "Title": "🔌 Device Presence Documented 🔌",
+    "InternalName": "DEV_Presence",
+    "Type": "Choice",
+    "Choices": [
+      "Yes",
+      "No"
+    ]
+  },
+  {
+    "Title": "🔌 Devices at Discharge Identified 🔌",
+    "InternalName": "DEV_AtDischarge",
+    "Type": "Choice",
+    "Choices": [
+      "Yes",
+      "No"
+    ]
+  },
+  {
+    "Title": "🔌 Device Teach-back Completed 🔌",
+    "InternalName": "DEV_Teachback",
+    "Type": "Choice",
+    "Choices": [
+      "Yes",
+      "No"
+    ]
+  },
+  {
+    "Title": "🔌 Device DC Follow-up Addressed 🔌",
+    "InternalName": "DEV_Followup",
+    "Type": "Choice",
+    "Choices": [
+      "Yes",
+      "No"
+    ]
+  },
+  {
+    "Title": "🔌 Device Documentation Notes 🔌",
+    "InternalName": "DEV_Notes",
+    "Type": "Note",
+    "Choices": []
+  },
+  {
+    "Title": "💰 Med Access & Cost Resolved 💰",
+    "InternalName": "MedAccessResolved",
+    "Type": "Choice",
+    "Choices": [
+      "Yes",
+      "No"
+    ]
+  },
+  {
+    "Title": "🦠 PNA: Steroid & Antibiotic Plan 🦠",
+    "InternalName": "PNA_Plan",
+    "Type": "Choice",
+    "Choices": [
+      "Yes",
+      "No"
+    ]
+  },
+  {
+    "Title": "📖💊 Final: New Meds & Dx Education 📖💊",
+    "InternalName": "FIN_NewMedsEd",
+    "Type": "Choice",
+    "Choices": [
+      "Yes",
+      "No"
+    ]
+  },
+  {
+    "Title": "🔍💊 Final: All Meds Dose & Frequency 🔍💊",
+    "InternalName": "FIN_MedDetails",
+    "Type": "Choice",
+    "Choices": [
+      "Yes",
+      "No"
+    ]
+  },
+  {
+    "Title": "📄 Final: AVS Reviewed w/ Patient & Family 📄",
+    "InternalName": "FIN_AVSReviewed",
+    "Type": "Choice",
+    "Choices": [
+      "Yes",
+      "No"
+    ]
+  },
+  {
+    "Title": "💲💲🧮 GMLOS 💲💲🧮",
+    "InternalName": "GMLOS",
+    "Type": "Number",
+    "Choices": []
+  },
+  {
+    "Title": "🛏️ Does the patient have family/friend support for discharge? 🛏️",
+    "InternalName": "Does_x0020_the_x0020_patient_x00",
+    "Type": "Text",
+    "Choices": []
+  },
+  {
+    "Title": "📋 POST Huddle Action Item Update (NM Owner) 📋",
+    "InternalName": "POST_x0020_Huddle_x0020_Action_x",
+    "Type": "Note",
+    "Choices": []
+  },
+  {
+    "Title": "📋 Nursing Action Item Follow Up (NM Owner) 📋",
+    "InternalName": "Nursing_x0020_Action_x0020_Item_",
+    "Type": "Note",
+    "Choices": []
+  },
+  {
+    "Title": "📋 CM Leader Review 📋",
+    "InternalName": "CM_x0020_Leader_x0020_Review",
+    "Type": "Note",
+    "Choices": []
+  },
+  {
+    "Title": "📋 POST CM Huddle Follow Up 📋",
+    "InternalName": "POST_x0020_CM_x0020_Huddle_x0020",
+    "Type": "Note",
+    "Choices": []
+  }
+]

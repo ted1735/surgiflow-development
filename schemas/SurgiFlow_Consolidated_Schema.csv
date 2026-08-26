@@ -1,0 +1,225 @@
+DisplayName,InternalName,FieldType,Choices,Required,Default,Notes
+🏢 Unit 🏢,Unit,Choice,GT8 CVPCU; GT7 CARDIAC PCU; GT6 CPPCU; WT8 STPCU,TRUE,GT8 CVPCU,
+🔢 MRN 🔢,MRN,Text,,FALSE,,
+🛏️ Room 🛏️,Room,Text,,FALSE,,
+👤 Name 👤,Name,Text,,FALSE,,
+📅 Admit Date 📅,AdmitDate,DateTime,DateOnly,FALSE,,
+📅 LOS 📅,LOS,Text,,FALSE,,
+📅 Sx Date 📅,SxDate,DateTime,DateOnly,FALSE,,
+Pre Op,PreOp,Choice,True; False,FALSE,False,
+📅 EDD 📅,EDD,DateTime,DateOnly,FALSE,,
+🏥 Surgery 🏥,Surgery,Text,,FALSE,,
+🏥 Service Line 🏥,ServiceLine,Choice,CTsx; CVmed; Transplant; Cardiology; Vascular; Thoracic; Other,FALSE,,
+👨‍⚕️ Surgeon/Cardio 👨‍⚕️,SurgeonCardio,Text,,FALSE,,
+📝 PMH/Procedures 📝,PMHProcedures,Note,,FALSE,,
+📝 Admit Reason 📝,AdmitReason,Text,,FALSE,,
+📋 Leader Action Items 📋,LeaderActionItems,Note,,FALSE,,
+🩺 Clinical Needs to Continue Admission 🩺,ClinicalNeeds,Note,,FALSE,,
+🏠 Dispo 🏠,Dispo,Choice,SNF; Home No Needs; HHC DME ONLY; HHC; IPR-AH; HHC ABX ONLY; Hospice; Palliative; Rehab; Other,FALSE,,
+🩹 Braden 🩹,Braden,Text,,FALSE,,
+🧠 Mentation 🧠,Mentation,Text,,FALSE,,
+💧 Drip 💧,Drip,Note,,FALSE,,
+🚫 Isolation 🚫,Isolation,Text,,FALSE,,
+📈 Rhythm 📈,Rhythm,Text,,FALSE,,
+🩸 Anticoagulation 🩸,Anticoagulation,Text,,FALSE,,
+⏱️ Time Crit ⏱️,TimeCrit,Text,,FALSE,,
+📜 DNR 📜,DNR,Choice,True; False,FALSE,False,
+⚖️ AdmitWeight ⚖️,AdmitWeight,Text,,FALSE,,
+⚖️ WeightToday ⚖️,WeightToday,Text,,FALSE,,
+WeightChange,WeightChange,Text,,FALSE,,
+Consultants Pending,ConsultantsPending,Note,,FALSE,,
+👨‍⚕️ AttendingMD 👨‍⚕️,AttendingMD,Text,,FALSE,,
+SkinAssessVerified,SkinAssessVerified,Choice,True; False,FALSE,False,
+MCB,MCB,Choice,True; False,FALSE,False,
+Arrival Time,ArrivalTime,Text,,FALSE,,
+🎂 Age 🎂,Age,Text,,FALSE,,
+🚶 Mobility 🚶,Mobility,Text,,FALSE,,
+🧪 Chest Tube 🧪,ChestTube,Note,,FALSE,,
+Going Home With AC?,GoingHomeWithAC,Text,,FALSE,,
+🎛️ HD at Home or Inpatient? 🎛️,HDAtHomeOrInpatient,Text,,FALSE,,
+🫁 O2 Device 🫁,O2Device,Text,,FALSE,,
+🫁 O2L/% 🫁,O2FlowRate,Text,,FALSE,,
+🛋️ DC Lounge 🛋️,DCLounge,Choice,True; False,FALSE,False,
+Appts Made,ApptsMade,Choice,True; False,FALSE,False,
+Pharmacy Verified,PharmacyVerified,Choice,True; False,FALSE,False,
+🚗 Ride AVL 🚗,RideAVL,Choice,True; False,FALSE,False,
+💊 PO Pain 💊,POPain,Text,,FALSE,,
+💩 BM 💩,BM,Text,,FALSE,,
+Comments/Updates,CommentsUpdates,Note,,FALSE,,
+DC Order,DCOrder,Choice,True; False,FALSE,False,
+Med Rec,MedRec,Choice,True; False,FALSE,False,
+🚶 Walk Test Completed 🚶,WalkTestCompleted,Choice,True; False,FALSE,False,
+🚶 Walk Test Needed 🚶,WalkTestNeeded,Choice,True; False,FALSE,False,
+💉 IV Meds 💉,IVMeds,Text,,FALSE,,
+DC TODAY,DCTODAY,Choice,True; False,FALSE,False,
+🫁 IS 🫁,IS,Choice,True; False,FALSE,False,
+🏠 ALL DC BARRIERS 🏠,NonClinicalDCBarriers,Note,,FALSE,,
+Misaligned Dispo,MisalignedDispo,Choice,True; False,FALSE,False,
+pre op,preop2,Choice,True; False,FALSE,False,
+SurgeryBarriers,SurgeryBarriers,Note,,FALSE,,
+🏥 SurgeryToday 🏥,SurgeryToday,Text,,FALSE,,
+🫀 VAD Type 🫀,VADType,Text,,FALSE,,
+🫀 VAD Speed 🫀,VADSpeed,Text,,FALSE,,
+🫀 VAD Dressing Change Order 🫀,VADDressingChangeOrder,Text,,FALSE,,
+🫀 Dressing Changed 🫀,DressingChanged,Text,,FALSE,,
+🫀 VAD Photo Uploaded 🫀,VADPhotoUploaded,Choice,True; False,FALSE,False,
+🫀 VAD Dsr Next Due 🫀,VADDsrNextDue,Text,,FALSE,,
+🫀 VAD VS q4 AM 🫀,VADVSq4AM,Text,,FALSE,,
+🫀 VAD VS q4 PM 🫀,VADVSq4PM,Text,,FALSE,,
+🫀 VAD RN 🫀,VADRN,Text,,FALSE,,
+🫀 VAD Missing Required 🫀,VADMissingRequired,Text,,FALSE,,
+🫀 VAD DND 🫀,VADDND,Text,,FALSE,,
+🫀 VAD MISC NOTES 🫀,VADMISCNOTES,Note,,FALSE,,
+🫀 VAD Cart 🫀,VADCartNumber,Text,,FALSE,,
+🫀 VAD Status 🫀,VADStatus,Text,,FALSE,,
+Transferred From,TransferredFrom,Text,,FALSE,,
+Time Seen By Leader,TimeSeenByLeader,Text,,FALSE,,
+⚖️ Weight Verified ⚖️,WeightVerified,Choice,True; False,FALSE,False,
+🚨 Fall Risk 🚨,FallRisk,Choice,LOW; MEDIUM; HIGH,FALSE,LOW,
+💊 PH Medication? 💊,PHMedication,Text,,FALSE,,
+👤 Patient Name 👤,PatientName,Text,,TRUE,,System of record patient name
+Campus,Campus,Text,,FALSE,,
+Payor,Payor,Text,,FALSE,,Free-text payor name
+Payor Type,PayorType,MultiChoice,Medicare A/B; Medicare Replacement/Advantage,FALSE,,
+📏 CORE Measures 📏,CoreMeasures,MultiChoice,AMI; CABG; COPD; HF; PNA; THK,FALSE,,Drives which conditional modules apply
+🔬 DM or Sepsis 🔬,OtherDiagnostics,MultiChoice,Diabetes; Sepsis,FALSE,,
+Other Co-morbidities,OtherComorbidities,Text,,FALSE,,
+⚠️ Risk Level ⚠️,RiskLevel,Choice,Low; Medium; High,FALSE,Low,AH V2 IP Risk Level
+Shift,Shift,Choice,Day; Night,FALSE,Night,List/workflow field — set in the app or by flow; not on the bedside form
+🚦 CLINICAL PROGRESS 🚦,Status,Choice,In Progress; Ready for DC; Discharged,FALSE,In Progress,List/workflow field — set in the app or by flow; not on the bedside form
+Other Consultants,OtherConsultants,Text,,FALSE,,
+❤️ Cardiology Consult Sign-off ❤️,CardiologyConsultSignoff,Choice,Yes; No,FALSE,,Individual specialist consult sign-off (mirrors DCmd granularity). Blank = not addressed / no consult; Yes = consult completed & signed off; No = open gap.
+❤️ Cardiology Consultant Name ❤️,CardiologyConsultName,Text,,FALSE,,Free-text consultant/physician name for the paired sign-off. Optional; complements the Yes/No consult sign-off.
+❤️ EP Cardiology Consult Sign-off ❤️,EPCardiologyConsultSignoff,Choice,Yes; No,FALSE,,Individual specialist consult sign-off (mirrors DCmd granularity). Blank = not addressed / no consult; Yes = consult completed & signed off; No = open gap.
+❤️ EP Cardiology Consultant Name ❤️,EPCardiologyConsultName,Text,,FALSE,,Free-text consultant/physician name for the paired sign-off. Optional; complements the Yes/No consult sign-off.
+🫀 Advanced HF Consult Sign-off 🫀,AdvancedHFConsultSignoff,Choice,Yes; No,FALSE,,Individual specialist consult sign-off (mirrors DCmd granularity). Blank = not addressed / no consult; Yes = consult completed & signed off; No = open gap.
+🫀 Advanced HF Consultant Name 🫀,AdvancedHFConsultName,Text,,FALSE,,Free-text consultant/physician name for the paired sign-off. Optional; complements the Yes/No consult sign-off.
+🔪🫀 CTS Consult Sign-off 🔪🫀,CTSConsultSignoff,Choice,Yes; No,FALSE,,Individual specialist consult sign-off (mirrors DCmd granularity). Blank = not addressed / no consult; Yes = consult completed & signed off; No = open gap.
+🔪🫀 CTS Consultant Name 🔪🫀,CTSConsultName,Text,,FALSE,,Free-text consultant/physician name for the paired sign-off. Optional; complements the Yes/No consult sign-off.
+🫁 Pulmonary Consult Sign-off 🫁,PulmonaryConsultSignoff,Choice,Yes; No,FALSE,,Individual specialist consult sign-off (mirrors DCmd granularity). Blank = not addressed / no consult; Yes = consult completed & signed off; No = open gap.
+🫁 Pulmonary Consultant Name 🫁,PulmonaryConsultName,Text,,FALSE,,Free-text consultant/physician name for the paired sign-off. Optional; complements the Yes/No consult sign-off.
+🦠 Infectious Disease Consult Sign-off 🦠,InfectiousDiseaseConsultSignoff,Choice,Yes; No,FALSE,,Individual specialist consult sign-off (mirrors DCmd granularity). Blank = not addressed / no consult; Yes = consult completed & signed off; No = open gap.
+🦠 Infectious Disease Consultant Name 🦠,InfectiousDiseaseConsultName,Text,,FALSE,,Free-text consultant/physician name for the paired sign-off. Optional; complements the Yes/No consult sign-off.
+🩸🎗️ Heme/Onco Consult Sign-off 🩸🎗️,HemeOncoConsultSignoff,Choice,Yes; No,FALSE,,Individual specialist consult sign-off (mirrors DCmd granularity). Blank = not addressed / no consult; Yes = consult completed & signed off; No = open gap.
+🩸🎗️ Heme/Onco Consultant Name 🩸🎗️,HemeOncoConsultName,Text,,FALSE,,Free-text consultant/physician name for the paired sign-off. Optional; complements the Yes/No consult sign-off.
+💩 GI Consult Sign-off 💩,GIConsultSignoff,Choice,Yes; No,FALSE,,Individual specialist consult sign-off (mirrors DCmd granularity). Blank = not addressed / no consult; Yes = consult completed & signed off; No = open gap.
+💩 GI Consultant Name 💩,GIConsultName,Text,,FALSE,,Free-text consultant/physician name for the paired sign-off. Optional; complements the Yes/No consult sign-off.
+🫘 Nephrology Consult Sign-off 🫘,NephrologyConsultSignoff,Choice,Yes; No,FALSE,,Individual specialist consult sign-off (mirrors DCmd granularity). Blank = not addressed / no consult; Yes = consult completed & signed off; No = open gap.
+🫘 Nephrology Consultant Name 🫘,NephrologyConsultName,Text,,FALSE,,Free-text consultant/physician name for the paired sign-off. Optional; complements the Yes/No consult sign-off.
+👼 Hospice Consult Sign-off 👼,HospiceConsultSignoff,Choice,Yes; No,FALSE,,Individual specialist consult sign-off (mirrors DCmd granularity). Blank = not addressed / no consult; Yes = consult completed & signed off; No = open gap.
+👼 Hospice Consultant Name 👼,HospiceConsultName,Text,,FALSE,,Free-text consultant/physician name for the paired sign-off. Optional; complements the Yes/No consult sign-off.
+🪽 Palliative Consult Sign-off 🪽,PalliativeConsultSignoff,Choice,Yes; No,FALSE,,Individual specialist consult sign-off (mirrors DCmd granularity). Blank = not addressed / no consult; Yes = consult completed & signed off; No = open gap.
+🪽 Palliative Consultant Name 🪽,PalliativeConsultName,Text,,FALSE,,Free-text consultant/physician name for the paired sign-off. Optional; complements the Yes/No consult sign-off.
+🧬 Endocrinology Consult Sign-off 🧬,EndocrinologyConsultSignoff,Choice,Yes; No,FALSE,,Individual specialist consult sign-off (mirrors DCmd granularity). Blank = not addressed / no consult; Yes = consult completed & signed off; No = open gap.
+🧬 Endocrinology Consultant Name 🧬,EndocrinologyConsultName,Text,,FALSE,,Free-text consultant/physician name for the paired sign-off. Optional; complements the Yes/No consult sign-off.
+🧠 Neurology Consult Sign-off 🧠,NeurologyConsultSignoff,Choice,Yes; No,FALSE,,Individual specialist consult sign-off (mirrors DCmd granularity). Blank = not addressed / no consult; Yes = consult completed & signed off; No = open gap.
+🧠 Neurology Consultant Name 🧠,NeurologyConsultName,Text,,FALSE,,Free-text consultant/physician name for the paired sign-off. Optional; complements the Yes/No consult sign-off.
+🧠🔪 Neurosurgery Consult Sign-off 🧠🔪,NeurosurgeryConsultSignoff,Choice,Yes; No,FALSE,,Individual specialist consult sign-off (mirrors DCmd granularity). Blank = not addressed / no consult; Yes = consult completed & signed off; No = open gap.
+🧠🔪 Neurosurgery Consultant Name 🧠🔪,NeurosurgeryConsultName,Text,,FALSE,,Free-text consultant/physician name for the paired sign-off. Optional; complements the Yes/No consult sign-off.
+🩺 Other Consultant (Misc) 🩺,OtherConsultantMisc,Note,,FALSE,,"Free-text catch-all for any additional consultants during the admission not covered by the fixed specialties (e.g., specialty + physician name + date). Keeps a running record of miscellaneous consults."
+🩺 Other Consultant (Misc) Sign-off 🩺,OtherConsultantMiscSognoff,Choice,Yes; No,FALSE,,"Free-text catch-all for any additional consultants during the admission not covered by the fixed specialties (e.g., specialty + physician name + date). Keeps a running record of miscellaneous consults."
+Pertinent Information,PertinentInformation,Note,,FALSE,,"Free-text notes; workflow only, not medical record"
+💉 Active IV Meds Transition Plan 💉,ActiveIVTransition,Choice,Yes; No,FALSE,,IV Lasix/Bumex; Antibiotics; Steroids; Drips
+🚶 PT/OT Eval Completed 🚶,PTOTEval,Choice,Yes; No,FALSE,,
+🏠 Final Destination 🏠,FinalDestination,MultiChoice,HHC; IPR; SNF; Home (no needs),FALSE,,
+🏠 Final Destination Other 🏠,FinalDestinationOther,Text,,FALSE,,
+🚨 Disposition Misalignment Escalation 🚨,DispMisalignEscalation,Choice,Yes; No,FALSE,,Declined HHC -> leadership escalation completed?
+🏠 Home Equipment Verified 🏠,HomeEquipment,MultiChoice,Scale; BP Machine/Cuff; Pulse Oximetry,FALSE,,
+📄 HHC/SNF/IPR Auth Submitted 📄,HHCAuthSubmitted,Choice,Yes; No,FALSE,,
+📦 DME/Supplies 📦,DMESupplies,MultiChoice,FWW; Oxygen; IV Infusion; LV,FALSE,,
+📦 DME/Supplies Other 📦,DMESuppliesOther,Text,,FALSE,,
+📦 DME/Supplies Arranged 📦,DMEArranged,Choice,Yes; No,FALSE,,
+🏪 Correct Pharmacy Listed 🏪,CorrectPharmacy,Choice,Yes; No,FALSE,,
+💰 Med Access & Cost Resolved 💰,MedAccessResolved,Choice,Yes; No,FALSE,,
+🩹 Wound Care Instructions 🩹,WoundCareInstructions,Choice,Yes; No,FALSE,,If applicable
+🩺 PCP Scheduled 🩺,FU_PCP,Choice,Yes; No,FALSE,,"All CORE measures, within 1 week of DC"
+🩺 PCP Appt Date 🩺,FU_PCP_Date,Text,,FALSE,,Free text date/provider
+❤️ Cardio Scheduled ❤️,FU_Cardio,Choice,Yes; No,FALSE,,Shown/required when AMI/HF/CABG measure is on the chart OR a cardiology (Cardio/EP Cardio/AHF) consult is on the case
+❤️ Cardio Appt Date ❤️,FU_Cardio_Date,Text,,FALSE,,Provider + date
+🔪🫀 CTS/Surgeon Scheduled 🔪🫀,FU_CTS,Choice,Yes; No,FALSE,,Shown/required when CABG measure is on the chart OR CTS (Cardiothoracic Surgery) consult is on the case
+🔪🫀 CTS/Surgeon Appt Date 🔪🫀,FU_CTS_Date,Text,,FALSE,,Provider + date
+🌉 Bridge Services Requested 🌉,FU_Bridge,Choice,Yes; No,FALSE,,"Dispatch Health Acute, HSC, AHMG Cardiac Bridge"
+🌉 Bridge Services Detail 🌉,FU_Bridge_Detail,Text,,FALSE,,
+🫁 Pulm Scheduled 🫁,FU_Pulm,Choice,Yes; No,FALSE,,Shown/required when COPD/PNA measure is on the chart OR a Pulm consult is on the case
+🫁 Pulm Appt Date 🫁,FU_Pulm_Date,Text,,FALSE,,
+🩺 Other Specialty 🩺,FU_Other1,Text,,FALSE,,Specialty name
+🩺 Other Specialty 1 Scheduled 🩺,FU_Other1_Sched,Choice,Yes; No,FALSE,,Sign-off: appt scheduled / visible on AVS
+🩺 Other Specialty 🩺,FU_Other2,Text,,FALSE,,Specialty name
+🩺 Other Specialty 2 Scheduled 🩺,FU_Other2_Sched,Choice,Yes; No,FALSE,,Sign-off: appt scheduled / visible on AVS
+🩺 Other Specialty 🩺,FU_Other3,Text,,FALSE,,Specialty name
+🩺 Other Specialty 3 Scheduled 🩺,FU_Other3_Sched,Choice,Yes; No,FALSE,,Sign-off: appt scheduled / visible on AVS
+❤️ Has A-Fib ❤️,AFib_Has,Choice,Yes; No,FALSE,,History or new A-Fib
+❤️ A-Fib Type ❤️,AFib_Type,Choice,Known; New,FALSE,,
+❤️ Known: AC Verified/Bridged ❤️,AFib_KnownVerified,Choice,Yes; No,FALSE,,
+❤️ Known: AC Restarted Inpatient ❤️,AFib_KnownRestarted,Choice,Yes; No,FALSE,,
+❤️ Known: AC on AVS w/ Dose ❤️,AFib_KnownAVS,Choice,Yes; No,FALSE,,
+❤️ New: A-Fib Teach-back ❤️,AFib_NewTeach,Choice,Yes; No,FALSE,,
+❤️ New: AC Prescription Provided ❤️,AFib_NewScript,Choice,Yes; No,FALSE,,
+❤️ New: Bleeding Risk Documented ❤️,AFib_BleedingRisk,Choice,Yes; No,FALSE,,Only if no script provided
+⚡ AMI Medications ⚡,AMI_Meds,MultiChoice,DAPT; Statin; Beta-blocker; ACE/ARB/ARNI,FALSE,,
+⚡ AMI: Heart Cath/PCI This Encounter ⚡,AMI_Cath,Choice,Yes; No,FALSE,,
+⚡ AMI: Provider (Date/Name) ⚡,AMI_Provider,Text,,FALSE,,
+⚡ AMI: Cardiac Rehab Referral ⚡,AMI_Rehab,Choice,Yes; No,FALSE,,
+🔪 CABG Medications 🔪,CABG_Meds,MultiChoice,Antiplatelet; Statin; Beta-blocker; Stool Regimen; Diuretic; Antiarrhythmic; Pain Regimen,FALSE,,
+🔪 CABG: This Encounter 🔪,CABG_Encounter,Choice,Yes; No,FALSE,,
+🔪 CABG: Surgeon (Date/Name) 🔪,CABG_Surgeon,Text,,FALSE,,
+🔪 CABG: Cardiac Rehab Referral 🔪,CABG_Rehab,Choice,Yes; No,FALSE,,
+🔪 CABG: Glycemic Control Plan 🔪,CABG_Glycemic,Choice,Yes; No,FALSE,,If applicable
+🔪 CABG: Navigator Contact AVS 🔪,CABG_Navigator,Choice,Yes; No,FALSE,,
+🫁 COPD: Inhaler/Neb Regimen Optimized 🫁,COPD_Regimen,Choice,Yes; No,FALSE,,RT/COPD Navigator
+🫁 COPD: Inhaler Technique Education 🫁,COPD_Technique,Choice,Yes; No,FALSE,,RT/COPD Navigator
+🫁 COPD: Steroid/Antibiotic Plan 🫁,COPD_Plan,Choice,Yes; No,FALSE,,
+🫁 COPD: Smoking Cessation 🫁,COPD_Smoking,Choice,Yes; No,FALSE,,
+🫁 COPD: Pulmonary Rehab Referral 🫁,COPD_Rehab,Choice,Yes; No,FALSE,,If applicable
+🫁 COPD: Walk Test 24-48 hrs 🫁,COPD_WalkTest,Choice,Yes; No,FALSE,,
+🫀 HF Medications 🫀,HF_Meds,MultiChoice,Diuretic; Beta-Blocker; ACE/ARB/ARNI; MRAs (Spironolactone); SGLT2 (Jardiance),FALSE,,
+🫀 HF: Daily Standing Weight 🫀,HF_StandingWeight,Boolean,,FALSE,,
+🫀 HF: Stable Weight Trend 🫀,HF_WeightTrend,Boolean,,FALSE,,Reassess if bed scale utilized
+🫀 HF: CHF Order Set EPIC 🫀,HF_OrderSet,Boolean,,FALSE,,Nurse driven
+🫀 HF: Cardiac Rehab Phase I 🫀,HF_RehabPhase1,Boolean,,FALSE,,
+🫀 HF: Sodium Restriction 🫀,HF_Sodium,Boolean,,FALSE,,
+🫀 HF: Sodium Restriction Value 🫀,HF_SodiumValue,Text,,FALSE,,
+🫀 HF: Fluid Restriction 🫀,HF_Fluid,Boolean,,FALSE,,
+🫀 HF: Fluid Restriction Value 🫀,HF_FluidValue,Text,,FALSE,,
+🫀 HF: Diuretic Plan for DC 🫀,HF_DiureticPlan,Boolean,,FALSE,,
+🫀 HF: Diuretic Plan Value 🫀,HF_DiureticValue,Text,,FALSE,,
+🫀 HF: Dry Weight on AVS 🫀,HF_DryWeight,Boolean,,FALSE,,
+🫀 HF: Dry Weight Value 🫀,HF_DryWeightValue,Text,,FALSE,,
+🦠 PNA: Steroid & Antibiotic Plan 🦠,PNA_Plan,Choice,Yes; No,FALSE,,
+🦠 PNA: IS Education Teach-back 🦠,PNA_ISEd,Choice,Yes; No,FALSE,,
+🦠 PNA: IS Usage Documented 🦠,PNA_ISUse,Choice,Yes; No,FALSE,,RN
+🦠 PNA: Vaccination Status Addressed 🦠,PNA_Vaccination,Choice,Yes; No,FALSE,,
+🦵 THK: Pain Med Education 🦵,THK_PainEd,Choice,Yes; No,FALSE,,
+🦵 THK: Pain Med Order for DC 🦵,THK_PainOrder,Choice,Yes; No,FALSE,,
+🦵 THK: VTE Prophylaxis 🦵,THK_VTE,Choice,Yes; No,FALSE,,
+🦵 THK: Weight-Bearing Status 🦵,THK_WeightBearing,Choice,Yes; No,FALSE,,
+🦵 THK: PT/OT Arranged 🦵,THK_PTOT,Choice,Yes; No,FALSE,,
+🦵 THK: Activity Restrictions 🦵,THK_Activity,Choice,Yes; No,FALSE,,
+🦵 THK: DME Arranged 🦵,THK_DME,Choice,Yes; No,FALSE,,
+🚨 Final: Escalations Completed 🚨,FIN_Escalations,Choice,Yes; No,FALSE,,If gaps identified
+💊 Final: DC Med Rec by Pharmacy 💊,FIN_MedRec,Choice,Yes; No,FALSE,,
+💊 Final: IP Med Parameters on AVS 💊,FIN_IPMedParams,Choice,Yes; No,FALSE,,
+🚫💊 Final: No Duplicate Meds 🚫💊,FIN_NoDupeMeds,Choice,Yes; No,FALSE,,
+📖💊 Final: New Meds & Dx Education 📖💊,FIN_NewMedsEd,Choice,Yes; No,FALSE,,High-risk emphasis row
+🔍💊 Final: All Meds Dose & Frequency 🔍💊,FIN_MedDetails,Choice,Yes; No,FALSE,,
+🚕 Final: Reliable Transport Confirmed 🚕,FIN_Transport,Choice,Yes; No,FALSE,,
+🗺️ Final: Zone Tool on AVS 🗺️,FIN_ZoneTool,Choice,Yes; No,FALSE,,"Whole-Person Care Journey, CORE-specific"
+🌟 Final: Core 4 Pack Given 🌟,FIN_Core4,Choice,Yes; No,FALSE,,
+📄 Final: AVS Reviewed w/ Patient & Family 📄,FIN_AVSReviewed,Choice,Yes; No,FALSE,,
+🧠 Final: Patient Verbalized Understanding 🧠,FIN_Understanding,Choice,Yes; No,FALSE,,Appropriate teach-back completed
+👥 Final: Readmission Huddle Completed Prior to DC 👥,FIN_HuddleDone,Choice,Yes; No,FALSE,,
+✍️ Final: Nurse Leader Review ✍️,FIN_NLReview,Choice,Yes; No,FALSE,,Discharge Excellence Final Review
+📅 Final: Nurse Leader Review Date 📅,FIN_NLReview_Date,DateTime,,FALSE,,
+🔌 Has Device 🔌,DEV_Has,Choice,Yes; No,FALSE,,
+🔌 Device List 🔌,DEV_List,Text,,FALSE,,"PICC, Foley, Wound Vac, etc."
+🔌 Device Presence Documented 🔌,DEV_Presence,Choice,Yes; No,FALSE,,
+🔌 Devices at Discharge Identified 🔌,DEV_AtDischarge,Choice,Yes; No,FALSE,,
+🔌 Device Teach-back Completed 🔌,DEV_Teachback,Choice,Yes; No,FALSE,,
+🔌 Device DC Follow-up Addressed 🔌,DEV_Followup,Choice,Yes; No,FALSE,,
+🔌 Device Documentation Notes 🔌,DEV_Notes,Note,,FALSE,,Required when any device item = No; flows into the huddle note output
+💲💲🧮 GMLOS 💲💲🧮,GMLOS,Number,,FALSE,,Geometric Mean Length of Stay target
+👪 Does the patient have family/friend support for discharge? 👪,FamilySupportDischarge,Text,,FALSE,,Column R: support status
+POST Huddle Action Item Update (NM Owner),NursingActionItemUpdate,Note,,FALSE,,Column S: Action items for nursing
+Nursing Action Item Follow Up (NM Owner),NursingActionItemFollowUp,Note,,FALSE,,Column T: Nursing follow up notes
+CM Leader Review,CMLeaderReview,Note,,FALSE,,Column U: Case management leader notes
+POST CM Huddle Follow Up,CMHuddleFollowUp,Note,,FALSE,,Column V: CM huddle actions

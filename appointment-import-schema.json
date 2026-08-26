@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SURGIFLOW appointment import",
+  "type": "object",
+  "required": ["source", "scope", "rows"],
+  "properties": {
+    "source": { "type": "string" },
+    "asOf": { "type": "string" },
+    "scope": {
+      "type": "object",
+      "required": ["roomMin", "roomMax"],
+      "properties": { "roomMin": { "type": "integer" }, "roomMax": { "type": "integer" } }
+    },
+    "rows": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["room", "name", "mrn", "csn", "appointmentDetail", "sourceStatus"],
+        "properties": {
+          "room": { "type": "string" },
+          "csn": { "type": "string" },
+          "mrn": { "type": "string" },
+          "name": { "type": "string" },
+          "patientName": { "type": "string" },
+          "attendingMD": { "type": "string" },
+          "readmissionRiskLevel": { "type": ["string", "number"] },
+          "fallRisk": { "type": ["string", "number"] },
+          "braden": { "type": ["string", "number"] },
+          "dispo": { "type": "string" },
+          "edd": { "type": ["string", "number"] },
+          "age": { "type": ["string", "number"] },
+          "los": { "type": ["string", "number"] },
+          "admitReason": { "type": "string" },
+          "appointmentDetail": { "type": "string" },
+          "sourceStatus": { "type": "string" },
+          "sourceProviders": { "type": "string" },
+          "nextPcpVisit": { "type": "string" },
+          "rawCareNavigationNotes": { "type": "string" },
+          "skipReason": { "type": "string" }
+        }
+      }
+    }
+  }
+}
