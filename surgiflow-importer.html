@@ -783,39 +783,38 @@
                 <div style="display: flex; align-items: center; gap: 6px; min-width: 140px;">
                     <span style="font-size: 0.78rem; color: var(--text-secondary); white-space: nowrap;" title="Pause dialog every N records">⏸️ Pause Every:</span>
                     <select id="cfg-batch-pause" class="mapping-select" style="height: 32px; font-size: 0.8rem; padding: 2px 6px; width: 110px;">
-                        <option value="0">Continuous</option>
-                        <option value="25" selected>Every 25 items</option>
+                        <option value="0" selected>Continuous (No pauses)</option>
+                        <option value="25">Every 25 items</option>
                         <option value="50">Every 50 items</option>
+                    </select>
+                </div>
+                <div style="display: flex; align-items: center; gap: 6px; min-width: 175px;">
+                    <span style="font-size: 0.78rem; color: var(--text-secondary); white-space: nowrap;" title="How to handle existing room occupants that changed">🔄 Room Conflict:</span>
+                    <select id="cfg-conflict-mode" class="mapping-select" style="height: 32px; font-size: 0.8rem; padding: 2px 6px; width: 155px;">
+                        <option value="ASK_ONCE" selected>Ask once for all</option>
+                        <option value="AUTO_REPLACE">Auto-Replace Old</option>
+                        <option value="AUTO_KEEP">Keep Old (Create new)</option>
+                        <option value="ASK_EACH">Ask for each</option>
                     </select>
                 </div>
                 <button class="btn btn-muted" style="padding: 5px 12px; font-size: 0.8rem; height: 32px;" onclick="refreshSharePointConfig()">Reload Schema</button>
             </div>
         </div>
 
-        <!-- Dual Drag-and-Drop Zones -->
+        <!-- Single Drag-and-Drop Zone -->
         <div class="glass-card">
             <div class="card-header">
-                <h3 class="card-title">📥 2. Load Epic EHR Source Files</h3>
-                <span style="font-size: 0.8rem; color: var(--text-secondary);">Drop both reports together or upload either individually</span>
+                <h3 class="card-title">📥 2. Load Epic Master Source Workbook</h3>
+                <span style="font-size: 0.8rem; color: var(--text-secondary);">Drop the unified SURGIFLOW Master Cardiac Hospital workbook</span>
             </div>
 
-            <div class="dropzone-container">
-                <!-- Drop Zone 1: Census / Readmissions -->
-                <div class="upload-zone" id="drop-zone-1" onclick="document.getElementById('file-input-1').click()">
-                    <span class="upload-icon">📋</span>
-                    <p class="upload-text">Report 1: Census / Readmissions</p>
-                    <p class="upload-hint">Drag & drop <code>SURGIFLOW...xlsx</code> (Notes, Attending, EDD, LoS, Dispo)</p>
+            <div class="dropzone-container" style="grid-template-columns: 1fr;">
+                <div class="upload-zone" id="drop-zone-1" onclick="document.getElementById('file-input-1').click()" style="min-height: 140px;">
+                    <span class="upload-icon">📊</span>
+                    <p class="upload-text">Master Report: Census, Procedures, Labs & Vitals</p>
+                    <p class="upload-hint">Drag & drop <code>SURGIFLOW_Master_Cardiac_Hospital_...xlsx</code> or <code>.csv</code></p>
                     <div class="file-status-badge" id="status-badge-1">No file loaded</div>
                     <input type="file" id="file-input-1" accept=".xlsx, .xls, .csv">
-                </div>
-
-                <!-- Drop Zone 2: Labs, Vitals & Scores -->
-                <div class="upload-zone" id="drop-zone-2" onclick="document.getElementById('file-input-2').click()">
-                    <span class="upload-icon">🧪</span>
-                    <p class="upload-text">Report 2: Labs, Weights & Scores</p>
-                    <p class="upload-hint">Drag & drop <code>ALL_CARDIAC_...xlsx</code> (K+, Mg, Hgb, Cr, Weights, Braden, Fall)</p>
-                    <div class="file-status-badge" id="status-badge-2">No file loaded</div>
-                    <input type="file" id="file-input-2" accept=".xlsx, .xls, .csv">
                 </div>
             </div>
         </div>
@@ -841,13 +840,13 @@
             <!-- Unit Filter Tabs -->
             <div class="filter-tabs" id="unit-filter-tabs">
                 <button class="tab-btn active" onclick="filterByUnit('ALL', this)">All Units</button>
-                <button class="tab-btn" onclick="filterByUnit('GT6', this)">GT6 CPPCU</button>
-                <button class="tab-btn" onclick="filterByUnit('GT7', this)">GT7 CPCU</button>
-                <button class="tab-btn" onclick="filterByUnit('GT8', this)">GT8 CVPCU</button>
-                <button class="tab-btn" onclick="filterByUnit('WT8', this)">WT8 STPCU</button>
-                <button class="tab-btn" onclick="filterByUnit('CVICU', this)">2700 CVICU</button>
-                <button class="tab-btn" onclick="filterByUnit('CICU', this)">5800 CICU</button>
-                <button class="tab-btn" onclick="filterByUnit('WT9', this)">9900 WT9</button>
+                <button class="tab-btn" onclick="filterByUnit('GT6', this)">GT6</button>
+                <button class="tab-btn" onclick="filterByUnit('GT7', this)">GT7</button>
+                <button class="tab-btn" onclick="filterByUnit('GT8', this)">GT8</button>
+                <button class="tab-btn" onclick="filterByUnit('WT8', this)">WT8</button>
+                <button class="tab-btn" onclick="filterByUnit('ACSU', this)">ACSU</button>
+                <button class="tab-btn" onclick="filterByUnit('CVICU', this)">CVICU</button>
+                <button class="tab-btn" onclick="filterByUnit('CICU', this)">CICU</button>
                 <button class="tab-btn" onclick="filterByUnit('OTHER_ICU', this)">Other ICUs</button>
             </div>
 
@@ -866,7 +865,7 @@
                     <thead>
                         <tr>
                             <th style="width: 60px;">Room</th>
-                            <th style="width: 75px;">Unit</th>
+                            <th style="width: 80px;">Unit</th>
                             <th style="width: 170px;">Patient Name</th>
                             <th style="width: 90px;">MRN</th>
                             <th style="width: 110px;">CSN (Encounter)</th>
@@ -875,6 +874,8 @@
                             <th style="width: 150px;">Key Labs (K/Mg/Hgb/Cr)</th>
                             <th style="width: 65px;">Fall / Braden</th>
                             <th style="width: 80px;">EDD / LOS</th>
+                            <th style="width: 140px;">Surgery / Service Line</th>
+                            <th style="width: 130px;">Attending MD</th>
                             <th>Extracted Appointments & Notes</th>
                         </tr>
                     </thead>
@@ -979,17 +980,17 @@
             }
         };
 
-        // Comprehensive Room & Unit Mapping (PCUs + ICUs)
+        // Comprehensive Room & Unit Mapping (PCUs + ICUs) - Codes only (GT6, GT7, GT8, WT8, ACSU, CVICU, CICU)
         const UNIT_MAP = [
-            { key: 'GT6', name: 'GT6 CPPCU', start: 6801, end: 6840, isIcu: false },
-            { key: 'GT7', name: 'GT7 CPCU', start: 7801, end: 7840, isIcu: false },
-            { key: 'GT8', name: 'GT8 CVPCU', start: 8801, end: 8840, isIcu: false },
-            { key: 'WT8', name: 'WT8 STPCU', start: 8901, end: 8936, isIcu: false },
-            { key: 'CVICU', name: 'O2CV CVICU', start: 2701, end: 2740, isIcu: true },
-            { key: 'CICU', name: 'GT5 CARDIAC ICU', start: 5801, end: 5840, isIcu: true },
-            { key: 'WT9', name: 'WT9 ACSU', start: 9901, end: 9940, isIcu: true },
-            { key: 'MSICU', name: 'MSICU', start: 3201, end: 3240, isIcu: true },
-            { key: 'VTICU', name: 'VTICU', start: 4801, end: 4840, isIcu: true }
+            { key: 'GT6', code: 'GT6', name: 'GT6', start: 6801, end: 6840, isIcu: false },
+            { key: 'GT7', code: 'GT7', name: 'GT7', start: 7801, end: 7840, isIcu: false },
+            { key: 'GT8', code: 'GT8', name: 'GT8', start: 8801, end: 8840, isIcu: false },
+            { key: 'WT8', code: 'WT8', name: 'WT8', start: 8901, end: 8936, isIcu: false },
+            { key: 'ACSU', code: 'ACSU', name: 'ACSU', start: 9901, end: 9940, isIcu: true },
+            { key: 'CVICU', code: 'CVICU', name: 'CVICU', start: 2701, end: 2740, isIcu: true },
+            { key: 'CICU', code: 'CICU', name: 'CICU', start: 5801, end: 5840, isIcu: true },
+            { key: 'MSICU', code: 'MSICU', name: 'MSICU', start: 3201, end: 3240, isIcu: true },
+            { key: 'VTICU', code: 'VTICU', name: 'VTICU', start: 4801, end: 4840, isIcu: true }
         ];
 
         // Global State
@@ -1025,7 +1026,7 @@
             if (!p) return;
 
             document.querySelectorAll('.preset-btn').forEach(b => b.classList.remove('active'));
-            event.target.classList.add('active');
+            if (event?.target) event.target.classList.add('active');
 
             document.getElementById('cfg-site-path').value = p.sitePath;
             document.getElementById('cfg-list-title').value = p.listTitle;
@@ -1053,22 +1054,38 @@
         }
 
         function resolveUnitFromRoom(roomNum, rawDept = '') {
+            const rawStr = String(rawDept ?? '').toUpperCase().trim();
+            const cleanStr = rawStr.replace(/[^A-Z0-9]/g, '');
+
+            // 1. Explicit unit code matching from department/unit string
+            if (cleanStr.includes('CVICU') || cleanStr.includes('2700') || cleanStr.includes('O2CV')) return UNIT_MAP.find(u => u.key === 'CVICU');
+            if (cleanStr.includes('CICU') || cleanStr.includes('5800') || cleanStr.includes('GT5')) return UNIT_MAP.find(u => u.key === 'CICU');
+            if (cleanStr.includes('ACSU') || cleanStr.includes('WT9') || cleanStr.includes('9900')) return UNIT_MAP.find(u => u.key === 'ACSU');
+            if (cleanStr.includes('GT6') || cleanStr.includes('6800')) return UNIT_MAP.find(u => u.key === 'GT6');
+            if (cleanStr.includes('GT7') || cleanStr.includes('7800')) return UNIT_MAP.find(u => u.key === 'GT7');
+            if (cleanStr.includes('GT8') || cleanStr.includes('8800')) return UNIT_MAP.find(u => u.key === 'GT8');
+            if (cleanStr.includes('WT8') || cleanStr.includes('WT08') || cleanStr.includes('8900')) return UNIT_MAP.find(u => u.key === 'WT8');
+            if (cleanStr.includes('MSICU') || cleanStr.includes('3200')) return UNIT_MAP.find(u => u.key === 'MSICU');
+            if (cleanStr.includes('VTICU') || cleanStr.includes('4800')) return UNIT_MAP.find(u => u.key === 'VTICU');
+
+            // 2. Authoritative room number range matching
             const n = Number(roomNum);
-            if (Number.isFinite(n)) {
+            if (Number.isFinite(n) && n > 0) {
                 const match = UNIT_MAP.find(u => n >= u.start && n <= u.end);
                 if (match) return match;
             }
 
-            const deptUpper = String(rawDept ?? '').toUpperCase();
-            if (deptUpper.includes('GT6')) return UNIT_MAP.find(u => u.key === 'GT6');
-            if (deptUpper.includes('GT7')) return UNIT_MAP.find(u => u.key === 'GT7');
-            if (deptUpper.includes('GT8')) return UNIT_MAP.find(u => u.key === 'GT8');
-            if (deptUpper.includes('WT8') || deptUpper.includes('WT08')) return UNIT_MAP.find(u => u.key === 'WT8');
-            if (deptUpper.includes('2700') || deptUpper.includes('CVICU')) return UNIT_MAP.find(u => u.key === 'CVICU');
-            if (deptUpper.includes('5800') || deptUpper.includes('CICU') || deptUpper.includes('GT5')) return UNIT_MAP.find(u => u.key === 'CICU');
-            if (deptUpper.includes('9900') || deptUpper.includes('WT9')) return UNIT_MAP.find(u => u.key === 'WT9');
+            // 3. Standalone code regex match (GT6, GT7, GT8, WT8, ACSU, CVICU, CICU, etc.)
+            const codeMatch = rawStr.match(/\b(GT6|GT7|GT8|WT8|ACSU|CVICU|CICU|MSICU|VTICU)\b/);
+            if (codeMatch) {
+                const code = codeMatch[1];
+                const found = UNIT_MAP.find(u => u.key === code);
+                if (found) return found;
+                return { key: code, code: code, name: code, start: 0, end: 0, isIcu: code.includes('ICU') || code === 'ACSU' };
+            }
 
-            return { key: 'OTHER', name: rawDept || 'Other', start: 0, end: 0, isIcu: false };
+            const fallback = cleanStr.substring(0, 5) || 'OTHER';
+            return { key: fallback, code: fallback, name: fallback, start: 0, end: 0, isIcu: false };
         }
 
         function normalizeMRN(v) {
@@ -1076,11 +1093,41 @@
         }
 
         function normalizeCSN(v) {
-            return String(v ?? '').trim();
+            return String(v ?? '').trim().replace(/,/g, '');
         }
 
         function normalizeName(v) {
             return String(v ?? '').replace(/[^a-zA-Z]/g, '').toLowerCase();
+        }
+
+        // Format Date as M/D (e.g. "9/9") for UI table display
+        function formatShortDate(v) {
+            if (v === undefined || v === null || v === '') return '';
+            const s = String(v).trim();
+            if (!s) return '';
+
+            // Check if already M/D or M/D/YY(YY)
+            const mdMatch = s.match(/^(\d{1,2})\/(\d{1,2})(?:\/\d{2,4})?/);
+            if (mdMatch) {
+                return `${parseInt(mdMatch[1], 10)}/${parseInt(mdMatch[2], 10)}`;
+            }
+
+            // Check if Excel serial number (e.g., 46274)
+            const num = Number(s);
+            if (Number.isFinite(num) && num > 20000 && num < 75000) {
+                const jsDate = new Date(Date.UTC(1899, 11, 30) + num * 86400000);
+                if (!isNaN(jsDate.getTime())) {
+                    return `${jsDate.getUTCMonth() + 1}/${jsDate.getUTCDate()}`;
+                }
+            }
+
+            // Check standard date parse
+            const d = new Date(s);
+            if (!isNaN(d.getTime())) {
+                return `${d.getMonth() + 1}/${d.getDate()}`;
+            }
+
+            return s;
         }
 
         // Setup File Drop Zones
@@ -1230,11 +1277,27 @@
             return "";
         }
 
+        // Normalize Readmission Risk Level to Standard Choice Strings
+        function normalizeRiskChoice(raw) {
+            if (!raw) return "";
+            const s = String(raw).trim();
+            if (/low/i.test(s) || /<12/i.test(s)) return "Low <12%";
+            if (/high/i.test(s) || />22/i.test(s)) return "High >22%";
+            if (/med/i.test(s) || /13/i.test(s)) return "Medium 13% to 22%";
+            const num = parseFloat(s.replace(/%/g, ''));
+            if (!isNaN(num)) {
+                if (num <= 12) return "Low <12%";
+                if (num > 22) return "High >22%";
+                return "Medium 13% to 22%";
+            }
+            return s;
+        }
+
         // Merge Report 1 (Census/Readmissions) + Report 2 (Labs/Weights)
         function mergeReports() {
             const patientMap = new Map();
 
-            // 1. Ingest Report 1
+            // 1. Ingest Report 1 (Census & Readmissions Workbook)
             report1Rows.forEach((r, idx) => {
                 const rawRoom = findVal(r, ['Room and Bed', 'Room #', 'Room', 'Title', 'Bed']);
                 const room = normalizeRoom(rawRoom);
@@ -1253,121 +1316,103 @@
                 patientMap.set(matchKey, {
                     room: room,
                     rawRoom: rawRoom,
+                    unit: unitObj.code,
+                    unitCode: unitObj.code,
                     unitKey: unitObj.key,
-                    unitName: unitObj.name,
+                    unitName: unitObj.code,
                     isIcu: unitObj.isIcu,
                     name: name,
                     mrn: mrn,
                     csn: csn,
-                    attendingMD: findVal(r, ['Attending', 'AttendingMD', 'Attending MD']),
-                    readmitRisk: findVal(r, ['IP Risk of Unplanned Readmission Score Column', 'Readmission Risk Level', 'RiskLevel', 'Risk Level']),
-                    edd: findVal(r, ['EDD']),
-                    dispo: findVal(r, ['Discharge Disposition', 'Dispo']),
+                    attendingMD: findVal(r, ['Attending', 'AttendingMD', 'Attending MD', 'Attending Physician']),
+                    readmitRisk: normalizeRiskChoice(findVal(r, ['IP Risk of Unplanned Readmission Score Column', 'Readmission Risk Level', 'RiskLevel', 'Risk Level', 'Readmission Risk'])),
+                    edd: findVal(r, ['EDD', 'Estimated Discharge Date']),
+                    dispo: findVal(r, ['Discharge Disposition', 'Dispo', 'Disposition']),
                     los: findVal(r, ['LoS', 'LOS', 'Length of Stay']),
                     gmlos: findVal(r, ['GMLOS', 'GMLOS ']),
-                    admitReason: findVal(r, ['Working DRG Name', 'Admit Reason', 'Primary Problem']),
+                    admitReason: findVal(r, ['Working DRG Name', 'Admit Reason', 'Primary Problem', 'Diagnosis']),
                     admitDate: findVal(r, ['Admit Date/Time', 'Admit Date', 'AdmitDate']),
+                    sxDate: findVal(r, ['Sx Date', 'Surgery Date', 'Procedure Date', 'SxDate']),
+                    surgery: findVal(r, ['Surgery', 'Procedure', 'Surgery Procedure', 'Surgery Today']),
+                    serviceLine: findVal(r, ['Service Line', 'ServiceLine']),
+                    surgeonCardio: findVal(r, ['Surgeon/Cardio', 'Surgeon Cardio', 'SurgeonCardio', 'Surgeon']),
+                    pmhProcedures: findVal(r, ['PMH/Procedures', 'PMH', 'Past Medical History']),
+                    leaderActionItems: findVal(r, ['Leader Action Items', 'LeaderActionItems']),
                     age: findVal(r, ['Age']),
-                    fallRisk: findVal(r, ['Fall Risk Score', 'Fall Risk']),
+                    fallRisk: findVal(r, ['Fall Risk Score', 'Fall Risk', 'FallRisk']),
                     weightToday: findVal(r, ['Weight Today', 'WeightToday', 'Weight']),
                     admitWeight: findVal(r, ['Admit Weight', 'AdmitWeight']),
                     braden: findVal(r, ['Braden Score', 'Braden']),
                     notes: notes,
                     appointmentDetail: apptDetail,
-                    // Labs
-                    creatinine: '',
-                    potassium: '',
-                    magnesium: '',
-                    hemoglobin: '',
-                    bmDate: '',
-                    spirometry: '',
+                    // Labs, Vitals & Clinical Scores directly from Consolidated Workbook
+                    creatinine: findVal(r, ['Creatinine', 'Serum Creatinine', 'Cr']),
+                    potassium: findVal(r, ['Last K+', 'Potassium', 'K+', 'Potassium (K+)']),
+                    magnesium: findVal(r, ['Magnesium', 'Mag']),
+                    hemoglobin: findVal(r, ['Last Hgb', 'Hemoglobin', 'Hgb', 'Hemoglobin (Hgb)']),
+                    bmDate: findVal(r, ['Gastrointesinal Last BM Date (T-2)', 'Last BM Date', 'Last Bowel Movement Date', 'BM']),
+                    spirometry: findVal(r, ['Incentive Spirometry Frequency', 'Level Incentive Spirometer', 'Incentive Spirometry', 'IS']),
                     sourceFlags: { rep1: true, rep2: false }
                 });
             });
 
-            // 2. Ingest & Merge Report 2 (Labs/Weights)
-            report2Rows.forEach((r, idx) => {
-                const rawRoom = findVal(r, ['Room', 'Room and Bed', 'Room #']);
-                const room = normalizeRoom(rawRoom);
-                const mrn = normalizeMRN(findVal(r, ['MRN']));
-                const csn = normalizeCSN(findVal(r, ['CSN', 'Encounter CSN']));
-                const name = findVal(r, ['Patient Name', 'Name']);
-                const matchKey = `${room}_${mrn}`;
+            // If a second supplemental report is loaded, merge any additional or missing values
+            if (report2Rows && report2Rows.length > 0) {
+                report2Rows.forEach((r, idx) => {
+                    const rawRoom = findVal(r, ['Room', 'Room and Bed', 'Room #']);
+                    const room = normalizeRoom(rawRoom);
+                    const mrn = normalizeMRN(findVal(r, ['MRN']));
+                    const csn = normalizeCSN(findVal(r, ['CSN', 'Encounter CSN']));
+                    const name = findVal(r, ['Patient Name', 'Name']);
+                    const matchKey = `${room}_${mrn}`;
 
-                let p = patientMap.get(matchKey);
-                if (!p) {
-                    // Try match by MRN only if room shifted slightly
-                    for (const [k, existing] of patientMap.entries()) {
-                        if (existing.mrn === mrn && mrn !== '') {
-                            p = existing;
-                            break;
+                    let p = patientMap.get(matchKey);
+                    if (!p) {
+                        for (const [k, existing] of patientMap.entries()) {
+                            if (existing.mrn === mrn && mrn !== '') {
+                                p = existing;
+                                break;
+                            }
                         }
                     }
-                }
 
-                const admitWeight = findVal(r, ['Admit Weight']);
-                const lastWeight = findVal(r, ['Last Weight', 'Weight Today']);
-                const creat = findVal(r, ['Creatinine']);
-                const kVal = findVal(r, ['Last K+', 'Potassium', 'K+']);
-                const mag = findVal(r, ['Magnesium', 'Mag']);
-                const hgb = findVal(r, ['Last Hgb', 'Hemoglobin', 'Hgb']);
-                const fall = findVal(r, ['Hester Davis Fall Score', 'Fall Risk Score']);
-                const braden = findVal(r, ['Braden Score', 'Braden']);
-                const spirom = findVal(r, ['Incentive Spirometry Frequency', 'Level Incentive Spirometer']);
-                const bm = findVal(r, ['Gastrointesinal Last BM Date (T-2)', 'Last BM Date', 'BM']);
-                const age = findVal(r, ['Age']);
+                    const admitWeight = findVal(r, ['Admit Weight']);
+                    const lastWeight = findVal(r, ['Last Weight', 'Weight Today']);
+                    const creat = findVal(r, ['Creatinine', 'Serum Creatinine', 'Cr']);
+                    const kVal = findVal(r, ['Last K+', 'Potassium', 'K+', 'Potassium (K+)']);
+                    const mag = findVal(r, ['Magnesium', 'Mag']);
+                    const hgb = findVal(r, ['Last Hgb', 'Hemoglobin', 'Hgb', 'Hemoglobin (Hgb)']);
+                    const fall = findVal(r, ['Hester Davis Fall Score', 'Fall Risk Score', 'Fall Risk']);
+                    const braden = findVal(r, ['Braden Score', 'Braden']);
+                    const spirom = findVal(r, ['Incentive Spirometry Frequency', 'Level Incentive Spirometer', 'Incentive Spirometry', 'IS']);
+                    const bm = findVal(r, ['Gastrointesinal Last BM Date (T-2)', 'Last BM Date', 'Last Bowel Movement Date', 'BM']);
+                    const age = findVal(r, ['Age']);
+                    const sxDate = findVal(r, ['Sx Date', 'Surgery Date', 'SxDate']);
+                    const surgery = findVal(r, ['Surgery', 'Procedure']);
+                    const serviceLine = findVal(r, ['Service Line']);
+                    const surgeon = findVal(r, ['Surgeon/Cardio', 'Surgeon']);
 
-                if (p) {
-                    p.sourceFlags.rep2 = true;
-                    if (csn && !p.csn) p.csn = csn;
-                    if (admitWeight) p.admitWeight = admitWeight;
-                    if (lastWeight) p.weightToday = lastWeight;
-                    if (age && !p.age) p.age = age;
-                    if (fall && !p.fallRisk) p.fallRisk = fall;
-                    if (braden && !p.braden) p.braden = braden;
-                    if (creat) p.creatinine = creat;
-                    if (kVal) p.potassium = kVal;
-                    if (mag) p.magnesium = mag;
-                    if (hgb) p.hemoglobin = hgb;
-                    if (bm) p.bmDate = bm;
-                    if (spirom) p.spirometry = spirom;
-                } else {
-                    // Patient was in Report 2 only
-                    const unitObj = resolveUnitFromRoom(room, '');
-                    patientMap.set(matchKey, {
-                        room: room,
-                        rawRoom: rawRoom,
-                        unitKey: unitObj.key,
-                        unitName: unitObj.name,
-                        isIcu: unitObj.isIcu,
-                        name: name,
-                        mrn: mrn,
-                        csn: csn,
-                        attendingMD: '',
-                        readmitRisk: '',
-                        edd: '',
-                        dispo: '',
-                        los: '',
-                        gmlos: '',
-                        admitReason: '',
-                        admitDate: '',
-                        age: age,
-                        fallRisk: fall,
-                        weightToday: lastWeight,
-                        admitWeight: admitWeight,
-                        braden: braden,
-                        notes: '',
-                        appointmentDetail: '',
-                        creatinine: creat,
-                        potassium: kVal,
-                        magnesium: mag,
-                        hemoglobin: hgb,
-                        bmDate: bm,
-                        spirometry: spirom,
-                        sourceFlags: { rep1: false, rep2: true }
-                    });
-                }
-            });
+                    if (p) {
+                        p.sourceFlags.rep2 = true;
+                        if (csn && !p.csn) p.csn = csn;
+                        if (admitWeight && !p.admitWeight) p.admitWeight = admitWeight;
+                        if (lastWeight && !p.weightToday) p.weightToday = lastWeight;
+                        if (age && !p.age) p.age = age;
+                        if (fall && !p.fallRisk) p.fallRisk = fall;
+                        if (braden && !p.braden) p.braden = braden;
+                        if (creat && !p.creatinine) p.creatinine = creat;
+                        if (kVal && !p.potassium) p.potassium = kVal;
+                        if (mag && !p.magnesium) p.magnesium = mag;
+                        if (hgb && !p.hemoglobin) p.hemoglobin = hgb;
+                        if (bm && !p.bmDate) p.bmDate = bm;
+                        if (spirom && !p.spirometry) p.spirometry = spirom;
+                        if (sxDate && !p.sxDate) p.sxDate = sxDate;
+                        if (surgery && !p.surgery) p.surgery = surgery;
+                        if (serviceLine && !p.serviceLine) p.serviceLine = serviceLine;
+                        if (surgeon && !p.surgeonCardio) p.surgeonCardio = surgeon;
+                    }
+                });
+            }
 
             unifiedPatients = Array.from(patientMap.values()).sort((a, b) => Number(a.room || 0) - Number(b.room || 0));
 
@@ -1405,15 +1450,15 @@
                 // Apply Unit Filter
                 if (currentUnitFilter !== 'ALL') {
                     if (currentUnitFilter === 'OTHER_ICU') {
-                        if (!p.isIcu || ['CVICU', 'CICU', 'WT9'].includes(p.unitKey)) return;
-                    } else if (p.unitKey !== currentUnitFilter) {
+                        if (!p.isIcu || ['CVICU', 'CICU', 'ACSU'].includes(p.unitKey)) return;
+                    } else if (p.unitKey !== currentUnitFilter && p.unit !== currentUnitFilter) {
                         return;
                     }
                 }
 
                 // Apply Search Box
                 if (query) {
-                    const searchBlob = normalizeString(`${p.room} ${p.unitName} ${p.name} ${p.mrn} ${p.csn} ${p.admitReason} ${p.attendingMD}`);
+                    const searchBlob = normalizeString(`${p.room} ${p.unit} ${p.name} ${p.mrn} ${p.csn} ${p.admitReason} ${p.attendingMD} ${p.surgery} ${p.serviceLine} ${p.surgeonCardio}`);
                     if (!searchBlob.includes(query)) return;
                 }
 
@@ -1436,7 +1481,7 @@
 
                 tr.innerHTML = `
                     <td class="room-cell">${p.room || '<span style="color:var(--danger)">?</span>'}</td>
-                    <td><span class="unit-pill ${p.isIcu ? 'icu' : ''}">${p.unitName || 'Other'}</span></td>
+                    <td><span class="unit-pill ${p.isIcu ? 'icu' : ''}">${p.unit || p.unitKey || 'Other'}</span></td>
                     <td style="font-weight:600; white-space:nowrap;">${p.name || '—'}</td>
                     <td>${p.mrn || '—'}</td>
                     <td style="font-family:monospace; color:#67e8f9;">${p.csn || '<span style="color:var(--text-muted)">—</span>'}</td>
@@ -1451,8 +1496,16 @@
                         <div style="color:var(--text-muted);">Braden: ${p.braden || '—'}</div>
                     </td>
                     <td style="font-size:0.75rem;">
-                        <div>EDD: ${p.edd || '—'}</div>
+                        <div>EDD: <strong>${formatShortDate(p.edd) || '—'}</strong></div>
                         <div style="color:var(--text-muted);">LOS: ${p.los || '—'} (GM: ${p.gmlos || '—'})</div>
+                    </td>
+                    <td style="font-size:0.75rem;">
+                        <div style="font-weight:600;">${p.surgery || '—'}</div>
+                        <div style="color:var(--text-muted);">${p.serviceLine ? `Line: ${p.serviceLine}` : ''}</div>
+                    </td>
+                    <td style="font-size:0.75rem;">
+                        <div>${p.attendingMD || '—'}</div>
+                        <div style="color:var(--text-muted);">${p.surgeonCardio ? `Sx: ${p.surgeonCardio}` : ''}</div>
                     </td>
                     <td>
                         <textarea class="appt-editor" placeholder="Add appointment / navigation notes..."
@@ -1499,13 +1552,14 @@
             const sitePath = document.getElementById('cfg-site-path').value.trim();
             const rateDelayMs = Number(document.getElementById('cfg-rate-delay').value || 450);
             const batchPauseSize = Number(document.getElementById('cfg-batch-pause').value || 0);
+            const conflictMode = document.getElementById('cfg-conflict-mode')?.value || 'ASK_ONCE';
 
             // Filter patients based on destination
             let targetPatients = unifiedPatients;
             const preset = PRESETS[currentPresetKey];
 
             if (preset && !preset.acceptsAllUnits && preset.unitFilter) {
-                targetPatients = unifiedPatients.filter(p => p.unitKey === preset.unitFilter);
+                targetPatients = unifiedPatients.filter(p => p.unitKey === preset.unitFilter || p.unit === preset.unitFilter);
             }
 
             if (targetPatients.length === 0) {
@@ -1521,14 +1575,15 @@
                 rows: targetPatients
             };
 
-            const payloadJson = JSON.stringify(payload, null, 2);
+            const encodedData = encodeURIComponent(JSON.stringify(payload));
 
             const scriptCode = `(async () => {
-  const DATA = ${payloadJson};
+  const DATA = JSON.parse(decodeURIComponent("${encodedData}"));
   const LIST_TITLE = '${listTitle.replace(/'/g, "\\'")}';
   const SITE_PATH = '${sitePath.replace(/'/g, "\\'")}';
   const RATE_DELAY_MS = ${rateDelayMs};
   const BATCH_PAUSE_SIZE = ${batchPauseSize};
+  const CONFLICT_MODE = '${conflictMode}';
   const origin = (location.origin && location.origin.startsWith('http')) ? location.origin : 'https://ahsonline.sharepoint.com';
   const api = \`\${origin}\${SITE_PATH}/_api\`;
   const accept = 'application/json;odata=verbose';
@@ -1566,25 +1621,34 @@
 
   const find = names => names.map(n => fields.find(f => norm(n) === norm(f.Title) || norm(n) === norm(f.InternalName))).find(Boolean);
 
-  // Field Resolution Map (with Legacy fallback aliases for GT6, GT7, GT8, WT8, and Master)
+  // Field Resolution Map (with Legacy and Standardized Aliases for GT6, GT7, GT8, WT8, and Master)
   const F = {
+    unit: find(['Unit']),
     room: fields.find(f => norm(f.InternalName) === 'room' || norm(f.Title) === 'room') || fields.find(f => f.InternalName === 'Title'),
-    name: find(['Name', 'Patient Name', 'Patient', 'PatientName', 'field_1']),
+    name: find(['Patient Name', 'PatientName', 'Name', 'Patient', 'field_1']),
     mrn: find(['MRN']),
-    csn: find(['CSN', 'Encounter CSN', 'CSN ID']),
+    csn: find(['CSN', 'Encounter CSN', 'CSN ID', 'CSN0']),
     attendingMD: find(['AttendingMD', 'Attending MD', 'Attending']),
-    readmitRisk: find(['⚠️ Readmission Risk Level ⚠️', 'Readmission Risk Level', 'RiskLevel', 'Risk Level', 'Readmission Risk']),
+    readmitRisk: find(['⚠️⚠️ Risk Level ⚠️⚠️', 'Risk Level', 'RiskLevel', '⚠️ Readmission Risk Level ⚠️', 'Readmission Risk Level', 'Readmission Risk']),
     edd: find(['EDD']),
-    dispo: find(['Dispo', 'Disposition', 'Discharge Disposition', 'field_20']),
+    admitDate: find(['Admit Date', 'AdmitDate']),
+    sxDate: find(['Sx Date', 'SxDate', 'Surgery Date', 'field_8']),
+    surgery: find(['Surgery', 'SurgeryProcedure', 'Surgery Scheduled Procedure']),
+    serviceLine: find(['Service Line', 'ServiceLine', 'field_18']),
+    surgeonCardio: find(['Surgeon/Cardio', 'SurgeonCardio', 'Surgeon Cardio', 'field_7']),
+    pmhProcedures: find(['PMH/Procedures', 'PMHProcedures']),
+    leaderActionItems: find(['Leader Action Items', 'LeaderActionItems']),
+    dispo: find(['Dispo', 'Disposition', 'Discharge Disposition', 'field_20', 'field_23']),
     los: find(['LOS', 'LoS', 'Length of Stay']),
     gmlos: find(['GMLOS', 'GMLOS ']),
-    admitReason: find(['Admit Reason', 'AdmitReason', 'Working DRG Name', 'Admit Reason/DRG']),
+    admitReason: find(['Admit Reason', 'AdmitReason', 'Working DRG Name', 'Admit Reason/DRG', 'field_3']),
     admitWeight: find(['AdmitWeight', 'Admit Weight']),
     weightToday: find(['WeightToday', 'Weight Today', 'Weight']),
-    fallRisk: find(['FallRisk', 'Fall Risk', 'Fall Risk Score']),
+    age: find(['Age']),
+    fallRisk: find(['Fall Risk', 'FallRisk', 'Fall Risk Score']),
     braden: find(['Braden', 'Braden Score']),
-    bmDate: find(['BM', 'Last BM Date']),
-    spirometry: find(['Incentive Spirometry', 'Incentive_x0020_Spirometry', 'IncentiveSpirometry', 'IS']),
+    bmDate: find(['Last Bowel Movement Date', 'LastBMDate', 'BM', 'Last BM Date']),
+    spirometry: find(['Incentive Spirometry', 'IncentiveSpirometry', 'Incentive_x0020_Spirometry', 'IS']),
     creatinine: find(['Creatinine']),
     potassium: find(['Potassium (K+)', 'Potassium_x0020__x0028_K_x002b__', 'Potassium_K', 'Potassium']),
     magnesium: find(['Magnesium', 'Mag']),
@@ -1638,7 +1702,7 @@
     if (type === 'Number' || type === 'Integer') {
       if (typeof rawVal === 'number') return Number.isFinite(rawVal) ? rawVal : undefined;
       const cleanStr = String(rawVal).replace(/,/g, '').trim();
-      const numMatch = cleanStr.match(/[-+]?[0-9]*\.?[0-9]+/);
+      const numMatch = cleanStr.match(/[-+]?[0-9]*\\.?[0-9]+/);
       if (numMatch) {
         const n = Number(numMatch[0]);
         return Number.isFinite(n) ? n : undefined;
@@ -1652,16 +1716,67 @@
     }
     
     if (type === 'DateTime') {
-      const n = Number(rawVal);
-      if (Number.isFinite(n) && n > 20000 && n < 70000) {
+      const s = String(rawVal).trim();
+      if (!s) return undefined;
+      const n = Number(s);
+      if (Number.isFinite(n) && n > 20000 && n < 75000) {
         return new Date(Date.UTC(1899, 11, 30) + n * 86400000).toISOString();
       }
+      // Handle M/D or M/D/YYYY or M/D/YY with optional time (e.g. "9/9", "09/16/2026", "9/16/2026 12:00:00 AM")
+      const slashMatch = s.match(/^(\d{1,2})\/(\d{1,2})(?:\/(\d{2,4}))?(?:\s+(\d{1,2}):(\d{2})(?::(\d{2}))?\s*([ap]m)?)?/i);
+      if (slashMatch) {
+        const m = parseInt(slashMatch[1], 10) - 1;
+        const d = parseInt(slashMatch[2], 10);
+        let yr = slashMatch[3] ? parseInt(slashMatch[3], 10) : new Date().getFullYear();
+        if (yr < 100) yr += 2000;
+        let hr = 12, min = 0, sec = 0;
+        if (slashMatch[4]) {
+          hr = parseInt(slashMatch[4], 10);
+          min = parseInt(slashMatch[5], 10);
+          sec = slashMatch[6] ? parseInt(slashMatch[6], 10) : 0;
+          const ampm = slashMatch[7]?.toLowerCase();
+          if (ampm === 'pm' && hr < 12) hr += 12;
+          if (ampm === 'am' && hr === 12) hr = 0;
+        }
+        return new Date(Date.UTC(yr, m, d, hr, min, sec)).toISOString();
+      }
+      // Handle ISO strings (e.g. "2026-09-16" or "2026-09-16T...")
+      const isoMatch = s.match(/^(\d{4})-(\d{2})-(\d{2})/);
+      if (isoMatch) {
+        const yr = parseInt(isoMatch[1], 10);
+        const m = parseInt(isoMatch[2], 10) - 1;
+        const d = parseInt(isoMatch[3], 10);
+        return new Date(Date.UTC(yr, m, d, 12, 0, 0)).toISOString();
+      }
       try {
-        const d = new Date(rawVal);
+        const d = new Date(s);
         return isNaN(d.getTime()) ? undefined : d.toISOString();
       } catch(e) {
         return undefined;
       }
+    }
+
+    if (type === 'Choice') {
+      const s = String(rawVal).trim();
+      const choices = fieldObj.Choices?.results || fieldObj.Choices || [];
+      if (choices.length > 0) {
+        const match = choices.find(c => norm(c) === norm(s));
+        if (match) return match;
+      }
+      return s;
+    }
+
+    if (type === 'MultiChoice') {
+      const choices = fieldObj.Choices?.results || fieldObj.Choices || [];
+      const parts = Array.isArray(rawVal) ? rawVal : String(rawVal).split(/[,;]/).map(x => x.trim()).filter(Boolean);
+      const valid = parts.map(p => {
+        const match = choices.find(c => norm(c) === norm(p));
+        return match || p;
+      });
+      return {
+        __metadata: { type: "Collection(Edm.String)" },
+        results: valid
+      };
     }
     
     return String(rawVal);
@@ -1678,6 +1793,7 @@
       }
     };
 
+    setVal(F.unit, r.unit || r.unitCode || r.unitName || r.unitKey);
     setVal(F.room, r.room);
     if (fields.some(f => f.InternalName === 'Title') && !out['Title'] && r.room) out['Title'] = String(r.room);
     setVal(F.name, r.name);
@@ -1685,12 +1801,21 @@
     setVal(F.csn, r.csn);
     setVal(F.attendingMD, r.attendingMD);
     setVal(F.readmitRisk, r.readmitRisk);
+    setVal(F.admitDate, r.admitDate);
+    setVal(F.sxDate, r.sxDate);
+    setVal(F.surgery, r.surgery);
+    setVal(F.serviceLine, r.serviceLine);
+    setVal(F.surgeonCardio, r.surgeonCardio);
+    setVal(F.pmhProcedures, r.pmhProcedures);
+    setVal(F.leaderActionItems, r.leaderActionItems);
     setVal(F.dispo, r.dispo);
+    setVal(F.edd, r.edd);
     setVal(F.los, r.los);
     setVal(F.gmlos, r.gmlos);
     setVal(F.admitReason, r.admitReason);
     setVal(F.admitWeight, r.admitWeight);
     setVal(F.weightToday, r.weightToday);
+    setVal(F.age, r.age);
     setVal(F.fallRisk, r.fallRisk);
     setVal(F.braden, r.braden);
     setVal(F.bmDate, r.bmDate);
@@ -1709,7 +1834,7 @@
     // 1. Check exact match (Room + MRN + Name)
     const match = items.find(i => same(i, r));
     if (match) {
-      return { ...r, result: 'UPDATE', targetId: match.Id };
+      return { ...r, result: 'UPDATE', targetId: match.Id, existingItem: match };
     }
     
     // 2. Check if the room exists in SharePoint but has a DIFFERENT patient (occupant turnover / MRN typo)
@@ -1770,9 +1895,11 @@
     return resp;
   };
 
+  let conflictDecisionAll = (CONFLICT_MODE === 'AUTO_REPLACE') ? true : ((CONFLICT_MODE === 'AUTO_KEEP') ? false : null);
+
   for (let i = 0; i < plan.length; i++) {
     if (BATCH_PAUSE_SIZE > 0 && i > 0 && i % BATCH_PAUSE_SIZE === 0) {
-      const proceed = confirm(\`⏸️ Processed \${i} of \${plan.length} records.\\n\\nContinue next batch?\`);
+      const proceed = confirm('⏸️ Processed ' + i + ' of ' + plan.length + ' records.\\n\\nContinue next batch?');
       if (!proceed) break;
     }
 
@@ -1780,41 +1907,65 @@
     let action = r.result;
     let targetId = r.targetId;
 
-    // Interactive Room Conflict Resolution: Delete Old Record & Create Clean New Record
+    // Room Conflict Resolution: Replace old occupant or keep both
     if (action === 'ROOM_CONFLICT') {
-      const deleteAndReplace = confirm(
-        \`⚠️ [ROOM OCCUPANT CHANGED] Room \${r.room}:\\n\\n\` +
-        \`Old Patient to DELETE: \${r.oldName} (MRN: \${r.oldMRN})\\n\` +
-        \`New Patient to ADMIT:  \${r.name} (MRN: \${r.mrn}, CSN: \${r.csn || 'N/A'})\\n\\n\` +
-        \`Click [OK] to DELETE the old patient record and create a CLEAN new record for \${r.name} in Room \${r.room}.\\n\` +
-        \`Click [Cancel] to KEEP the old patient and create a separate new item.\`
-      );
+      let deleteAndReplace = false;
+
+      if (conflictDecisionAll !== null) {
+        deleteAndReplace = conflictDecisionAll;
+      } else if (CONFLICT_MODE === 'ASK_ONCE') {
+        const msg = '⚠️ [ROOM OCCUPANTS CHANGED]\\n\\n' +
+          'Multiple rooms have changed occupants (e.g. Room ' + r.room + ' has old patient ' + r.oldName + ' replaced by ' + r.name + ').\\n\\n' +
+          'Click [OK] to AUTO-REPLACE old patients for ALL ' + conflicts.length + ' changed rooms.\\n' +
+          'Click [Cancel] to KEEP old records and admit new patients separately.';
+        deleteAndReplace = confirm(msg);
+        conflictDecisionAll = deleteAndReplace;
+        console.log('📌 Saved room conflict preference: ' + (deleteAndReplace ? 'AUTO-REPLACE ALL' : 'KEEP ALL OLD'));
+      } else {
+        // ASK_EACH mode
+        const msg = '⚠️ [ROOM OCCUPANT CHANGED] Room ' + r.room + ':\\n\\n' +
+          'Old Patient to DELETE: ' + r.oldName + ' (MRN: ' + r.oldMRN + ')\\n' +
+          'New Patient to ADMIT:  ' + r.name + ' (MRN: ' + r.mrn + ', CSN: ' + (r.csn || 'N/A') + ')\\n\\n' +
+          'Click [OK] to DELETE ' + r.oldName + ' and admit ' + r.name + ' in Room ' + r.room + '.\\n' +
+          'Click [Cancel] to KEEP the old patient.';
+        deleteAndReplace = confirm(msg);
+      }
+
       if (deleteAndReplace) {
-        console.log(\`🗑️ Deleting old patient: \${r.oldName} (Item #\${r.conflictId}) for Room \${r.room}...\`);
+        console.log('🗑️ Deleting old patient: ' + r.oldName + ' (Item #' + r.conflictId + ') for Room ' + r.room + '...');
         try {
-          const delResp = await postWithRetry(\`\${listEndpoint}/items(\${r.conflictId})\`, {
+          const delResp = await postWithRetry(listEndpoint + '/items(' + r.conflictId + ')', {
             method: 'POST',
             headers: { 'Accept': accept, 'Content-Type': 'application/json;odata=verbose', 'IF-MATCH': '*', 'X-HTTP-Method': 'DELETE' }
           });
           if (delResp.ok) {
-            console.log(\`✅ Successfully recycled old patient \${r.oldName}.\`);
+            console.log('✅ Successfully recycled old patient ' + r.oldName + '.');
           } else {
-            console.warn(\`⚠️ Could not delete old patient: \` + await delResp.text());
+            console.warn('⚠️ Could not delete old patient: ' + await delResp.text());
           }
         } catch(delErr) {
-          console.warn(\`⚠️ Delete failed:\`, delErr);
+          console.warn('⚠️ Delete failed:', delErr);
         }
         action = 'CREATE';
-        console.log(\`➕ Creating clean new patient record for Room \${r.room} (\${r.name})...\`);
+        console.log('➕ Creating clean new patient record for Room ' + r.room + ' (' + r.name + ')...');
       } else {
         action = 'CREATE';
-        console.log(\`➕ User kept old record; creating separate item for Room \${r.room} (\${r.name})\`);
+        console.log('➕ Retained old occupant record; creating separate item for Room ' + r.room + ' (' + r.name + ')');
       }
     }
 
     console.log(\`⏳ [\${i+1}/\${plan.length}] \${action}: Room \${r.room} - \${r.name} (MRN: \${r.mrn}, CSN: \${r.csn || 'N/A'})...\`);
 
     const body = { __metadata: { type: itemType }, ...buildItemBody(r) };
+
+    // Safeguard: Do not overwrite existing Admit Reason / Visit Reason if already populated in SharePoint
+    if (action === 'UPDATE' && r.existingItem && F.admitReason) {
+      const existingReason = r.existingItem[F.admitReason.InternalName];
+      if (existingReason !== undefined && existingReason !== null && String(existingReason).trim() !== '') {
+        delete body[F.admitReason.InternalName];
+      }
+    }
+
     let url = \`\${listEndpoint}/items\`;
     let opts = {
       method: 'POST',
