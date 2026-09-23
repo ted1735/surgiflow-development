@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SurgiFlow Bulk Importer & Schema Migrator</title>
+    <title>SurgiFlow Bulk Importer v2.0</title>
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -105,6 +105,23 @@
             background: linear-gradient(to right, #ffffff, #a5b4fc, #67e8f9);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .version-badge {
+            font-size: 0.72rem;
+            font-weight: 700;
+            padding: 2px 8px;
+            border-radius: 6px;
+            background: rgba(99, 102, 241, 0.2);
+            border: 1px solid rgba(99, 102, 241, 0.4);
+            color: #c7d2fe;
+            letter-spacing: 0.05em;
+            -webkit-text-fill-color: #c7d2fe;
+            display: inline-block;
+            vertical-align: middle;
         }
 
         .logo-title p {
@@ -737,8 +754,7 @@
             <div class="logo-area">
                 <div class="logo-icon">SF</div>
                 <div class="logo-title">
-                    <h1>SurgiFlow Bulk Importer & Schema Migrator</h1>
-                    <p>Dual Epic EHR Ingestion → SurgiFlow Master & Unit Lists</p>
+                    <h1>SurgiFlow Bulk Importer <span class="version-badge">v2.0</span></h1>
                 </div>
             </div>
             <div id="host-badge" class="host-badge">
@@ -873,7 +889,7 @@
                             <th style="width: 110px;">Weights (Admit/Today)</th>
                             <th style="width: 150px;">Key Labs (K/Mg/Hgb/Cr)</th>
                             <th style="width: 65px;">Fall / Braden</th>
-                            <th style="width: 80px;">EDD / LOS</th>
+                            <th style="width: 80px;">LOS</th>
                             <th style="width: 140px;">Surgery / Service Line</th>
                             <th style="width: 130px;">Attending MD</th>
                             <th>Extracted Appointments & Notes</th>
@@ -1326,11 +1342,11 @@
                     csn: csn,
                     attendingMD: findVal(r, ['Attending', 'AttendingMD', 'Attending MD', 'Attending Physician']),
                     readmitRisk: normalizeRiskChoice(findVal(r, ['IP Risk of Unplanned Readmission Score Column', 'Readmission Risk Level', 'RiskLevel', 'Risk Level', 'Readmission Risk'])),
-                    edd: findVal(r, ['EDD', 'Estimated Discharge Date']),
                     dispo: findVal(r, ['Discharge Disposition', 'Dispo', 'Disposition']),
                     los: findVal(r, ['LoS', 'LOS', 'Length of Stay']),
                     gmlos: findVal(r, ['GMLOS', 'GMLOS ']),
                     admitReason: findVal(r, ['Working DRG Name', 'Admit Reason', 'Primary Problem', 'Diagnosis']),
+                    edd: findVal(r, ['EDD', 'Estimated Discharge Date', 'Estimated Discharge']),
                     admitDate: findVal(r, ['Admit Date/Time', 'Admit Date', 'AdmitDate']),
                     sxDate: findVal(r, ['Sx Date', 'Surgery Date', 'Procedure Date', 'SxDate']),
                     surgery: findVal(r, ['Surgery', 'Procedure', 'Surgery Procedure', 'Surgery Today']),
@@ -1387,6 +1403,7 @@
                     const spirom = findVal(r, ['Incentive Spirometry Frequency', 'Level Incentive Spirometer', 'Incentive Spirometry', 'IS']);
                     const bm = findVal(r, ['Gastrointesinal Last BM Date (T-2)', 'Last BM Date', 'Last Bowel Movement Date', 'BM']);
                     const age = findVal(r, ['Age']);
+                    const edd = findVal(r, ['EDD', 'Estimated Discharge Date', 'Estimated Discharge']);
                     const sxDate = findVal(r, ['Sx Date', 'Surgery Date', 'SxDate']);
                     const surgery = findVal(r, ['Surgery', 'Procedure']);
                     const serviceLine = findVal(r, ['Service Line']);
@@ -1398,6 +1415,7 @@
                         if (admitWeight && !p.admitWeight) p.admitWeight = admitWeight;
                         if (lastWeight && !p.weightToday) p.weightToday = lastWeight;
                         if (age && !p.age) p.age = age;
+                        if (edd && !p.edd) p.edd = edd;
                         if (fall && !p.fallRisk) p.fallRisk = fall;
                         if (braden && !p.braden) p.braden = braden;
                         if (creat && !p.creatinine) p.creatinine = creat;
@@ -1496,8 +1514,8 @@
                         <div style="color:var(--text-muted);">Braden: ${p.braden || '—'}</div>
                     </td>
                     <td style="font-size:0.75rem;">
-                        <div>EDD: <strong>${formatShortDate(p.edd) || '—'}</strong></div>
-                        <div style="color:var(--text-muted);">LOS: ${p.los || '—'} (GM: ${p.gmlos || '—'})</div>
+                        <div>LOS: <strong>${p.los || '—'}</strong></div>
+                        <div style="color:var(--text-muted);">GM: ${p.gmlos || '—'}</div>
                     </td>
                     <td style="font-size:0.75rem;">
                         <div style="font-weight:600;">${p.surgery || '—'}</div>
@@ -1630,7 +1648,6 @@
     csn: find(['CSN', 'Encounter CSN', 'CSN ID', 'CSN0']),
     attendingMD: find(['AttendingMD', 'Attending MD', 'Attending']),
     readmitRisk: find(['⚠️⚠️ Risk Level ⚠️⚠️', 'Risk Level', 'RiskLevel', '⚠️ Readmission Risk Level ⚠️', 'Readmission Risk Level', 'Readmission Risk']),
-    edd: find(['EDD']),
     admitDate: find(['Admit Date', 'AdmitDate']),
     sxDate: find(['Sx Date', 'SxDate', 'Surgery Date', 'field_8']),
     surgery: find(['Surgery', 'SurgeryProcedure', 'Surgery Scheduled Procedure']),
@@ -1642,6 +1659,7 @@
     los: find(['LOS', 'LoS', 'Length of Stay']),
     gmlos: find(['GMLOS', 'GMLOS ']),
     admitReason: find(['Admit Reason', 'AdmitReason', 'Working DRG Name', 'Admit Reason/DRG', 'field_3']),
+    edd: find(['EDD', 'Estimated Discharge Date', 'field_12']),
     admitWeight: find(['AdmitWeight', 'Admit Weight']),
     weightToday: find(['WeightToday', 'Weight Today', 'Weight']),
     age: find(['Age']),
@@ -1717,35 +1735,16 @@
     
     if (type === 'DateTime') {
       const s = String(rawVal).trim();
-      if (!s) return undefined;
       const n = Number(s);
       if (Number.isFinite(n) && n > 20000 && n < 75000) {
         return new Date(Date.UTC(1899, 11, 30) + n * 86400000).toISOString();
       }
-      // Handle M/D or M/D/YYYY or M/D/YY with optional time (e.g. "9/9", "09/16/2026", "9/16/2026 12:00:00 AM")
-      const slashMatch = s.match(/^(\d{1,2})\/(\d{1,2})(?:\/(\d{2,4}))?(?:\s+(\d{1,2}):(\d{2})(?::(\d{2}))?\s*([ap]m)?)?/i);
-      if (slashMatch) {
-        const m = parseInt(slashMatch[1], 10) - 1;
-        const d = parseInt(slashMatch[2], 10);
-        let yr = slashMatch[3] ? parseInt(slashMatch[3], 10) : new Date().getFullYear();
-        if (yr < 100) yr += 2000;
-        let hr = 12, min = 0, sec = 0;
-        if (slashMatch[4]) {
-          hr = parseInt(slashMatch[4], 10);
-          min = parseInt(slashMatch[5], 10);
-          sec = slashMatch[6] ? parseInt(slashMatch[6], 10) : 0;
-          const ampm = slashMatch[7]?.toLowerCase();
-          if (ampm === 'pm' && hr < 12) hr += 12;
-          if (ampm === 'am' && hr === 12) hr = 0;
-        }
-        return new Date(Date.UTC(yr, m, d, hr, min, sec)).toISOString();
-      }
-      // Handle ISO strings (e.g. "2026-09-16" or "2026-09-16T...")
-      const isoMatch = s.match(/^(\d{4})-(\d{2})-(\d{2})/);
-      if (isoMatch) {
-        const yr = parseInt(isoMatch[1], 10);
-        const m = parseInt(isoMatch[2], 10) - 1;
-        const d = parseInt(isoMatch[3], 10);
+      // Handle M/D without year (e.g. "9/9" or "09/09")
+      const mdOnly = s.match(/^(\\d{1,2})\\/(\\d{1,2})$/);
+      if (mdOnly) {
+        const yr = new Date().getFullYear();
+        const m = parseInt(mdOnly[1], 10) - 1;
+        const d = parseInt(mdOnly[2], 10);
         return new Date(Date.UTC(yr, m, d, 12, 0, 0)).toISOString();
       }
       try {
@@ -1782,8 +1781,8 @@
     return String(rawVal);
   };
 
-  // Build Payload Values per Item
-  const buildItemBody = r => {
+    // Build Payload Values per Item
+    const buildItemBody = (r, existingItem) => {
     const out = {};
     const setVal = (f, val) => {
       if (!f || val === undefined || val === null || val === '') return;
@@ -1792,6 +1791,18 @@
         out[f.InternalName] = parsed;
       }
     };
+        const setIfExistingBlank = (f, val, label) => {
+            if (!f) return;
+            const existingValue = existingItem ? existingItem[f.InternalName] : '';
+            const existingText = existingValue === undefined || existingValue === null
+                ? ''
+                : String(existingValue).trim();
+            if (existingText) {
+                console.log('🔒 ' + label + ' preserved for Room ' + r.room + ': ' + existingText);
+                return;
+            }
+            setVal(f, val);
+        };
 
     setVal(F.unit, r.unit || r.unitCode || r.unitName || r.unitKey);
     setVal(F.room, r.room);
@@ -1809,10 +1820,10 @@
     setVal(F.pmhProcedures, r.pmhProcedures);
     setVal(F.leaderActionItems, r.leaderActionItems);
     setVal(F.dispo, r.dispo);
-    setVal(F.edd, r.edd);
     setVal(F.los, r.los);
     setVal(F.gmlos, r.gmlos);
-    setVal(F.admitReason, r.admitReason);
+    setIfExistingBlank(F.admitReason, r.admitReason, 'AdmitReason');
+    setIfExistingBlank(F.edd, r.edd, 'EDD');
     setVal(F.admitWeight, r.admitWeight);
     setVal(F.weightToday, r.weightToday);
     setVal(F.age, r.age);
@@ -1834,7 +1845,7 @@
     // 1. Check exact match (Room + MRN + Name)
     const match = items.find(i => same(i, r));
     if (match) {
-      return { ...r, result: 'UPDATE', targetId: match.Id, existingItem: match };
+            return { ...r, result: 'UPDATE', targetId: match.Id, existingItem: match };
     }
     
     // 2. Check if the room exists in SharePoint but has a DIFFERENT patient (occupant turnover / MRN typo)
@@ -1956,16 +1967,7 @@
 
     console.log(\`⏳ [\${i+1}/\${plan.length}] \${action}: Room \${r.room} - \${r.name} (MRN: \${r.mrn}, CSN: \${r.csn || 'N/A'})...\`);
 
-    const body = { __metadata: { type: itemType }, ...buildItemBody(r) };
-
-    // Safeguard: Do not overwrite existing Admit Reason / Visit Reason if already populated in SharePoint
-    if (action === 'UPDATE' && r.existingItem && F.admitReason) {
-      const existingReason = r.existingItem[F.admitReason.InternalName];
-      if (existingReason !== undefined && existingReason !== null && String(existingReason).trim() !== '') {
-        delete body[F.admitReason.InternalName];
-      }
-    }
-
+    const body = { __metadata: { type: itemType }, ...buildItemBody(r, r.existingItem) };
     let url = \`\${listEndpoint}/items\`;
     let opts = {
       method: 'POST',

@@ -1,0 +1,992 @@
+[
+  {
+    "DisplayName": "Room",
+    "InternalName": "Title",
+    "FieldType": "Text",
+    "Choices": "",
+    "Required": "TRUE",
+    "Default": "",
+    "ReadOnly": "FALSE"
+  },
+  {
+    "DisplayName": "Room",
+    "InternalName": "LinkTitleNoMenu",
+    "FieldType": "Computed",
+    "Choices": "",
+    "Required": "FALSE",
+    "Default": "",
+    "ReadOnly": "TRUE"
+  },
+  {
+    "DisplayName": "Room",
+    "InternalName": "LinkTitle",
+    "FieldType": "Computed",
+    "Choices": "",
+    "Required": "FALSE",
+    "Default": "",
+    "ReadOnly": "TRUE"
+  },
+  {
+    "DisplayName": "Color Tag",
+    "InternalName": "_ColorTag",
+    "FieldType": "Text",
+    "Choices": "",
+    "Required": "FALSE",
+    "Default": "",
+    "ReadOnly": "TRUE"
+  },
+  {
+    "DisplayName": "Compliance Asset Id",
+    "InternalName": "ComplianceAssetId",
+    "FieldType": "Text",
+    "Choices": "",
+    "Required": "FALSE",
+    "Default": "",
+    "ReadOnly": "TRUE"
+  },
+  {
+    "DisplayName": "Name",
+    "InternalName": "field_1",
+    "FieldType": "Text",
+    "Choices": "",
+    "Required": "FALSE",
+    "Default": "",
+    "ReadOnly": "FALSE"
+  },
+  {
+    "DisplayName": "Age",
+    "InternalName": "field_2",
+    "FieldType": "Number",
+    "Choices": "",
+    "Required": "FALSE",
+    "Default": "",
+    "ReadOnly": "FALSE"
+  },
+  {
+    "DisplayName": "Admit Reason",
+    "InternalName": "field_3",
+    "FieldType": "Text",
+    "Choices": "",
+    "Required": "FALSE",
+    "Default": "",
+    "ReadOnly": "FALSE"
+  },
+  {
+    "DisplayName": "AdmitWeight",
+    "InternalName": "field_4",
+    "FieldType": "Number",
+    "Choices": "",
+    "Required": "FALSE",
+    "Default": "",
+    "ReadOnly": "FALSE"
+  },
+  {
+    "DisplayName": "WeightToday",
+    "InternalName": "field_5",
+    "FieldType": "Number",
+    "Choices": "",
+    "Required": "FALSE",
+    "Default": "",
+    "ReadOnly": "FALSE"
+  },
+  {
+    "DisplayName": "Surgeon/Cardio",
+    "InternalName": "field_7",
+    "FieldType": "Text",
+    "Choices": "",
+    "Required": "FALSE",
+    "Default": "",
+    "ReadOnly": "FALSE"
+  },
+  {
+    "DisplayName": "Sx Date",
+    "InternalName": "field_8",
+    "FieldType": "DateTime",
+    "Choices": "",
+    "Required": "FALSE",
+    "Default": "",
+    "ReadOnly": "FALSE"
+  },
+  {
+    "DisplayName": "Surgery",
+    "InternalName": "field_11",
+    "FieldType": "Text",
+    "Choices": "",
+    "Required": "FALSE",
+    "Default": "",
+    "ReadOnly": "FALSE"
+  },
+  {
+    "DisplayName": "Rhythm",
+    "InternalName": "field_14",
+    "FieldType": "Choice",
+    "Choices": "Sinus; A-fib/flutter; Paced; Other",
+    "Required": "FALSE",
+    "Default": "",
+    "ReadOnly": "FALSE"
+  },
+  {
+    "DisplayName": "Admit Date",
+    "InternalName": "field_15",
+    "FieldType": "DateTime",
+    "Choices": "",
+    "Required": "FALSE",
+    "Default": "",
+    "ReadOnly": "FALSE"
+  },
+  {
+    "DisplayName": "Service Line",
+    "InternalName": "field_18",
+    "FieldType": "Choice",
+    "Choices": "VAD; Transplant; CTsx; CVmed; OFF",
+    "Required": "FALSE",
+    "Default": "",
+    "ReadOnly": "FALSE"
+  },
+  {
+    "DisplayName": "Mentation",
+    "InternalName": "field_20",
+    "FieldType": "Choice",
+    "Choices": "A&O; Forgetful; Jumper; Confused",
+    "Required": "FALSE",
+    "Default": "",
+    "ReadOnly": "FALSE"
+  },
+  {
+    "DisplayName": "Mobility",
+    "InternalName": "field_21",
+    "FieldType": "Choice",
+    "Choices": "Self; Standby; x1; x2; Total",
+    "Required": "FALSE",
+    "Default": "",
+    "ReadOnly": "FALSE"
+  },
+  {
+    "DisplayName": "Clinical Needs to Continue Admission",
+    "InternalName": "field_22",
+    "FieldType": "Note",
+    "Choices": "",
+    "Required": "FALSE",
+    "Default": "",
+    "ReadOnly": "FALSE"
+  },
+  {
+    "DisplayName": "Dispo",
+    "InternalName": "field_23",
+    "FieldType": "Choice",
+    "Choices": "Home No Needs; HHC; HHC DME; HHC ABX; HHC ABX DME; SNF; IPR-AH; IPR-ENC; SNF VS IPR; LTACH; ALF",
+    "Required": "FALSE",
+    "Default": "",
+    "ReadOnly": "FALSE"
+  },
+  {
+    "DisplayName": "PMH/Procedures",
+    "InternalName": "field_24",
+    "FieldType": "Note",
+    "Choices": "",
+    "Required": "FALSE",
+    "Default": "",
+    "ReadOnly": "FALSE"
+  },
+  {
+    "DisplayName": "Chest Tube",
+    "InternalName": "field_29",
+    "FieldType": "MultiChoice",
+    "Choices": "Atrium; Thopaz; PleurX; Mediastinal; NONE or DCd; Leak; NO Leak",
+    "Required": "FALSE",
+    "Default": "",
+    "ReadOnly": "FALSE"
+  },
+  {
+    "DisplayName": "Drip",
+    "InternalName": "field_30",
+    "FieldType": "MultiChoice",
+    "Choices": "Heparin; Remodulin; Amio; Cardizem; Milrinone; Insulin; Lasix/Bumex; Dopamine; Dobutamine; Nitro",
+    "Required": "FALSE",
+    "Default": "",
+    "ReadOnly": "FALSE"
+  },
+  {
+    "DisplayName": "Time Crit",
+    "InternalName": "field_32",
+    "FieldType": "Choice",
+    "Choices": "Sotalol; Tikosyn; Tacro; Other Time Critical",
+    "Required": "FALSE",
+    "Default": "",
+    "ReadOnly": "FALSE"
+  },
+  {
+    "DisplayName": "Going Home With AC?",
+    "InternalName": "field_35",
+    "FieldType": "Choice",
+    "Choices": "Coumadin; Eliquis; Xarelto",
+    "Required": "FALSE",
+    "Default": "",
+    "ReadOnly": "FALSE"
+  },
+  {
+    "DisplayName": "HD at Home or Inpatient?",
+    "InternalName": "field_38",
+    "FieldType": "Choice",
+    "Choices": "AT HOME; NEW THIS ADMIT",
+    "Required": "FALSE",
+    "Default": "",
+    "ReadOnly": "FALSE"
+  },
+  {
+    "DisplayName": "O2 Device",
+    "InternalName": "O2Device",
+    "FieldType": "Choice",
+    "Choices": "RA; NC; HF; Trach; HHF; BIPAP; NRB",
+    "Required": "FALSE",
+    "Default": "",
+    "ReadOnly": "FALSE"
+  },
+  {
+    "DisplayName": "DNR",
+    "InternalName": "DNR",
+    "FieldType": "MultiChoice",
+    "Choices": "COMFORT ONLY DNR; FULL AGGRESIVE DNR; LIMITED NO INTUBATION; LIMITED NO VENTILATION; LIMITED NO VASOPRESSORS",
+    "Required": "FALSE",
+    "Default": "",
+    "ReadOnly": "FALSE"
+  },
+  {
+    "DisplayName": "O2L/%",
+    "InternalName": "O2L_x002f__x0025_",
+    "FieldType": "Text",
+    "Choices": "",
+    "Required": "FALSE",
+    "Default": "",
+    "ReadOnly": "FALSE"
+  },
+  {
+    "DisplayName": "DC Lounge",
+    "InternalName": "DCLounge",
+    "FieldType": "Boolean",
+    "Choices": "",
+    "Required": "FALSE",
+    "Default": "0",
+    "ReadOnly": "FALSE"
+  },
+  {
+    "DisplayName": "Appts Made",
+    "InternalName": "ApptsMade",
+    "FieldType": "Boolean",
+    "Choices": "",
+    "Required": "FALSE",
+    "Default": "0",
+    "ReadOnly": "FALSE"
+  },
+  {
+    "DisplayName": "Pharmacy Verified",
+    "InternalName": "PharmacyVerified",
+    "FieldType": "Boolean",
+    "Choices": "",
+    "Required": "FALSE",
+    "Default": "0",
+    "ReadOnly": "FALSE"
+  },
+  {
+    "DisplayName": "Ride AVL",
+    "InternalName": "RideAVL",
+    "FieldType": "Choice",
+    "Choices": "Family; Transport; Lyft",
+    "Required": "FALSE",
+    "Default": "",
+    "ReadOnly": "FALSE"
+  },
+  {
+    "DisplayName": "Isolation",
+    "InternalName": "Isolation",
+    "FieldType": "Choice",
+    "Choices": "STANDARD; CONTACT; ENTERIC; DROPLET; AIRBORNE; COVID",
+    "Required": "FALSE",
+    "Default": "",
+    "ReadOnly": "FALSE"
+  },
+  {
+    "DisplayName": "Anticoagulation",
+    "InternalName": "Anticoagulation",
+    "FieldType": "MultiChoice",
+    "Choices": "Coumadin; Eliquis; Xarelto; Pradaxa; Heparin SubQ; Lovenox; VTE - Lovenox; VTE - SCDS; Other NOAC",
+    "Required": "FALSE",
+    "Default": "",
+    "ReadOnly": "FALSE"
+  },
+  {
+    "DisplayName": "Pre Op",
+    "InternalName": "Pre_x0020_Op",
+    "FieldType": "Boolean",
+    "Choices": "",
+    "Required": "FALSE",
+    "Default": "0",
+    "ReadOnly": "FALSE"
+  },
+  {
+    "DisplayName": "PO Pain",
+    "InternalName": "PO_x0020_Pain",
+    "FieldType": "Boolean",
+    "Choices": "",
+    "Required": "FALSE",
+    "Default": "1",
+    "ReadOnly": "FALSE"
+  },
+  {
+    "DisplayName": "BM",
+    "InternalName": "BM",
+    "FieldType": "Boolean",
+    "Choices": "",
+    "Required": "FALSE",
+    "Default": "0",
+    "ReadOnly": "FALSE"
+  },
+  {
+    "DisplayName": "Comments/Updates",
+    "InternalName": "_Comments",
+    "FieldType": "Note",
+    "Choices": "",
+    "Required": "FALSE",
+    "Default": "",
+    "ReadOnly": "FALSE"
+  },
+  {
+    "DisplayName": "EDD",
+    "InternalName": "EDD",
+    "FieldType": "DateTime",
+    "Choices": "",
+    "Required": "FALSE",
+    "Default": "",
+    "ReadOnly": "FALSE"
+  },
+  {
+    "DisplayName": "Leader Action Items",
+    "InternalName": "LeaderActionItems",
+    "FieldType": "Note",
+    "Choices": "",
+    "Required": "FALSE",
+    "Default": "",
+    "ReadOnly": "FALSE"
+  },
+  {
+    "DisplayName": "MRN",
+    "InternalName": "MRN",
+    "FieldType": "Number",
+    "Choices": "",
+    "Required": "FALSE",
+    "Default": "",
+    "ReadOnly": "FALSE"
+  },
+  {
+    "DisplayName": "Consultants Pending",
+    "InternalName": "ConsultantsPending",
+    "FieldType": "Note",
+    "Choices": "",
+    "Required": "FALSE",
+    "Default": "",
+    "ReadOnly": "FALSE"
+  },
+  {
+    "DisplayName": "DC Order",
+    "InternalName": "DCOrder",
+    "FieldType": "Boolean",
+    "Choices": "",
+    "Required": "FALSE",
+    "Default": "0",
+    "ReadOnly": "FALSE"
+  },
+  {
+    "DisplayName": "Med Rec",
+    "InternalName": "MedRec",
+    "FieldType": "Boolean",
+    "Choices": "",
+    "Required": "FALSE",
+    "Default": "0",
+    "ReadOnly": "FALSE"
+  },
+  {
+    "DisplayName": "Walk Test Completed",
+    "InternalName": "Walk_x0020_Test_x0020_Completed",
+    "FieldType": "Boolean",
+    "Choices": "",
+    "Required": "FALSE",
+    "Default": "0",
+    "ReadOnly": "FALSE"
+  },
+  {
+    "DisplayName": "Walk Test Needed",
+    "InternalName": "Walk_x0020_Test_x0020_Needed",
+    "FieldType": "Boolean",
+    "Choices": "",
+    "Required": "FALSE",
+    "Default": "0",
+    "ReadOnly": "FALSE"
+  },
+  {
+    "DisplayName": "IV Meds",
+    "InternalName": "IV_x0020_Meds",
+    "FieldType": "MultiChoice",
+    "Choices": "IV Bumex; IV Lasix; IV ABX; IV Steroids; None",
+    "Required": "FALSE",
+    "Default": "None",
+    "ReadOnly": "FALSE"
+  },
+  {
+    "DisplayName": "DC TODAY",
+    "InternalName": "DC_x0020_TODAY",
+    "FieldType": "Boolean",
+    "Choices": "",
+    "Required": "FALSE",
+    "Default": "0",
+    "ReadOnly": "FALSE"
+  },
+  {
+    "DisplayName": "Braden",
+    "InternalName": "Braden",
+    "FieldType": "Number",
+    "Choices": "",
+    "Required": "FALSE",
+    "Default": "",
+    "ReadOnly": "FALSE"
+  },
+  {
+    "DisplayName": "IS",
+    "InternalName": "IS",
+    "FieldType": "Number",
+    "Choices": "",
+    "Required": "FALSE",
+    "Default": "",
+    "ReadOnly": "FALSE"
+  },
+  {
+    "DisplayName": "Non-Clinical DC Barriers",
+    "InternalName": "CMNotes",
+    "FieldType": "Note",
+    "Choices": "",
+    "Required": "FALSE",
+    "Default": "",
+    "ReadOnly": "FALSE"
+  },
+  {
+    "DisplayName": "Misaligned Dispo",
+    "InternalName": "PTIE",
+    "FieldType": "Note",
+    "Choices": "",
+    "Required": "FALSE",
+    "Default": "",
+    "ReadOnly": "FALSE"
+  },
+  {
+    "DisplayName": "pre op",
+    "InternalName": "preop",
+    "FieldType": "Text",
+    "Choices": "",
+    "Required": "FALSE",
+    "Default": "",
+    "ReadOnly": "FALSE"
+  },
+  {
+    "DisplayName": "Procedure Barriers",
+    "InternalName": "SurgeryBarriers",
+    "FieldType": "Text",
+    "Choices": "",
+    "Required": "FALSE",
+    "Default": "",
+    "ReadOnly": "FALSE"
+  },
+  {
+    "DisplayName": "Procedure Today",
+    "InternalName": "SurgeryToday",
+    "FieldType": "Note",
+    "Choices": "",
+    "Required": "FALSE",
+    "Default": "",
+    "ReadOnly": "FALSE"
+  },
+  {
+    "DisplayName": "VAD Type",
+    "InternalName": "VADType",
+    "FieldType": "Choice",
+    "Choices": "HM3; HM2; Other",
+    "Required": "FALSE",
+    "Default": "",
+    "ReadOnly": "FALSE"
+  },
+  {
+    "DisplayName": "VAD Speed",
+    "InternalName": "VAD_x0020_Speed",
+    "FieldType": "Text",
+    "Choices": "",
+    "Required": "FALSE",
+    "Default": "",
+    "ReadOnly": "FALSE"
+  },
+  {
+    "DisplayName": "VAD Dressing Change Order",
+    "InternalName": "VADDressing",
+    "FieldType": "Choice",
+    "Choices": "QDAY; Q2DAYS; Q48HRS; Q72HRS",
+    "Required": "FALSE",
+    "Default": "",
+    "ReadOnly": "FALSE"
+  },
+  {
+    "DisplayName": "Dressing Changed",
+    "InternalName": "DressingChanged",
+    "FieldType": "Choice",
+    "Choices": "NOT DUE; YES; PENDING",
+    "Required": "FALSE",
+    "Default": "",
+    "ReadOnly": "FALSE"
+  },
+  {
+    "DisplayName": "VAD Photo Uploaded",
+    "InternalName": "VADPhotoUploaded",
+    "FieldType": "DateTime",
+    "Choices": "",
+    "Required": "FALSE",
+    "Default": "",
+    "ReadOnly": "FALSE"
+  },
+  {
+    "DisplayName": "VAD Dsr Next Due",
+    "InternalName": "VADDsrNextDue",
+    "FieldType": "DateTime",
+    "Choices": "",
+    "Required": "FALSE",
+    "Default": "",
+    "ReadOnly": "FALSE"
+  },
+  {
+    "DisplayName": "VAD VS q4 AM",
+    "InternalName": "VADVSq4AM",
+    "FieldType": "Boolean",
+    "Choices": "",
+    "Required": "FALSE",
+    "Default": "0",
+    "ReadOnly": "FALSE"
+  },
+  {
+    "DisplayName": "VAD VS q4 PM",
+    "InternalName": "VADVSq4PM",
+    "FieldType": "Boolean",
+    "Choices": "",
+    "Required": "FALSE",
+    "Default": "0",
+    "ReadOnly": "FALSE"
+  },
+  {
+    "DisplayName": "VAD RN",
+    "InternalName": "VADRN",
+    "FieldType": "Text",
+    "Choices": "",
+    "Required": "FALSE",
+    "Default": "",
+    "ReadOnly": "FALSE"
+  },
+  {
+    "DisplayName": "VAD Missing Required",
+    "InternalName": "VADMissingRequired",
+    "FieldType": "Text",
+    "Choices": "",
+    "Required": "FALSE",
+    "Default": "",
+    "ReadOnly": "FALSE"
+  },
+  {
+    "DisplayName": "VAD DND",
+    "InternalName": "VADDND",
+    "FieldType": "Text",
+    "Choices": "",
+    "Required": "FALSE",
+    "Default": "",
+    "ReadOnly": "FALSE"
+  },
+  {
+    "DisplayName": "VAD MISC NOTES",
+    "InternalName": "VADMISCNOTES",
+    "FieldType": "Note",
+    "Choices": "",
+    "Required": "FALSE",
+    "Default": "",
+    "ReadOnly": "FALSE"
+  },
+  {
+    "DisplayName": "VAD Cart #",
+    "InternalName": "VADCart_x0023_",
+    "FieldType": "Number",
+    "Choices": "",
+    "Required": "FALSE",
+    "Default": "",
+    "ReadOnly": "FALSE"
+  },
+  {
+    "DisplayName": "VAD Status",
+    "InternalName": "VADStatus",
+    "FieldType": "Choice",
+    "Choices": "Fresh; Readmisson; Visiting VAD",
+    "Required": "FALSE",
+    "Default": "",
+    "ReadOnly": "FALSE"
+  },
+  {
+    "DisplayName": "AttendingMD",
+    "InternalName": "AttendingMD",
+    "FieldType": "Text",
+    "Choices": "",
+    "Required": "FALSE",
+    "Default": "",
+    "ReadOnly": "FALSE"
+  },
+  {
+    "DisplayName": "SkinAssessVerified",
+    "InternalName": "SkinAssessVerified",
+    "FieldType": "Boolean",
+    "Choices": "",
+    "Required": "FALSE",
+    "Default": "0",
+    "ReadOnly": "FALSE"
+  },
+  {
+    "DisplayName": "MCB",
+    "InternalName": "MCB",
+    "FieldType": "Boolean",
+    "Choices": "",
+    "Required": "FALSE",
+    "Default": "0",
+    "ReadOnly": "FALSE"
+  },
+  {
+    "DisplayName": "Arrival Time",
+    "InternalName": "ArrivalTime",
+    "FieldType": "DateTime",
+    "Choices": "",
+    "Required": "FALSE",
+    "Default": "[today]",
+    "ReadOnly": "FALSE"
+  },
+  {
+    "DisplayName": "Transferred From",
+    "InternalName": "TransferredFrom",
+    "FieldType": "Text",
+    "Choices": "",
+    "Required": "FALSE",
+    "Default": "",
+    "ReadOnly": "FALSE"
+  },
+  {
+    "DisplayName": "Time Seen By Leader",
+    "InternalName": "TimeSeenByLeader",
+    "FieldType": "DateTime",
+    "Choices": "",
+    "Required": "FALSE",
+    "Default": "",
+    "ReadOnly": "FALSE"
+  },
+  {
+    "DisplayName": "Weight Verified",
+    "InternalName": "WeightVerified",
+    "FieldType": "Boolean",
+    "Choices": "",
+    "Required": "FALSE",
+    "Default": "0",
+    "ReadOnly": "FALSE"
+  },
+  {
+    "DisplayName": "VAD  Status",
+    "InternalName": "VAD_x0020__x0020_Status",
+    "FieldType": "Choice",
+    "Choices": "FRESH; Re-admission; Out of town",
+    "Required": "FALSE",
+    "Default": "",
+    "ReadOnly": "FALSE"
+  },
+  {
+    "DisplayName": "WeightChange",
+    "InternalName": "WeightChange",
+    "FieldType": "Calculated",
+    "Choices": "",
+    "Required": "FALSE",
+    "Default": "",
+    "ReadOnly": "TRUE"
+  },
+  {
+    "DisplayName": "LOS",
+    "InternalName": "LOS",
+    "FieldType": "Calculated",
+    "Choices": "",
+    "Required": "FALSE",
+    "Default": "",
+    "ReadOnly": "TRUE"
+  },
+  {
+    "DisplayName": "FallRisk",
+    "InternalName": "FallRisk",
+    "FieldType": "Number",
+    "Choices": "",
+    "Required": "FALSE",
+    "Default": "",
+    "ReadOnly": "FALSE"
+  },
+  {
+    "DisplayName": "PH Medication?",
+    "InternalName": "PHMedication_x003f_",
+    "FieldType": "Text",
+    "Choices": "",
+    "Required": "FALSE",
+    "Default": "",
+    "ReadOnly": "FALSE"
+  },
+  {
+    "DisplayName": "\ud83d\udea6 CLINICAL PROGRESS \ud83d\udea6",
+    "InternalName": "_x0001f6a6__x0020_CLINICAL_x0020",
+    "FieldType": "Choice",
+    "Choices": "Progressing On Schedule; Not Improving; Ready for DC; Discharged; Sent to ICU",
+    "Required": "FALSE",
+    "Default": "Progressing On Schedule",
+    "ReadOnly": "FALSE"
+  },
+  {
+    "DisplayName": "CSN",
+    "InternalName": "CSN",
+    "FieldType": "Text",
+    "Choices": "",
+    "Required": "FALSE",
+    "Default": "",
+    "ReadOnly": "FALSE"
+  },
+  {
+    "DisplayName": "GMLOS",
+    "InternalName": "GMLOS",
+    "FieldType": "Number",
+    "Choices": "",
+    "Required": "FALSE",
+    "Default": "",
+    "ReadOnly": "FALSE"
+  },
+  {
+    "DisplayName": "Appointment Detail",
+    "InternalName": "Appointment_x0020_Detail",
+    "FieldType": "Note",
+    "Choices": "",
+    "Required": "FALSE",
+    "Default": "",
+    "ReadOnly": "FALSE"
+  },
+  {
+    "DisplayName": "Creatinine",
+    "InternalName": "Creatinine",
+    "FieldType": "Text",
+    "Choices": "",
+    "Required": "FALSE",
+    "Default": "",
+    "ReadOnly": "FALSE"
+  },
+  {
+    "DisplayName": "Potassium (K+)",
+    "InternalName": "Potassium_x0020__x0028_K_x002b__",
+    "FieldType": "Text",
+    "Choices": "",
+    "Required": "FALSE",
+    "Default": "",
+    "ReadOnly": "FALSE"
+  },
+  {
+    "DisplayName": "Magnesium",
+    "InternalName": "Magnesium",
+    "FieldType": "Text",
+    "Choices": "",
+    "Required": "FALSE",
+    "Default": "",
+    "ReadOnly": "FALSE"
+  },
+  {
+    "DisplayName": "Hemoglobin (Hgb)",
+    "InternalName": "Hemoglobin_x0020__x0028_Hgb_x002",
+    "FieldType": "Text",
+    "Choices": "",
+    "Required": "FALSE",
+    "Default": "",
+    "ReadOnly": "FALSE"
+  },
+  {
+    "DisplayName": "Incentive Spirometry",
+    "InternalName": "Incentive_x0020_Spirometry",
+    "FieldType": "Text",
+    "Choices": "",
+    "Required": "FALSE",
+    "Default": "",
+    "ReadOnly": "FALSE"
+  },
+  {
+    "DisplayName": "ID",
+    "InternalName": "ID",
+    "FieldType": "Counter",
+    "Choices": "",
+    "Required": "FALSE",
+    "Default": "",
+    "ReadOnly": "TRUE"
+  },
+  {
+    "DisplayName": "Content Type",
+    "InternalName": "ContentType",
+    "FieldType": "Computed",
+    "Choices": "",
+    "Required": "FALSE",
+    "Default": "",
+    "ReadOnly": "FALSE"
+  },
+  {
+    "DisplayName": "Modified",
+    "InternalName": "Modified",
+    "FieldType": "DateTime",
+    "Choices": "",
+    "Required": "FALSE",
+    "Default": "",
+    "ReadOnly": "TRUE"
+  },
+  {
+    "DisplayName": "Created",
+    "InternalName": "Created",
+    "FieldType": "DateTime",
+    "Choices": "",
+    "Required": "FALSE",
+    "Default": "",
+    "ReadOnly": "TRUE"
+  },
+  {
+    "DisplayName": "Created By",
+    "InternalName": "Author",
+    "FieldType": "User",
+    "Choices": "",
+    "Required": "FALSE",
+    "Default": "",
+    "ReadOnly": "TRUE"
+  },
+  {
+    "DisplayName": "Modified By",
+    "InternalName": "Editor",
+    "FieldType": "User",
+    "Choices": "",
+    "Required": "FALSE",
+    "Default": "",
+    "ReadOnly": "TRUE"
+  },
+  {
+    "DisplayName": "Version",
+    "InternalName": "_UIVersionString",
+    "FieldType": "Text",
+    "Choices": "",
+    "Required": "FALSE",
+    "Default": "",
+    "ReadOnly": "TRUE"
+  },
+  {
+    "DisplayName": "Attachments",
+    "InternalName": "Attachments",
+    "FieldType": "Attachments",
+    "Choices": "",
+    "Required": "FALSE",
+    "Default": "",
+    "ReadOnly": "FALSE"
+  },
+  {
+    "DisplayName": "Edit",
+    "InternalName": "Edit",
+    "FieldType": "Computed",
+    "Choices": "",
+    "Required": "FALSE",
+    "Default": "",
+    "ReadOnly": "TRUE"
+  },
+  {
+    "DisplayName": "Type",
+    "InternalName": "DocIcon",
+    "FieldType": "Computed",
+    "Choices": "",
+    "Required": "FALSE",
+    "Default": "",
+    "ReadOnly": "TRUE"
+  },
+  {
+    "DisplayName": "Item Child Count",
+    "InternalName": "ItemChildCount",
+    "FieldType": "Lookup",
+    "Choices": "",
+    "Required": "FALSE",
+    "Default": "",
+    "ReadOnly": "TRUE"
+  },
+  {
+    "DisplayName": "Folder Child Count",
+    "InternalName": "FolderChildCount",
+    "FieldType": "Lookup",
+    "Choices": "",
+    "Required": "FALSE",
+    "Default": "",
+    "ReadOnly": "TRUE"
+  },
+  {
+    "DisplayName": "Label setting",
+    "InternalName": "_ComplianceFlags",
+    "FieldType": "Lookup",
+    "Choices": "",
+    "Required": "FALSE",
+    "Default": "",
+    "ReadOnly": "TRUE"
+  },
+  {
+    "DisplayName": "Retention label",
+    "InternalName": "_ComplianceTag",
+    "FieldType": "Lookup",
+    "Choices": "",
+    "Required": "FALSE",
+    "Default": "",
+    "ReadOnly": "TRUE"
+  },
+  {
+    "DisplayName": "Retention label Applied",
+    "InternalName": "_ComplianceTagWrittenTime",
+    "FieldType": "Lookup",
+    "Choices": "",
+    "Required": "FALSE",
+    "Default": "",
+    "ReadOnly": "TRUE"
+  },
+  {
+    "DisplayName": "Label applied by",
+    "InternalName": "_ComplianceTagUserId",
+    "FieldType": "Lookup",
+    "Choices": "",
+    "Required": "FALSE",
+    "Default": "",
+    "ReadOnly": "TRUE"
+  },
+  {
+    "DisplayName": "Item is a Record",
+    "InternalName": "_IsRecord",
+    "FieldType": "Computed",
+    "Choices": "",
+    "Required": "FALSE",
+    "Default": "",
+    "ReadOnly": "TRUE"
+  },
+  {
+    "DisplayName": "App Created By",
+    "InternalName": "AppAuthor",
+    "FieldType": "Lookup",
+    "Choices": "",
+    "Required": "FALSE",
+    "Default": "",
+    "ReadOnly": "TRUE"
+  },
+  {
+    "DisplayName": "App Modified By",
+    "InternalName": "AppEditor",
+    "FieldType": "Lookup",
+    "Choices": "",
+    "Required": "FALSE",
+    "Default": "",
+    "ReadOnly": "TRUE"
+  }
+]

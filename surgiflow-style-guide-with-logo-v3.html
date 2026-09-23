@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SURGIFLOW (SF-RCC) Unified Design System — Interactive Resource Page</title>
+<style>
+  :root {
+    /* Base Surfaces & Borders */
+    --sf-bg: #FFFFFF;
+    --sf-header-bg: #EAF4F8;
+    --sf-card: #FFFFFF;
+    --sf-border: #E2E8F0;
+    --sf-border-subtle: #EDF2F7;
+    --sf-border-strong: #CBD5E1;
+
+    /* Text Hierarchy */
+    --sf-text: #0F172A;
+    --sf-text-2: #475569;
+    --sf-text-muted: #64748B;
+    --sf-text-inv: #FFFFFF;
+
+    /* Brand & Meaning Driven Color Tokens */
+    --sf-red: #C90019;       --sf-red-bg: #FFF9F9;     --sf-red-bd: #FFD8D8;
+    --sf-amber: #B7791F;     --sf-amber-bg: #FFFBEB;   --sf-amber-bd: #FDE68A;
+    --sf-green: #067647;     --sf-green-bg: #F0FDF4;   --sf-green-bd: #BBF7D0;
+    --sf-slate: #5A6B82;     --sf-slate-bg: #F3F6FA;   --sf-slate-bd: #E1E8F1;
+    --sf-purple: #5B3FD8;    --sf-purple-bg: #F4F2FE;  --sf-purple-bd: #D9D2FA;
+    --sf-purple-hover: #4C32BF;
+    --sf-cyan-brand: #0284C7;
+
+    /* Radius Policy */
+    --r-pill: 999px;
+    --r-card: 12px;
+    --r-panel: 10px;
+    --r-input: 8px;
+    --r-badge: 6px;
+
+    /* Typography */
+    --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: var(--font);
+    background-color: var(--sf-bg);
+    color: var(--sf-text);
+    padding: 24px;
+    line-height: 1.35;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .style-board {
+    max-width: 1540px;
+    margin: 0 auto;
+    border: 1px solid var(--sf-border);
+    border-radius: 4px;
+    background: #FFFFFF;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+    overflow: hidden;
+  }
+
+  /* --- HEADER BAR --- */
+  .board-header {
+    background: var(--sf-header-bg);
+    padding: 16px 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #D8E8F0;
+  }
+  .header-left { display: flex; align-items: center; gap: 28px; }
+  .brand-lockup { display: flex; flex-direction: column; }
+  .brand-logo-svg { height: 44px; width: auto; transition: transform 0.2s ease; cursor: pointer; }
+  .brand-logo-svg:hover { transform: scale(1.02); }
+  .brand-tagline { font-size: 11px; font-weight: 700; color: var(--sf-text-2); letter-spacing: 0.02em; margin-top: 2px; }
+  .header-titles { border-left: 2px solid #D0E2EC; padding-left: 24px; }
+  .header-main-title { font-size: 20px; font-weight: 900; letter-spacing: -0.01em; color: var(--sf-text); }
+  .header-sub-title { font-size: 13px; font-weight: 600; color: var(--sf-text-2); margin-top: 2px; }
+  .header-right { text-align: right; }
+  .header-org { font-size: 15px; font-weight: 800; color: var(--sf-cyan-brand); }
+  .header-org-sub { font-size: 11px; font-weight: 700; color: var(--sf-text-2); }
+
+  /* --- GRID SYSTEM --- */
+  .board-body { padding: 24px 28px; display: flex; flex-direction: column; gap: 32px; }
+  .board-row { display: grid; grid-template-columns: 1.25fr 1fr; gap: 36px; }
+  .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    border-bottom: 2px solid var(--sf-text);
+    padding-bottom: 6px;
+    margin-bottom: 16px;
+  }
+  .section-title { font-size: 17px; font-weight: 900; letter-spacing: 0.02em; text-transform: uppercase; }
+  .section-vis { font-size: 13px; font-weight: 700; color: var(--sf-text-2); }
+
+  /* --- SECTION: COLOR SYSTEM (INTERACTIVE) --- */
+  .color-columns { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
+  .color-col { display: flex; flex-direction: column; gap: 8px; }
+  .color-meta-title { font-size: 11px; font-weight: 900; text-transform: uppercase; }
+  .color-meta-sub { font-size: 10px; font-weight: 600; color: var(--sf-text-2); margin-top: -6px; margin-bottom: 4px; }
+  
+  .color-block-solid {
+    height: 62px;
+    border-radius: var(--r-badge);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFFFFF;
+    font-size: 15px;
+    font-weight: 900;
+    letter-spacing: 0.03em;
+    cursor: pointer;
+    position: relative;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    user-select: none;
+  }
+  .color-block-solid:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  }
+  .color-block-solid:active {
+    transform: scale(0.97);
+  }
+  .copy-tooltip {
+    position: absolute;
+    bottom: -24px;
+    background: #0F172A;
+    color: #FFF;
+    font-size: 9px;
+    padding: 2px 6px;
+    border-radius: 4px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+    white-space: nowrap;
+    z-index: 10;
+  }
+
+  .color-detail-card {
+    background: #FAFCFE;
+    border: 1px solid var(--sf-border);
+    border-radius: var(--r-badge);
+    padding: 8px;
+    font-size: 10.5px;
+    font-weight: 600;
+    color: var(--sf-text-2);
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    transition: border-color 0.2s ease;
+  }
+  .color-detail-card:hover { border-color: var(--sf-border-strong); }
+  .color-desc-text { font-size: 9.5px; color: var(--sf-text-muted); font-weight: 600; line-height: 1.25; margin-top: 4px; }
+
+  .purple-callout-wrap {
+    grid-column: span 5;
+    display: grid;
+    grid-template-columns: 4fr 1.25fr;
+    gap: 12px;
+    margin-top: 6px;
+  }
+  .purple-notice-box {
+    background: #F8F9FE;
+    border: 1.5px solid var(--sf-purple-bd);
+    border-radius: var(--r-panel);
+    padding: 10px 14px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .purple-notice-box:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(91,63,216,0.08);
+  }
+  .purple-notice-tag {
+    background: var(--sf-purple);
+    color: #FFF;
+    font-size: 11px;
+    font-weight: 800;
+    padding: 4px 10px;
+    border-radius: var(--r-badge);
+    display: inline-block;
+    width: fit-content;
+    cursor: pointer;
+    transition: background 0.2s ease;
+  }
+  .purple-notice-tag:hover { background: var(--sf-purple-hover); }
+  .purple-notice-text { font-size: 10.5px; font-weight: 800; color: var(--sf-purple); text-transform: uppercase; }
+
+  /* --- SECTION: TYPOGRAPHY --- */
+  .type-stack { display: flex; flex-direction: column; gap: 14px; }
+  .type-item {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 6px 8px;
+    border-radius: var(--r-badge);
+    transition: background 0.15s ease;
+  }
+  .type-item:hover { background: #F8FAFC; }
+  .t-meta-label { font-size: 10.5px; font-weight: 700; color: var(--sf-text-muted); }
+  .t-val-page { font-size: 22px; font-weight: 900; color: var(--sf-text); }
+  .t-val-units { font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em; color: var(--sf-text-2); }
+  .t-val-cardtitle { font-size: 16px; font-weight: 800; color: var(--sf-text); }
+  .t-val-kpi { font-size: 34px; font-weight: 900; color: var(--sf-red); line-height: 1; }
+  .t-val-body { font-size: 13.5px; font-weight: 500; color: var(--sf-text); }
+  .t-val-flagged { font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em; color: var(--sf-text-2); }
+
+  /* --- SECTION: COMPONENT STANDARDS (INTERACTIVE) --- */
+  .comp-left-grid { display: flex; flex-direction: column; gap: 18px; }
+  .kpi-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .dash-kpi {
+    border: 1.5px solid var(--sf-border);
+    border-radius: var(--r-panel);
+    padding: 10px 14px;
+    text-align: center;
+    background: #FFF;
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+    user-select: none;
+  }
+  .dash-kpi:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  }
+  .dash-kpi.active-kpi {
+    box-shadow: 0 0 0 2.5px var(--sf-purple);
+  }
+  .dash-kpi.red { background: var(--sf-red-bg); border-color: var(--sf-red-bd); }
+  .dash-kpi.amber { background: var(--sf-amber-bg); border-color: var(--sf-amber-bd); }
+  .dash-kpi.green { background: var(--sf-green-bg); border-color: var(--sf-green-bd); }
+  .kpi-title { font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em; color: var(--sf-text-2); }
+  .dash-kpi.red .kpi-title { color: var(--sf-red); }
+  .dash-kpi.amber .kpi-title { color: var(--sf-amber); }
+  .dash-kpi.green .kpi-title { color: var(--sf-green); }
+  .kpi-number { font-size: 28px; font-weight: 900; line-height: 1.1; }
+  .dash-kpi.red .kpi-number { color: var(--sf-red); }
+  .dash-kpi.amber .kpi-number { color: var(--sf-amber); }
+  .dash-kpi.green .kpi-number { color: var(--sf-green); }
+  .kpi-alert-tag { font-size: 9px; font-weight: 800; color: var(--sf-red); text-transform: uppercase; margin-top: 2px; }
+
+  /* Interactive Unit Card with Live Slider */
+  .unit-card-preview {
+    border: 1px solid var(--sf-border);
+    border-radius: var(--r-panel);
+    padding: 12px 16px;
+    background: #FFF;
+    transition: box-shadow 0.2s ease;
+  }
+  .unit-card-preview:hover { box-shadow: 0 4px 14px rgba(0,0,0,0.05); }
+  .unit-card-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+  .unit-card-name { font-size: 16px; font-weight: 900; }
+  
+  .unit-census-bar {
+    height: 10px;
+    border-radius: var(--r-pill);
+    background: var(--sf-slate-bg);
+    overflow: hidden;
+    margin-bottom: 6px;
+    display: flex;
+    border: 1px solid var(--sf-border-subtle);
+  }
+  .census-seg-g { width: 35%; background: var(--sf-green); transition: width 0.2s ease; }
+  .census-seg-a { width: 40%; background: var(--sf-amber); transition: width 0.2s ease; }
+  
+  .census-slider-wrap {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+  .census-slider {
+    flex: 1;
+    height: 4px;
+    accent-color: var(--sf-purple);
+    cursor: pointer;
+  }
+  .slider-label { font-size: 10px; font-weight: 800; color: var(--sf-text-muted); width: 32px; }
+
+  .unit-stats-line { display: flex; justify-content: space-between; font-size: 10.5px; font-weight: 800; color: var(--sf-text-2); }
+
+  .banner-stack { display: flex; flex-direction: column; gap: 8px; }
+  .status-banner {
+    border-radius: var(--r-panel);
+    padding: 8px 14px;
+    font-size: 12px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid;
+    cursor: pointer;
+    transition: transform 0.15s ease, opacity 0.15s ease;
+  }
+  .status-banner:hover { transform: translateX(2px); }
+  .status-banner.high { background: var(--sf-red-bg); border-color: var(--sf-red-bd); color: var(--sf-red); }
+  .status-banner.ready { background: var(--sf-green-bg); border-color: var(--sf-green-bd); color: var(--sf-green); }
+  .status-banner.info { background: var(--sf-slate-bg); border-color: var(--sf-slate-bd); color: var(--sf-slate); }
+
+  /* --- SECTION: ELEMENT MECHANICS (INPUTS & TOGGLES) --- */
+  .mechanics-grid { display: grid; grid-template-columns: 1.15fr 1fr; gap: 24px; }
+  .control-group { display: flex; flex-direction: column; gap: 12px; }
+  .ctrl-row { display: flex; align-items: center; gap: 10px; }
+  .ctrl-label { font-size: 11px; font-weight: 800; color: var(--sf-text-muted); width: 38px; }
+  
+  .real-input {
+    height: 38px;
+    border: 1.5px solid var(--sf-purple);
+    border-radius: var(--r-input);
+    padding: 0 10px;
+    font-size: 12px;
+    font-weight: 600;
+    width: 100%;
+    color: var(--sf-text);
+    outline: none;
+    font-family: inherit;
+    background: #FFF;
+    transition: box-shadow 0.15s ease;
+  }
+  .real-input:focus {
+    box-shadow: 0 0 0 3px var(--sf-purple-bg);
+  }
+
+  .real-select {
+    height: 30px;
+    border: 1px solid var(--sf-border-strong);
+    border-radius: var(--r-input);
+    padding: 0 10px;
+    font-size: 11px;
+    font-weight: 600;
+    width: 100%;
+    color: var(--sf-text-2);
+    outline: none;
+    background: #FFF;
+    cursor: pointer;
+    font-family: inherit;
+  }
+  .real-select:focus {
+    border-color: var(--sf-purple);
+    box-shadow: 0 0 0 2px var(--sf-purple-bg);
+  }
+
+  .btn-sample {
+    height: 36px;
+    padding: 0 14px;
+    border-radius: var(--r-input);
+    font-size: 11.5px;
+    font-weight: 800;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-family: inherit;
+    transition: transform 0.1s ease, background 0.15s ease, border-color 0.15s ease;
+    user-select: none;
+  }
+  .btn-sample:active { transform: scale(0.95); }
+  .btn-sample.pri { background: var(--sf-purple); color: #FFF; border: none; }
+  .btn-sample.pri:hover { background: var(--sf-purple-hover); }
+  .btn-sample.dan { background: var(--sf-red); color: #FFF; border: none; }
+  .btn-sample.dan:hover { background: #A80015; }
+  .btn-sample.ghost { background: transparent; border: 1px solid var(--sf-border-strong); color: var(--sf-text); }
+  .btn-sample.ghost:hover { background: var(--sf-slate-bg); }
+  .btn-sample.dan-ghost { background: transparent; border: 1.5px solid var(--sf-red); color: var(--sf-red); }
+  .btn-sample.dan-ghost:hover { background: var(--sf-red-bg); }
+
+  .pill-badge-bank { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+  .demo-pill {
+    border-radius: var(--r-pill);
+    padding: 4px 10px;
+    font-size: 11px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    user-select: none;
+  }
+  .demo-pill.slate { background: var(--sf-slate-bg); color: var(--sf-slate); border: 1px solid var(--sf-slate-bd); }
+  .demo-pill.slate:hover { border-color: var(--sf-purple); color: var(--sf-purple); }
+  .demo-pill.purple { background: var(--sf-purple-bg); color: var(--sf-purple); border: 1.5px solid var(--sf-purple); }
+  .demo-pill.purple:hover { background: #EAE5FD; }
+  
+  .demo-badge {
+    border-radius: var(--r-badge);
+    padding: 3px 8px;
+    font-size: 10.5px;
+    font-weight: 800;
+    cursor: default;
+  }
+  .demo-badge.green { background: var(--sf-green-bg); color: var(--sf-green); border: 1px solid var(--sf-green-bd); }
+  .demo-badge.slate { background: var(--sf-slate-bg); color: var(--sf-slate); border: 1px solid var(--sf-slate-bd); }
+
+  /* Interactive Segmented Toggle Strip */
+  .toggle-strip {
+    display: flex;
+    border-radius: var(--r-pill);
+    border: 1px solid var(--sf-border-strong);
+    overflow: hidden;
+    width: fit-content;
+    background: var(--sf-slate-bg);
+  }
+  .toggle-btn {
+    padding: 4px 14px;
+    font-size: 11px;
+    font-weight: 800;
+    cursor: pointer;
+    border: none;
+    background: transparent;
+    color: var(--sf-text-2);
+    transition: all 0.15s ease;
+    font-family: inherit;
+  }
+  .toggle-btn.active.y { background: var(--sf-green); color: #FFF; }
+  .toggle-btn.active.n { background: var(--sf-red); color: #FFF; }
+  .toggle-btn.active.na { background: var(--sf-slate); color: #FFF; }
+
+  /* Spacing Rhythm Bars with Interactive Hover Rulers */
+  .spacing-bars { display: flex; flex-direction: column; gap: 5px; }
+  .sp-bar {
+    background: #F1F4FA;
+    border-radius: 4px;
+    padding: 4px 10px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--sf-text-2);
+    cursor: pointer;
+    transition: background 0.15s ease, padding-left 0.15s ease;
+  }
+  .sp-bar:hover {
+    background: var(--sf-purple-bg);
+    color: var(--sf-purple);
+    padding-left: 14px;
+  }
+  .sp-bar span:last-child { font-weight: 900; color: var(--sf-text); }
+  .sp-bar:hover span:last-child { color: var(--sf-purple); }
+
+  .radius-list { display: flex; flex-direction: column; gap: 6px; font-size: 11.5px; font-weight: 700; color: var(--sf-text-2); }
+  .radius-item {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px dashed var(--sf-border);
+    padding-bottom: 3px;
+    cursor: pointer;
+    transition: color 0.15s ease;
+  }
+  .radius-item:hover { color: var(--sf-purple); border-bottom-color: var(--sf-purple); }
+  .radius-item span:last-child { font-weight: 900; color: var(--sf-text); }
+  .radius-item:hover span:last-child { color: var(--sf-purple); }
+
+  .board-footer-box {
+    margin-top: 16px;
+    background: #F8FAFC;
+    border: 1px solid var(--sf-border);
+    border-radius: var(--r-badge);
+    padding: 10px;
+    font-size: 9.5px;
+    font-weight: 700;
+    color: var(--sf-text-muted);
+    line-height: 1.4;
+  }
+
+  /* Interactive Toast Notification */
+  .toast {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    background: #0F172A;
+    color: #FFF;
+    padding: 10px 18px;
+    border-radius: var(--r-panel);
+    font-size: 12px;
+    font-weight: 800;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transform: translateY(100px);
+    opacity: 0;
+    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.25s ease;
+    z-index: 1000;
+  }
+  .toast.show { transform: translateY(0); opacity: 1; }
+</style>
+</head>
+<body>
+
+<div class="style-board">
+  
+  <!-- ==================== HEADER LOCKUP ==================== -->
+  <header class="board-header">
+    <div class="header-left">
+      <div class="brand-lockup">
+        <!-- STANDALONE FULL LANDSCAPE LOGO -->
+        <svg class="brand-logo-svg" viewBox="0 0 760 110" id="brandLogo" title="SurgiFlow Unified Logo">
+          <defs>
+            <linearGradient id="chromeBlue" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#7DD3FC" />
+              <stop offset="25%" stop-color="#38BDF8" />
+              <stop offset="55%" stop-color="#0284C7" />
+              <stop offset="85%" stop-color="#0369A1" />
+              <stop offset="100%" stop-color="#082B59" />
+            </linearGradient>
+            <linearGradient id="neonCyan" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#00FFFF" />
+              <stop offset="50%" stop-color="#00D4FF" />
+              <stop offset="100%" stop-color="#0066FF" />
+            </linearGradient>
+            <linearGradient id="deepNavyBase" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#0A192F" />
+              <stop offset="100%" stop-color="#020B18" />
+            </linearGradient>
+            <filter id="logoDepth" x="-10%" y="-10%" width="120%" height="120%">
+              <feDropShadow dx="0" dy="2.5" stdDeviation="2.5" flood-color="#030A16" flood-opacity="0.45"/>
+            </filter>
+          </defs>
+
+          <g filter="url(#logoDepth)">
+            <!-- "SURG" -->
+            <text x="20" y="86" font-family="'Segoe UI', Arial Black, sans-serif" font-size="78" font-weight="900" letter-spacing="2" fill="none" stroke="url(#deepNavyBase)" stroke-width="14" stroke-linejoin="round">SURG</text>
+            <text x="20" y="86" font-family="'Segoe UI', Arial Black, sans-serif" font-size="78" font-weight="900" letter-spacing="2" fill="none" stroke="url(#neonCyan)" stroke-width="7" stroke-linejoin="round">SURG</text>
+            <text x="20" y="86" font-family="'Segoe UI', Arial Black, sans-serif" font-size="78" font-weight="900" letter-spacing="2" fill="url(#chromeBlue)">SURG</text>
+            <text x="20" y="84" font-family="'Segoe UI', Arial Black, sans-serif" font-size="78" font-weight="900" letter-spacing="2" fill="none" stroke="#E0F2FE" stroke-width="1.2" opacity="0.8">SURG</text>
+
+            <!-- CADUCEUS AS THE "I" -->
+            <g transform="translate(330, 0)">
+              <line x1="0" y1="26" x2="0" y2="92" stroke="url(#deepNavyBase)" stroke-width="12" stroke-linecap="round"/>
+              <line x1="0" y1="26" x2="0" y2="92" stroke="url(#neonCyan)" stroke-width="7" stroke-linecap="round"/>
+              <line x1="0" y1="26" x2="0" y2="92" stroke="url(#chromeBlue)" stroke-width="3.5" stroke-linecap="round"/>
+              <line x1="0" y1="26" x2="0" y2="92" stroke="#E0F2FE" stroke-width="1" stroke-linecap="round"/>
+
+              <circle cx="0" cy="18" r="11" fill="url(#deepNavyBase)"/>
+              <circle cx="0" cy="18" r="8.5" fill="url(#neonCyan)"/>
+              <circle cx="0" cy="18" r="6" fill="url(#chromeBlue)"/>
+              <circle cx="-2" cy="16" r="2" fill="#FFFFFF" opacity="0.9"/>
+
+              <!-- Feathered Wings -->
+              <path d="M 0 32 C -18 12 -42 14 -56 22 C -42 28 -24 30 -8 38 Z" fill="url(#chromeBlue)" stroke="url(#deepNavyBase)" stroke-width="2" stroke-linejoin="round"/>
+              <path d="M 0 32 C -18 12 -42 14 -56 22" fill="none" stroke="url(#neonCyan)" stroke-width="1.8"/>
+              
+              <path d="M -8 38 C -26 32 -48 38 -52 48 C -38 50 -20 48 -5 50 Z" fill="url(#chromeBlue)" stroke="url(#deepNavyBase)" stroke-width="2" stroke-linejoin="round"/>
+              <path d="M -8 38 C -26 32 -48 38 -52 48" fill="none" stroke="url(#neonCyan)" stroke-width="1.8"/>
+              
+              <path d="M -5 50 C -20 50 -38 56 -40 65 C -28 66 -14 60 0 60 Z" fill="url(#chromeBlue)" stroke="url(#deepNavyBase)" stroke-width="2" stroke-linejoin="round"/>
+              <path d="M -5 50 C -20 50 -38 56 -40 65" fill="none" stroke="url(#neonCyan)" stroke-width="1.5"/>
+
+              <path d="M 0 32 C 18 12 42 14 56 22 C 42 28 24 30 8 38 Z" fill="url(#chromeBlue)" stroke="url(#deepNavyBase)" stroke-width="2" stroke-linejoin="round"/>
+              <path d="M 0 32 C 18 12 42 14 56 22" fill="none" stroke="url(#neonCyan)" stroke-width="1.8"/>
+              
+              <path d="M 8 38 C 26 32 48 38 52 48 C 38 50 20 48 5 50 Z" fill="url(#chromeBlue)" stroke="url(#deepNavyBase)" stroke-width="2" stroke-linejoin="round"/>
+              <path d="M 8 38 C 26 32 48 38 52 48" fill="none" stroke="url(#neonCyan)" stroke-width="1.8"/>
+              
+              <path d="M 5 50 C 20 50 38 56 40 65 C 28 66 14 60 0 60 Z" fill="url(#chromeBlue)" stroke="url(#deepNavyBase)" stroke-width="2" stroke-linejoin="round"/>
+              <path d="M 5 50 C 20 50 38 56 40 65" fill="none" stroke="url(#neonCyan)" stroke-width="1.5"/>
+
+              <!-- Serpent Heads -->
+              <path d="M -10 38 C -16 35 -18 43 -12 45 C -7 46 -3 41 0 43" fill="url(#chromeBlue)" stroke="url(#deepNavyBase)" stroke-width="2"/>
+              <circle cx="-13" cy="39" r="1" fill="#FFFFFF"/>
+              
+              <path d="M 10 38 C 16 35 18 43 12 45 C 7 46 3 41 0 43" fill="url(#chromeBlue)" stroke="url(#deepNavyBase)" stroke-width="2"/>
+              <circle cx="13" cy="39" r="1" fill="#FFFFFF"/>
+
+              <!-- Serpent Coils -->
+              <path d="M -12 45 C -24 55 -22 66 0 71 C 22 76 22 86 0 91" fill="none" stroke="url(#deepNavyBase)" stroke-width="8" stroke-linecap="round"/>
+              <path d="M -12 45 C -24 55 -22 66 0 71 C 22 76 22 86 0 91" fill="none" stroke="url(#neonCyan)" stroke-width="4.5" stroke-linecap="round"/>
+              <path d="M -12 45 C -24 55 -22 66 0 71 C 22 76 22 86 0 91" fill="none" stroke="url(#chromeBlue)" stroke-width="2" stroke-linecap="round"/>
+
+              <path d="M 12 45 C 24 55 22 66 0 71 C -22 76 -22 86 0 91" fill="none" stroke="url(#deepNavyBase)" stroke-width="8" stroke-linecap="round"/>
+              <path d="M 12 45 C 24 55 22 66 0 71 C -22 76 -22 86 0 91" fill="none" stroke="url(#neonCyan)" stroke-width="4.5" stroke-linecap="round"/>
+              <path d="M 12 45 C 24 55 22 66 0 71 C -22 76 -22 86 0 91" fill="none" stroke="url(#chromeBlue)" stroke-width="2" stroke-linecap="round"/>
+
+              <polygon points="-5,90 5,90 0,98" fill="url(#neonCyan)" stroke="url(#deepNavyBase)" stroke-width="1.2"/>
+            </g>
+
+            <!-- "FLOW" -->
+            <text x="375" y="86" font-family="'Segoe UI', Arial Black, sans-serif" font-size="78" font-weight="900" letter-spacing="2" fill="none" stroke="url(#deepNavyBase)" stroke-width="14" stroke-linejoin="round">FLOW</text>
+            <text x="375" y="86" font-family="'Segoe UI', Arial Black, sans-serif" font-size="78" font-weight="900" letter-spacing="2" fill="none" stroke="url(#neonCyan)" stroke-width="7" stroke-linejoin="round">FLOW</text>
+            <text x="375" y="86" font-family="'Segoe UI', Arial Black, sans-serif" font-size="78" font-weight="900" letter-spacing="2" fill="url(#chromeBlue)">FLOW</text>
+            <text x="375" y="84" font-family="'Segoe UI', Arial Black, sans-serif" font-size="78" font-weight="900" letter-spacing="2" fill="none" stroke="#E0F2FE" stroke-width="1.2" opacity="0.8">FLOW</text>
+          </g>
+        </svg>
+        <div class="brand-tagline">Design System Source of Truth</div>
+      </div>
+      <div class="header-titles">
+        <div class="header-main-title">SURGIFLOW (SF-RCC) UNIFIED DESIGN SYSTEM — STYLE RESOURCE PAGE</div>
+        <div class="header-sub-title">Visualizes the recommendations for heavy workload leaders</div>
+      </div>
+    </div>
+    <div class="header-right">
+      <div class="header-org">SF-RCC Cardiac Hospital · v6.1</div>
+      <div class="header-org-sub">Design System Source of Truth</div>
+    </div>
+  </header>
+
+  <!-- ==================== MAIN BOARD CONTENT ==================== -->
+  <main class="board-body">
+    
+    <!-- TOP ROW: COLOR SYSTEM + TYPOGRAPHY RULES -->
+    <div class="board-row">
+      
+      <!-- LEFT: COLOR SYSTEM (INTERACTIVE TILES) -->
+      <section>
+        <div class="section-header">
+          <div class="section-title">Color System — Meaning Driven</div>
+          <div class="section-vis">(Visualizing §2)</div>
+        </div>
+        
+        <div class="color-columns">
+          <!-- RED -->
+          <div class="color-col">
+            <div class="color-meta-title">Red</div>
+            <div class="color-meta-sub">Critical / High risk</div>
+            <div class="color-block-solid" style="background: var(--sf-red);" data-hex="#C90019" title="Click to copy HEX">
+              #C90019
+              <span class="copy-tooltip">Copied!</span>
+            </div>
+            <div class="color-detail-card">
+              <div>#C90019</div>
+              <div>#FFF9F9</div>
+              <div>#FFD8D8</div>
+            </div>
+            <div class="demo-badge" style="background: var(--sf-red-bg); color: var(--sf-red); border: 1px solid var(--sf-red-bd); text-align: center;">High Risk Alert (103)</div>
+            <div class="color-desc-text">Actual texts, actual text, background tint, and border logic</div>
+          </div>
+
+          <!-- AMBER -->
+          <div class="color-col">
+            <div class="color-meta-title">Amber</div>
+            <div class="color-meta-sub">Caution / Moderate</div>
+            <div class="color-block-solid" style="background: var(--sf-amber);" data-hex="#B7791F" title="Click to copy HEX">
+              #B7791F
+              <span class="copy-tooltip">Copied!</span>
+            </div>
+            <div class="color-detail-card">
+              <div>#B7791E</div>
+              <div>#FFFBEB</div>
+              <div>#FDE68A</div>
+            </div>
+            <div class="demo-badge" style="background: var(--sf-amber-bg); color: var(--sf-amber); border: 1px solid var(--sf-amber-bd); text-align: center;">Active Infusions (2)</div>
+          </div>
+
+          <!-- GREEN -->
+          <div class="color-col">
+            <div class="color-meta-title">Green</div>
+            <div class="color-meta-sub">Ready / Stable</div>
+            <div class="color-block-solid" style="background: var(--sf-green);" data-hex="#067647" title="Click to copy HEX">
+              #067647
+              <span class="copy-tooltip">Copied!</span>
+            </div>
+            <div class="color-detail-card">
+              <div>#F0FDF4</div>
+              <div>General Discharge Readiness (Pass)</div>
+            </div>
+            <div class="demo-badge" style="background: var(--sf-green-bg); color: var(--sf-green); border: 1px solid var(--sf-green-bd); text-align: center;">Active Infusions (2)</div>
+            <div class="color-desc-text">Actual text, actual text, background tint, and border logic</div>
+          </div>
+
+          <!-- SLATE -->
+          <div class="color-col">
+            <div class="color-meta-title">Slate</div>
+            <div class="color-meta-sub">Neutral / Info</div>
+            <div class="color-block-solid" style="background: var(--sf-slate);" data-hex="#5A6B82" title="Click to copy HEX">
+              #5A6B82
+              <span class="copy-tooltip">Copied!</span>
+            </div>
+            <div class="color-detail-card">
+              <div>#5A6B82</div>
+              <div>#F3F6FA</div>
+              <div>#E1E8F1</div>
+            </div>
+            <div class="demo-badge" style="background: var(--sf-slate-bg); color: var(--sf-slate); border: 1px solid var(--sf-slate-bd); text-align: center;">Consultant Sign-offs</div>
+            <div class="color-desc-text">Pathways are recolored to SLATE when inactive, PURPLE when selected</div>
+          </div>
+
+          <!-- PURPLE -->
+          <div class="color-col">
+            <div class="color-meta-title">Purple</div>
+            <div class="color-meta-sub">Brand + Interactive ONLY</div>
+            <div class="color-block-solid" style="background: var(--sf-purple);" data-hex="#5B3FD8" title="Click to copy HEX">
+              #5B3FD8
+              <span class="copy-tooltip">Copied!</span>
+            </div>
+            <div class="color-detail-card">
+              <div>#F4F2FE</div>
+              <div>#F4F2FE</div>
+              <div>#D9D2FA</div>
+            </div>
+            <div class="demo-badge" style="background: var(--sf-purple-bg); color: var(--sf-purple); border: 1px solid var(--sf-purple-bd); text-align: center;">Patient Form (Sgn-offs)</div>
+          </div>
+
+          <!-- PURPLE RESTRICTION CALLOUT -->
+          <div class="purple-callout-wrap">
+            <div></div>
+            <div class="purple-notice-box">
+              <div class="purple-notice-tag" id="tabNoticeBtn">Patient Form (Selected Tab)</div>
+              <div class="purple-notice-text">PURPLE IS NO LONGER A DATA CATEGORY (e.g., Core Pathways)</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- RIGHT: TYPOGRAPHY RULES -->
+      <section>
+        <div class="section-header">
+          <div class="section-title">Typography Rules</div>
+          <div class="section-vis">(Visualizing §4)</div>
+        </div>
+
+        <div class="type-stack">
+          <div class="type-item">
+            <div class="t-val-page">Page Title <span style="font-weight: 800;">Cardiac Hospital Command Center</span></div>
+            <div class="t-meta-label">24 / 800 Extra Bold, Sentence case, --sf-text</div>
+          </div>
+
+          <div class="type-item">
+            <div class="t-val-units">Cardiac Units</div>
+            <div class="t-meta-label">12 / 700 Bold, UPPERCASE, tracking .06em, --sf-text-2</div>
+          </div>
+
+          <div class="type-item">
+            <div class="t-val-cardtitle">Card Title</div>
+            <div class="t-meta-label">16 / 700 Bold, Sentence case, --sf-text</div>
+          </div>
+
+          <div class="type-item">
+            <div class="t-val-kpi">KPI Number</div>
+            <div class="t-meta-label">34 / 800 Extra Bold, Sentence case, status color</div>
+          </div>
+
+          <div class="type-item">
+            <div class="t-val-body">CMA connected with Pt to verify post-DC appt, she</div>
+            <div class="t-meta-label">14 / 400 Normal, Sentence case, --sf-text</div>
+          </div>
+
+          <div class="type-item">
+            <div class="t-val-flagged">Barriers Flagged</div>
+            <div class="t-meta-label">11 / 600 Bold, UPPERCASE, tracking .04em, --sf-text-2</div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- BOTTOM ROW: COMPONENT STANDARDS + ELEMENT MECHANICS -->
+    <div class="board-row">
+      
+      <!-- LEFT: COMPONENT STANDARDS -->
+      <section>
+        <div class="section-header">
+          <div class="section-title">Component Standards</div>
+          <div class="section-vis">(Visualizing §5)</div>
+        </div>
+
+        <div class="comp-left-grid">
+          <!-- KPI CARDS (INTERACTIVE SELECTION) -->
+          <div>
+            <div style="font-size: 13px; font-weight: 800; margin-bottom: 2px;">Dashboard KPI Cards</div>
+            <div style="font-size: 11px; font-weight: 600; color: var(--sf-text-muted); margin-bottom: 8px;">Neutral --sf-card versions, of background tints (Click to filter)</div>
+            <div class="kpi-row">
+              <div class="dash-kpi red" id="kpiHighRisk" onclick="toggleKpi(this, 'High Risk Alerts (103)')">
+                <div class="kpi-title">High Risk</div>
+                <div class="kpi-number">103</div>
+                <div class="kpi-alert-tag">Huddle Required</div>
+              </div>
+              <div class="dash-kpi amber" onclick="toggleKpi(this, 'Active Infusions (12)')">
+                <div class="kpi-title">Active Infusions</div>
+                <div class="kpi-number">12</div>
+              </div>
+              <div class="dash-kpi green" onclick="toggleKpi(this, 'Ready / Stable (17)')">
+                <div class="kpi-title">Ready / Stabl</div>
+                <div class="kpi-number">17</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- TYPOGRAPHY METRICS IN SITU -->
+          <div style="display: flex; flex-direction: column; gap: 4px;">
+            <div style="font-size: 13px; font-weight: 800;">KPI Number <span style="font-size: 26px; color: var(--sf-red); font-weight: 900; margin-left: 6px;" id="dynamicKpiVal">103</span></div>
+            <div class="t-meta-label">34 / 800 Extra Bold, Sentence case, status color</div>
+            <div style="font-size: 13px; font-weight: 600; margin-top: 6px;">CMA connected with Pt to verify post-DC appt, she'</div>
+            <div class="t-meta-label">14 / 400 Normal, Sentence case, --sf-text</div>
+            <div style="font-size: 11px; font-weight: 800; text-transform: uppercase; color: var(--sf-text-2); margin-top: 6px;">Barriers Flagged</div>
+            <div class="t-meta-label">11 / 600 Bold, UPPERCASE, tracking, --sf-text-2</div>
+          </div>
+
+          <!-- UNIT CARD & STATUS BANNERS -->
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+            <!-- INTERACTIVE CENSUS SLIDER -->
+            <div>
+              <div style="font-size: 12.5px; font-weight: 800; margin-bottom: 4px;">Simplified Unit Card <span style="font-weight: 600; color: var(--sf-text-muted);">(Dashboard)</span></div>
+              <div style="font-size: 10.5px; font-weight: 600; color: var(--sf-text-muted); margin-bottom: 8px;">Adjust slider to preview live census threshold:</div>
+              <div class="unit-card-preview">
+                <div class="unit-card-top">
+                  <span class="unit-card-name">CVICU</span>
+                  <span class="demo-badge slate" id="bedCountBadge">21 Beds</span>
+                </div>
+                
+                <div class="unit-census-bar">
+                  <div class="census-seg-g" id="segGreen" style="width: 35%;"></div>
+                  <div class="census-seg-a" id="segAmber" style="width: 40%;"></div>
+                </div>
+
+                <div class="census-slider-wrap">
+                  <input type="range" class="census-slider" id="censusSlider" min="10" max="100" value="75" oninput="updateCensus(this.value)">
+                  <span class="slider-label" id="censusPctLabel">75%</span>
+                </div>
+
+                <div class="unit-stats-line">
+                  <span id="dripCount">0 DRIPS</span>
+                  <span id="barrierCount" style="color: var(--sf-red);">12 BARRIERS</span>
+                  <span>0 OR TODAY</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- INTERACTIVE STATUS BANNERS -->
+            <div>
+              <div style="font-size: 12.5px; font-weight: 800; margin-bottom: 4px;">Unified Status Banner</div>
+              <div style="font-size: 10.5px; font-weight: 600; color: var(--sf-text-muted); margin-bottom: 8px;">Click banner to toggle state notification:</div>
+              <div class="banner-stack">
+                <div class="status-banner high" onclick="showToast('Alert: Patient identified as High Risk for 30d readmission.')">🔴 High Risk Huddle Needed</div>
+                <div class="status-banner ready" onclick="showToast('Discharge Ready: Transportation & pharmacy orders signed.')">🟢 Ready For Discharge</div>
+                <div class="status-banner info" onclick="showToast('Info: Palliative & Care Management consults pending.')">ℹ️ Info Consult Pending</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- RIGHT: ELEMENT MECHANICS (INTERACTIVE CONTROLS) -->
+      <section>
+        <div class="section-header">
+          <div class="section-title">Element Mechanics</div>
+          <div class="section-vis">(Visualizing §5, Spacing and Radius)</div>
+        </div>
+
+        <div class="mechanics-grid">
+          <!-- SUB-COL 1: CONTROLS & BADGES -->
+          <div class="control-group">
+            <div style="font-size: 13px; font-weight: 800;">Form Fields & Buttons</div>
+            
+            <div class="ctrl-row">
+              <span class="ctrl-label">38px</span>
+              <input type="text" class="real-input" value="MRN: 5501923" placeholder="Enter MRN..." style="border-color: var(--sf-purple);">
+            </div>
+            
+            <div class="ctrl-row">
+              <span class="ctrl-label">30px</span>
+              <select class="real-select">
+                <option>Cardiology Core Unit</option>
+                <option>Thoracic Progressive</option>
+                <option>CVICU Command</option>
+              </select>
+            </div>
+
+            <div class="ctrl-row">
+              <span class="ctrl-label">40px</span>
+              <div style="display: flex; gap: 8px;">
+                <button class="btn-sample pri" onclick="showToast('Primary Action Executed')">Primary</button>
+                <button class="btn-sample dan" onclick="showToast('Danger Warning Confirmed')">Danger</button>
+              </div>
+            </div>
+
+            <div class="ctrl-row" style="margin-left: 48px;">
+              <div style="display: flex; gap: 8px;">
+                <button class="btn-sample ghost" onclick="showToast('Ghost Button Clicked')">Ghost</button>
+                <button class="btn-sample dan-ghost" onclick="showToast('Danger Ghost Action')">Danger</button>
+              </div>
+            </div>
+
+            <div style="font-size: 13px; font-weight: 800; margin-top: 6px;">Pills & Badges (Click to Toggle)</div>
+            <div class="pill-badge-bank">
+              <span class="demo-pill slate" onclick="togglePill(this)">--r-pill</span>
+            </div>
+            
+            <div style="font-size: 11px; font-weight: 700; color: var(--sf-text-muted);">Pathways</div>
+            <div class="pill-badge-bank">
+              <span class="demo-pill slate" onclick="togglePill(this)">Slate pills (AMI)</span>
+              <span class="demo-pill purple" onclick="togglePill(this)">Purple (Heart Failure)</span>
+            </div>
+
+            <div class="pill-badge-bank">
+              <span class="demo-badge slate">LOS: 4.2d</span>
+              <span class="demo-badge green">Stable (Pass)</span>
+            </div>
+            <div style="font-size: 10px; font-weight: 600; color: var(--sf-text-muted);">(selected badges gradients removed)</div>
+
+            <div class="pill-badge-bank">
+              <span class="demo-badge slate">Bed count: 21</span>
+            </div>
+
+            <!-- INTERACTIVE Y/N/NA TOGGLE STRIP -->
+            <div style="font-size: 13px; font-weight: 800; margin-top: 6px;">Toggles <span style="font-size: 11px; font-weight: 600; color: var(--sf-text-muted);">(Checklist Y/N/NA)</span></div>
+            <div class="toggle-strip" id="demoToggleStrip">
+              <button class="toggle-btn active y" onclick="setToggle(this, 'y')">Y</button>
+              <button class="toggle-btn n" onclick="setToggle(this, 'n')">N</button>
+              <button class="toggle-btn na" onclick="setToggle(this, 'na')">N/A</button>
+            </div>
+            <div style="font-size: 10px; font-weight: 600; color: var(--sf-red); line-height: 1.3;" id="toggleFeedback">Checklist Status: Met (Pass)</div>
+          </div>
+
+          <!-- SUB-COL 2: SPACING & RADIUS (HOVER RULERS) -->
+          <div class="control-group">
+            <div style="font-size: 13px; font-weight: 800;">Spacing Rhythm</div>
+            <div style="font-size: 10.5px; font-weight: 600; color: var(--sf-text-muted); margin-bottom: 2px;">Hover to preview spacing token:</div>
+            
+            <div class="spacing-bars">
+              <div class="sp-bar" onmouseenter="showToast('Nav -> Page title = 28px')"><span>Nav -> Page title</span><span>28px</span></div>
+              <div class="sp-bar" onmouseenter="showToast('Title -> Subtitle = 4px')"><span>Title -> Subtitle</span><span>4px</span></div>
+              <div class="sp-bar" onmouseenter="showToast('Subtitle -> first block = 18px')"><span>Subtitle -> first block</span><span>18px</span></div>
+              <div class="sp-bar" onmouseenter="showToast('section -> section = 30px')"><span>section -> section</span><span>30px</span></div>
+              <div class="sp-bar" onmouseenter="showToast('heading -> content = 14px')"><span>heading -> content</span><span>14px</span></div>
+              <div class="sp-bar" onmouseenter="showToast('card row -> card row = 18px')"><span>card row -> card row</span><span>18px</span></div>
+              <div class="sp-bar" onmouseenter="showToast('content -> panel/footer = 26px')"><span>content -> panel/footer</span><span>26px</span></div>
+            </div>
+
+            <div style="font-size: 13px; font-weight: 800; margin-top: 10px;">Radius Policy <span style="font-size: 10.5px; font-weight: 600; color: var(--sf-text-muted);">(Interactive Tokens)</span></div>
+            <div class="radius-list">
+              <div class="radius-item" onclick="showToast('--r-pill: 999px (Fully rounded caps)')"><span>Pills / Tabs -> 999px</span><span>--r-pill</span></div>
+              <div class="radius-item" onclick="showToast('--r-card: 12px (Standard containers)')"><span>KPI, Unit, Patient Cards -> 12px</span><span>--r-card</span></div>
+              <div class="radius-item" onclick="showToast('--r-panel: 10px (Receding filter boxes)')"><span>Filter Panels, Sections -> 10px</span><span>--r-panel</span></div>
+              <div class="radius-item" onclick="showToast('--r-input: 8px (Form controls & buttons)')"><span>Inputs / Buttons -> 8px</span><span>--r-input</span></div>
+              <div class="radius-item" onclick="showToast('--r-badge: 6px (Micro tags & counters)')"><span>Stats Badges -> 6px</span><span>--r-badge</span></div>
+            </div>
+
+            <div class="board-footer-box">
+              <div style="color: var(--sf-text); font-weight: 900; margin-bottom: 2px;">DESIGN SYSTEM AUTOMATION PASS COMPLETE. TOKENS IN :root FOR SPFx THEME DEPLOYMENT. GLOBAL RECOLOR SUCCESSFUL.</div>
+              <div>All interactive controls reflect live SurgiFlow clinical states and Power Apps token bindings.</div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+    </div>
+
+  </main>
+
+</div>
+
+<!-- TOAST NOTIFICATION CONTAINER -->
+<div class="toast" id="toastBox">⚡ Token Copied to Clipboard</div>
+
+<!-- JAVASCRIPT INTERACTIONS -->
+<script>
+  // 1. Toast Notification System
+  let toastTimer;
+  function showToast(msg) {
+    const toast = document.getElementById('toastBox');
+    toast.innerHTML = msg;
+    toast.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => {
+      toast.classList.remove('show');
+    }, 2400);
+  }
+
+  // 2. Click-to-Copy HEX Swatches
+  document.querySelectorAll('.color-block-solid').forEach(block => {
+    block.addEventListener('click', function() {
+      const hex = this.getAttribute('data-hex');
+      navigator.clipboard.writeText(hex).then(() => {
+        const tooltip = this.querySelector('.copy-tooltip');
+        if (tooltip) {
+          tooltip.style.opacity = '1';
+          setTimeout(() => { tooltip.style.opacity = '0'; }, 1200);
+        }
+        showToast(`Copied <strong>${hex}</strong> to clipboard`);
+      });
+    });
+  });
+
+  // 3. KPI Filter Toggles
+  function toggleKpi(el, label) {
+    const wasActive = el.classList.contains('active-kpi');
+    document.querySelectorAll('.dash-kpi').forEach(k => k.classList.remove('active-kpi'));
+    if (!wasActive) {
+      el.classList.add('active-kpi');
+      showToast(`Filter applied: <strong>${label}</strong>`);
+    } else {
+      showToast(`Filter cleared: showing all units`);
+    }
+  }
+
+  // 4. Interactive Unit Census Slider
+  function updateCensus(val) {
+    const greenWidth = Math.min(val, 40);
+    const amberWidth = Math.max(0, val - 40);
+    document.getElementById('segGreen').style.width = greenWidth + '%';
+    document.getElementById('segAmber').style.width = amberWidth + '%';
+    document.getElementById('censusPctLabel').innerText = val + '%';
+    
+    // Dynamic metric calculations
+    const drips = Math.round(val / 35);
+    const barriers = Math.round((val / 100) * 16);
+    document.getElementById('dripCount').innerText = drips + ' DRIPS';
+    document.getElementById('barrierCount').innerText = barriers + ' BARRIERS';
+  }
+
+  // 5. Pathway Pill Toggle
+  function togglePill(el) {
+    if (el.classList.contains('purple')) {
+      el.classList.remove('purple');
+      el.classList.add('slate');
+      showToast('Pathway deselected (Recolored to SLATE)');
+    } else {
+      el.classList.remove('slate');
+      el.classList.add('purple');
+      showToast('Pathway active (Recolored to PURPLE)');
+    }
+  }
+
+  // 6. Segmented Toggle Strip
+  function setToggle(btn, state) {
+    const parent = btn.parentElement;
+    parent.querySelectorAll('.toggle-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    
+    const feedback = document.getElementById('toggleFeedback');
+    if (state === 'y') {
+      feedback.innerText = 'Checklist Status: Met (Pass)';
+      feedback.style.color = 'var(--sf-green)';
+      showToast('Checklist: Criteria Met (Y)');
+    } else if (state === 'n') {
+      feedback.innerText = 'Checklist Status: Barrier Flagged (Action Required)';
+      feedback.style.color = 'var(--sf-red)';
+      showToast('Checklist: Barrier Flagged (N)');
+    } else {
+      feedback.innerText = 'Checklist Status: Not Applicable';
+      feedback.style.color = 'var(--sf-slate)';
+      showToast('Checklist: Marked N/A');
+    }
+  }
+
+  // 7. Tab Button Demo
+  document.getElementById('tabNoticeBtn').addEventListener('click', function() {
+    showToast('Navigation: Switched to <strong>Patient Form</strong> tab');
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,3613 @@
+{
+  "capturedAt": "2026-09-11",
+  "privacy": "Structural metadata only; no patient-level values are included.",
+  "workbooks": [
+    {
+      "fileName": "discharged2026-throughJune4th.xlsx",
+      "worksheets": [
+        {
+          "name": "discharged",
+          "rowsIncludingHeader": 29528,
+          "dataRowsProfiled": 5000,
+          "columns": 38,
+          "duplicateNormalizedHeaders": [],
+          "fieldProfiles": [
+            {
+              "header": "Measure",
+              "column": 1,
+              "nonblankProfiled": 3868,
+              "kinds": {
+                "text": 3868,
+                "blank": 1132
+              },
+              "numberFormats": {
+                "General": 3868
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Is Readmission",
+              "column": 2,
+              "nonblankProfiled": 5000,
+              "kinds": {
+                "text": 5000
+              },
+              "numberFormats": {
+                "General": 5000
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Patient Name",
+              "column": 3,
+              "nonblankProfiled": 5000,
+              "kinds": {
+                "text": 5000
+              },
+              "numberFormats": {
+                "General": 5000
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "CMRN",
+              "column": 4,
+              "nonblankProfiled": 5000,
+              "kinds": {
+                "number": 5000
+              },
+              "numberFormats": {
+                "General": 5000
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "CSN",
+              "column": 5,
+              "nonblankProfiled": 5000,
+              "kinds": {
+                "number": 5000
+              },
+              "numberFormats": {
+                "0": 5000
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Index Facility",
+              "column": 6,
+              "nonblankProfiled": 5000,
+              "kinds": {
+                "text": 5000
+              },
+              "numberFormats": {
+                "General": 5000
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Index Unit",
+              "column": 7,
+              "nonblankProfiled": 5000,
+              "kinds": {
+                "text": 5000
+              },
+              "numberFormats": {
+                "General": 5000
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Index MRN",
+              "column": 8,
+              "nonblankProfiled": 5000,
+              "kinds": {
+                "text": 5000
+              },
+              "numberFormats": {
+                "General": 5000
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Index FIN/HAR",
+              "column": 9,
+              "nonblankProfiled": 5000,
+              "kinds": {
+                "text": 5000
+              },
+              "numberFormats": {
+                "General": 5000
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Index Disch dt tm",
+              "column": 10,
+              "nonblankProfiled": 5000,
+              "kinds": {
+                "date": 5000
+              },
+              "numberFormats": {
+                "mm-dd-yy": 5000
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Index Attending Physician",
+              "column": 11,
+              "nonblankProfiled": 4934,
+              "kinds": {
+                "text": 4934,
+                "blank": 66
+              },
+              "numberFormats": {
+                "General": 4934
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Index ICD-10 Diagnosis",
+              "column": 12,
+              "nonblankProfiled": 4892,
+              "kinds": {
+                "blank": 108,
+                "text": 4892
+              },
+              "numberFormats": {
+                "General": 4892
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Index MS-DRG",
+              "column": 13,
+              "nonblankProfiled": 4885,
+              "kinds": {
+                "blank": 115,
+                "text": 4885
+              },
+              "numberFormats": {
+                "General": 4885
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Index LOS",
+              "column": 14,
+              "nonblankProfiled": 4934,
+              "kinds": {
+                "number": 4934,
+                "blank": 66
+              },
+              "numberFormats": {
+                "General": 4934
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Index GMLOS",
+              "column": 15,
+              "nonblankProfiled": 4897,
+              "kinds": {
+                "blank": 103,
+                "number": 4897
+              },
+              "numberFormats": {
+                "General": 4897
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Index DC Dispo",
+              "column": 16,
+              "nonblankProfiled": 4999,
+              "kinds": {
+                "text": 4999,
+                "blank": 1
+              },
+              "numberFormats": {
+                "General": 4999
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Index Financial Class",
+              "column": 17,
+              "nonblankProfiled": 5000,
+              "kinds": {
+                "text": 5000
+              },
+              "numberFormats": {
+                "General": 5000
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Index Primary Plan",
+              "column": 18,
+              "nonblankProfiled": 5000,
+              "kinds": {
+                "text": 5000
+              },
+              "numberFormats": {
+                "General": 5000
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Index Secondary Plan",
+              "column": 19,
+              "nonblankProfiled": 4559,
+              "kinds": {
+                "text": 4559,
+                "blank": 441
+              },
+              "numberFormats": {
+                "General": 4559
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Days to Readmission",
+              "column": 20,
+              "nonblankProfiled": 1684,
+              "kinds": {
+                "blank": 3316,
+                "number": 1684
+              },
+              "numberFormats": {
+                "General": 1684
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Readmission MRN",
+              "column": 21,
+              "nonblankProfiled": 1684,
+              "kinds": {
+                "blank": 3316,
+                "text": 1684
+              },
+              "numberFormats": {
+                "General": 1684
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Readmission FIN/HAR",
+              "column": 22,
+              "nonblankProfiled": 1684,
+              "kinds": {
+                "blank": 3316,
+                "text": 1684
+              },
+              "numberFormats": {
+                "General": 1684
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Readmission Reason",
+              "column": 23,
+              "nonblankProfiled": 1684,
+              "kinds": {
+                "blank": 3316,
+                "text": 1684
+              },
+              "numberFormats": {
+                "General": 1684
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Readmission Date",
+              "column": 24,
+              "nonblankProfiled": 1617,
+              "kinds": {
+                "blank": 3383,
+                "date": 1617
+              },
+              "numberFormats": {
+                "mm-dd-yy": 1617
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Readmission Admit Date",
+              "column": 25,
+              "nonblankProfiled": 1063,
+              "kinds": {
+                "blank": 3937,
+                "date": 1063
+              },
+              "numberFormats": {
+                "mm-dd-yy": 1063
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Readmission Disch dt tm",
+              "column": 26,
+              "nonblankProfiled": 1607,
+              "kinds": {
+                "blank": 3393,
+                "date": 1607
+              },
+              "numberFormats": {
+                "m/d/yyyy\\ h:mm:ss\\ AM/PM": 1607
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Readmission Facility",
+              "column": 27,
+              "nonblankProfiled": 1684,
+              "kinds": {
+                "blank": 3316,
+                "text": 1684
+              },
+              "numberFormats": {
+                "General": 1684
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Readmission Unit",
+              "column": 28,
+              "nonblankProfiled": 1684,
+              "kinds": {
+                "blank": 3316,
+                "text": 1684
+              },
+              "numberFormats": {
+                "General": 1684
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Readmission Attending Physician",
+              "column": 29,
+              "nonblankProfiled": 1086,
+              "kinds": {
+                "blank": 3914,
+                "text": 1086
+              },
+              "numberFormats": {
+                "General": 1086
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Readmission ICD-10 Diagnosis",
+              "column": 30,
+              "nonblankProfiled": 1516,
+              "kinds": {
+                "blank": 3484,
+                "text": 1516
+              },
+              "numberFormats": {
+                "General": 1516
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Readmission MS-DRG",
+              "column": 31,
+              "nonblankProfiled": 998,
+              "kinds": {
+                "blank": 4002,
+                "text": 998
+              },
+              "numberFormats": {
+                "General": 998
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Readmission LOS",
+              "column": 32,
+              "nonblankProfiled": 1017,
+              "kinds": {
+                "blank": 3983,
+                "number": 1017
+              },
+              "numberFormats": {
+                "General": 1017
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Readmission DC Dispo",
+              "column": 33,
+              "nonblankProfiled": 1672,
+              "kinds": {
+                "blank": 3328,
+                "text": 1672
+              },
+              "numberFormats": {
+                "General": 1672
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "ReDAC Revisit",
+              "column": 34,
+              "nonblankProfiled": 5000,
+              "kinds": {
+                "text": 5000
+              },
+              "numberFormats": {
+                "General": 5000
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "ReDAC Measure",
+              "column": 35,
+              "nonblankProfiled": 308,
+              "kinds": {
+                "blank": 4692,
+                "text": 308
+              },
+              "numberFormats": {
+                "General": 308
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "ReDAC Type",
+              "column": 36,
+              "nonblankProfiled": 96,
+              "kinds": {
+                "blank": 4904,
+                "text": 96
+              },
+              "numberFormats": {
+                "General": 96
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Total ReDAC",
+              "column": 37,
+              "nonblankProfiled": 96,
+              "kinds": {
+                "blank": 4904,
+                "number": 96
+              },
+              "numberFormats": {
+                "General": 96
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Column1",
+              "column": 38,
+              "nonblankProfiled": 239,
+              "kinds": {
+                "blank": 4761,
+                "number": 239
+              },
+              "numberFormats": {
+                "General": 239
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "fileName": "Process Metric Export years ALL.xlsx",
+      "worksheets": [
+        {
+          "name": "Export",
+          "rowsIncludingHeader": null,
+          "dataRowsProfiled": 5000,
+          "columns": 59,
+          "duplicateNormalizedHeaders": [],
+          "fieldProfiles": [
+            {
+              "header": "Revisit Admit Date",
+              "column": 1,
+              "nonblankProfiled": 1486,
+              "kinds": {
+                "blank": 3514,
+                "date": 1486
+              },
+              "numberFormats": {
+                "mm-dd-yy": 1486
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Measure",
+              "column": 2,
+              "nonblankProfiled": 5000,
+              "kinds": {
+                "text": 5000
+              },
+              "numberFormats": {
+                "General": 5000
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Projected Condition",
+              "column": 3,
+              "nonblankProfiled": 5000,
+              "kinds": {
+                "text": 5000
+              },
+              "numberFormats": {
+                "General": 5000
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "HF Registry",
+              "column": 4,
+              "nonblankProfiled": 5000,
+              "kinds": {
+                "number": 5000
+              },
+              "numberFormats": {
+                "General": 5000
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Patient Name",
+              "column": 5,
+              "nonblankProfiled": 5000,
+              "kinds": {
+                "text": 5000
+              },
+              "numberFormats": {
+                "General": 5000
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Index MRN",
+              "column": 6,
+              "nonblankProfiled": 5000,
+              "kinds": {
+                "text": 5000
+              },
+              "numberFormats": {
+                "General": 5000
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Age",
+              "column": 7,
+              "nonblankProfiled": 5000,
+              "kinds": {
+                "number": 5000
+              },
+              "numberFormats": {
+                "General": 5000
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Index Facility",
+              "column": 8,
+              "nonblankProfiled": 5000,
+              "kinds": {
+                "text": 5000
+              },
+              "numberFormats": {
+                "General": 5000
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Revisit Facility",
+              "column": 9,
+              "nonblankProfiled": 1490,
+              "kinds": {
+                "blank": 3510,
+                "text": 1490
+              },
+              "numberFormats": {
+                "General": 1490
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "PCP Name",
+              "column": 10,
+              "nonblankProfiled": 4846,
+              "kinds": {
+                "text": 4846,
+                "blank": 154
+              },
+              "numberFormats": {
+                "General": 4846
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Index Discharging Physician",
+              "column": 11,
+              "nonblankProfiled": 5000,
+              "kinds": {
+                "text": 5000
+              },
+              "numberFormats": {
+                "General": 5000
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Index Discharge Date",
+              "column": 12,
+              "nonblankProfiled": 5000,
+              "kinds": {
+                "date": 5000
+              },
+              "numberFormats": {
+                "mm-dd-yy": 5000
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Index DC Disposition",
+              "column": 13,
+              "nonblankProfiled": 5000,
+              "kinds": {
+                "text": 5000
+              },
+              "numberFormats": {
+                "General": 5000
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Agency",
+              "column": 14,
+              "nonblankProfiled": 2814,
+              "kinds": {
+                "blank": 2186,
+                "text": 2814
+              },
+              "numberFormats": {
+                "General": 2814
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Time of Return",
+              "column": 15,
+              "nonblankProfiled": 1486,
+              "kinds": {
+                "blank": 3514,
+                "date": 1486
+              },
+              "numberFormats": {
+                "HH:mm AM/PM": 1486
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Revisit Attending Physician",
+              "column": 16,
+              "nonblankProfiled": 1490,
+              "kinds": {
+                "blank": 3510,
+                "text": 1490
+              },
+              "numberFormats": {
+                "General": 1490
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Risk Score Group",
+              "column": 17,
+              "nonblankProfiled": 5000,
+              "kinds": {
+                "text": 5000
+              },
+              "numberFormats": {
+                "General": 5000
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Location of Entry",
+              "column": 18,
+              "nonblankProfiled": 1490,
+              "kinds": {
+                "blank": 3510,
+                "text": 1490
+              },
+              "numberFormats": {
+                "General": 1490
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Revisits within 6 Months",
+              "column": 19,
+              "nonblankProfiled": 898,
+              "kinds": {
+                "blank": 4102,
+                "number": 898
+              },
+              "numberFormats": {
+                "0.0": 898
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "ED Visits within 6 Months",
+              "column": 20,
+              "nonblankProfiled": 1833,
+              "kinds": {
+                "blank": 3167,
+                "number": 1833
+              },
+              "numberFormats": {
+                "0.0": 1833
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Days to Revisit",
+              "column": 21,
+              "nonblankProfiled": 1490,
+              "kinds": {
+                "blank": 3510,
+                "number": 1490
+              },
+              "numberFormats": {
+                "General": 1490
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "TS Face to Face Instant",
+              "column": 22,
+              "nonblankProfiled": 842,
+              "kinds": {
+                "blank": 4158,
+                "date": 842
+              },
+              "numberFormats": {
+                "m/d/yyyy h:mm:ss AM/PM": 842
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "TS Enrollment",
+              "column": 23,
+              "nonblankProfiled": 1600,
+              "kinds": {
+                "blank": 3400,
+                "text": 1600
+              },
+              "numberFormats": {
+                "General": 1600
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "TS Enrollment Closed Reason",
+              "column": 24,
+              "nonblankProfiled": 1556,
+              "kinds": {
+                "blank": 3444,
+                "text": 1556
+              },
+              "numberFormats": {
+                "General": 1556
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Index CSN",
+              "column": 25,
+              "nonblankProfiled": 5000,
+              "kinds": {
+                "number": 5000
+              },
+              "numberFormats": {
+                "0": 5000
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Patient Internal CSN",
+              "column": 26,
+              "nonblankProfiled": 5000,
+              "kinds": {
+                "number": 5000
+              },
+              "numberFormats": {
+                "0": 5000
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Index Unit",
+              "column": 27,
+              "nonblankProfiled": 5000,
+              "kinds": {
+                "text": 5000
+              },
+              "numberFormats": {
+                "General": 5000
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Is Readmission",
+              "column": 28,
+              "nonblankProfiled": 5000,
+              "kinds": {
+                "text": 5000
+              },
+              "numberFormats": {
+                "General": 5000
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Index Coding Complete",
+              "column": 29,
+              "nonblankProfiled": 4979,
+              "kinds": {
+                "date": 4979,
+                "blank": 21
+              },
+              "numberFormats": {
+                "MM/dd/yyyy h:mm AM/PM": 4979
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Index Attending Physician",
+              "column": 30,
+              "nonblankProfiled": 5000,
+              "kinds": {
+                "text": 5000
+              },
+              "numberFormats": {
+                "General": 5000
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Index ICD10",
+              "column": 31,
+              "nonblankProfiled": 4999,
+              "kinds": {
+                "text": 4999,
+                "blank": 1
+              },
+              "numberFormats": {
+                "General": 4999
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Index DRG",
+              "column": 32,
+              "nonblankProfiled": 4972,
+              "kinds": {
+                "text": 4972,
+                "blank": 28
+              },
+              "numberFormats": {
+                "General": 4972
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Index LOS",
+              "column": 33,
+              "nonblankProfiled": 5000,
+              "kinds": {
+                "number": 5000
+              },
+              "numberFormats": {
+                "General": 5000
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Index GMLOS",
+              "column": 34,
+              "nonblankProfiled": 4999,
+              "kinds": {
+                "number": 4999,
+                "blank": 1
+              },
+              "numberFormats": {
+                "0.0": 4999
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Index Financial Class",
+              "column": 35,
+              "nonblankProfiled": 5000,
+              "kinds": {
+                "text": 5000
+              },
+              "numberFormats": {
+                "General": 5000
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Index Primary Plan",
+              "column": 36,
+              "nonblankProfiled": 5000,
+              "kinds": {
+                "text": 5000
+              },
+              "numberFormats": {
+                "General": 5000
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Index Secondary Plan",
+              "column": 37,
+              "nonblankProfiled": 2703,
+              "kinds": {
+                "blank": 2297,
+                "text": 2703
+              },
+              "numberFormats": {
+                "General": 2703
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Revisit MRN",
+              "column": 38,
+              "nonblankProfiled": 1490,
+              "kinds": {
+                "blank": 3510,
+                "text": 1490
+              },
+              "numberFormats": {
+                "General": 1490
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Revisit CSN",
+              "column": 39,
+              "nonblankProfiled": 1490,
+              "kinds": {
+                "blank": 3510,
+                "number": 1490
+              },
+              "numberFormats": {
+                "0": 1490
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Revisit Reason",
+              "column": 40,
+              "nonblankProfiled": 1490,
+              "kinds": {
+                "blank": 3510,
+                "text": 1490
+              },
+              "numberFormats": {
+                "General": 1490
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Revisit ED Arrival Time",
+              "column": 41,
+              "nonblankProfiled": 1293,
+              "kinds": {
+                "blank": 3707,
+                "date": 1293
+              },
+              "numberFormats": {
+                "m/d/yyyy h:mm:ss AM/PM": 1293
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Revisit Coding Complete",
+              "column": 42,
+              "nonblankProfiled": 1467,
+              "kinds": {
+                "blank": 3533,
+                "date": 1467
+              },
+              "numberFormats": {
+                "M/d/yyyy h:mm AM/PM": 1467
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Revisit Discharge Date",
+              "column": 43,
+              "nonblankProfiled": 1475,
+              "kinds": {
+                "blank": 3525,
+                "date": 1475
+              },
+              "numberFormats": {
+                "mm-dd-yy": 1475
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Revisit Unit",
+              "column": 44,
+              "nonblankProfiled": 1490,
+              "kinds": {
+                "blank": 3510,
+                "text": 1490
+              },
+              "numberFormats": {
+                "General": 1490
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Revisit DRG",
+              "column": 45,
+              "nonblankProfiled": 1476,
+              "kinds": {
+                "blank": 3524,
+                "text": 1476
+              },
+              "numberFormats": {
+                "General": 1476
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Revisit LOS",
+              "column": 46,
+              "nonblankProfiled": 1475,
+              "kinds": {
+                "blank": 3525,
+                "number": 1475
+              },
+              "numberFormats": {
+                "General": 1475
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Revisit DC Disposition",
+              "column": 47,
+              "nonblankProfiled": 1488,
+              "kinds": {
+                "blank": 3512,
+                "text": 1488
+              },
+              "numberFormats": {
+                "General": 1488
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Initial Revisit Class",
+              "column": 48,
+              "nonblankProfiled": 5000,
+              "kinds": {
+                "text": 5000
+              },
+              "numberFormats": {
+                "General": 5000
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Post DC Class Change",
+              "column": 49,
+              "nonblankProfiled": 10,
+              "kinds": {
+                "blank": 4990,
+                "text": 10
+              },
+              "numberFormats": {
+                "General": 10
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "OBS Start Time",
+              "column": 50,
+              "nonblankProfiled": 264,
+              "kinds": {
+                "blank": 4736,
+                "date": 264
+              },
+              "numberFormats": {
+                "m/d/yyyy h:mm:ss AM/PM": 264
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Risk Score",
+              "column": 51,
+              "nonblankProfiled": 4993,
+              "kinds": {
+                "number": 4993,
+                "blank": 7
+              },
+              "numberFormats": {
+                "0": 4993
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Patient has a PCP?",
+              "column": 52,
+              "nonblankProfiled": 5000,
+              "kinds": {
+                "text": 5000
+              },
+              "numberFormats": {
+                "General": 5000
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Med Hx Completed within 12 Hours",
+              "column": 53,
+              "nonblankProfiled": 1061,
+              "kinds": {
+                "blank": 3939,
+                "text": 1061
+              },
+              "numberFormats": {
+                "General": 1061
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "DC Med Rec Verified by Pharmacy",
+              "column": 54,
+              "nonblankProfiled": 5000,
+              "kinds": {
+                "number": 5000
+              },
+              "numberFormats": {
+                "General": 5000
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Follow Up Appointment",
+              "column": 55,
+              "nonblankProfiled": 650,
+              "kinds": {
+                "blank": 4350,
+                "text": 650
+              },
+              "numberFormats": {
+                "General": 650
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Accurate AVS",
+              "column": 56,
+              "nonblankProfiled": 648,
+              "kinds": {
+                "blank": 4352,
+                "text": 648
+              },
+              "numberFormats": {
+                "General": 648
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Zone Tool and 24/7 Call in AVS",
+              "column": 57,
+              "nonblankProfiled": 645,
+              "kinds": {
+                "blank": 4355,
+                "text": 645
+              },
+              "numberFormats": {
+                "General": 645
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "DC One Pharmacy",
+              "column": 58,
+              "nonblankProfiled": 222,
+              "kinds": {
+                "blank": 4778,
+                "text": 222
+              },
+              "numberFormats": {
+                "General": 222
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Primary Procedure Description",
+              "column": 59,
+              "nonblankProfiled": 3632,
+              "kinds": {
+                "text": 3632,
+                "blank": 1368
+              },
+              "numberFormats": {
+                "General": 3632
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "fileName": "Readmission Leader Workbookv41-8-21-2026.xlsx",
+      "worksheets": [
+        {
+          "name": "CNS",
+          "rowsIncludingHeader": 2240,
+          "dataRowsProfiled": 1462,
+          "columns": 92,
+          "duplicateNormalizedHeaders": [],
+          "fieldProfiles": [
+            {
+              "header": "Review Deferred?",
+              "column": 1,
+              "nonblankProfiled": 492,
+              "kinds": {
+                "blank": 1747,
+                "text": 492
+              },
+              "numberFormats": {
+                "General": 492
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Revisit Admit Date",
+              "column": 2,
+              "nonblankProfiled": 1173,
+              "kinds": {
+                "blank": 1066,
+                "date": 1173
+              },
+              "numberFormats": {
+                "mm-dd-yy": 1173
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Measure",
+              "column": 3,
+              "nonblankProfiled": 1174,
+              "kinds": {
+                "text": 1174,
+                "blank": 1065
+              },
+              "numberFormats": {
+                "General": 1174
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Projected Condition",
+              "column": 4,
+              "nonblankProfiled": 1013,
+              "kinds": {
+                "text": 1013,
+                "blank": 1226
+              },
+              "numberFormats": {
+                "General": 1013
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "HF Registry",
+              "column": 5,
+              "nonblankProfiled": 1013,
+              "kinds": {
+                "number": 1013,
+                "blank": 1226
+              },
+              "numberFormats": {
+                "General": 1013
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Patient Name",
+              "column": 6,
+              "nonblankProfiled": 1174,
+              "kinds": {
+                "text": 1174,
+                "blank": 1065
+              },
+              "numberFormats": {
+                "General": 1174
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Index MRN",
+              "column": 7,
+              "nonblankProfiled": 1174,
+              "kinds": {
+                "number": 1154,
+                "text": 20,
+                "blank": 1065
+              },
+              "numberFormats": {
+                "General": 1173,
+                "0": 1
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Age",
+              "column": 8,
+              "nonblankProfiled": 1169,
+              "kinds": {
+                "number": 1169,
+                "blank": 1070
+              },
+              "numberFormats": {
+                "General": 1169
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Index Facility",
+              "column": 9,
+              "nonblankProfiled": 1174,
+              "kinds": {
+                "text": 1174,
+                "blank": 1065
+              },
+              "numberFormats": {
+                "General": 1174
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Revisit Facility",
+              "column": 10,
+              "nonblankProfiled": 1013,
+              "kinds": {
+                "text": 1013,
+                "blank": 1226
+              },
+              "numberFormats": {
+                "General": 1013
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Index Discharging Physician",
+              "column": 11,
+              "nonblankProfiled": 1078,
+              "kinds": {
+                "text": 1078,
+                "blank": 1161
+              },
+              "numberFormats": {
+                "General": 1078
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "PCP",
+              "column": 12,
+              "nonblankProfiled": 487,
+              "kinds": {
+                "blank": 1752,
+                "text": 487
+              },
+              "numberFormats": {
+                "General": 487
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Index Discharge Date",
+              "column": 13,
+              "nonblankProfiled": 1174,
+              "kinds": {
+                "date": 1174,
+                "blank": 1065
+              },
+              "numberFormats": {
+                "mm-dd-yy": 1174
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Index DC Disposition",
+              "column": 14,
+              "nonblankProfiled": 1013,
+              "kinds": {
+                "text": 1013,
+                "blank": 1226
+              },
+              "numberFormats": {
+                "General": 1013
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Agency",
+              "column": 15,
+              "nonblankProfiled": 691,
+              "kinds": {
+                "blank": 1548,
+                "text": 691
+              },
+              "numberFormats": {
+                "General": 691
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Time of Return",
+              "column": 16,
+              "nonblankProfiled": 1013,
+              "kinds": {
+                "number": 1012,
+                "blank": 1226,
+                "date": 1
+              },
+              "numberFormats": {
+                "General": 1012,
+                "h:mm AM/PM": 1
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Revisit Attending Physician",
+              "column": 17,
+              "nonblankProfiled": 1013,
+              "kinds": {
+                "text": 1013,
+                "blank": 1226
+              },
+              "numberFormats": {
+                "General": 1013
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Risk Score Group",
+              "column": 18,
+              "nonblankProfiled": 1013,
+              "kinds": {
+                "text": 1013,
+                "blank": 1226
+              },
+              "numberFormats": {
+                "General": 1013
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Location of Entry",
+              "column": 19,
+              "nonblankProfiled": 1013,
+              "kinds": {
+                "text": 1013,
+                "blank": 1226
+              },
+              "numberFormats": {
+                "General": 1013
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Revisits within 6 Months",
+              "column": 20,
+              "nonblankProfiled": 1013,
+              "kinds": {
+                "number": 1013,
+                "blank": 1226
+              },
+              "numberFormats": {
+                "General": 1012,
+                "0.0": 1
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "ED Visits within 6 Months",
+              "column": 21,
+              "nonblankProfiled": 932,
+              "kinds": {
+                "number": 932,
+                "blank": 1307
+              },
+              "numberFormats": {
+                "General": 931,
+                "0.0": 1
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Days to Revisit",
+              "column": 22,
+              "nonblankProfiled": 1013,
+              "kinds": {
+                "number": 1013,
+                "blank": 1226
+              },
+              "numberFormats": {
+                "General": 1013
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "TS Face to Face Instant",
+              "column": 23,
+              "nonblankProfiled": 418,
+              "kinds": {
+                "number": 307,
+                "blank": 1821,
+                "text": 111
+              },
+              "numberFormats": {
+                "General": 418
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "TS Enrollment",
+              "column": 24,
+              "nonblankProfiled": 648,
+              "kinds": {
+                "blank": 1591,
+                "text": 648
+              },
+              "numberFormats": {
+                "General": 492,
+                "mm-dd-yy": 156
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "TS Enrollment Closed Reason",
+              "column": 25,
+              "nonblankProfiled": 361,
+              "kinds": {
+                "blank": 1878,
+                "text": 361
+              },
+              "numberFormats": {
+                "General": 361
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Index CSN",
+              "column": 26,
+              "nonblankProfiled": 1174,
+              "kinds": {
+                "number": 1094,
+                "text": 80,
+                "blank": 1065
+              },
+              "numberFormats": {
+                "0": 1172,
+                "General": 1,
+                "0.00": 1
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Patient Internal CSN",
+              "column": 27,
+              "nonblankProfiled": 1013,
+              "kinds": {
+                "number": 941,
+                "blank": 1226,
+                "text": 72
+              },
+              "numberFormats": {
+                "0": 1013
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Index Unit",
+              "column": 28,
+              "nonblankProfiled": 1174,
+              "kinds": {
+                "text": 1174,
+                "blank": 1065
+              },
+              "numberFormats": {
+                "General": 1174
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Is Readmission",
+              "column": 29,
+              "nonblankProfiled": 1174,
+              "kinds": {
+                "text": 1174,
+                "blank": 1065
+              },
+              "numberFormats": {
+                "General": 1174
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Index Coding Complete",
+              "column": 30,
+              "nonblankProfiled": 917,
+              "kinds": {
+                "number": 766,
+                "blank": 1322,
+                "text": 150,
+                "date": 1
+              },
+              "numberFormats": {
+                "General": 916,
+                "mm/dd/yyyy\\ h:mm\\ AM/PM": 1
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Index Attending Physician",
+              "column": 31,
+              "nonblankProfiled": 1013,
+              "kinds": {
+                "number": 716,
+                "blank": 1226,
+                "text": 297
+              },
+              "numberFormats": {
+                "General": 1013
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Index ICD10",
+              "column": 32,
+              "nonblankProfiled": 962,
+              "kinds": {
+                "text": 962,
+                "blank": 1277
+              },
+              "numberFormats": {
+                "General": 962
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Index DRG",
+              "column": 33,
+              "nonblankProfiled": 962,
+              "kinds": {
+                "text": 962,
+                "blank": 1277
+              },
+              "numberFormats": {
+                "General": 962
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Index LOS",
+              "column": 34,
+              "nonblankProfiled": 1013,
+              "kinds": {
+                "number": 1013,
+                "blank": 1226
+              },
+              "numberFormats": {
+                "General": 1013
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Index GMLOS",
+              "column": 35,
+              "nonblankProfiled": 962,
+              "kinds": {
+                "number": 962,
+                "blank": 1277
+              },
+              "numberFormats": {
+                "General": 961,
+                "0.0": 1
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Index Financial Class",
+              "column": 36,
+              "nonblankProfiled": 1013,
+              "kinds": {
+                "text": 1013,
+                "blank": 1226
+              },
+              "numberFormats": {
+                "General": 1013
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Index Primary Plan",
+              "column": 37,
+              "nonblankProfiled": 1013,
+              "kinds": {
+                "text": 1013,
+                "blank": 1226
+              },
+              "numberFormats": {
+                "General": 1013
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Index Secondary Plan",
+              "column": 38,
+              "nonblankProfiled": 825,
+              "kinds": {
+                "text": 825,
+                "blank": 1414
+              },
+              "numberFormats": {
+                "General": 825
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Revisit MRN",
+              "column": 39,
+              "nonblankProfiled": 1013,
+              "kinds": {
+                "number": 687,
+                "blank": 1226,
+                "text": 326
+              },
+              "numberFormats": {
+                "General": 1013
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Revisit CSN",
+              "column": 40,
+              "nonblankProfiled": 1013,
+              "kinds": {
+                "text": 668,
+                "blank": 1226,
+                "number": 345
+              },
+              "numberFormats": {
+                "General": 1012,
+                "0": 1
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Revisit Reason",
+              "column": 41,
+              "nonblankProfiled": 1013,
+              "kinds": {
+                "text": 1013,
+                "blank": 1226
+              },
+              "numberFormats": {
+                "General": 1013
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Revisit ED Arrival Time",
+              "column": 42,
+              "nonblankProfiled": 827,
+              "kinds": {
+                "blank": 1412,
+                "number": 277,
+                "text": 549,
+                "date": 1
+              },
+              "numberFormats": {
+                "General": 826,
+                "m/d/yyyy\\ h:mm:ss\\ AM/PM": 1
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Revisit Coding Complete",
+              "column": 43,
+              "nonblankProfiled": 9,
+              "kinds": {
+                "blank": 2230,
+                "text": 3,
+                "number": 6
+              },
+              "numberFormats": {
+                "General": 9
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Revisit Discharge Date",
+              "column": 44,
+              "nonblankProfiled": 84,
+              "kinds": {
+                "blank": 2155,
+                "number": 80,
+                "text": 3,
+                "date": 1
+              },
+              "numberFormats": {
+                "General": 83,
+                "mm-dd-yy": 1
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Revisit Unit",
+              "column": 45,
+              "nonblankProfiled": 1013,
+              "kinds": {
+                "text": 1013,
+                "blank": 1226
+              },
+              "numberFormats": {
+                "General": 1013
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Revisit DRG",
+              "column": 46,
+              "nonblankProfiled": 10,
+              "kinds": {
+                "blank": 2229,
+                "text": 10
+              },
+              "numberFormats": {
+                "General": 10
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Revisit LOS",
+              "column": 47,
+              "nonblankProfiled": 84,
+              "kinds": {
+                "blank": 2155,
+                "number": 84
+              },
+              "numberFormats": {
+                "General": 84
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Revisit DC Disposition",
+              "column": 48,
+              "nonblankProfiled": 708,
+              "kinds": {
+                "blank": 1531,
+                "text": 708
+              },
+              "numberFormats": {
+                "General": 708
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Initial Revisit Class",
+              "column": 49,
+              "nonblankProfiled": 1013,
+              "kinds": {
+                "text": 1013,
+                "blank": 1226
+              },
+              "numberFormats": {
+                "General": 1013
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Post DC Class Change",
+              "column": 50,
+              "nonblankProfiled": 1,
+              "kinds": {
+                "blank": 2238,
+                "text": 1
+              },
+              "numberFormats": {
+                "General": 1
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "OBS Start Time",
+              "column": 51,
+              "nonblankProfiled": 211,
+              "kinds": {
+                "text": 161,
+                "blank": 2028,
+                "number": 50
+              },
+              "numberFormats": {
+                "General": 211
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Risk Score",
+              "column": 52,
+              "nonblankProfiled": 1010,
+              "kinds": {
+                "number": 1010,
+                "blank": 1229
+              },
+              "numberFormats": {
+                "General": 1009,
+                "0": 1
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Patient has a PCP?",
+              "column": 53,
+              "nonblankProfiled": 1013,
+              "kinds": {
+                "text": 1013,
+                "blank": 1226
+              },
+              "numberFormats": {
+                "General": 1013
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Med Hx Completed within 12 Hours",
+              "column": 54,
+              "nonblankProfiled": 510,
+              "kinds": {
+                "text": 510,
+                "blank": 1729
+              },
+              "numberFormats": {
+                "General": 510
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "DC Med Rec Verified by Pharmacy",
+              "column": 55,
+              "nonblankProfiled": 1011,
+              "kinds": {
+                "number": 1011,
+                "blank": 1228
+              },
+              "numberFormats": {
+                "General": 1011
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "PCP Follow Up Appointment Yes/No",
+              "column": 56,
+              "nonblankProfiled": 479,
+              "kinds": {
+                "blank": 1760,
+                "text": 479
+              },
+              "numberFormats": {
+                "General": 479
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Accurate AVS",
+              "column": 57,
+              "nonblankProfiled": 188,
+              "kinds": {
+                "blank": 2051,
+                "text": 188
+              },
+              "numberFormats": {
+                "General": 188
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Zone Tool and 24/7 Call in AVS",
+              "column": 58,
+              "nonblankProfiled": 381,
+              "kinds": {
+                "blank": 1858,
+                "text": 381
+              },
+              "numberFormats": {
+                "General": 381
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "DC One Pharmacy",
+              "column": 59,
+              "nonblankProfiled": 0,
+              "kinds": {
+                "blank": 2239
+              },
+              "numberFormats": {},
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Primary Procedure Description",
+              "column": 60,
+              "nonblankProfiled": 2,
+              "kinds": {
+                "blank": 2237,
+                "text": 2
+              },
+              "numberFormats": {
+                "General": 2
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Index Admit Date",
+              "column": 61,
+              "nonblankProfiled": 1162,
+              "kinds": {
+                "date": 1162,
+                "blank": 1077
+              },
+              "numberFormats": {
+                "mm-dd-yy": 1162
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Index D/C Date",
+              "column": 62,
+              "nonblankProfiled": 1162,
+              "kinds": {
+                "date": 1162,
+                "blank": 1077
+              },
+              "numberFormats": {
+                "mm-dd-yy": 1162
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Readmit Date",
+              "column": 63,
+              "nonblankProfiled": 1462,
+              "kinds": {
+                "text": 289,
+                "date": 1173,
+                "blank": 777
+              },
+              "numberFormats": {
+                "mm-dd-yy": 1462
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Patient Complexity",
+              "column": 64,
+              "nonblankProfiled": 736,
+              "kinds": {
+                "text": 736,
+                "blank": 1503
+              },
+              "numberFormats": {
+                "General": 736
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Prior/Assume Full Code?",
+              "column": 65,
+              "nonblankProfiled": 723,
+              "kinds": {
+                "text": 723,
+                "blank": 1516
+              },
+              "numberFormats": {
+                "General": 723
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Was TS Following?",
+              "column": 66,
+              "nonblankProfiled": 884,
+              "kinds": {
+                "text": 884,
+                "blank": 1355
+              },
+              "numberFormats": {
+                "General": 728,
+                "mm-dd-yy": 156
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Planned Readmit?",
+              "column": 67,
+              "nonblankProfiled": 733,
+              "kinds": {
+                "text": 733,
+                "blank": 1506
+              },
+              "numberFormats": {
+                "General": 733
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Readmitted From",
+              "column": 68,
+              "nonblankProfiled": 925,
+              "kinds": {
+                "text": 925,
+                "blank": 1314
+              },
+              "numberFormats": {
+                "General": 925
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Opportunities and Callouts",
+              "column": 69,
+              "nonblankProfiled": 917,
+              "kinds": {
+                "text": 917,
+                "blank": 1322
+              },
+              "numberFormats": {
+                "General": 917
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Clinical History",
+              "column": 70,
+              "nonblankProfiled": 915,
+              "kinds": {
+                "text": 915,
+                "blank": 1324
+              },
+              "numberFormats": {
+                "General": 915
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Hosp Course",
+              "column": 71,
+              "nonblankProfiled": 916,
+              "kinds": {
+                "text": 916,
+                "blank": 1323
+              },
+              "numberFormats": {
+                "General": 916
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "SNF/IPR Issues",
+              "column": 72,
+              "nonblankProfiled": 556,
+              "kinds": {
+                "text": 556,
+                "blank": 1683
+              },
+              "numberFormats": {
+                "General": 556
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "High Risk For Readmission",
+              "column": 73,
+              "nonblankProfiled": 564,
+              "kinds": {
+                "text": 564,
+                "blank": 1675
+              },
+              "numberFormats": {
+                "General": 564
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Bucket",
+              "column": 74,
+              "nonblankProfiled": 893,
+              "kinds": {
+                "text": 893,
+                "blank": 1346
+              },
+              "numberFormats": {
+                "General": 893
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Index Unit2",
+              "column": 75,
+              "nonblankProfiled": 1160,
+              "kinds": {
+                "text": 1160,
+                "blank": 1079
+              },
+              "numberFormats": {
+                "General": 1160
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Service Line",
+              "column": 76,
+              "nonblankProfiled": 1160,
+              "kinds": {
+                "text": 1160,
+                "blank": 1079
+              },
+              "numberFormats": {
+                "General": 1160
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {
+                "#REF!": 1160
+              }
+            },
+            {
+              "header": "AMI and Hf only  Cardiac Appointment within 7 Days?",
+              "column": 77,
+              "nonblankProfiled": 210,
+              "kinds": {
+                "blank": 2029,
+                "text": 210
+              },
+              "numberFormats": {
+                "General": 210
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Is AHMG?",
+              "column": 78,
+              "nonblankProfiled": 187,
+              "kinds": {
+                "blank": 2052,
+                "text": 187
+              },
+              "numberFormats": {
+                "General": 187
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Last documented huddle date",
+              "column": 79,
+              "nonblankProfiled": 1121,
+              "kinds": {
+                "text": 1050,
+                "date": 71,
+                "blank": 1118
+              },
+              "numberFormats": {
+                "mm-dd-yy": 1121
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Readmission Prevention Huddle completed within 7 days before discharge",
+              "column": 80,
+              "nonblankProfiled": 72,
+              "kinds": {
+                "blank": 2167,
+                "text": 72
+              },
+              "numberFormats": {
+                "General": 72
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "DC w/ HHC+",
+              "column": 81,
+              "nonblankProfiled": 186,
+              "kinds": {
+                "blank": 2053,
+                "text": 186
+              },
+              "numberFormats": {
+                "General": 186
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Readmission Prevention Huddle",
+              "column": 82,
+              "nonblankProfiled": 2,
+              "kinds": {
+                "blank": 2237,
+                "text": 2
+              },
+              "numberFormats": {
+                "General": 2
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Readmission Huddle Notes",
+              "column": 83,
+              "nonblankProfiled": 0,
+              "kinds": {
+                "blank": 2239
+              },
+              "numberFormats": {},
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "HF Coordinator Initial F2F Visit",
+              "column": 84,
+              "nonblankProfiled": 24,
+              "kinds": {
+                "blank": 2215,
+                "text": 24
+              },
+              "numberFormats": {
+                "General": 24
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Jade: HF Order Set Utilized",
+              "column": 85,
+              "nonblankProfiled": 24,
+              "kinds": {
+                "blank": 2215,
+                "text": 24
+              },
+              "numberFormats": {
+                "General": 24
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Jade: HF Daily Weights Completed During IP",
+              "column": 86,
+              "nonblankProfiled": 24,
+              "kinds": {
+                "blank": 2215,
+                "text": 24
+              },
+              "numberFormats": {
+                "General": 24
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Jade: HF Signficant Variations in Daily Weights During IP",
+              "column": 87,
+              "nonblankProfiled": 24,
+              "kinds": {
+                "blank": 2215,
+                "text": 24
+              },
+              "numberFormats": {
+                "General": 24
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Jade: HF Sodium  Documented",
+              "column": 88,
+              "nonblankProfiled": 24,
+              "kinds": {
+                "blank": 2215,
+                "text": 24
+              },
+              "numberFormats": {
+                "General": 24
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Jade: HF Fluid Restriction Documented",
+              "column": 89,
+              "nonblankProfiled": 24,
+              "kinds": {
+                "blank": 2215,
+                "text": 24
+              },
+              "numberFormats": {
+                "General": 24
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Jade: HF Diuretic Plan Documented by MD for Discharge",
+              "column": 90,
+              "nonblankProfiled": 24,
+              "kinds": {
+                "blank": 2215,
+                "text": 24
+              },
+              "numberFormats": {
+                "General": 24
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Jade: DC Dry Weight on AVS",
+              "column": 91,
+              "nonblankProfiled": 24,
+              "kinds": {
+                "blank": 2215,
+                "text": 24
+              },
+              "numberFormats": {
+                "General": 24
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Jade: Additional Notes",
+              "column": 92,
+              "nonblankProfiled": 25,
+              "kinds": {
+                "blank": 2214,
+                "text": 25
+              },
+              "numberFormats": {
+                "General": 25
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "fileName": "SURGIFLOW_Master_Cardiac_Hospital_2026v1_20260911_0942.xlsx",
+      "worksheets": [
+        {
+          "name": "appts",
+          "rowsIncludingHeader": 152,
+          "dataRowsProfiled": 151,
+          "columns": 49,
+          "duplicateNormalizedHeaders": [],
+          "fieldProfiles": [
+            {
+              "header": "Department",
+              "column": 1,
+              "nonblankProfiled": 151,
+              "kinds": {
+                "text": 151
+              },
+              "numberFormats": {
+                "General": 151
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {
+                "AHORL ORLANDO GT6 CARDIO PULM PCU": 40,
+                "AHORL ORLANDO GT7 CARDIAC PCU": 38,
+                "AHORL ORLANDO GT8 CV PCU": 38,
+                "AHORL ORLANDO WT08 THORACIC PULM": 35
+              }
+            },
+            {
+              "header": "Room and Bed",
+              "column": 2,
+              "nonblankProfiled": 151,
+              "kinds": {
+                "text": 151
+              },
+              "numberFormats": {
+                "General": 151
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Patient Name",
+              "column": 3,
+              "nonblankProfiled": 151,
+              "kinds": {
+                "text": 151
+              },
+              "numberFormats": {
+                "General": 151
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "CSN",
+              "column": 4,
+              "nonblankProfiled": 151,
+              "kinds": {
+                "number": 151
+              },
+              "numberFormats": {
+                "General": 151
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "MRN",
+              "column": 5,
+              "nonblankProfiled": 151,
+              "kinds": {
+                "text": 151
+              },
+              "numberFormats": {
+                "General": 151
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Blank Column",
+              "column": 6,
+              "nonblankProfiled": 0,
+              "kinds": {
+                "blank": 151
+              },
+              "numberFormats": {},
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Attending",
+              "column": 7,
+              "nonblankProfiled": 151,
+              "kinds": {
+                "text": 151
+              },
+              "numberFormats": {
+                "General": 151
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "IP Risk of Unplanned Readmission Score Column",
+              "column": 8,
+              "nonblankProfiled": 151,
+              "kinds": {
+                "text": 151
+              },
+              "numberFormats": {
+                "General": 151
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "MVP Past Admissions",
+              "column": 9,
+              "nonblankProfiled": 151,
+              "kinds": {
+                "text": 151
+              },
+              "numberFormats": {
+                "General": 151
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "EDD",
+              "column": 10,
+              "nonblankProfiled": 147,
+              "kinds": {
+                "date": 146,
+                "blank": 4,
+                "text": 1
+              },
+              "numberFormats": {
+                "mm-dd-yy": 146,
+                "General": 1
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Fin Class",
+              "column": 11,
+              "nonblankProfiled": 151,
+              "kinds": {
+                "text": 151
+              },
+              "numberFormats": {
+                "General": 151
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Readmission to Hospital",
+              "column": 12,
+              "nonblankProfiled": 37,
+              "kinds": {
+                "text": 37,
+                "blank": 114
+              },
+              "numberFormats": {
+                "General": 37
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Admit Date/Time",
+              "column": 13,
+              "nonblankProfiled": 151,
+              "kinds": {
+                "date": 151
+              },
+              "numberFormats": {
+                "m/d/yy h:mm": 151
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Discharge Disposition",
+              "column": 14,
+              "nonblankProfiled": 139,
+              "kinds": {
+                "text": 139,
+                "blank": 12
+              },
+              "numberFormats": {
+                "General": 139
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {
+                "Home or Self Care": 65,
+                "Home with Home Health Services": 52,
+                "Skilled Nursing Facility (SNF) with Medicare Certification in Anticipation of Skilled Care": 10,
+                "Inpatient Rehab Facility or Unit": 9,
+                "Still a Patient or Expected to Return for Outpatient Services": 1,
+                "Hospice/Medical Facility": 1,
+                "Hospice - home": 1
+              }
+            },
+            {
+              "header": "Discharge Dispo/Follow Up Recommendations",
+              "column": 15,
+              "nonblankProfiled": 104,
+              "kinds": {
+                "text": 104,
+                "blank": 47
+              },
+              "numberFormats": {
+                "General": 104
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Time Since Disch Ord Placed",
+              "column": 16,
+              "nonblankProfiled": 151,
+              "kinds": {
+                "text": 151
+              },
+              "numberFormats": {
+                "General": 151
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Meds to Bed Response",
+              "column": 17,
+              "nonblankProfiled": 119,
+              "kinds": {
+                "text": 119,
+                "blank": 32
+              },
+              "numberFormats": {
+                "General": 119
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Encounter Pharmacy",
+              "column": 18,
+              "nonblankProfiled": 150,
+              "kinds": {
+                "text": 150,
+                "blank": 1
+              },
+              "numberFormats": {
+                "General": 150
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Dischrg Med Rec",
+              "column": 19,
+              "nonblankProfiled": 151,
+              "kinds": {
+                "text": 151
+              },
+              "numberFormats": {
+                "General": 151
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Payer",
+              "column": 20,
+              "nonblankProfiled": 147,
+              "kinds": {
+                "text": 147,
+                "blank": 4
+              },
+              "numberFormats": {
+                "General": 147
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Age",
+              "column": 21,
+              "nonblankProfiled": 151,
+              "kinds": {
+                "number": 151
+              },
+              "numberFormats": {
+                "General": 151
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Patient Class",
+              "column": 22,
+              "nonblankProfiled": 151,
+              "kinds": {
+                "text": 151
+              },
+              "numberFormats": {
+                "General": 151
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Dischrg Order Status",
+              "column": 23,
+              "nonblankProfiled": 151,
+              "kinds": {
+                "text": 151
+              },
+              "numberFormats": {
+                "General": 151
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Post D/C Follow up Therapy Service Recommendations",
+              "column": 24,
+              "nonblankProfiled": 103,
+              "kinds": {
+                "text": 103,
+                "blank": 48
+              },
+              "numberFormats": {
+                "General": 103
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Enrolling Programs",
+              "column": 25,
+              "nonblankProfiled": 28,
+              "kinds": {
+                "blank": 123,
+                "text": 28
+              },
+              "numberFormats": {
+                "General": 28
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "OSA Risk",
+              "column": 26,
+              "nonblankProfiled": 122,
+              "kinds": {
+                "number": 122,
+                "blank": 29
+              },
+              "numberFormats": {
+                "General": 122
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "LoS",
+              "column": 27,
+              "nonblankProfiled": 151,
+              "kinds": {
+                "number": 151
+              },
+              "numberFormats": {
+                "General": 151
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Primary Problem",
+              "column": 28,
+              "nonblankProfiled": 151,
+              "kinds": {
+                "text": 151
+              },
+              "numberFormats": {
+                "General": 151
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Next PCP Visit",
+              "column": 29,
+              "nonblankProfiled": 24,
+              "kinds": {
+                "blank": 127,
+                "date": 24
+              },
+              "numberFormats": {
+                "mm-dd-yy": 24
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Follow-up Providers",
+              "column": 30,
+              "nonblankProfiled": 151,
+              "kinds": {
+                "text": 151
+              },
+              "numberFormats": {
+                "General": 151
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Care Navigation Notes",
+              "column": 31,
+              "nonblankProfiled": 92,
+              "kinds": {
+                "text": 92,
+                "blank": 59
+              },
+              "numberFormats": {
+                "General": 92
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "GMLOS",
+              "column": 32,
+              "nonblankProfiled": 148,
+              "kinds": {
+                "number": 148,
+                "blank": 3
+              },
+              "numberFormats": {
+                "General": 148
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Days Past GMLOS",
+              "column": 33,
+              "nonblankProfiled": 151,
+              "kinds": {
+                "number": 151
+              },
+              "numberFormats": {
+                "General": 151
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "GMLOS Oulier",
+              "column": 34,
+              "nonblankProfiled": 148,
+              "kinds": {
+                "number": 148,
+                "blank": 3
+              },
+              "numberFormats": {
+                "General": 148
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "EDD Update Status",
+              "column": 35,
+              "nonblankProfiled": 151,
+              "kinds": {
+                "text": 151
+              },
+              "numberFormats": {
+                "General": 151
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Exp Disch to CMLOS",
+              "column": 36,
+              "nonblankProfiled": 142,
+              "kinds": {
+                "text": 142,
+                "blank": 9
+              },
+              "numberFormats": {
+                "General": 142
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Last EF",
+              "column": 37,
+              "nonblankProfiled": 15,
+              "kinds": {
+                "text": 2,
+                "blank": 136,
+                "number": 13
+              },
+              "numberFormats": {
+                "General": 15
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Last EF Date",
+              "column": 38,
+              "nonblankProfiled": 15,
+              "kinds": {
+                "date": 15,
+                "blank": 136
+              },
+              "numberFormats": {
+                "mm-dd-yy": 15
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Fall Risk Score",
+              "column": 39,
+              "nonblankProfiled": 150,
+              "kinds": {
+                "number": 150,
+                "blank": 1
+              },
+              "numberFormats": {
+                "General": 150
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Braden Score",
+              "column": 40,
+              "nonblankProfiled": 151,
+              "kinds": {
+                "number": 151
+              },
+              "numberFormats": {
+                "General": 151
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Working DRG Name",
+              "column": 41,
+              "nonblankProfiled": 112,
+              "kinds": {
+                "text": 112,
+                "blank": 39
+              },
+              "numberFormats": {
+                "General": 112
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Creatinine",
+              "column": 42,
+              "nonblankProfiled": 151,
+              "kinds": {
+                "text": 151
+              },
+              "numberFormats": {
+                "General": 151
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Last K+",
+              "column": 43,
+              "nonblankProfiled": 151,
+              "kinds": {
+                "number": 140,
+                "text": 11
+              },
+              "numberFormats": {
+                "General": 151
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Magnesium",
+              "column": 44,
+              "nonblankProfiled": 143,
+              "kinds": {
+                "number": 143,
+                "blank": 8
+              },
+              "numberFormats": {
+                "General": 143
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Last HGB (24h)",
+              "column": 45,
+              "nonblankProfiled": 112,
+              "kinds": {
+                "text": 112,
+                "blank": 39
+              },
+              "numberFormats": {
+                "General": 112
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Creatinine2",
+              "column": 46,
+              "nonblankProfiled": 151,
+              "kinds": {
+                "text": 151
+              },
+              "numberFormats": {
+                "General": 151
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Admit Weight",
+              "column": 47,
+              "nonblankProfiled": 151,
+              "kinds": {
+                "text": 151
+              },
+              "numberFormats": {
+                "General": 151
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Last Weight",
+              "column": 48,
+              "nonblankProfiled": 151,
+              "kinds": {
+                "text": 151
+              },
+              "numberFormats": {
+                "General": 151
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            },
+            {
+              "header": "Weight Doc/Date",
+              "column": 49,
+              "nonblankProfiled": 151,
+              "kinds": {
+                "text": 151
+              },
+              "numberFormats": {
+                "General": 151
+              },
+              "scientificFormatCells": 0,
+              "numericIdentifiersOver15Digits": 0,
+              "safeCategoryValues": {}
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

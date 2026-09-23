@@ -1,0 +1,4191 @@
+{
+  "capturedAt": "2026-09-11",
+  "site": "https://ahsonline.sharepoint.com/teams/SurgiFlow",
+  "lists": [
+    {
+      "title": "SurgiFlow Master",
+      "itemCount": 145,
+      "fields": [
+        {
+          "title": "Title",
+          "internalName": "Title",
+          "type": "Text",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Unit",
+          "internalName": "Unit",
+          "type": "Choice",
+          "required": true,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "GT8",
+            "GT7",
+            "GT6",
+            "WT8",
+            "WT9",
+            "O2CV CVICU",
+            "GT5 CARDIAC ICU",
+            "GT6 CPPCU",
+            "GT7 CPCU",
+            "GT8 CVPCU",
+            "WT8 STPCU",
+            "WT9 ACSU"
+          ]
+        },
+        {
+          "title": "MRN",
+          "internalName": "MRN",
+          "type": "Text",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Room",
+          "internalName": "Room",
+          "type": "Number",
+          "required": true,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Admit Date",
+          "internalName": "AdmitDate",
+          "type": "DateTime",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Sx Date",
+          "internalName": "SxDate",
+          "type": "DateTime",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "EDD",
+          "internalName": "EDD",
+          "type": "DateTime",
+          "required": false,
+          "indexed": true,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Surgery",
+          "internalName": "Surgery",
+          "type": "Text",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Service Line",
+          "internalName": "ServiceLine",
+          "type": "Choice",
+          "required": false,
+          "indexed": true,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "CTsx",
+            "CVmed",
+            "Transplant",
+            "Cardiology",
+            "Vascular",
+            "Thoracic",
+            "Pulm HTN",
+            "Other"
+          ]
+        },
+        {
+          "title": "Surgeon/Cardio",
+          "internalName": "SurgeonCardio",
+          "type": "Text",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "PMH/Procedures",
+          "internalName": "PMHProcedures",
+          "type": "Note",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Admit Reason",
+          "internalName": "AdmitReason",
+          "type": "Text",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Leader Action Items",
+          "internalName": "LeaderActionItems",
+          "type": "Note",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Clinical Needs to Continue Admission",
+          "internalName": "ClinicalNeeds",
+          "type": "Note",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Dispo",
+          "internalName": "Dispo",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "Home No Needs",
+            "HHC",
+            "HHC DME",
+            "HHC ABX",
+            "HHC ABX DME",
+            "SNF",
+            "IPR-AH",
+            "IPR-ENC",
+            "SNF VS IPR",
+            "LTACH",
+            "ALF",
+            "Palliative",
+            "Rehab",
+            "Other"
+          ]
+        },
+        {
+          "title": "Braden",
+          "internalName": "Braden",
+          "type": "Text",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Mentation",
+          "internalName": "Mentation",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "A&O",
+            "Forgetful",
+            "Confused",
+            "Virtual Sitter - Jumper"
+          ]
+        },
+        {
+          "title": "Drip",
+          "internalName": "Drip",
+          "type": "MultiChoice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "Heparin",
+            "Remodulin",
+            "Amio",
+            "Cardizem",
+            "Milrinone",
+            "Insulin",
+            "Lasix/Bumex",
+            "Dopamine",
+            "Dobutamine",
+            "Nitro"
+          ]
+        },
+        {
+          "title": "Isolation",
+          "internalName": "Isolation",
+          "type": "Text",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Rhythm",
+          "internalName": "Rhythm",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "Sinus",
+            "A-fib/flutter",
+            "Paced",
+            "No Tele",
+            "1st Degree",
+            "2nd Degree",
+            "3rd Degree",
+            "Other"
+          ]
+        },
+        {
+          "title": "Anticoagulation",
+          "internalName": "Anticoagulation",
+          "type": "MultiChoice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "Coumadin",
+            "Eliquis",
+            "Xarelto",
+            "Pradaxa",
+            "Heparin SubQ",
+            "Lovenox",
+            "VTE - Lovenox",
+            "VTE - SCDS",
+            "Other NOAC"
+          ]
+        },
+        {
+          "title": "Time Crit",
+          "internalName": "TimeCrit",
+          "type": "MultiChoice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "Sotalol",
+            "Tikosyn",
+            "Tacro",
+            "Mestinon",
+            "Other"
+          ]
+        },
+        {
+          "title": "DNR",
+          "internalName": "DNR",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "COMFORT ONLY DNR",
+            "FULL AGGRESIVE DNR",
+            "LIMITED NO INTUBATION",
+            "LIMITED NO VENTILATION",
+            "LIMITED NO VASOPRESSORS"
+          ]
+        },
+        {
+          "title": "AdmitWeight",
+          "internalName": "AdmitWeight",
+          "type": "Text",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "WeightToday",
+          "internalName": "WeightToday",
+          "type": "Text",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "AttendingMD",
+          "internalName": "AttendingMD",
+          "type": "Text",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Age",
+          "internalName": "Age",
+          "type": "Text",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Mobility",
+          "internalName": "Mobility",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "Self",
+            "x1",
+            "x2",
+            "x3 - Total"
+          ]
+        },
+        {
+          "title": "Chest Tube",
+          "internalName": "ChestTube",
+          "type": "MultiChoice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "Atrium",
+            "Thopaz",
+            "PleurX",
+            "Heimlich",
+            "DHT",
+            "G-Tube",
+            "J-Tube",
+            "JP Drain"
+          ]
+        },
+        {
+          "title": "HD at Home or Inpatient?",
+          "internalName": "HDAtHomeOrInpatient",
+          "type": "Text",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "O2 Device",
+          "internalName": "O2Device",
+          "type": "Text",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "O2L/%",
+          "internalName": "O2FlowRate",
+          "type": "Text",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "DC Lounge",
+          "internalName": "DCLounge",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "True",
+            "False"
+          ]
+        },
+        {
+          "title": "Ride AVL",
+          "internalName": "RideAVL",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "True",
+            "False"
+          ]
+        },
+        {
+          "title": "PO Pain",
+          "internalName": "POPain",
+          "type": "Text",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "BM",
+          "internalName": "BM",
+          "type": "Text",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Walk Test Completed",
+          "internalName": "WalkTestCompleted",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "True",
+            "False"
+          ]
+        },
+        {
+          "title": "Walk Test Needed",
+          "internalName": "WalkTestNeeded",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "True",
+            "False"
+          ]
+        },
+        {
+          "title": "IV Meds",
+          "internalName": "IVMeds",
+          "type": "MultiChoice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "IV ABX",
+            "IV Bumex",
+            "IV Lasix",
+            "IV Steroids",
+            "None"
+          ]
+        },
+        {
+          "title": "IS",
+          "internalName": "IS",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "True",
+            "False"
+          ]
+        },
+        {
+          "title": "Non-Clinical DC Barriers",
+          "internalName": "NonClinicalDCBarriers",
+          "type": "Note",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "SurgeryBarriers",
+          "internalName": "SurgeryBarriers",
+          "type": "Note",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "SurgeryToday",
+          "internalName": "SurgeryToday",
+          "type": "Text",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "VAD Type",
+          "internalName": "VADType",
+          "type": "Text",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "VAD Speed",
+          "internalName": "VADSpeed",
+          "type": "Text",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "VAD Dressing Change Order",
+          "internalName": "VADDressingChangeOrder",
+          "type": "Text",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Dressing Changed",
+          "internalName": "DressingChanged",
+          "type": "Text",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "VAD Photo Uploaded",
+          "internalName": "VADPhotoUploaded",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "True",
+            "False"
+          ]
+        },
+        {
+          "title": "VAD Dsr Next Due",
+          "internalName": "VADDsrNextDue",
+          "type": "Text",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "VAD VS q4 AM",
+          "internalName": "VADVSq4AM",
+          "type": "Text",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "VAD VS q4 PM",
+          "internalName": "VADVSq4PM",
+          "type": "Text",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "VAD RN",
+          "internalName": "VADRN",
+          "type": "Text",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "VAD Missing Required",
+          "internalName": "VADMissingRequired",
+          "type": "Text",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "VAD DND",
+          "internalName": "VADDND",
+          "type": "Text",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "VAD MISC NOTES",
+          "internalName": "VADMISCNOTES",
+          "type": "Note",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "VAD Cart",
+          "internalName": "VADCartNumber",
+          "type": "Text",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "VAD Status",
+          "internalName": "VADStatus",
+          "type": "Text",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Weight Verified",
+          "internalName": "WeightVerified",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "True",
+            "False"
+          ]
+        },
+        {
+          "title": "Fall Risk",
+          "internalName": "FallRisk",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "LOW",
+            "MEDIUM",
+            "HIGH"
+          ]
+        },
+        {
+          "title": "PH Medication?",
+          "internalName": "PHMedication",
+          "type": "Text",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Patient Name",
+          "internalName": "PatientName",
+          "type": "Text",
+          "required": true,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "CORE Measures",
+          "internalName": "CoreMeasures",
+          "type": "MultiChoice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "AMI",
+            "CABG",
+            "COPD",
+            "HF",
+            "PNA",
+            "THK"
+          ]
+        },
+        {
+          "title": "Other Diagnosis",
+          "internalName": "OtherDiagnostics",
+          "type": "MultiChoice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "Diabetes",
+            "Sepsis"
+          ]
+        },
+        {
+          "title": "Risk Level",
+          "internalName": "RiskLevel",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "Low <12%",
+            "Medium 13% to 22%",
+            "High >22%"
+          ]
+        },
+        {
+          "title": "Status",
+          "internalName": "Status",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "Progressing On Schedule",
+            "Not Improving",
+            "Ready for DC",
+            "Discharged"
+          ]
+        },
+        {
+          "title": "Cardiology Consult Sign-off",
+          "internalName": "CardiologyConsultSignoff",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "title": "Cardiology Consultant Name",
+          "internalName": "CardiologyConsultName",
+          "type": "Text",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "EP Cardiology Consult Sign-off",
+          "internalName": "EPCardiologyConsultSignoff",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "title": "EP Cardiology Consultant Name",
+          "internalName": "EPCardiologyConsultName",
+          "type": "Text",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Advanced HF Consult Sign-off",
+          "internalName": "AdvancedHFConsultSignoff",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "title": "Advanced HF Consultant Name",
+          "internalName": "AdvancedHFConsultName",
+          "type": "Text",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "CTS Consult Sign-off",
+          "internalName": "CTSConsultSignoff",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "title": "CTS Consultant Name",
+          "internalName": "CTSConsultName",
+          "type": "Text",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Pulmonary Consult Sign-off",
+          "internalName": "PulmonaryConsultSignoff",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "title": "Pulmonary Consultant Name",
+          "internalName": "PulmonaryConsultName",
+          "type": "Text",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Infectious Disease Consult Sign-off",
+          "internalName": "InfectiousDiseaseConsultSignoff",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "title": "Infectious Disease Consultant Name",
+          "internalName": "InfectiousDiseaseConsultName",
+          "type": "Text",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Heme/Onco Consult Sign-off",
+          "internalName": "HemeOncoConsultSignoff",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "title": "Heme/Onco Consultant Name",
+          "internalName": "HemeOncoConsultName",
+          "type": "Text",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "GI Consult Sign-off",
+          "internalName": "GIConsultSignoff",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "title": "GI Consultant Name",
+          "internalName": "GIConsultName",
+          "type": "Text",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Nephrology Consult Sign-off",
+          "internalName": "NephrologyConsultSignoff",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "title": "Nephrology Consultant Name",
+          "internalName": "NephrologyConsultName",
+          "type": "Text",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Hospice Consult Sign-off",
+          "internalName": "HospiceConsultSignoff",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "title": "Hospice Consultant Name",
+          "internalName": "HospiceConsultName",
+          "type": "Text",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Palliative Consult Sign-off",
+          "internalName": "PalliativeConsultSignoff",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "title": "Palliative Consultant Name",
+          "internalName": "PalliativeConsultName",
+          "type": "Text",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Endocrinology Consult Sign-off",
+          "internalName": "EndocrinologyConsultSignoff",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "title": "Endocrinology Consultant Name",
+          "internalName": "EndocrinologyConsultName",
+          "type": "Text",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Neurology Consult Sign-off",
+          "internalName": "NeurologyConsultSignoff",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "title": "Neurology Consultant Name",
+          "internalName": "NeurologyConsultName",
+          "type": "Text",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Other Consultant (Misc)",
+          "internalName": "OtherConsultantMisc",
+          "type": "Note",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Other Consultant (Misc) Sign-off",
+          "internalName": "OtherConsultantMiscSognoff",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "title": "Active IV Meds Transition Plan",
+          "internalName": "ActiveIVTransition",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "title": "PT/OT Eval Completed",
+          "internalName": "PTOTEval",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "title": "Final Destination",
+          "internalName": "FinalDestination",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "HHC",
+            "IPR",
+            "SNF",
+            "Home (no needs)"
+          ]
+        },
+        {
+          "title": "Disposition Misalignment Escalation",
+          "internalName": "DispMisalignEscalation",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "title": "Home Equipment Verified",
+          "internalName": "HomeEquipment",
+          "type": "MultiChoice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "Scale",
+            "BP Machine/Cuff",
+            "Pulse Oximetry"
+          ]
+        },
+        {
+          "title": "HHC/SNF/IPR Auth Submitted",
+          "internalName": "HHCAuthSubmitted",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "title": "DME/Supplies",
+          "internalName": "DMESupplies",
+          "type": "MultiChoice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "FWW",
+            "Oxygen",
+            "IV Infusion",
+            "LV"
+          ]
+        },
+        {
+          "title": "DME/Supplies Other",
+          "internalName": "DMESuppliesOther",
+          "type": "Text",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "DME/Supplies Arranged",
+          "internalName": "DMEArranged",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "title": "Correct Pharmacy Listed",
+          "internalName": "CorrectPharmacy",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "title": "Wound Care Instructions",
+          "internalName": "WoundCareInstructions",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "title": "PCP Scheduled",
+          "internalName": "FU_PCP",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "title": "PCP Appt Date",
+          "internalName": "FU_PCP_Date",
+          "type": "DateTime",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Cardio Scheduled",
+          "internalName": "FU_Cardio",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "title": "Cardio Appt Date",
+          "internalName": "FU_Cardio_Date",
+          "type": "Text",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "CTS/Surgeon Scheduled",
+          "internalName": "FU_CTS",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "title": "CTS/Surgeon Appt Date",
+          "internalName": "FU_CTS_Date",
+          "type": "Text",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Bridge Services Requested",
+          "internalName": "FU_Bridge",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "title": "Bridge Services Detail",
+          "internalName": "FU_Bridge_Detail",
+          "type": "Text",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Pulm Scheduled",
+          "internalName": "FU_Pulm",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "title": "Pulm Appt Date",
+          "internalName": "FU_Pulm_Date",
+          "type": "Text",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Has A-Fib",
+          "internalName": "AFib_Has",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "title": "A-Fib Type",
+          "internalName": "AFib_Type",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "Known",
+            "New"
+          ]
+        },
+        {
+          "title": "Known: AC Verified/Bridged",
+          "internalName": "AFib_KnownVerified",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "title": "Known: AC Restarted Inpatient",
+          "internalName": "AFib_KnownRestarted",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "title": "Known: AC on AVS w/ Dose",
+          "internalName": "AFib_KnownAVS",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "title": "New: A-Fib Teach-back",
+          "internalName": "AFib_NewTeach",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "title": "New: AC Prescription Provided",
+          "internalName": "AFib_NewScript",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "title": "New: Bleeding Risk Documented",
+          "internalName": "AFib_BleedingRisk",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "title": "AMI Medications",
+          "internalName": "AMI_Meds",
+          "type": "MultiChoice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "DAPT",
+            "Statin",
+            "Beta-blocker",
+            "ACE/ARB/ARNI"
+          ]
+        },
+        {
+          "title": "AMI: Heart Cath/PCI This Encounter",
+          "internalName": "AMI_Cath",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "title": "AMI: Provider (Date/Name)",
+          "internalName": "AMI_Provider",
+          "type": "Text",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "AMI: Cardiac Rehab Referral",
+          "internalName": "AMI_Rehab",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "title": "CABG Medications",
+          "internalName": "CABG_Meds",
+          "type": "MultiChoice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "Antiplatelet",
+            "Statin",
+            "Beta-blocker",
+            "Stool Regimen",
+            "Diuretic",
+            "Antiarrhythmic",
+            "Pain Regimen"
+          ]
+        },
+        {
+          "title": "CABG: This Encounter",
+          "internalName": "CABG_Encounter",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "title": "CABG: Surgeon (Date/Name)",
+          "internalName": "CABG_Surgeon",
+          "type": "Text",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "CABG: Cardiac Rehab Referral",
+          "internalName": "CABG_Rehab",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "title": "CABG: Glycemic Control Plan",
+          "internalName": "CABG_Glycemic",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "title": "CABG: Navigator Contact AVS",
+          "internalName": "CABG_Navigator",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "title": "COPD: Inhaler/Neb Regimen Optimized",
+          "internalName": "COPD_Regimen",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "title": "COPD: Inhaler Technique Education",
+          "internalName": "COPD_Technique",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "title": "COPD: Steroid/Antibiotic Plan",
+          "internalName": "COPD_Plan",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "title": "COPD: Smoking Cessation",
+          "internalName": "COPD_Smoking",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "title": "COPD: Pulmonary Rehab Referral",
+          "internalName": "COPD_Rehab",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "title": "COPD: Walk Test 24-48 hrs",
+          "internalName": "COPD_WalkTest",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "title": "HF Medications",
+          "internalName": "HF_Meds",
+          "type": "MultiChoice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "Diuretic",
+            "Beta-Blocker",
+            "ACE/ARB/ARNI",
+            "MRAs (Spironolactone)",
+            "SGLT2 (Jardiance)"
+          ]
+        },
+        {
+          "title": "HF: Daily Standing Weight",
+          "internalName": "HF_StandingWeight",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "title": "HF: Stable Weight Trend",
+          "internalName": "HF_WeightTrend",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "title": "HF: CHF Order Set EPIC",
+          "internalName": "HF_OrderSet",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "title": "HF: Cardiac Rehab Phase I",
+          "internalName": "HF_RehabPhase1",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "title": "HF: Sodium Restriction",
+          "internalName": "HF_Sodium",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "title": "HF: Sodium Restriction Value",
+          "internalName": "HF_SodiumValue",
+          "type": "Text",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "HF: Fluid Restriction",
+          "internalName": "HF_Fluid",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "title": "HF: Fluid Restriction Value",
+          "internalName": "HF_FluidValue",
+          "type": "Text",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "HF: Diuretic Plan for DC",
+          "internalName": "HF_DiureticPlan",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "title": "HF: Diuretic Plan Value",
+          "internalName": "HF_DiureticValue",
+          "type": "Text",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "HF: Dry Weight on AVS",
+          "internalName": "HF_DryWeight",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "title": "HF: Dry Weight Value",
+          "internalName": "HF_DryWeightValue",
+          "type": "Text",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "PNA: IS Education Teach-back",
+          "internalName": "PNA_ISEd",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "title": "PNA: IS Usage Documented",
+          "internalName": "PNA_ISUse",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "title": "PNA: Vaccination Status Addressed",
+          "internalName": "PNA_Vaccination",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "title": "Final: Escalations Completed",
+          "internalName": "FIN_Escalations",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "title": "Final: DC Med Rec by Pharmacy",
+          "internalName": "FIN_MedRec",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "title": "Final: IP Med Parameters on AVS",
+          "internalName": "FIN_IPMedParams",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "title": "Final: No Duplicate Meds",
+          "internalName": "FIN_NoDupeMeds",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "title": "Final: Reliable Transport Confirmed",
+          "internalName": "FIN_Transport",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "title": "Final: Zone Tool on AVS",
+          "internalName": "FIN_ZoneTool",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "title": "Final: Core 4 Pack Given",
+          "internalName": "FIN_Core4",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "title": "Final: Patient Verbalized Understanding",
+          "internalName": "FIN_Understanding",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "title": "Final: Readmission Huddle Completed Prior to DC",
+          "internalName": "FIN_HuddleDone",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "title": "Final: Nurse Leader Review",
+          "internalName": "FIN_NLReview",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "title": "Final: Nurse Leader Review Date",
+          "internalName": "FIN_NLReview_Date",
+          "type": "DateTime",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Has Device",
+          "internalName": "DEV_Has",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "title": "Device List",
+          "internalName": "DEV_List",
+          "type": "Text",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Device Presence Documented",
+          "internalName": "DEV_Presence",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "title": "Devices at Discharge Identified",
+          "internalName": "DEV_AtDischarge",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "title": "Device Teach-back Completed",
+          "internalName": "DEV_Teachback",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "title": "Device DC Follow-up Addressed",
+          "internalName": "DEV_Followup",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "title": "Device Documentation Notes",
+          "internalName": "DEV_Notes",
+          "type": "Note",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Med Access & Cost Resolved",
+          "internalName": "MedAccessResolved",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "title": "PNA: Steroid & Antibiotic Plan",
+          "internalName": "PNA_Plan",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "title": "Final: New Meds & Dx Education",
+          "internalName": "FIN_NewMedsEd",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "title": "Final: All Meds Dose & Frequency",
+          "internalName": "FIN_MedDetails",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "title": "Final: AVS Reviewed w/ Patient & Family",
+          "internalName": "FIN_AVSReviewed",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "title": "GMLOS",
+          "internalName": "GMLOS",
+          "type": "Number",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Does the patient have family/friend support for discharge?",
+          "internalName": "Does_x0020_the_x0020_patient_x00",
+          "type": "Text",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "POST Huddle Action Item Update",
+          "internalName": "POST_x0020_Huddle_x0020_Action_x",
+          "type": "Note",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Nursing Action Item Follow Up (NM Owner)",
+          "internalName": "Nursing_x0020_Action_x0020_Item_",
+          "type": "Note",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "CM Leader Review",
+          "internalName": "CM_x0020_Leader_x0020_Review",
+          "type": "Note",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "POST CM Huddle Follow Up",
+          "internalName": "POST_x0020_CM_x0020_Huddle_x0020",
+          "type": "Note",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Name",
+          "internalName": "Name",
+          "type": "Text",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "LOS",
+          "internalName": "LOS",
+          "type": "Text",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Pre Op",
+          "internalName": "PreOp",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "True",
+            "False"
+          ]
+        },
+        {
+          "title": "WeightChange",
+          "internalName": "WeightChange",
+          "type": "Text",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Consultants Pending",
+          "internalName": "ConsultantsPending",
+          "type": "Note",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "SkinAssessVerified",
+          "internalName": "SkinAssessVerified",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "True",
+            "False"
+          ]
+        },
+        {
+          "title": "MCB",
+          "internalName": "MCB",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "True",
+            "False"
+          ]
+        },
+        {
+          "title": "Arrival Time",
+          "internalName": "ArrivalTime",
+          "type": "Text",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Going Home With AC?",
+          "internalName": "GoingHomeWithAC",
+          "type": "Text",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Appts Made",
+          "internalName": "ApptsMade",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "True",
+            "False"
+          ]
+        },
+        {
+          "title": "Pharmacy Verified",
+          "internalName": "PharmacyVerified",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "True",
+            "False"
+          ]
+        },
+        {
+          "title": "Comments/Updates",
+          "internalName": "CommentsUpdates",
+          "type": "Note",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "DC Order",
+          "internalName": "DCOrder",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "True",
+            "False"
+          ]
+        },
+        {
+          "title": "Med Rec",
+          "internalName": "MedRec",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "True",
+            "False"
+          ]
+        },
+        {
+          "title": "DC TODAY",
+          "internalName": "DCTODAY",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "True",
+            "False"
+          ]
+        },
+        {
+          "title": "Misaligned Dispo",
+          "internalName": "MisalignedDispo",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "True",
+            "False"
+          ]
+        },
+        {
+          "title": "Transferred From",
+          "internalName": "TransferredFrom",
+          "type": "Text",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Time Seen By Leader",
+          "internalName": "TimeSeenByLeader",
+          "type": "Text",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Campus",
+          "internalName": "Campus",
+          "type": "Text",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Payor",
+          "internalName": "Payor",
+          "type": "Text",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Payor Type",
+          "internalName": "PayorType",
+          "type": "MultiChoice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "Medicare A/B",
+            "Medicare Replacement/Advantage"
+          ]
+        },
+        {
+          "title": "Other Co-morbidities",
+          "internalName": "OtherComorbidities",
+          "type": "Text",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Shift",
+          "internalName": "Shift",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "Day",
+            "Night"
+          ]
+        },
+        {
+          "title": "Other Consultants",
+          "internalName": "OtherConsultants",
+          "type": "Text",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Neurosurgery Consult Sign-off",
+          "internalName": "NeurosurgeryConsultSignoff",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "title": "Neurosurgery Consultant Name",
+          "internalName": "NeurosurgeryConsultName",
+          "type": "Text",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Pertinent Information",
+          "internalName": "PertinentInformation",
+          "type": "Note",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Final Destination Other",
+          "internalName": "FinalDestinationOther",
+          "type": "Text",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Other Specialty",
+          "internalName": "FU_Other1",
+          "type": "Text",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Other Specialty 1 Scheduled",
+          "internalName": "FU_Other1_Sched",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "title": "Other Specialty",
+          "internalName": "FU_Other2",
+          "type": "Text",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Other Specialty 2 Scheduled",
+          "internalName": "FU_Other2_Sched",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "title": "Other Specialty",
+          "internalName": "FU_Other3",
+          "type": "Text",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Other Specialty 3 Scheduled",
+          "internalName": "FU_Other3_Sched",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "title": "THK: Pain Med Education",
+          "internalName": "THK_PainEd",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "title": "THK: Pain Med Order for DC",
+          "internalName": "THK_PainOrder",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "title": "THK: VTE Prophylaxis",
+          "internalName": "THK_VTE",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "title": "THK: Weight-Bearing Status",
+          "internalName": "THK_WeightBearing",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "title": "THK: PT/OT Arranged",
+          "internalName": "THK_PTOT",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "title": "THK: Activity Restrictions",
+          "internalName": "THK_Activity",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "title": "THK: DME Arranged",
+          "internalName": "THK_DME",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "title": "pre op",
+          "internalName": "preop2",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "True",
+            "False"
+          ]
+        },
+        {
+          "title": "CSN",
+          "internalName": "CSN",
+          "type": "Number",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "CSN",
+          "internalName": "CSN0",
+          "type": "Text",
+          "required": false,
+          "indexed": true,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Appointment Detail",
+          "internalName": "Appointment_x0020_Detail",
+          "type": "Note",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Creatinine",
+          "internalName": "Creatinine",
+          "type": "Text",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Potassium (K+)",
+          "internalName": "Potassium_x0020__x0028_K_x002b__",
+          "type": "Text",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Magnesium",
+          "internalName": "Magnesium",
+          "type": "Text",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Hemoglobin (Hgb)",
+          "internalName": "Hemoglobin_x0020__x0028_Hgb_x002",
+          "type": "Text",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Incentive Spirometry",
+          "internalName": "Incentive_x0020_Spirometry",
+          "type": "Text",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Active IV Drips",
+          "internalName": "Active_x0020_IV_x0020_Drips",
+          "type": "MultiChoice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "Amiodarone",
+            "Cardizem",
+            "Diltiazem",
+            "Dobutamine",
+            "Dopamine",
+            "Epinephrine",
+            "Esmolol",
+            "Heparin",
+            "Insulin",
+            "Milrinone",
+            "Nicardipine",
+            "Nitroglycerin",
+            "Norepinephrine",
+            "Levophed",
+            "Nitroprusside",
+            "Nipride",
+            "Precedex",
+            "Vasopressin",
+            "Other"
+          ]
+        },
+        {
+          "title": "Chest Tube Days",
+          "internalName": "Chest_x0020_Tube_x0020_Days",
+          "type": "Number",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Last Bowel Movement Date",
+          "internalName": "Last_x0020_Bowel_x0020_Movement_",
+          "type": "DateTime",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Foley Catheter Present",
+          "internalName": "Foley_x0020_Catheter_x0020_Prese",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "title": "Foley Insertion Date",
+          "internalName": "Foley_x0020_Insertion_x0020_Date",
+          "type": "DateTime",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Foley Removal Protocol Status",
+          "internalName": "Foley_x0020_Removal_x0020_Protoc",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "Indicated - Protocol Active",
+            "Trial of Void Pending",
+            "Discontinued Today",
+            "Chronic Indwelling",
+            "N/A - No Foley"
+          ]
+        },
+        {
+          "title": "PT Seen Date",
+          "internalName": "PT_x0020_Seen_x0020_Date",
+          "type": "DateTime",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "OT Seen Date",
+          "internalName": "OT_x0020_Seen_x0020_Date",
+          "type": "DateTime",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "SLP Seen Date",
+          "internalName": "SLP_x0020_Seen_x0020_Date",
+          "type": "DateTime",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "CM Seen Date",
+          "internalName": "CM_x0020_Seen_x0020_Date",
+          "type": "DateTime",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "SW Seen Date",
+          "internalName": "SW_x0020_Seen_x0020_Date",
+          "type": "DateTime",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Wound Care Seen Date",
+          "internalName": "Wound_x0020_Care_x0020_Seen_x002",
+          "type": "DateTime",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "VAD Driveline Care Completed",
+          "internalName": "VAD_x0020_Driveline_x0020_Care_x",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "Yes",
+            "No",
+            "N/A"
+          ]
+        },
+        {
+          "title": "VAD INR Current",
+          "internalName": "VAD_x0020_INR_x0020_Current",
+          "type": "Number",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "VAD INR Goal Range",
+          "internalName": "VAD_x0020_INR_x0020_Goal_x0020_R",
+          "type": "Text",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Afib Rhythm Classification",
+          "internalName": "Afib_x0020_Rhythm_x0020_Classifi",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "Sinus Rhythm",
+            "NSR w/ PACs/PVCs",
+            "Atrial Fibrillation",
+            "Atrial Flutter",
+            "Paced Rhythm",
+            "Ventricular Tachycardia",
+            "Other Arrhythmia"
+          ]
+        },
+        {
+          "title": "Afib Rate Control Strategy",
+          "internalName": "Afib_x0020_Rate_x0020_Control_x0",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "Beta Blocker",
+            "Calcium Channel Blocker",
+            "Digoxin",
+            "Amiodarone",
+            "Combination",
+            "Pending Initiation",
+            "N/A"
+          ]
+        },
+        {
+          "title": "Surgery Scheduled Procedure",
+          "internalName": "Surgery_x0020_Scheduled_x0020_Pr",
+          "type": "Text",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Census Presence",
+          "internalName": "Census_x0020_Presence",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "In Census",
+            "Not Seen in Latest Roster",
+            "Needs Location Verification",
+            "Out of Cardiac Census"
+          ]
+        },
+        {
+          "title": "Last Roster Seen At",
+          "internalName": "Last_x0020_Roster_x0020_Seen_x00",
+          "type": "DateTime",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "First Missing Roster At",
+          "internalName": "First_x0020_Missing_x0020_Roster",
+          "type": "DateTime",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        }
+      ]
+    },
+    {
+      "title": "SurgiFlow COIP Reviews",
+      "itemCount": 1,
+      "fields": [
+        {
+          "title": "Title",
+          "internalName": "Title",
+          "type": "Text",
+          "required": true,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "MRN",
+          "internalName": "MRN",
+          "type": "Text",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Revisit CSN",
+          "internalName": "Revisit_x0020_CSN",
+          "type": "Text",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Index CSN",
+          "internalName": "Index_x0020_CSN",
+          "type": "Text",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Unit",
+          "internalName": "Unit",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "GT6 - CVSICU",
+            "GT7 - CVICU",
+            "GT8 - Cardiac Stepdown",
+            "WT8 - Cardiac Surgery",
+            "Other"
+          ]
+        },
+        {
+          "title": "Room Number",
+          "internalName": "Room_x0020_Number",
+          "type": "Number",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Admitting Service Line",
+          "internalName": "Admitting_x0020_Service_x0020_Li",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "Cardiology",
+            "Cardiothoracic Surgery",
+            "Vascular Surgery",
+            "Heart Failure / VAD",
+            "Structural Heart",
+            "General Medicine"
+          ]
+        },
+        {
+          "title": "Days to Revisit",
+          "internalName": "Days_x0020_to_x0020_Revisit",
+          "type": "Number",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Readmission <= 30 Days",
+          "internalName": "Readmission_x0020__x003c__x003d_",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "title": "Planned Readmission",
+          "internalName": "Planned_x0020_Readmission",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "Yes",
+            "No",
+            "Unsure"
+          ]
+        },
+        {
+          "title": "Readmitted From",
+          "internalName": "Readmitted_x0020_From",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "Home",
+            "SNF",
+            "IPR",
+            "ED",
+            "Outside Hospital",
+            "Assisted Living",
+            "Other"
+          ]
+        },
+        {
+          "title": "Revisits in Past 6 Mo",
+          "internalName": "Revisits_x0020_in_x0020_Past_x00",
+          "type": "Number",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "ED Visits in Past 6 Mo",
+          "internalName": "ED_x0020_Visits_x0020_in_x0020_P",
+          "type": "Number",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Patient Complexity",
+          "internalName": "Patient_x0020_Complexity",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "Low",
+            "Moderate",
+            "High",
+            "Extreme - Multi-Organ"
+          ]
+        },
+        {
+          "title": "Full Code Status",
+          "internalName": "Full_x0020_Code_x0020_Status",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "Full Code",
+            "DNR/DNI",
+            "Comfort Care",
+            "Modified"
+          ]
+        },
+        {
+          "title": "Transitional Support Following",
+          "internalName": "Transitional_x0020_Support_x0020",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "Yes",
+            "No",
+            "N/A"
+          ]
+        },
+        {
+          "title": "Jade: Coordinator F2F Visit",
+          "internalName": "Jade_x003a__x0020_Coordinator_x0",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "Yes",
+            "No",
+            "Patient Refused",
+            "N/A"
+          ]
+        },
+        {
+          "title": "Jade: HF Order Set Used",
+          "internalName": "Jade_x003a__x0020_HF_x0020_Order",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "Yes",
+            "No",
+            "Partial"
+          ]
+        },
+        {
+          "title": "Jade: Daily Weights Ordered",
+          "internalName": "Jade_x003a__x0020_Daily_x0020_We",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "title": "Jade: Weight Variations Addressed",
+          "internalName": "Jade_x003a__x0020_Weight_x0020_V",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "Yes",
+            "No",
+            "N/A"
+          ]
+        },
+        {
+          "title": "Jade: Sodium Restriction Documented",
+          "internalName": "Jade_x003a__x0020_Sodium_x0020_R",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "title": "Jade: Fluid Restriction Documented",
+          "internalName": "Jade_x003a__x0020_Fluid_x0020_Re",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "title": "Jade: Diuretic Transition Plan",
+          "internalName": "Jade_x003a__x0020_Diuretic_x0020",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "Yes",
+            "No",
+            "Pending"
+          ]
+        },
+        {
+          "title": "Jade: Discharge Dry Weight in AVS",
+          "internalName": "Jade_x003a__x0020_Discharge_x002",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "title": "Jade CHF Bundle Score",
+          "internalName": "Jade_x0020_CHF_x0020_Bundle_x002",
+          "type": "Number",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Review Status",
+          "internalName": "Review_x0020_Status",
+          "type": "Choice",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": [
+            "NEW",
+            "IN REVIEW",
+            "COMPLETE",
+            "FOLLOW-UP",
+            "ESCALATED",
+            "CLOSED"
+          ]
+        },
+        {
+          "title": "Review Completion Percentage",
+          "internalName": "Review_x0020_Completion_x0020_Pe",
+          "type": "Number",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Reviewer Name / Signoff",
+          "internalName": "Reviewer_x0020_Name_x0020__x002f",
+          "type": "Text",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "SNF/IPR Placement Barriers",
+          "internalName": "SNF_x002f_IPR_x0020_Placement_x0",
+          "type": "Note",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Opportunities & Gaps",
+          "internalName": "Opportunities_x0020__x0026__x002",
+          "type": "Note",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Clinical History Summary",
+          "internalName": "Clinical_x0020_History_x0020_Sum",
+          "type": "Note",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Hospital Course Summary",
+          "internalName": "Hospital_x0020_Course_x0020_Summ",
+          "type": "Note",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Multidisciplinary Action Plan",
+          "internalName": "Multidisciplinary_x0020_Action_x",
+          "type": "Note",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Full COIP Payload JSON",
+          "internalName": "Full_x0020_COIP_x0020_Payload_x0",
+          "type": "Note",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "SNF/IPR Placement Barriers",
+          "internalName": "SNF_x002f_IPR_x0020_Placement_x00",
+          "type": "Note",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Opportunities & Gaps",
+          "internalName": "Opportunities_x0020__x0026__x0020",
+          "type": "Note",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Clinical History Summary",
+          "internalName": "Clinical_x0020_History_x0020_Sum0",
+          "type": "Note",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Hospital Course Summary",
+          "internalName": "Hospital_x0020_Course_x0020_Summ0",
+          "type": "Note",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Multidisciplinary Action Plan",
+          "internalName": "Multidisciplinary_x0020_Action_x0",
+          "type": "Note",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Full COIP Payload JSON",
+          "internalName": "Full_x0020_COIP_x0020_Payload_x00",
+          "type": "Note",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        }
+      ]
+    },
+    {
+      "title": "SurgiFlow COIP Encounters",
+      "itemCount": 6,
+      "fields": [
+        {
+          "title": "Title",
+          "internalName": "Title",
+          "type": "Text",
+          "required": true,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "MRN",
+          "internalName": "MRN",
+          "type": "Text",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Encounter CSN",
+          "internalName": "Encounter_x0020_CSN",
+          "type": "Text",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Index CSN",
+          "internalName": "Index_x0020_CSN",
+          "type": "Text",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Admit Date",
+          "internalName": "Admit_x0020_Date",
+          "type": "DateTime",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Discharge Date",
+          "internalName": "Discharge_x0020_Date",
+          "type": "DateTime",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Unit",
+          "internalName": "Unit",
+          "type": "Text",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Room Number",
+          "internalName": "Room_x0020_Number",
+          "type": "Text",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Service Line",
+          "internalName": "Service_x0020_Line",
+          "type": "Text",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Primary Diagnosis",
+          "internalName": "Primary_x0020_Diagnosis",
+          "type": "Note",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Disposition",
+          "internalName": "Disposition",
+          "type": "Text",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Is Current Admission",
+          "internalName": "Is_x0020_Current_x0020_Admission",
+          "type": "Boolean",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Source Modified At",
+          "internalName": "Source_x0020_Modified_x0020_At",
+          "type": "DateTime",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Content Hash",
+          "internalName": "Content_x0020_Hash",
+          "type": "Text",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Review Key",
+          "internalName": "Review_x0020_Key",
+          "type": "Text",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        }
+      ]
+    },
+    {
+      "title": "SurgiFlow COIP Import Batches",
+      "itemCount": 1,
+      "fields": [
+        {
+          "title": "Title",
+          "internalName": "Title",
+          "type": "Text",
+          "required": true,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Source Type",
+          "internalName": "Source_x0020_Type",
+          "type": "Text",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "File Name",
+          "internalName": "File_x0020_Name",
+          "type": "Text",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Imported At",
+          "internalName": "Imported_x0020_At",
+          "type": "DateTime",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Imported By",
+          "internalName": "Imported_x0020_By",
+          "type": "Text",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Records Seen",
+          "internalName": "Records_x0020_Seen",
+          "type": "Number",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Records Created",
+          "internalName": "Records_x0020_Created",
+          "type": "Number",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Records Updated",
+          "internalName": "Records_x0020_Updated",
+          "type": "Number",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Records Unchanged",
+          "internalName": "Records_x0020_Unchanged",
+          "type": "Number",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Records Skipped",
+          "internalName": "Records_x0020_Skipped",
+          "type": "Number",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Reconcile Active Census",
+          "internalName": "Reconcile_x0020_Active_x0020_Cen",
+          "type": "Boolean",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Import Status",
+          "internalName": "Import_x0020_Status",
+          "type": "Text",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Validation Notes",
+          "internalName": "Validation_x0020_Notes",
+          "type": "Note",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        }
+      ]
+    },
+    {
+      "title": "SurgiFlow COIP Encounter Snapshots",
+      "itemCount": 6,
+      "fields": [
+        {
+          "title": "Title",
+          "internalName": "Title",
+          "type": "Text",
+          "required": true,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Encounter CSN",
+          "internalName": "Encounter_x0020_CSN",
+          "type": "Text",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "MRN",
+          "internalName": "MRN",
+          "type": "Text",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Import Batch ID",
+          "internalName": "Import_x0020_Batch_x0020_ID",
+          "type": "Number",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Source Sheet",
+          "internalName": "Source_x0020_Sheet",
+          "type": "Text",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Source Row Number",
+          "internalName": "Source_x0020_Row_x0020_Number",
+          "type": "Number",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Imported At",
+          "internalName": "Imported_x0020_At",
+          "type": "DateTime",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Raw Data JSON",
+          "internalName": "Raw_x0020_Data_x0020_JSON",
+          "type": "Note",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Content Hash",
+          "internalName": "Content_x0020_Hash",
+          "type": "Text",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        }
+      ]
+    },
+    {
+      "title": "SurgiFlow COIP Source Captures",
+      "itemCount": 0,
+      "fields": [
+        {
+          "title": "Title",
+          "internalName": "Title",
+          "type": "Text",
+          "required": true,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Encounter CSN",
+          "internalName": "Encounter_x0020_CSN",
+          "type": "Text",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "MRN",
+          "internalName": "MRN",
+          "type": "Text",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Import Batch ID",
+          "internalName": "Import_x0020_Batch_x0020_ID",
+          "type": "Number",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Source Type",
+          "internalName": "Source_x0020_Type",
+          "type": "Text",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Source System",
+          "internalName": "Source_x0020_System",
+          "type": "Text",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Source Date Time",
+          "internalName": "Source_x0020_Date_x0020_Time",
+          "type": "DateTime",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Captured At",
+          "internalName": "Captured_x0020_At",
+          "type": "DateTime",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Captured By",
+          "internalName": "Captured_x0020_By",
+          "type": "Text",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "External Record Key",
+          "internalName": "External_x0020_Record_x0020_Key",
+          "type": "Text",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Content Hash",
+          "internalName": "Content_x0020_Hash",
+          "type": "Text",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Source Version",
+          "internalName": "Source_x0020_Version",
+          "type": "Number",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Original Content",
+          "internalName": "Original_x0020_Content",
+          "type": "Note",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Superseded",
+          "internalName": "Superseded",
+          "type": "Boolean",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        }
+      ]
+    },
+    {
+      "title": "SurgiFlow COIP Audit Events",
+      "itemCount": 1,
+      "fields": [
+        {
+          "title": "Title",
+          "internalName": "Title",
+          "type": "Text",
+          "required": true,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Event Type",
+          "internalName": "Event_x0020_Type",
+          "type": "Text",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Entity Type",
+          "internalName": "Entity_x0020_Type",
+          "type": "Text",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Entity Key",
+          "internalName": "Entity_x0020_Key",
+          "type": "Text",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Import Batch ID",
+          "internalName": "Import_x0020_Batch_x0020_ID",
+          "type": "Number",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Actor",
+          "internalName": "Actor",
+          "type": "Text",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Occurred At",
+          "internalName": "Occurred_x0020_At",
+          "type": "DateTime",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        },
+        {
+          "title": "Details",
+          "internalName": "Details",
+          "type": "Note",
+          "required": false,
+          "indexed": false,
+          "unique": false,
+          "readOnly": false,
+          "choices": []
+        }
+      ]
+    }
+  ]
+}
