@@ -32,3 +32,5 @@ where codex 2>nul
 echo.
 echo IMPORTANT: Node must report v22.14.0 before npm install, build, or run commands.
 echo These PATH and SF_* variables last only until this CMD window is closed.
+
+doskey npx-spfx=cd /d "%SF_SPFX%" ^& npx
